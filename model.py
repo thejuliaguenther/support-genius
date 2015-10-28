@@ -39,3 +39,6 @@ class Agents (Model.db):
     __tablename__ = "agents"
 
     agent_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    agent_password = db.Column(db.String(50), nullable=True)
+    agent_email = db.Column(db.String(50), nullable=True)
+    agent_tier = db.Column(db.String(10), nullable=True)
