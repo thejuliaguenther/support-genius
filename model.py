@@ -27,6 +27,12 @@ class Companies (Model.db):
     __tablename__ = "companies"
 
     company_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email_domain = db.Column(db.String(50), nullable=True)
+    location = db.Column(db.String(100), nullable=True)
+    time_zone = db.Column(db.String(10), nullable=True)
+    industry = db.Column(db.String(50), nullable=True)
+    support_tier = db.Column(db.String(10), nullable=True)
+    is_pilot = db.Column(db.String(10), nullable=True)
 
 class Agents (Model.db):
     
