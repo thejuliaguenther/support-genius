@@ -3,7 +3,7 @@
 
 db = SQLAlchemy()
 
-class Customers (Model.db):
+class Customer (Model.db):
     
     __tablename__ = "customers"
 
@@ -14,7 +14,7 @@ class Customers (Model.db):
     customer_phone_number = db.Column(db.String(50), nullable=True)
     customer_job_title = db.Column(db.String(50), nullable=True)
 
-class Companies (Model.db):
+class Company (Model.db):
     
     __tablename__ = "companies"
 
@@ -26,7 +26,7 @@ class Companies (Model.db):
     support_tier = db.Column(db.String(10), nullable=True)
     is_pilot = db.Column(db.String(10), nullable=True)
 
-class Agents (Model.db):
+class Agent (Model.db):
     
     __tablename__ = "agents"
 
@@ -35,7 +35,7 @@ class Agents (Model.db):
     agent_email = db.Column(db.String(50), nullable=True)
     agent_tier = db.Column(db.String(10), nullable=True)
 
-class Tickets (Model.db):
+class Ticket (Model.db):
     
     __tablename__ = "tickets"
 
