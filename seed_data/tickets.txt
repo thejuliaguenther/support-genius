@@ -1,594 +1,298 @@
-15  |   10/23/15 15:52  |   4   |    21  |   10/26/15 23:53  |   10/25/15 8:18   |   Email   |   Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
-
-32  |   10/2/15 19:58   |   7    |   13  |   10/22/15 6:54   |   10/18/15 11:16  |   Email   |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
-
-13  |   10/16/15 18:47  |   6   |    25  |   10/26/15 2:39   |   10/22/15 7:50   |   Twitter |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
-
-27  |   10/3/15 5:49    |   2    |   20  |   10/15/15 8:12   |   10/14/15 9:56   |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
-
-5   |   10/13/15 11:32  |   5    |   2   |   10/13/15 23:51  |   10/13/15 16:27  |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. 
-
-32  |   10/28/15 20:43  |   6   |    12  |   10/28/15 23:15  |   10/28/15 22:25  |   Text    |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. 
-
-8   |   10/28/15 16:54  |   7   |    18  |   10/28/15 21:30  |   10/28/15 19:56  |   Email   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different permissions?
-
-13  |   10/5/15 14:45   |   1   |    2   |   10/12/15 11:05  |   10/9/15 10:38   |   Email   |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
-
-8   |   10/12/15 19:30  |   1    |   26  |   10/17/15 20:52  |   10/13/15 15:01  |   Twitter |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
-
-23  |   10/21/15 8:59   |   1    |   15  |   10/23/15 14:01  |   10/23/15 1:49   |   Other   |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
-
-29  |   10/2/15 11:48   |   2    |   29  |   10/3/15 10:23   |   10/2/15 12:56   |   Text    |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
-
-19  |   10/23/15 22:16  |   5   |    10  |   10/24/15 16:08  |   10/24/15 6:24   |   Other   |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
-
-14  |   10/1/15 20:14   |   6   |    9   |   10/28/15 23:04  |   10/4/15 16:24   |   Text    |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
-
-22  |   10/6/15 13:13   |   2    |   10  |   10/28/15 8:42   |   10/17/15 21:25  |   Other   |   think I've lost all my user data? Please help me understand how to use your product.
-
-28  |   10/13/15 21:38  |   1    |   14  |   10/28/15 14:16  |   10/14/15 20:34  |   Twitter |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
-
-33  |   10/2/15 14:43   |   3       27  |   10/12/15 5:18   |   10/11/15 0:36   |   Twitter |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. 
-
-4   |   10/10/15 8:40   |   4    |   17  |   10/20/15 7:28   |   10/14/15 19:01  |   Other   |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not working
-
-37  |   10/15/15 2:49   |   5    |   17  |   10/25/15 21:05  |   10/25/15 6:05   |   Other   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
-
-25  |   10/12/15 13:52  |   2   |    27  |   10/23/15 11:07  |   10/17/15 22:36  |   Twitter |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
-
-7   |   10/8/15 18:54   |   4   |    21  |   10/16/15 5:39   |   10/14/15 23:42  |   Other   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
-
-6   |   10/16/15 21:26  |   2   |    29  |   10/22/15 19:26  |   10/19/15 10:23  |   Email   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
-
-23  |   10/23/15 2:05   |   4    |   6   |   10/28/15 5:59   |   10/23/15 3:22   |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
-
-3   |   10/25/15 4:47   |   3    |   22  |   10/28/15 18:16  |   10/28/15 6:25   |   Other   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
-
-8   |   10/12/15 18:00  |   5   |    6   |   10/24/15 20:21  |   10/20/15 1:31   |   Other   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
-
-30  |   10/10/15 12:50  |   5   |    31  |   10/27/15 16:09  |   10/16/15 23:00  |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
-
-6   |   10/27/15 2:22   |   6    |   27  |   10/27/15 22:20  |   10/27/15 14:49  |   Other   |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
-
-19  |   10/13/15 7:57   |   4   |    14  |   10/25/15 17:03  |   10/23/15 5:25   |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
-
-23  |   10/1/15 21:38   |   6   |    16  |   10/23/15 7:03   |   10/18/15 15:14  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
-
-3   |   10/13/15 2:51   |   1   |    27  |   10/22/15 23:08  |   10/16/15 10:48  |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. 
-
-25  |   10/7/15 0:45    |   6    |   14  |   10/22/15 16:09  |   10/14/15 10:54  |   Other   |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
-
-7   |   10/20/15 15:38  |   1   |    20  |   10/21/15 1:11   |   10/20/15 19:49  |   Twitter |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
-
-18  |   10/17/15 7:12   |   3    |   1   |   10/26/15 4:09   |   10/24/15 2:35   |   Other   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
-
-6   |   10/5/15 4:26    |   1    |   9   |   10/25/15 17:00  |   10/18/15 6:04   |   Other   |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
-
-9   |   10/9/15 20:45   |   2    |   19  |   10/10/15 5:08   |   10/10/15 4:18   |   Email   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
-
-19  |   10/26/15 5:16   |   1   |    27  |   10/27/15 23:26  |   10/27/15 17:42  |   Text    |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
-
-5   |   10/18/15 5:59   |   7   |    22  |   10/18/15 16:48  |   10/18/15 10:19  |   Other   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
-
-36  |   10/10/15 16:46  |   1    |   5   |   10/28/15 22:31  |   10/22/15 6:02   |   Other   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
-
-28  |   10/22/15 9:48   |   4       20  |   10/26/15 3:59   |   10/23/15 10:51  |   Twitter |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
-
-13  |   10/16/15 16:40  |   5   |    6   |   10/25/15 10:45  |   10/24/15 9:25   |   Other   |    Hahahahahaha hi support! 
-
-2   |   10/21/15 0:13   |   2    |   1   |   10/24/15 16:16  |   10/21/15 2:55   |   Text    |    The API is not pulling data
-
-8   |   10/5/15 19:25   |   7    |   18  |   10/15/15 0:06   |   10/13/15 21:25  |   Other   |    I'm locked out of space in my storage. Why is this not working?
-
-5   |   10/12/15 7:13   |   5   |    27  |   10/27/15 16:05  |   10/17/15 11:46  |   Twitter |    Why is this not working?
-
-15  |   10/1/15 20:40   |   1   |    19  |   10/22/15 21:47  |   10/10/15 17:00  |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
-
-8   |   10/25/15 12:59  |   7    |   3   |   10/26/15 12:21  |   10/26/15 0:00   |   Email   |    The API is not pulling data in the way I expect. 
-
-39  |   10/25/15 7:22   |   1    |   6   |   10/26/15 17:31  |   10/26/15 13:58  |   Twitter |    I think you have an outage. No one can log in. 
-
-24  |   10/26/15 18:07  |   1    |   1   |   10/28/15 17:42  |   10/27/15 7:32   |   Twitter |    I need to know my account number?
-
-6   |   10/8/15 20:05   |   4   |    7   |   10/14/15 9:53   |   10/13/15 19:01  |   Other   |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-24  |   10/15/15 14:59  |   5    |   29  |   10/20/15 11:11  |   10/17/15 18:47  |   Text    |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
-
-24  |   10/25/15 22:04  |   7   |    2   |   10/27/15 3:54   |   10/26/15 8:19   |   Twitter |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
-
-23  |   10/3/15 22:39   |   5   |    9   |   10/8/15 18:17   |   10/5/15 1:54    |   Twitter |   It looks like my account is suspended. I need to know my account is suspended. 
-
-33  |   10/5/15 21:18   |   6    |   25  |   10/20/15 11:35  |   10/14/15 15:03  |   Twitter |   I need to upgrade my account
-
-34  |   10/19/15 1:09   |   3    |   20  |   10/23/15 4:34   |   10/21/15 16:18  |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
-
-5   |   10/24/15 7:03   |   4   |    12  |   10/24/15 10:47  |   10/24/15 7:43   |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
-
-27  |   10/10/15 22:41  |   7    |   20  |   10/17/15 7:52   |   10/15/15 17:32  |   Email   |   Help me understand how to use your product.
-
-10  |   10/1/15 6:49    |   2   |    7   |   10/27/15 14:10  |   10/4/15 3:38    |   Twitter |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
-
-9   |   10/14/15 3:40   |   6   |    5   |   10/24/15 1:45   |   10/21/15 18:29  |   Text    |   How do I use the new feature?
-
-19  |   10/18/15 5:31   |   5    |   11  |   10/22/15 14:15  |   10/19/15 11:14  |   Text    |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
-
-38  |   10/9/15 18:04   |   2   |    29  |   10/12/15 3:34   |   10/11/15 7:23   |   Other   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
-
-15  |   10/13/15 23:37  |   5    |   19  |   10/20/15 5:34   |   10/14/15 10:53  |   Twitter |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can log in 
-
-11  |   10/13/15 16:51  |   2   |    1   |   10/25/15 18:47  |   10/25/15 3:25   |   Text    |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-5   |   10/21/15 23:53  |   3   |    27  |   10/22/15 6:36   |   10/22/15 3:15   |   Text    |   My password is taking forever to reset. 
-
-9   |   10/11/15 20:57  |   5   |    30  |   10/20/15 18:12  |   10/16/15 4:55   |   Text    |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
-
-38  |   10/15/15 19:16  |   3  |     11  |   10/20/15 1:11   |   10/16/15 4:55   |   Email   |   I'm having problems logging in. 
-
-7   |   10/21/15 13:25  |   7   |    1   |   10/24/15 8:20   |   10/22/15 15:21  |   Other   |   My password appears not to be working.
-
-10  |   10/12/15 14:58  |   6   |    5   |   10/20/15 6:01   |   10/12/15 23:15  |   Email   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
-
-25  |   10/8/15 6:52    |   5    |   9   |   10/12/15 20:44  |   10/9/15 7:04    |   Other   |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
-
-36  |   10/7/15 21:19   |   3   |    27  |   10/15/15 16:30  |   10/13/15 11:55  |   Email   |   Can you please tell me my account number. 
-
-22  |   10/24/15 18:14  |   5    |   11  |   10/27/15 11:56  |   10/26/15 13:25  |   Text    |   Please tell me my account has been susspended. 
-
-31  |   10/6/15 23:39   |   7   |    27  |   10/13/15 15:51  |   10/9/15 8:54    |   Twitter |   Can you please tell me my account is suspended. 
-
-12  |   10/22/15 6:43   |   5    |   10  |   10/24/15 22:32  |   10/24/15 4:22   |   Other   |   I need to dispute my bill.
-
-19  |   10/20/15 6:23   |   5    |   27  |   10/22/15 14:08  |   10/20/15 13:21  |   Text    |    Let me pay my bill. I need to pay my bill!
-
-6   |   10/14/15 18:58  |   6    |   3   |   10/22/15 8:04   |   10/21/15 5:19   |   Text    |    Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
-
-7   |   10/24/15 17:42  |   6   |    10  |   10/26/15 15:41  |   10/25/15 8:05   |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
-
-1   |   10/20/15 17:33  |   3   |    7   |   10/26/15 20:01  |   10/21/15 17:14  |   Twitter |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
-
-7   |   10/19/15 18:46  |   1   |    17  |   10/26/15 3:33   |   10/24/15 16:25  |   Email   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
-
-24  |   10/2/15 12:00   |   1    |   19  |   10/25/15 10:01  |   10/21/15 7:54   |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so awful
-
-39  |   10/16/15 8:17   |   6    |   23  |   10/19/15 21:53  |   10/16/15 9:17   |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. 
-
-19  |   10/27/15 6:25   |   7   |    1   |   10/28/15 22:30  |   10/27/15 13:05  |   Other   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
-
-30  |   10/12/15 23:54  |   4   |    6   |   10/19/15 9:39   |   10/15/15 16:31  |   Twitter |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
-
-6   |   10/15/15 11:14  |   3    |   4   |   10/18/15 2:13   |   10/16/15 21:54  |   Other   |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
-
-11  |   10/21/15 14:45  |   2   |    23  |   10/23/15 3:28   |   10/22/15 7:03   |   Email   |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
-
-7   |   10/2/15 22:15   |   6    |   6   |   10/3/15 14:05   |   10/3/15 0:54    |   Email   |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
-
-38  |   10/11/15 16:06  |   3    |   14  |   10/14/15 9:14   |   10/13/15 6:42   |   Twitter |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
-
-25  |   10/7/15 10:13   |   3   |    27  |   10/22/15 14:09  |   10/12/15 13:49  |   Email   |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
-
-31  |   10/6/15 19:40   |   6    |   16  |   10/22/15 19:11  |   10/20/15 11:38  |   Twitter |   think I've lost all my user data? Please help me understand how to use your product.
-
-38  |   10/26/15 14:53  |   6   |    2   |   10/27/15 16:53  |   10/27/15 10:37  |   Other   |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
-
-33  |   10/5/15 6:39    |   1   |     28  |   10/10/15 23:03  |   10/7/15 6:03    |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
-
-11  |   10/12/15 2:13   |   1    |   21  |   10/26/15 15:57  |   10/22/15 14:46  |   Text    |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
-
-6   |   10/26/15 23:08  |   3    |   1   |   10/28/15 12:18  |   10/27/15 16:15  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
-
-6   |   10/1/15 19:57   |   6   |    12  |   10/5/15 18:13   |   10/5/15 0:37    |   Email   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
-
-36  |   10/8/15 15:42   |   4    |   26  |   10/14/15 5:33   |   10/14/15 0:05   |   Email   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
-
-26  |   10/22/15 18:47  |   1    |   28  |   10/23/15 2:53   |   10/23/15 2:04   |   Text    |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
-
-21  |   10/5/15 6:10    |   7    |   4   |   10/24/15 12:17  |   10/13/15 11:09  |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
-2   |   10/15/15 8:11   |   1   |    5   |   10/27/15 0:31   |   10/19/15 5:44   |   Email   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
-
-15  |   10/1/15 7:54    |   1    |   10  |   10/18/15 18:30  |   10/14/15 15:55  |   Email   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
-
-28  |   10/5/15 8:47    |   5   |    12  |   10/11/15 15:07  |   10/6/15 14:27   |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
-
-9   |   10/21/15 23:50  |   3    |   10  |   10/24/15 5:55   |   10/24/15 0:21   |   Twitter |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
-
-13  |   10/21/15 16:56  |   1   |    7   |   10/28/15 3:15   |   10/28/15 2:01   |   Email   |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
-
-21  |   10/28/15 5:50   |   2    |   3   |   10/28/15 18:52  |   10/28/15 15:57  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
-
-31  |   10/9/15 6:29    |   7    |   20  |   10/27/15 6:11   |   10/24/15 2:24   |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
-
-1   |   10/28/15 6:40   |   3    |   22  |   10/28/15 17:48  |   10/28/15 12:57  |   Text    |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
-
-12  |   10/16/15 22:34  |   7   |    20  |   10/18/15 15:26  |   10/18/15 5:26   |   Other   |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
-
-14  |   10/14/15 0:10   |   4   |    9   |   10/21/15 23:47  |   10/18/15 3:52   |   Email   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
-
-26  |   10/3/15 14:18   |   7    |   21  |   10/25/15 10:03  |   10/18/15 12:32  |   Twitter |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
-
-17  |   10/28/15 9:16   |   6    |   8   |   10/28/15 22:50  |   10/28/15 14:44  |   Twitter |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
-
-8   |   10/14/15 20:15  |   7   |    11  |   10/28/15 19:28  |   10/21/15 6:54   |   Text    |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
-
-37  |   10/26/15 2:26   |   1   |    30  |   10/27/15 14:15  |   10/26/15 23:05  |   Email   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
-
-19  |   10/21/15 13:27  |   3    |   1   |   10/23/15 19:37  |   10/22/15 2:11   |   Email   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
-
-26  |   10/5/15 19:57   |   7   |    29  |   10/7/15 10:34   |   10/5/15 23:22   |   Email   |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
-
-25  |   10/3/15 15:05   |   5   |    23  |   10/17/15 3:33   |   10/10/15 21:12  |   Email   |    Hahahahahaha hi support! 
-
-24  |   10/11/15 5:21   |   4    |   6   |   10/19/15 4:53   |   10/11/15 10:46  |   Other   |    I'm locked out of space in my storage. Why is this not working?
-
-17  |   10/10/15 21:29  |   2    |   14  |   10/12/15 15:01  |   10/11/15 3:52   |   Email   |    Why is this not working?
-
-33  |   10/14/15 22:37  |   6    |   24  |   10/26/15 7:45   |   10/21/15 4:51   |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
-
-17  |   10/25/15 17:45  |   3  |     31  |   10/26/15 3:06   |   10/25/15 21:08  |   Twitter |    The API is not pulling data in the way I expect. 
-
-20  |   10/20/15 18:36  |   4   |    11  |   10/22/15 23:23  |   10/21/15 0:01   |   Other   |    I think you have an outage. No one can log in. 
-
-17  |   10/2/15 14:49   |   6     |  31  |   10/26/15 13:58  |   10/23/15 1:03   |   Twitter |    I need to know my account number?
-
-14  |   10/26/15 22:14  |   4    |   5   |   10/28/15 1:07   |   10/27/15 20:41  |   Text    |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-6   |   10/18/15 10:20  |   6    |   3   |   10/25/15 18:49  |   10/21/15 10:21  |   Other   |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
-
-39  |   10/3/15 11:57   |   1   |    5   |   10/20/15 14:30  |   10/8/15 23:25   |   Text    |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
-
-31  |   10/16/15 12:36  |   3   |    30  |   10/26/15 11:47  |   10/25/15 19:44  |   Twitter |   It looks like my account is suspended. I need to know my account is suspended. 
-
-35  |   10/5/15 1:58    |   2    |   3   |   10/16/15 3:45   |   10/6/15 6:47    |   Email   |   I need to upgrade my account
-
-8   |   10/10/15 17:45  |   4   |    6   |   10/14/15 18:14  |   10/13/15 20:37  |   Email   |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
-
-6   |   10/24/15 12:01  |   1   |    30  |   10/28/15 16:01  |   10/24/15 23:22  |   Other   |   LET ME IN!!!!!! Hahahahahaha hi support
-
-35  |   10/12/15 16:17  |   1   |    26  |   10/19/15 6:54   |   10/13/15 2:58   |   Email   |   Help me understand how to use your product.
-
-5   |   10/2/15 21:54   |   5    |   20  |   10/24/15 12:40  |   10/12/15 18:47  |   Email   |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
-
-19  |   10/25/15 18:44  |   6    |   15  |   10/27/15 2:15   |   10/26/15 3:31   |   Text    |   How do I use the new feature?
-
-25  |   10/20/15 8:55   |   7   |    6   |   10/28/15 8:32   |   10/25/15 2:28   |   Other   |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
-
-12  |   10/13/15 16:46  |   1   |    5   |   10/23/15 6:15   |   10/18/15 0:15   |   Other   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
-
-3   |   10/20/15 16:32  |   7   |    4   |   10/27/15 3:56   |   10/21/15 9:27   |   Email   |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
-
-2   |   10/16/15 18:26  |   7   |    14  |   10/28/15 14:20  |   10/24/15 9:01   |   Twitter |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-10  |   10/12/15 2:57   |   2   |    5   |   10/12/15 6:11   |   10/12/15 5:41   |   Other   |   My password is taking forever to reset. 
-
-33  |   10/1/15 11:25   |   1   |    20  |   10/16/15 20:58  |   10/8/15 14:41   |   Text    |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
-
-22  |   10/7/15 7:24    |   7    |   31  |   10/12/15 18:11  |   10/7/15 23:21   |   Text    |   I'm having problems logging in. 
-
-20  |   10/11/15 12:24  |   3   |    2   |   10/28/15 0:18   |   10/22/15 2:39   |   Email   |   My password appears not to be working.
-
-38  |   10/3/15 20:44   |   3  |     30  |   10/26/15 23:13  |   10/11/15 6:19   |   Other   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
-
-21  |   10/3/15 9:05    |   2   |    2   |   10/21/15 13:55  |   10/15/15 9:56   |   Twitter |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
-
-24  |   10/19/15 3:23   |   2   |    22  |   10/25/15 12:23  |   10/19/15 15:36  |   Text    |   Can you please tell me my account number. 
-
-35  |   10/27/15 5:15   |   7   |    31  |   10/28/15 8:05   |   10/27/15 7:30   |   Text    |   Please tell me my account has been susspended. 
-
-39  |   10/15/15 1:35   |   2  |     11  |   10/22/15 18:58  |   10/15/15 3:57   |   Text    |   Can you please tell me my account is suspended. 
-
-15  |   10/4/15 18:07   |   1    |   30  |   10/17/15 16:41  |   10/9/15 15:42   |   Email   |   I need to dispute my bill.
-
-9   |   10/7/15 14:17   |   2    |   9   |   10/24/15 20:27  |   10/24/15 17:59  |   Email   |    Let me pay my bill. I need to pay my bill!
-
-29  |   10/11/15 6:53   |   3    |   12  |   10/21/15 13:44  |   10/19/15 19:35  |   Text    |    Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
-
-38  |   10/25/15 13:14  |   3    |   15  |   10/28/15 20:26  |   10/28/15 0:40   |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
-
-11  |   10/12/15 2:05   |   6    |   13  |   10/14/15 11:59  |   10/13/15 13:37  |   Email   |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
-
-1   |   10/3/15 5:10    |   3    |   1   |   10/6/15 13:51   |   10/4/15 8:08    |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
-
-10  |   10/6/15 7:35    |   7    |   17  |   10/6/15 18:42   |   10/6/15 8:53    |   Text    |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
-
-10  |   10/5/15 17:49   |   2   |    28  |   10/23/15 9:37   |   10/21/15 11:18  |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
-
-32  |   10/7/15 14:53   |   7    |   12  |   10/28/15 18:20  |   10/27/15 6:28   |   Text    |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
-
-6   |   10/20/15 5:14   |   1    |   10  |   10/27/15 18:23  |   10/21/15 9:28   |   Text    |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
-
-25  |   10/23/15 12:47  |   3     |  12  |   10/28/15 6:09   |   10/24/15 13:16  |   Other   |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
-
-37  |   10/20/15 13:23  |   3    |   14  |   10/21/15 1:41   |   10/20/15 22:46  |   Text    |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
-
-13  |   10/21/15 16:30  |   6    |   16  |   10/27/15 11:48  |   10/22/15 12:18  |   Email   |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
-
-4   |   10/27/15 8:03   |   5     |  9   |   10/27/15 22:04  |   10/27/15 12:33  |   Text    |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
-
-5   |   10/27/15 23:09  |   3    |   31  |   10/28/15 9:44   |   10/28/15 7:40   |   Email   |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
-
-19  |   10/24/15 13:57  |   4  |     21  |   10/28/15 17:52  |   10/28/15 17:40  |   Twitter |   think I've lost all my user data? Please help me understand how to use your product.
-
-29  |   10/22/15 9:07   |   7    |   6   |   10/26/15 2:54   |   10/22/15 12:06  |   Twitter |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
-
-16  |   10/15/15 13:55  |   1   |    13  |   10/16/15 23:16  |   10/16/15 20:32  |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
-
-5   |   10/3/15 17:54   |   2    |   27  |   10/6/15 8:18    |   10/4/15 5:51    |   Twitter |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
-
-12  |   10/3/15 6:57    |   7    |   15  |   10/25/15 9:44   |   10/12/15 11:19  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
-
-29  |   10/15/15 23:13  |   3   |   22  |   10/21/15 23:42  |   10/20/15 21:51  |   Other   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
-
-3   |   10/24/15 0:10   |   5   |    30  |   10/25/15 3:49   |   10/24/15 23:23  |   Text    |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
-
-36  |   10/23/15 23:25  |   7    |   19  |   10/28/15 23:51  |   10/28/15 1:50   |   Email   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
-
-8   |   10/28/15 0:24   |   6   |    30  |   10/28/15 14:11  |   10/28/15 1:06   |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
-
-13  |   10/27/15 12:47  |   3   |    21  |   10/28/15 12:52  |   10/27/15 13:17  |   Email   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
-
-13  |   10/7/15 2:13    |   5    |   21  |   10/11/15 22:46  |   10/7/15 23:13   |   Other   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
-
-14  |   10/11/15 2:57   |   4   |    8   |   10/24/15 18:27  |   10/22/15 11:34  |   Twitter |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
-
-38  |   10/1/15 17:21   |   7    |   25  |   10/2/15 10:53   |   10/1/15 23:53   |   Text    |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
-
-17  |   10/25/15 18:10  |   2    |   18  |   10/26/15 8:09   |   10/26/15 4:36   |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
-
-9   |   10/21/15 3:16   |   3    |   18  |   10/27/15 20:55  |   10/23/15 18:58  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
-
-7   |   10/23/15 18:51  |   1   |    3   |   10/26/15 20:35  |   10/26/15 18:07  |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. 
-
-8   |   10/20/15 8:34   |   5   |    15  |   10/22/15 8:17   |   10/21/15 19:59  |   Other   |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
-
-13  |   10/4/15 19:57   |   6    |   19  |   10/8/15 10:40   |   10/5/15 8:32    |   Text    |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
-
-8   |   10/18/15 11:02  |   5    |   1   |   10/25/15 8:48   |   10/19/15 7:51   |   Email   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
-
-12  |   10/24/15 11:21  |   7    |   29  |   10/25/15 5:04   |   10/24/15 15:21  |   Twitter |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
-
-4   |   10/27/15 22:22  |   4    |   19  |   10/28/15 1:08   |   10/28/15 0:41   |   Other   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
-
-13  |   10/1/15 19:29   |   3   |    4   |   10/16/15 10:24  |   10/14/15 16:18  |   Twitter |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
-
-22  |   10/14/15 0:31   |   3   |    16  |   10/19/15 17:55  |   10/18/15 8:16   |   Email   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
-
-19  |   10/22/15 11:57  |   6   |    9   |   10/23/15 2:52   |   10/22/15 17:13  |   Text    |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
-
-31  |   10/28/15 15:35  |   7    |   11  |   10/28/15 18:26  |   10/28/15 18:25  |   Twitter |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
-
-14  |   10/4/15 21:06   |   1    |   26  |   10/12/15 22:51  |   10/8/15 1:50    |   Text    |    Hahahahahaha hi support! 
-
-22  |   10/10/15 16:29  |   1   |    26  |   10/22/15 1:31   |   10/18/15 11:48  |   Email   |    The API is not pulling data
-
-31  |   10/23/15 8:35   |   7   |    16  |   10/24/15 0:36   |   10/23/15 22:16  |   Twitter |    I'm locked out of space in my storage. Why is this not working?
-
-30  |   10/1/15 1:31    |   1    |   10  |   10/18/15 23:20  |   10/18/15 23:06  |   Twitter |    Why is this not working?
-
-20  |   10/17/15 0:28   |   3    |   16  |   10/18/15 17:14  |   10/17/15 13:06  |   Text    |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
-
-6   |   10/14/15 9:12   |   2   |    27  |   10/15/15 0:54   |   10/14/15 22:54  |   Other   |    The API is not pulling data in the way I expect. 
-
-21  |   10/16/15 12:33  |   3    |   31  |   10/21/15 16:30  |   10/17/15 22:51  |   Other   |    I need to know my account number?
-
-16  |   10/7/15 20:46   |   5   |    4   |   10/24/15 7:48   |   10/17/15 16:35  |   Text    |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-24  |   10/25/15 6:14   |   7   |    27  |   10/27/15 0:51   |   10/25/15 15:28  |   Text    |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
-
-37  |   10/26/15 18:51  |   2    |   4   |   10/27/15 17:45  |   10/27/15 6:01   |   Other   |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
-
-37  |   10/19/15 4:31   |   6  |     30  |   10/24/15 6:11   |   10/19/15 19:46  |   Other   |   It looks like my account is suspended. I need to know my account is suspended. 
-
-39  |   10/18/15 20:01  |   3    |   8   |   10/20/15 21:18  |   10/19/15 15:13  |   Other   |   I need to upgrade my account
-
-39  |   10/12/15 9:27   |   1    |   13  |   10/22/15 4:50   |   10/13/15 9:30   |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
-
-3   |   10/28/15 23:12  |   4    |   11  |   10/28/15 23:29  |   10/28/15 23:18  |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
-
-36  |   10/15/15 10:01  |   3    |   30  |   10/21/15 2:08   |   10/18/15 6:21   |   Twitter |   Help me understand how to use your product.
-
-15  |   10/8/15 7:57    |   3    |   6   |   10/19/15 22:26  |   10/10/15 0:00   |   Text    |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
-
-24  |   10/28/15 21:18  |   1    |   26  |   10/28/15 22:38  |   10/28/15 22:21  |   Twitter |   How do I use the new feature?
-
-26  |   10/7/15 9:27    |   2     |  26  |   10/19/15 13:23  |   10/9/15 10:04   |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
-
-14  |   10/27/15 19:49  |   3   |    21  |   10/27/15 22:29  |   10/27/15 20:51  |   Text    |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
-
-12  |   10/2/15 19:42   |   5    |   2   |   10/11/15 18:08  |   10/5/15 16:26   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
-
-38  |   10/24/15 5:55   |   6     |  16  |   10/26/15 6:27   |   10/25/15 2:36   |   Email   |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-3   |   10/11/15 15:52  |   3     |  30  |   10/28/15 10:00  |   10/24/15 10:36  |   Text    |   My password is taking forever to reset. 
-
-22  |   10/1/15 0:19    |   6   |    3   |   10/24/15 11:11  |   10/14/15 0:55   |   Other   |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
-
-6   |   10/24/15 13:17  |   5   |    24  |   10/27/15 14:57  |   10/24/15 19:40  |   Text    |   I'm having problems logging in. 
-
-26  |   10/10/15 2:32   |   2   |    17  |   10/18/15 2:39   |   10/11/15 9:17   |   Other   |   My password appears not to be working.
-
-6   |   10/19/15 6:08   |   6   |    8   |   10/22/15 12:34  |   10/20/15 4:57   |   Email   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
-
-34  |   10/4/15 18:04   |   4    |   19  |   10/5/15 1:49    |   10/4/15 22:38   |   Text    |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
-
-33  |   10/1/15 12:13   |   5     |  24  |   10/23/15 2:24   |   10/16/15 15:29  |   Twitter |   Can you please tell me my account number. 
-
-29  |   10/2/15 18:30   |   2   |    15  |   10/13/15 8:39   |   10/11/15 7:32   |   Email   |   Please tell me my account has been susspended. 
-
-22  |   10/23/15 21:19  |   3    |   2   |   10/26/15 17:05  |   10/24/15 16:10  |   Email   |   Can you please tell me my account is suspended. 
-
-28  |   10/3/15 14:17   |   2    |   3   |   10/7/15 6:22    |   10/7/15 0:22    |   Twitter |   I need to dispute my bill.
-
-3   |   10/1/15 3:04    |   5  |     17  |   10/4/15 11:44   |   10/3/15 2:58    |   Email   |    Let me pay my bill. I need to pay my bill!
-
-15  |   10/2/15 11:16   |   5   |    2   |   10/15/15 7:23   |   10/4/15 22:58   |   Text    |     I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
-
-9   |   10/23/15 13:07  |   2     |  4   |   10/24/15 20:23  |   10/24/15 11:52  |   Text    |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
-
-10  |   10/26/15 22:49  |   3   |    12  |   10/28/15 6:33   |   10/27/15 6:09   |   Email   |   It looks like my account is suspended. I need to know my account is suspended. 
-
-39  |   10/26/15 18:07  |   1   |    13  |   10/28/15 16:53  |   10/27/15 23:03  |   Other   |   I need to upgrade my account
-
-38  |   10/26/15 14:59  |   2    |   21  |   10/28/15 15:53  |   10/27/15 13:39  |   Email   |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
-
-10  |   10/5/15 7:52    |   5   |    31  |   10/7/15 16:59   |   10/7/15 14:09   |   Email   |   LET ME IN!!!!!! Hahahahahaha hi support
-
-19  |   10/28/15 15:25  |   6    |   11  |   10/28/15 20:53  |   10/28/15 18:53  |   Twitter |   Help me understand how to use your product.
-
-33  |   10/21/15 9:24   |   2    |   16  |   10/26/15 1:53   |   10/24/15 8:53   |   Twitter |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
-
-7   |   10/13/15 15:45  |   6    |   27  |   10/22/15 1:29   |   10/14/15 6:49   |   Email   |   How do I use the new feature?
-
-35  |   10/5/15 2:57    |   6    |   2   |   10/22/15 13:51  |   10/11/15 2:00   |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
-
-11  |   10/5/15 18:28   |   1    |   28  |   10/15/15 19:59  |   10/12/15 10:42  |   Email   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
-
-25  |   10/3/15 4:26    |   5  |     27  |   10/26/15 19:09  |   10/13/15 7:16   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
-
-20  |   10/25/15 7:16   |   6    |   26  |   10/25/15 19:02  |   10/25/15 15:04  |   Twitter |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-10  |   10/15/15 5:08   |   1   |    18  |   10/16/15 13:02  |   10/15/15 12:23  |   Email   |   My password is taking forever to reset. 
-
-23  |   10/3/15 16:58   |   1    |   15  |   10/11/15 12:13  |   10/8/15 7:19    |   Email   |   WHY IS THIS TAKING SO LONG!!!!!!! Help!
-
-31  |   10/5/15 23:34   |   2   |    16  |   10/9/15 9:31    |   10/6/15 14:36   |   Twitter |   I'm having problems logging in. 
-
-34  |   10/27/15 10:13  |   5   |    9   |   10/27/15 22:00  |   10/27/15 12:14  |   Twitter |   My password appears not to be working.
-
-4   |   10/25/15 21:38  |   4   |    2   |   10/26/15 17:57  |   10/26/15 2:37   |   Twitter |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
-
-16  |   10/3/15 6:44    |   5    |   12  |   10/5/15 12:26   |   10/5/15 3:14    |   Other   |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
-
-5   |   10/19/15 22:29  |   7   |    18  |   10/23/15 16:52  |   10/21/15 6:09   |   Email   |   Can you please tell me my account number. 
-
-19  |   10/9/15 17:52   |   6   |    23  |   10/24/15 15:45  |   10/19/15 0:35   |   Twitter |   Please tell me my account has been susspended. 
-
-31  |   10/15/15 23:17  |   4   |    26  |   10/25/15 0:54   |   10/19/15 20:38  |   Email   |   Can you please tell me my account is suspended. 
-
-28  |   10/5/15 9:56    |   2   |    1   |   10/7/15 18:53   |   10/6/15 20:39   |   Email   |   I need to dispute my bill.
-
-5   |   10/9/15 17:59   |   7    |   31  |   10/28/15 7:09   |   10/19/15 13:55  |   Twitter |   Let me pay my bill. I need to pay my bill!
-
-33  |   10/3/15 7:41    |   6   |    28  |   10/4/15 16:19   |   10/4/15 3:52    |   Other   |   Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
-
-2   |   10/18/15 8:50   |   1   |    13  |   10/18/15 17:28  |   10/18/15 12:35  |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
-
-24  |   10/6/15 12:21   |   7     |  19  |   10/16/15 18:23  |   10/8/15 1:57    |   Email   |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
-
-29  |   10/22/15 22:47  |   3    |   3   |   10/25/15 10:03  |   10/24/15 12:52  |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
-
-30  |   10/24/15 22:30  |   3   |    24  |   10/26/15 21:44  |   10/24/15 22:40  |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
-
-34  |   10/19/15 16:44  |   7    |   23  |   10/20/15 8:22   |   10/20/15 6:47   |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
-
-32  |   10/6/15 5:59    |   7   |    12  |   10/6/15 21:43   |   10/6/15 18:12   |   Email   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
-
-36  |   10/11/15 0:06   |   5     |  3   |   10/19/15 7:56   |   10/12/15 23:33  |   Other   |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
-
-5   |   10/22/15 5:59   |   5    |   1   |   10/28/15 3:17   |   10/22/15 20:34  |   Text    |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
-
-13  |   10/23/15 4:17   |   6   |    3   |   10/25/15 15:18  |   10/25/15 12:22  |   Twitter |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
-
-22  |   10/25/15 22:34  |   5    |   10  |   10/26/15 22:10  |   10/26/15 6:06   |   Text    |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
-
-9   |   10/8/15 14:15   |   2    |   9   |   10/25/15 8:04   |   10/19/15 10:56  |   Text    |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
-
-24  |   10/2/15 6:46    |   7    |   24  |   10/4/15 17:32   |   10/3/15 18:26   |   Text    |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
-
-33  |   10/5/15 2:29    |   4   |    23  |   10/9/15 1:22    |   10/8/15 13:33   |   Text    |   think I've lost all my user data? Please help me understand how to use your product.
-
-33  |   10/3/15 14:04   |   7   |    10  |   10/20/15 2:27   |   10/8/15 23:04   |   Other   |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
-
-16  |   10/18/15 23:22  |   4    |   20  |   10/20/15 19:21  |   10/19/15 4:22   |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
-
-39  |   10/23/15 5:37   |   5   |    30  |   10/25/15 7:59   |   10/24/15 23:21  |   Text    |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
-
-13  |   10/28/15 10:34  |   6   |    18  |   10/28/15 14:18  |   10/28/15 11:58  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
-
-27  |   10/20/15 20:00  |   5   |    23  |   10/24/15 18:52  |   10/21/15 21:56  |   Other   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
-
-35  |   10/14/15 1:20   |   3     |  23  |   10/23/15 10:34  |   10/22/15 13:57  |   Other   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
-
-23  |   10/10/15 16:43  |   4     |  10  |   10/15/15 4:01   |   10/10/15 16:49  |   Other   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
-
-19  |   10/27/15 11:43  |   3  |     21  |   10/27/15 19:38  |   10/27/15 12:43  |   Twitter |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
-
-32  |   10/26/15 7:17   |   7   |    6   |   10/26/15 8:32   |   10/26/15 8:20   |   Other   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
-
-6   |   10/18/15 6:46   |   5    |   8   |   10/19/15 12:00  |   10/18/15 22:49  |   Email   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
-
-36  |   10/28/15 7:27   |   3   |    15  |   10/28/15 7:51   |   10/28/15 7:49   |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
-
-5   |   10/11/15 12:14  |   3    |   24  |   10/26/15 10:55  |   10/18/15 17:37  |   Other   |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
-
-28  |   10/21/15 9:53   |   7   |    12  |   10/23/15 22:12  |   10/22/15 20:50  |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
-
-25  |   10/25/15 10:34  |   7     |  25  |   10/27/15 15:24  |   10/26/15 12:20  |   Email   |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
-
-22  |   10/5/15 1:16    |   7  |     9   |   10/20/15 19:58  |   10/13/15 10:47  |   Twitter |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
-
-38  |   10/4/15 2:04    |   6   |    21  |   10/22/15 0:39   |   10/17/15 6:24   |   Twitter |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
-
-9   |   10/15/15 20:53  |   1    |   23  |   10/16/15 13:06  |   10/16/15 5:10   |   Other   |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
-
-4   |   10/24/15 7:43   |   1     |  17  |   10/24/15 14:58  |   10/24/15 10:38  |   Other   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
-
-29  |   10/5/15 15:16   |   4   |    16  |   10/10/15 9:09   |   10/7/15 3:49    |   Email   |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
-
-13  |   10/20/15 19:23  |   5   |    9   |   10/26/15 10:05  |   10/22/15 19:37  |   Email   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
-
-9   |   10/27/15 9:31   |   3    |   27  |   10/28/15 6:28   |   10/28/15 5:52   |   Twitter |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
-
-21  |   10/27/15 5:16   |   6   |    16  |   10/27/15 19:02  |   10/27/15 11:59  |   Text    |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
-
-35  |   10/20/15 21:57  |   2     |  27  |   10/23/15 19:08  |   10/23/15 0:44   |   Email   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
-
-39  |   10/8/15 9:11    |   1    |   9   |   10/16/15 23:50  |   10/13/15 5:28   |   Other   |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
-
-32  |   10/26/15 1:13   |   5     |  8   |   10/28/15 17:16  |   10/27/15 22:18  |   Text    |    Hahahahahaha hi support! 
-
-7   |   10/17/15 3:52   |   1   |    11  |   10/25/15 17:48  |   10/23/15 16:55  |   Text    |    The API is not pulling data
-
-27  |   10/22/15 7:28   |   1    |   14  |   10/27/15 14:10  |   10/25/15 2:18   |   Twitter |    I'm locked out of space in my storage. Why is this not working?
-
-15  |   10/7/15 13:23   |   6    |   13  |   10/12/15 10:22  |   10/10/15 12:43  |   Email   |    Why is this not working?
-
-13  |   10/18/15 21:09  |   3    |   12  |   10/25/15 5:51   |   10/21/15 8:50   |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
-
-23  |   10/16/15 6:52   |   7    |   10  |   10/17/15 13:06  |   10/17/15 8:09   |   Text    |    The API is not pulling data in the way I expect. 
-
-4   |   10/28/15 20:00  |   3   |    15  |   10/28/15 20:29  |   10/28/15 20:08  |   Twitter |    I think you have an outage. No one can log in. 
-
-5   |   10/17/15 3:25   |   4    |   1   |   10/19/15 4:32   |   10/18/15 15:59  |   Twitter |    I need to know my account number?
-
-15  |   10/20/15 18:09  |   1   |    9   |   10/26/15 20:44  |   10/25/15 3:38   |   Email   |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-31  |   10/11/15 3:11   |   1    |   16  |   10/28/15 11:03  |   10/20/15 3:11   |   Email   |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
-
-22  |   10/7/15 23:08   |   1    |   6   |   10/28/15 3:47   |   10/16/15 7:04   |   Email   |   It looks like my account is suspended. I need to know my account is suspended. 
-
-31  |   10/17/15 18:02  |   5   |    9   |   10/20/15 13:02  |   10/18/15 17:30  |   Twitter |   I need to upgrade my account
-
-19  |   10/21/15 22:26  |   6   |    24  |   10/23/15 1:57   |   10/22/15 11:42  |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
-
-28  |   10/13/15 8:34   |   5    |   20  |   10/16/15 6:17   |   10/15/15 16:18  |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
-
-30  |   10/25/15 16:44  |   1  |     6   |   10/25/15 22:49  |   10/25/15 20:33  |   Other   |   Help me understand how to use your product.
-
-22  |   10/10/15 13:31  |   5   |    31  |   10/27/15 4:54   |   10/11/15 1:43   |   Text    |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
-
-15  |   10/2/15 6:17    |   2   |    2   |   10/4/15 15:53   |   10/4/15 0:21    |   Email   |   How do I use the new feature?
-
-25  |   10/21/15 7:10   |   4     |  11  |   10/27/15 1:47   |   10/23/15 22:09  |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
-
-26  |   10/27/15 0:55   |   6    |   30  |   10/27/15 8:49   |   10/27/15 7:57   |   Email   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
-
-11  |   10/17/15 3:23   |   3   |    15  |   10/23/15 7:42   |   10/20/15 9:05   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
-
-2   |   10/13/15 13:31  |   3   |    26  |   10/17/15 12:09  |   10/17/15 8:10   |   Other   |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
-
-15  |   10/5/15 16:53   |   5   |    7   |   10/8/15 1:43    |   10/6/15 13:33   |   Text    |   My password is taking forever to reset. 
-
-30  |   10/2/15 19:05   |   7  |     10  |   10/2/15 22:50   |   10/2/15 20:43   |   Other   |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
-
-39  |   10/9/15 18:49   |   1     |  24  |   10/19/15 15:51  |   10/15/15 15:05  |   Email   |   I'm having problems logging in. 
-
-8   |   10/3/15 22:42   |   6  |     2   |   10/14/15 4:40   |   10/10/15 19:29  |   Text    |   My password appears not to be working.
+1   |   15  |   10/23/15 15:52  |   4   |   21  |   10/26/15 23:53  |   10/25/15 8:18   |   Email   |   Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
+2   |   32  |   10/2/15 19:58   |   7   |   13  |   10/22/15 6:54   |   10/18/15 11:16  |   Email   |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
+3   |   13  |   10/16/15 18:47  |   6   |   25  |   10/26/15 2:39   |   10/22/15 7:50   |   Twitter |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
+4   |   27  |   10/3/15 5:49    |   2   |   20  |   10/15/15 8:12   |   10/14/15 9:56   |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
+5   |   5   |   10/13/15 11:32  |   5   |   2   |   10/13/15 23:51  |   10/13/15 16:27  |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
+6   |   32  |   10/28/15 20:43  |   6   |   12  |   10/28/15 23:15  |   10/28/15 22:25  |   Text    |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
+7   |   8   |   10/28/15 16:54  |   7   |   18  |   10/28/15 21:30  |   10/28/15 19:56  |   Email   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
+8   |   13  |   10/5/15 14:45   |   1   |   2   |   10/12/15 11:05  |   10/9/15 10:38   |   Email   |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
+9   |   8   |   10/12/15 19:30  |   1   |   26  |   10/17/15 20:52  |   10/13/15 15:01  |   Twitter |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
+10  |   23  |   10/21/15 8:59   |   1   |   15  |   10/23/15 14:01  |   10/23/15 1:49   |   Other   |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
+11  |   29  |   10/2/15 11:48   |   2   |   29  |   10/3/15 10:23   |   10/2/15 12:56   |   Text    |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
+12  |   19  |   10/23/15 22:16  |   5   |   10  |   10/24/15 16:08  |   10/24/15 6:24   |   Other   |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
+13  |   14  |   10/1/15 20:14   |   6   |   9   |   10/28/15 23:04  |   10/4/15 16:24   |   Text    |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
+14  |   22  |   10/6/15 13:13   |   2   |   10  |   10/28/15 8:42   |   10/17/15 21:25  |   Other   |   think I've lost all my user data? Please help me understand how to use your product.
+15  |   28  |   10/13/15 21:38  |   1   |   14  |   10/28/15 14:16  |   10/14/15 20:34  |   Twitter |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
+16  |   33  |   10/2/15 14:43   |   3   |   27  |   10/12/15 5:18   |   10/11/15 0:36   |   Twitter |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
+17  |   4   |   10/10/15 8:40   |   4   |   17  |   10/20/15 7:28   |   10/14/15 19:01  |   Other   |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
+18  |   37  |   10/15/15 2:49   |   5   |   17  |   10/25/15 21:05  |   10/25/15 6:05   |   Other   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
+19  |   25  |   10/12/15 13:52  |   2   |   27  |   10/23/15 11:07  |   10/17/15 22:36  |   Twitter |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
+20  |   7   |   10/8/15 18:54   |   4   |   21  |   10/16/15 5:39   |   10/14/15 23:42  |   Other   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
+21  |   6   |   10/16/15 21:26  |   2   |   29  |   10/22/15 19:26  |   10/19/15 10:23  |   Email   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
+22  |   23  |   10/23/15 2:05   |   4   |   6   |   10/28/15 5:59   |   10/23/15 3:22   |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
+23  |   3   |   10/25/15 4:47   |   3   |   22  |   10/28/15 18:16  |   10/28/15 6:25   |   Other   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
+24  |   8   |   10/12/15 18:00  |   5   |   6   |   10/24/15 20:21  |   10/20/15 1:31   |   Other   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
+25  |   30  |   10/10/15 12:50  |   5   |   31  |   10/27/15 16:09  |   10/16/15 23:00  |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
+26  |   6   |   10/27/15 2:22   |   6   |   27  |   10/27/15 22:20  |   10/27/15 14:49  |   Other   |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
+27  |   19  |   10/13/15 7:57   |   4   |   14  |   10/25/15 17:03  |   10/23/15 5:25   |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
+28  |   23  |   10/1/15 21:38   |   6   |   16  |   10/23/15 7:03   |   10/18/15 15:14  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
+29  |   3   |   10/13/15 2:51   |   1   |   27  |   10/22/15 23:08  |   10/16/15 10:48  |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
+30  |   25  |   10/7/15 0:45    |   6   |   14  |   10/22/15 16:09  |   10/14/15 10:54  |   Other   |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
+31  |   7   |   10/20/15 15:38  |   1   |   20  |   10/21/15 1:11   |   10/20/15 19:49  |   Twitter |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
+32  |   18  |   10/17/15 7:12   |   3   |   1   |   10/26/15 4:09   |   10/24/15 2:35   |   Other   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
+33  |   6   |   10/5/15 4:26    |   1   |   9   |   10/25/15 17:00  |   10/18/15 6:04   |   Other   |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
+34  |   9   |   10/9/15 20:45   |   2   |   19  |   10/10/15 5:08   |   10/10/15 4:18   |   Email   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
+35  |   19  |   10/26/15 5:16   |   1   |   27  |   10/27/15 23:26  |   10/27/15 17:42  |   Text    |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
+36  |   5   |   10/18/15 5:59   |   7   |   22  |   10/18/15 16:48  |   10/18/15 10:19  |   Other   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
+37  |   36  |   10/10/15 16:46  |   1   |   5   |   10/28/15 22:31  |   10/22/15 6:02   |   Other   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
+38  |   28  |   10/22/15 9:48   |   4   |   20  |   10/26/15 3:59   |   10/23/15 10:51  |   Twitter |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
+39  |   13  |   10/16/15 16:40  |   5   |   6   |   10/25/15 10:45  |   10/24/15 9:25   |   Other   |    Hahahahahaha hi support! 
+40  |   2   |   10/21/15 0:13   |   2   |   1   |   10/24/15 16:16  |   10/21/15 2:55   |   Text    |    The API is not pulling data
+41  |   8   |   10/5/15 19:25   |   7   |   18  |   10/15/15 0:06   |   10/13/15 21:25  |   Other   |    I'm locked out of space in my storage. Why is this not working?
+42  |   5   |   10/12/15 7:13   |   5   |   27  |   10/27/15 16:05  |   10/17/15 11:46  |   Twitter |    Why is this not working?
+43  |   15  |   10/1/15 20:40   |   1   |   19  |   10/22/15 21:47  |   10/10/15 17:00  |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
+44  |   8   |   10/25/15 12:59  |   7   |   3   |   10/26/15 12:21  |   10/26/15 0:00   |   Email   |    The API is not pulling data in the way I expect. 
+45  |   39  |   10/25/15 7:22   |   1   |   6   |   10/26/15 17:31  |   10/26/15 13:58  |   Twitter |    I think you have an outage. No one can log in. 
+46  |   24  |   10/26/15 18:07  |   1   |   1   |   10/28/15 17:42  |   10/27/15 7:32   |   Twitter |    I need to know my account number?
+47  |   6   |   10/8/15 20:05   |   4   |   7   |   10/14/15 9:53   |   10/13/15 19:01  |   Other   |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+48  |   24  |   10/15/15 14:59  |   5   |   29  |   10/20/15 11:11  |   10/17/15 18:47  |   Text    |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
+49  |   24  |   10/25/15 22:04  |   7   |   2   |   10/27/15 3:54   |   10/26/15 8:19   |   Twitter |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
+50  |   23  |   10/3/15 22:39   |   5   |   9   |   10/8/15 18:17   |   10/5/15 1:54    |   Twitter |   It looks like my account is suspended. I need to know my account is suspended. 
+51  |   33  |   10/5/15 21:18   |   6   |   25  |   10/20/15 11:35  |   10/14/15 15:03  |   Twitter |   I need to upgrade my account
+52  |   34  |   10/19/15 1:09   |   3   |   20  |   10/23/15 4:34   |   10/21/15 16:18  |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
+53  |   5   |   10/24/15 7:03   |   4   |   12  |   10/24/15 10:47  |   10/24/15 7:43   |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
+54  |   27  |   10/10/15 22:41  |   7   |   20  |   10/17/15 7:52   |   10/15/15 17:32  |   Email   |   Help me understand how to use your product.
+55  |   10  |   10/1/15 6:49    |   2   |   7   |   10/27/15 14:10  |   10/4/15 3:38    |   Twitter |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
+56  |   9   |   10/14/15 3:40   |   6   |   5   |   10/24/15 1:45   |   10/21/15 18:29  |   Text    |   How do I use the new feature?
+57  |   19  |   10/18/15 5:31   |   5   |   11  |   10/22/15 14:15  |   10/19/15 11:14  |   Text    |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
+58  |   38  |   10/9/15 18:04   |   2   |   29  |   10/12/15 3:34   |   10/11/15 7:23   |   Other   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
+59  |   15  |   10/13/15 23:37  |   5   |   19  |   10/20/15 5:34   |   10/14/15 10:53  |   Twitter |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
+60  |   11  |   10/13/15 16:51  |   2   |   1   |   10/25/15 18:47  |   10/25/15 3:25   |   Text    |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+61  |   5   |   10/21/15 23:53  |   3   |   27  |   10/22/15 6:36   |   10/22/15 3:15   |   Text    |   My password is taking forever to reset. 
+62  |   9   |   10/11/15 20:57  |   5   |   30  |   10/20/15 18:12  |   10/16/15 4:55   |   Text    |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
+63  |   38  |   10/15/15 19:16  |   3   |   11  |   10/20/15 1:11   |   10/16/15 4:55   |   Email   |   I'm having problems logging in. 
+64  |   7   |   10/21/15 13:25  |   7   |   1   |   10/24/15 8:20   |   10/22/15 15:21  |   Other   |   My password appears not to be working.
+65  |   10  |   10/12/15 14:58  |   6   |   5   |   10/20/15 6:01   |   10/12/15 23:15  |   Email   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
+66  |   25  |   10/8/15 6:52    |   5   |   9   |   10/12/15 20:44  |   10/9/15 7:04    |   Other   |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
+67  |   36  |   10/7/15 21:19   |   3   |   27  |   10/15/15 16:30  |   10/13/15 11:55  |   Email   |   Can you please tell me my account number. 
+68  |   22  |   10/24/15 18:14  |   5   |   11  |   10/27/15 11:56  |   10/26/15 13:25  |   Text    |   Please tell me my account has been susspended. 
+69  |   31  |   10/6/15 23:39   |   7   |   27  |   10/13/15 15:51  |   10/9/15 8:54    |   Twitter |   Can you please tell me my account is suspended. 
+70  |   12  |   10/22/15 6:43   |   5   |   10  |   10/24/15 22:32  |   10/24/15 4:22   |   Other   |   I need to dispute my bill.
+71  |   19  |   10/20/15 6:23   |   5   |   27  |   10/22/15 14:08  |   10/20/15 13:21  |   Text    |    Let me pay my bill. I need to pay my bill!
+72  |   6   |   10/14/15 18:58  |   6   |   3   |   10/22/15 8:04   |   10/21/15 5:19   |   Text    |    Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
+73  |   7   |   10/24/15 17:42  |   6   |   10  |   10/26/15 15:41  |   10/25/15 8:05   |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
+74  |   1   |   10/20/15 17:33  |   3   |   7   |   10/26/15 20:01  |   10/21/15 17:14  |   Twitter |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
+75  |   7   |   10/19/15 18:46  |   1   |   17  |   10/26/15 3:33   |   10/24/15 16:25  |   Email   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
+76  |   24  |   10/2/15 12:00   |   1   |   19  |   10/25/15 10:01  |   10/21/15 7:54   |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
+77  |   39  |   10/16/15 8:17   |   6   |   23  |   10/19/15 21:53  |   10/16/15 9:17   |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
+78  |   19  |   10/27/15 6:25   |   7   |   1   |   10/28/15 22:30  |   10/27/15 13:05  |   Other   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
+79  |   30  |   10/12/15 23:54  |   4   |   6   |   10/19/15 9:39   |   10/15/15 16:31  |   Twitter |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
+80  |   6   |   10/15/15 11:14  |   3   |   4   |   10/18/15 2:13   |   10/16/15 21:54  |   Other   |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
+81  |   11  |   10/21/15 14:45  |   2   |   23  |   10/23/15 3:28   |   10/22/15 7:03   |   Email   |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
+82  |   7   |   10/2/15 22:15   |   6   |   6   |   10/3/15 14:05   |   10/3/15 0:54    |   Email   |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
+83  |   38  |   10/11/15 16:06  |   3   |   14  |   10/14/15 9:14   |   10/13/15 6:42   |   Twitter |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
+84  |   25  |   10/7/15 10:13   |   3   |   27  |   10/22/15 14:09  |   10/12/15 13:49  |   Email   |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
+85  |   31  |   10/6/15 19:40   |   6   |   16  |   10/22/15 19:11  |   10/20/15 11:38  |   Twitter |   think I've lost all my user data? Please help me understand how to use your product.
+86  |   38  |   10/26/15 14:53  |   6   |   2   |   10/27/15 16:53  |   10/27/15 10:37  |   Other   |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
+87  |   33  |   10/5/15 6:39    |   1   |   28  |   10/10/15 23:03  |   10/7/15 6:03    |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
+88  |   11  |   10/12/15 2:13   |   1   |   21  |   10/26/15 15:57  |   10/22/15 14:46  |   Text    |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
+89  |   6   |   10/26/15 23:08  |   3   |   1   |   10/28/15 12:18  |   10/27/15 16:15  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
+90  |   6   |   10/1/15 19:57   |   6   |   12  |   10/5/15 18:13   |   10/5/15 0:37    |   Email   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
+91  |   36  |   10/8/15 15:42   |   4   |   26  |   10/14/15 5:33   |   10/14/15 0:05   |   Email   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
+92  |   26  |   10/22/15 18:47  |   1   |   28  |   10/23/15 2:53   |   10/23/15 2:04   |   Text    |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
+93  |   21  |   10/5/15 6:10    |   7   |   4   |   10/24/15 12:17  |   10/13/15 11:09  |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
+94  |   2   |   10/15/15 8:11   |   1   |   5   |   10/27/15 0:31   |   10/19/15 5:44   |   Email   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
+95  |   15  |   10/1/15 7:54    |   1   |   10  |   10/18/15 18:30  |   10/14/15 15:55  |   Email   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
+96  |   28  |   10/5/15 8:47    |   5   |   12  |   10/11/15 15:07  |   10/6/15 14:27   |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
+97  |   9   |   10/21/15 23:50  |   3   |   10  |   10/24/15 5:55   |   10/24/15 0:21   |   Twitter |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
+98  |   13  |   10/21/15 16:56  |   1   |   7   |   10/28/15 3:15   |   10/28/15 2:01   |   Email   |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
+99  |   21  |   10/28/15 5:50   |   2   |   3   |   10/28/15 18:52  |   10/28/15 15:57  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
+100 |   31  |   10/9/15 6:29    |   7   |   20  |   10/27/15 6:11   |   10/24/15 2:24   |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
+101 |   1   |   10/28/15 6:40   |   3   |   22  |   10/28/15 17:48  |   10/28/15 12:57  |   Text    |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
+102 |   12  |   10/16/15 22:34  |   7   |   20  |   10/18/15 15:26  |   10/18/15 5:26   |   Other   |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
+103 |   14  |   10/14/15 0:10   |   4   |   9   |   10/21/15 23:47  |   10/18/15 3:52   |   Email   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
+104 |   26  |   10/3/15 14:18   |   7   |   21  |   10/25/15 10:03  |   10/18/15 12:32  |   Twitter |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
+105 |   17  |   10/28/15 9:16   |   6   |   8   |   10/28/15 22:50  |   10/28/15 14:44  |   Twitter |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
+106 |   8   |   10/14/15 20:15  |   7   |   11  |   10/28/15 19:28  |   10/21/15 6:54   |   Text    |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
+107 |   37  |   10/26/15 2:26   |   1   |   30  |   10/27/15 14:15  |   10/26/15 23:05  |   Email   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
+108 |   19  |   10/21/15 13:27  |   3   |   1   |   10/23/15 19:37  |   10/22/15 2:11   |   Email   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
+109 |   26  |   10/5/15 19:57   |   7   |   29  |   10/7/15 10:34   |   10/5/15 23:22   |   Email   |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
+110 |   25  |   10/3/15 15:05   |   5   |   23  |   10/17/15 3:33   |   10/10/15 21:12  |   Email   |    Hahahahahaha hi support! 
+111 |   24  |   10/11/15 5:21   |   4   |   6   |   10/19/15 4:53   |   10/11/15 10:46  |   Other   |    I'm locked out of space in my storage. Why is this not working?
+112 |   17  |   10/10/15 21:29  |   2   |   14  |   10/12/15 15:01  |   10/11/15 3:52   |   Email   |    Why is this not working?
+113 |   33  |   10/14/15 22:37  |   6   |   24  |   10/26/15 7:45   |   10/21/15 4:51   |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
+114 |   17  |   10/25/15 17:45  |   3   |   31  |   10/26/15 3:06   |   10/25/15 21:08  |   Twitter |    The API is not pulling data in the way I expect. 
+115 |   20  |   10/20/15 18:36  |   4   |   11  |   10/22/15 23:23  |   10/21/15 0:01   |   Other   |    I think you have an outage. No one can log in. 
+116 |   17  |   10/2/15 14:49   |   6   |   31  |   10/26/15 13:58  |   10/23/15 1:03   |   Twitter |    I need to know my account number?
+117 |   14  |   10/26/15 22:14  |   4   |   5   |   10/28/15 1:07   |   10/27/15 20:41  |   Text    |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+118 |   6   |   10/18/15 10:20  |   6   |   3   |   10/25/15 18:49  |   10/21/15 10:21  |   Other   |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
+119 |   39  |   10/3/15 11:57   |   1   |   5   |   10/20/15 14:30  |   10/8/15 23:25   |   Text    |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
+120 |   31  |   10/16/15 12:36  |   3   |   30  |   10/26/15 11:47  |   10/25/15 19:44  |   Twitter |   It looks like my account is suspended. I need to know my account is suspended. 
+121 |   35  |   10/5/15 1:58    |   2   |   3   |   10/16/15 3:45   |   10/6/15 6:47    |   Email   |   I need to upgrade my account
+122 |   8   |   10/10/15 17:45  |   4   |   6   |   10/14/15 18:14  |   10/13/15 20:37  |   Email   |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
+123 |   6   |   10/24/15 12:01  |   1   |   30  |   10/28/15 16:01  |   10/24/15 23:22  |   Other   |   LET ME IN!!!!!! Hahahahahaha hi support
+124 |   35  |   10/12/15 16:17  |   1   |   26  |   10/19/15 6:54   |   10/13/15 2:58   |   Email   |   Help me understand how to use your product.
+125 |   5   |   10/2/15 21:54   |   5   |   20  |   10/24/15 12:40  |   10/12/15 18:47  |   Email   |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
+126 |   19  |   10/25/15 18:44  |   6   |   15  |   10/27/15 2:15   |   10/26/15 3:31   |   Text    |   How do I use the new feature?
+127 |   25  |   10/20/15 8:55   |   7   |   6   |   10/28/15 8:32   |   10/25/15 2:28   |   Other   |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
+128 |   12  |   10/13/15 16:46  |   1   |   5   |   10/23/15 6:15   |   10/18/15 0:15   |   Other   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
+129 |   3   |   10/20/15 16:32  |   7   |   4   |   10/27/15 3:56   |   10/21/15 9:27   |   Email   |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
+130 |   2   |   10/16/15 18:26  |   7   |   14  |   10/28/15 14:20  |   10/24/15 9:01   |   Twitter |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+131 |   10  |   10/12/15 2:57   |   2   |   5   |   10/12/15 6:11   |   10/12/15 5:41   |   Other   |   My password is taking forever to reset. 
+132 |   33  |   10/1/15 11:25   |   1   |   20  |   10/16/15 20:58  |   10/8/15 14:41   |   Text    |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
+133 |   22  |   10/7/15 7:24    |   7   |   31  |   10/12/15 18:11  |   10/7/15 23:21   |   Text    |   I'm having problems logging in. 
+134 |   20  |   10/11/15 12:24  |   3   |   2   |   10/28/15 0:18   |   10/22/15 2:39   |   Email   |   My password appears not to be working.
+135 |   38  |   10/3/15 20:44   |   3   |   30  |   10/26/15 23:13  |   10/11/15 6:19   |   Other   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
+136 |   21  |   10/3/15 9:05    |   2   |   2   |   10/21/15 13:55  |   10/15/15 9:56   |   Twitter |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
+137 |   24  |   10/19/15 3:23   |   2   |   22  |   10/25/15 12:23  |   10/19/15 15:36  |   Text    |   Can you please tell me my account number. 
+138 |   35  |   10/27/15 5:15   |   7   |   31  |   10/28/15 8:05   |   10/27/15 7:30   |   Text    |   Please tell me my account has been susspended. 
+139 |   39  |   10/15/15 1:35   |   2   |   11  |   10/22/15 18:58  |   10/15/15 3:57   |   Text    |   Can you please tell me my account is suspended. 
+140 |   15  |   10/4/15 18:07   |   1   |   30  |   10/17/15 16:41  |   10/9/15 15:42   |   Email   |   I need to dispute my bill.
+141 |   9   |   10/7/15 14:17   |   2   |   9   |   10/24/15 20:27  |   10/24/15 17:59  |   Email   |    Let me pay my bill. I need to pay my bill!
+142 |   29  |   10/11/15 6:53   |   3   |   12  |   10/21/15 13:44  |   10/19/15 19:35  |   Text    |    Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
+143 |   38  |   10/25/15 13:14  |   3   |   15  |   10/28/15 20:26  |   10/28/15 0:40   |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
+144 |   11  |   10/12/15 2:05   |   6   |   13  |   10/14/15 11:59  |   10/13/15 13:37  |   Email   |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
+145 |   1   |   10/3/15 5:10    |   3   |   1   |   10/6/15 13:51   |   10/4/15 8:08    |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
+146 |   10  |   10/6/15 7:35    |   7   |   17  |   10/6/15 18:42   |   10/6/15 8:53    |   Text    |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
+147 |   10  |   10/5/15 17:49   |   2   |   28  |   10/23/15 9:37   |   10/21/15 11:18  |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
+148 |   32  |   10/7/15 14:53   |   7   |   12  |   10/28/15 18:20  |   10/27/15 6:28   |   Text    |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
+149 |   6   |   10/20/15 5:14   |   1   |   10  |   10/27/15 18:23  |   10/21/15 9:28   |   Text    |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
+150 |   25  |   10/23/15 12:47  |   3   |   12  |   10/28/15 6:09   |   10/24/15 13:16  |   Other   |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
+151 |   37  |   10/20/15 13:23  |   3   |   14  |   10/21/15 1:41   |   10/20/15 22:46  |   Text    |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
+152 |   13  |   10/21/15 16:30  |   6   |   16  |   10/27/15 11:48  |   10/22/15 12:18  |   Email   |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
+153 |   4   |   10/27/15 8:03   |   5   |   9   |   10/27/15 22:04  |   10/27/15 12:33  |   Text    |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
+154 |   5   |   10/27/15 23:09  |   3   |   31  |   10/28/15 9:44   |   10/28/15 7:40   |   Email   |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
+155 |   19  |   10/24/15 13:57  |   4   |   21  |   10/28/15 17:52  |   10/28/15 17:40  |   Twitter |   think I've lost all my user data? Please help me understand how to use your product.
+156 |   29  |   10/22/15 9:07   |   7   |   6   |   10/26/15 2:54   |   10/22/15 12:06  |   Twitter |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
+157 |   16  |   10/15/15 13:55  |   1   |   13  |   10/16/15 23:16  |   10/16/15 20:32  |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
+158 |   5   |   10/3/15 17:54   |   2   |   27  |   10/6/15 8:18    |   10/4/15 5:51    |   Twitter |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
+159 |   12  |   10/3/15 6:57    |   7   |   15  |   10/25/15 9:44   |   10/12/15 11:19  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
+160 |   29  |   10/15/15 23:13  |   3   |   22  |   10/21/15 23:42  |   10/20/15 21:51  |   Other   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
+161 |   3   |   10/24/15 0:10   |   5   |   30  |   10/25/15 3:49   |   10/24/15 23:23  |   Text    |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
+162 |   36  |   10/23/15 23:25  |   7   |   19  |   10/28/15 23:51  |   10/28/15 1:50   |   Email   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
+163 |   8   |   10/28/15 0:24   |   6   |   30  |   10/28/15 14:11  |   10/28/15 1:06   |   Text    |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
+164 |   13  |   10/27/15 12:47  |   3   |   21  |   10/28/15 12:52  |   10/27/15 13:17  |   Email   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
+165 |   13  |   10/7/15 2:13    |   5   |   21  |   10/11/15 22:46  |   10/7/15 23:13   |   Other   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
+166 |   14  |   10/11/15 2:57   |   4   |   8   |   10/24/15 18:27  |   10/22/15 11:34  |   Twitter |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
+167 |   38  |   10/1/15 17:21   |   7   |   25  |   10/2/15 10:53   |   10/1/15 23:53   |   Text    |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
+168 |   17  |   10/25/15 18:10  |   2   |   18  |   10/26/15 8:09   |   10/26/15 4:36   |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
+169 |   9   |   10/21/15 3:16   |   3   |   18  |   10/27/15 20:55  |   10/23/15 18:58  |   Text    |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
+170 |   7   |   10/23/15 18:51  |   1   |   3   |   10/26/15 20:35  |   10/26/15 18:07  |   Email   |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
+171 |   8   |   10/20/15 8:34   |   5   |   15  |   10/22/15 8:17   |   10/21/15 19:59  |   Other   |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
+172 |   13  |   10/4/15 19:57   |   6   |   19  |   10/8/15 10:40   |   10/5/15 8:32    |   Text    |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
+173 |   8   |   10/18/15 11:02  |   5   |   1   |   10/25/15 8:48   |   10/19/15 7:51   |   Email   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
+174 |   12  |   10/24/15 11:21  |   7   |   29  |   10/25/15 5:04   |   10/24/15 15:21  |   Twitter |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
+175 |   4   |   10/27/15 22:22  |   4   |   19  |   10/28/15 1:08   |   10/28/15 0:41   |   Other   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
+176 |   13  |   10/1/15 19:29   |   3   |   4   |   10/16/15 10:24  |   10/14/15 16:18  |   Twitter |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
+177 |   22  |   10/14/15 0:31   |   3   |   16  |   10/19/15 17:55  |   10/18/15 8:16   |   Email   |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
+178 |   19  |   10/22/15 11:57  |   6   |   9   |   10/23/15 2:52   |   10/22/15 17:13  |   Text    |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
+179 |   31  |   10/28/15 15:35  |   7   |   11  |   10/28/15 18:26  |   10/28/15 18:25  |   Twitter |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
+180 |   14  |   10/4/15 21:06   |   1   |   26  |   10/12/15 22:51  |   10/8/15 1:50    |   Text    |    Hahahahahaha hi support! 
+181 |   22  |   10/10/15 16:29  |   1   |   26  |   10/22/15 1:31   |   10/18/15 11:48  |   Email   |    The API is not pulling data
+182 |   31  |   10/23/15 8:35   |   7   |   16  |   10/24/15 0:36   |   10/23/15 22:16  |   Twitter |    I'm locked out of space in my storage. Why is this not working?
+183 |   30  |   10/1/15 1:31    |   1   |   10  |   10/18/15 23:20  |   10/18/15 23:06  |   Twitter |    Why is this not working?
+184 |   20  |   10/17/15 0:28   |   3   |   16  |   10/18/15 17:14  |   10/17/15 13:06  |   Text    |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
+185 |   6   |   10/14/15 9:12   |   2   |   27  |   10/15/15 0:54   |   10/14/15 22:54  |   Other   |    The API is not pulling data in the way I expect. 
+186 |   21  |   10/16/15 12:33  |   3   |   31  |   10/21/15 16:30  |   10/17/15 22:51  |   Other   |    I need to know my account number?
+187 |   16  |   10/7/15 20:46   |   5   |   4   |   10/24/15 7:48   |   10/17/15 16:35  |   Text    |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+188 |   24  |   10/25/15 6:14   |   7   |   27  |   10/27/15 0:51   |   10/25/15 15:28  |   Text    |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
+189 |   37  |   10/26/15 18:51  |   2   |   4   |   10/27/15 17:45  |   10/27/15 6:01   |   Other   |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
+190 |   37  |   10/19/15 4:31   |   6   |   30  |   10/24/15 6:11   |   10/19/15 19:46  |   Other   |   It looks like my account is suspended. I need to know my account is suspended. 
+191 |   39  |   10/18/15 20:01  |   3   |   8   |   10/20/15 21:18  |   10/19/15 15:13  |   Other   |   I need to upgrade my account
+192 |   39  |   10/12/15 9:27   |   1   |   13  |   10/22/15 4:50   |   10/13/15 9:30   |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
+193 |   3   |   10/28/15 23:12  |   4   |   11  |   10/28/15 23:29  |   10/28/15 23:18  |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
+194 |   36  |   10/15/15 10:01  |   3   |   30  |   10/21/15 2:08   |   10/18/15 6:21   |   Twitter |   Help me understand how to use your product.
+195 |   15  |   10/8/15 7:57    |   3   |   6   |   10/19/15 22:26  |   10/10/15 0:00   |   Text    |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
+196 |   24  |   10/28/15 21:18  |   1   |   26  |   10/28/15 22:38  |   10/28/15 22:21  |   Twitter |   How do I use the new feature?
+197 |   26  |   10/7/15 9:27    |   2   |   26  |   10/19/15 13:23  |   10/9/15 10:04   |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
+198 |   14  |   10/27/15 19:49  |   3   |   21  |   10/27/15 22:29  |   10/27/15 20:51  |   Text    |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
+199 |   12  |   10/2/15 19:42   |   5   |   2   |   10/11/15 18:08  |   10/5/15 16:26   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
+200 |   38  |   10/24/15 5:55   |   6   |   16  |   10/26/15 6:27   |   10/25/15 2:36   |   Email   |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+201 |   3   |   10/11/15 15:52  |   3   |   30  |   10/28/15 10:00  |   10/24/15 10:36  |   Text    |   My password is taking forever to reset. 
+202 |   22  |   10/1/15 0:19    |   6   |   3   |   10/24/15 11:11  |   10/14/15 0:55   |   Other   |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
+203 |   6   |   10/24/15 13:17  |   5   |   24  |   10/27/15 14:57  |   10/24/15 19:40  |   Text    |   I'm having problems logging in. 
+204 |   26  |   10/10/15 2:32   |   2   |   17  |   10/18/15 2:39   |   10/11/15 9:17   |   Other   |   My password appears not to be working.
+205 |   6   |   10/19/15 6:08   |   6   |   8   |   10/22/15 12:34  |   10/20/15 4:57   |   Email   |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
+206 |   34  |   10/4/15 18:04   |   4   |   19  |   10/5/15 1:49    |   10/4/15 22:38   |   Text    |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
+207 |   33  |   10/1/15 12:13   |   5   |   24  |   10/23/15 2:24   |   10/16/15 15:29  |   Twitter |   Can you please tell me my account number. 
+208 |   29  |   10/2/15 18:30   |   2   |   15  |   10/13/15 8:39   |   10/11/15 7:32   |   Email   |   Please tell me my account has been susspended. 
+209 |   22  |   10/23/15 21:19  |   3   |   2   |   10/26/15 17:05  |   10/24/15 16:10  |   Email   |   Can you please tell me my account is suspended. 
+210 |   28  |   10/3/15 14:17   |   2   |   3   |   10/7/15 6:22    |   10/7/15 0:22    |   Twitter |   I need to dispute my bill.
+211 |   3   |   10/1/15 3:04    |   5   |   17  |   10/4/15 11:44   |   10/3/15 2:58    |   Email   |    Let me pay my bill. I need to pay my bill!
+212 |   15  |   10/2/15 11:16   |   5   |   2   |   10/15/15 7:23   |   10/4/15 22:58   |   Text    |     I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
+213 |   9   |   10/23/15 13:07  |   2   |   4   |   10/24/15 20:23  |   10/24/15 11:52  |   Text    |   I think you have an outage. No one can log in. I need to dispute my bill. Let me pay my bill. I need to pay my bill. Let me pay my bill!
+214 |   10  |   10/26/15 22:49  |   3   |   12  |   10/28/15 6:33   |   10/27/15 6:09   |   Email   |   It looks like my account is suspended. I need to know my account is suspended. 
+215 |   39  |   10/26/15 18:07  |   1   |   13  |   10/28/15 16:53  |   10/27/15 23:03  |   Other   |   I need to upgrade my account
+216 |   38  |   10/26/15 14:59  |   2   |   21  |   10/28/15 15:53  |   10/27/15 13:39  |   Email   |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
+217 |   10  |   10/5/15 7:52    |   5   |   31  |   10/7/15 16:59   |   10/7/15 14:09   |   Email   |   LET ME IN!!!!!! Hahahahahaha hi support
+218 |   19  |   10/28/15 15:25  |   6   |   11  |   10/28/15 20:53  |   10/28/15 18:53  |   Twitter |   Help me understand how to use your product.
+219 |   33  |   10/21/15 9:24   |   2   |   16  |   10/26/15 1:53   |   10/24/15 8:53   |   Twitter |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
+220 |   7   |   10/13/15 15:45  |   6   |   27  |   10/22/15 1:29   |   10/14/15 6:49   |   Email   |   How do I use the new feature?
+221 |   35  |   10/5/15 2:57    |   6   |   2   |   10/22/15 13:51  |   10/11/15 2:00   |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
+222 |   11  |   10/5/15 18:28   |   1   |   28  |   10/15/15 19:59  |   10/12/15 10:42  |   Email   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
+223 |   25  |   10/3/15 4:26    |   5   |   27  |   10/26/15 19:09  |   10/13/15 7:16   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
+224 |   20  |   10/25/15 7:16   |   6   |   26  |   10/25/15 19:02  |   10/25/15 15:04  |   Twitter |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+225 |   10  |   10/15/15 5:08   |   1   |   18  |   10/16/15 13:02  |   10/15/15 12:23  |   Email   |   My password is taking forever to reset. 
+226 |   23  |   10/3/15 16:58   |   1   |   15  |   10/11/15 12:13  |   10/8/15 7:19    |   Email   |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
+227 |   31  |   10/5/15 23:34   |   2   |   16  |   10/9/15 9:31    |   10/6/15 14:36   |   Twitter |   I'm having problems logging in. 
+228 |   34  |   10/27/15 10:13  |   5   |   9   |   10/27/15 22:00  |   10/27/15 12:14  |   Twitter |   My password appears not to be working.
+229 |   4   |   10/25/15 21:38  |   4   |   2   |   10/26/15 17:57  |   10/26/15 2:37   |   Twitter |   Why is this not working? It looks like I'm locked out of space in my company different levels of permission? How do I use the new feature? 
+230 |   16  |   10/3/15 6:44    |   5   |   12  |   10/5/15 12:26   |   10/5/15 3:14    |   Other   |   How do I delete a user? I think your software has a bug. Your software is so broken that I cant use it. I think your software has a bug. 
+231 |   5   |   10/19/15 22:29  |   7   |   18  |   10/23/15 16:52  |   10/21/15 6:09   |   Email   |   Can you please tell me my account number. 
+232 |   19  |   10/9/15 17:52   |   6   |   23  |   10/24/15 15:45  |   10/19/15 0:35   |   Twitter |   Please tell me my account has been susspended. 
+233 |   31  |   10/15/15 23:17  |   4   |   26  |   10/25/15 0:54   |   10/19/15 20:38  |   Email   |   Can you please tell me my account is suspended. 
+234 |   28  |   10/5/15 9:56    |   2   |   1   |   10/7/15 18:53   |   10/6/15 20:39   |   Email   |   I need to dispute my bill.
+235 |   5   |   10/9/15 17:59   |   7   |   31  |   10/28/15 7:09   |   10/19/15 13:55  |   Twitter |   Let me pay my bill. I need to pay my bill!
+236 |   33  |   10/3/15 7:41    |   6   |   28  |   10/4/15 16:19   |   10/4/15 3:52    |   Other   |   Can you please tell me my account has been susspended. I think I've lost all my user data? Please help me understand how to use your product.
+237 |   2   |   10/18/15 8:50   |   1   |   13  |   10/18/15 17:28  |   10/18/15 12:35  |   Twitter |   think I've lost all my data. My password appears not to be working. It looks like I'm locked out of my account. I think I ran out of space in my storage.
+238 |   24  |   10/6/15 12:21   |   7   |   19  |   10/16/15 18:23  |   10/8/15 1:57    |   Email   |   broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to upgrade my account. I think I forgot my password. Please get back to me
+239 |   29  |   10/22/15 22:47  |   3   |   3   |   10/25/15 10:03  |   10/24/15 12:52  |   Other   |   SO LONG!!!!!!! Why doesn't anyone see my ads? How do I use the new feature? How do I delete a user? I think you have an outage. No one can log in. I need to
+240 |   30  |   10/24/15 22:30  |   3   |   24  |   10/26/15 21:44  |   10/24/15 22:40  |   Other   |   my company different levels of permission? How do I delete a user? I think your software has a bug. Your software is really buggy. Your software is so
+241 |   34  |   10/19/15 16:44  |   7   |   23  |   10/20/15 8:22   |   10/20/15 6:47   |   Twitter |   don't remeber. I need to know my account number. I think you have an outage. No one can log in. I need to pay my bill. I need to know my account number. Can
+242 |   32  |   10/6/15 5:59    |   7   |   12  |   10/6/15 21:43   |   10/6/15 18:12   |   Email   |   levels of permission? How do I give different people in my company different levels of permission? How do I give different people in my company different
+243 |   36  |   10/11/15 0:06   |   5   |   3   |   10/19/15 7:56   |   10/12/15 23:33  |   Other   |   respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I somehow changed my password but I don't remeber. I need to pay
+244 |   5   |   10/22/15 5:59   |   5   |   1   |   10/28/15 3:17   |   10/22/15 20:34  |   Text    |   I think I've lost all my data. My password appears not to be working. It looks like I'm locked out of space in my company different levels of permission?
+245 |   13  |   10/23/15 4:17   |   6   |   3   |   10/25/15 15:18  |   10/25/15 12:22  |   Twitter |   my account. I think my account number. Can you please tell me my account number? Please tell me my account number? Please tell me my account has been susspended.
+246 |   22  |   10/25/15 22:34  |   5   |   10  |   10/26/15 22:10  |   10/26/15 6:06   |   Text    |   different levels of permission? How do I give different people in my company different levels of permission? How do I use the new feature? How do I give different
+247 |   9   |   10/8/15 14:15   |   2   |   9   |   10/25/15 8:04   |   10/19/15 10:56  |   Text    |   has been susspended. I think I ran out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow
+248 |   24  |   10/2/15 6:46    |   7   |   24  |   10/4/15 17:32   |   10/3/15 18:26   |   Text    |   It looks like I'm locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think my account number.
+249 |   33  |   10/5/15 2:29    |   4   |   23  |   10/9/15 1:22    |   10/8/15 13:33   |   Text    |   think I've lost all my user data? Please help me understand how to use your product.
+250 |   33  |   10/3/15 14:04   |   7   |   10  |   10/20/15 2:27   |   10/8/15 23:04   |   Other   |   my company different levels of permission? How do I use the new feature? How do I give different people in my company different levels of permission? How
+251 |   16  |   10/18/15 23:22  |   4   |   20  |   10/20/15 19:21  |   10/19/15 4:22   |   Text    |   Can you please tell me my account has been susspended. I think my account number. Can you please tell me my account has been susspended. I think your
+252 |   39  |   10/23/15 5:37   |   5   |   30  |   10/25/15 7:59   |   10/24/15 23:21  |   Text    |   my storage. Why is this not working? It looks like my account is suspended. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API is not
+253 |   13  |   10/28/15 10:34  |   6   |   18  |   10/28/15 14:18  |   10/28/15 11:58  |   Email   |   ran out of my account. I think your software has a bug. Your software is so broken that I cant use it. I think I've lost all my user data? Please help
+254 |   27  |   10/20/15 20:00  |   5   |   23  |   10/24/15 18:52  |   10/21/15 21:56  |   Other   |   use it. I think your software has a bug. Your software is so broken that I cant use it. I think my account is suspended. I need to upgrade my account.
+255 |   35  |   10/14/15 1:20   |   3   |   23  |   10/23/15 10:34  |   10/22/15 13:57  |   Other   |   a bug. Your software is so broken that I cant use it. I think I somehow changed my password but I don't remeber. I need to know my account number?
+256 |   23  |   10/10/15 16:43  |   4   |   10  |   10/15/15 4:01   |   10/10/15 16:49  |   Other   |   I need to know my account is suspended. I need to upgrade my account. I think I've lost all my data. My password is taking forever to reset. WHY
+257 |   19  |   10/27/15 11:43  |   3   |   21  |   10/27/15 19:38  |   10/27/15 12:43  |   Twitter |   cant use it. I think I've lost all my user data? Please help me understand how to use your product.
+258 |   32  |   10/26/15 7:17   |   7   |   6   |   10/26/15 8:32   |   10/26/15 8:20   |   Other   |   my password but I don't remeber. I need to pay my bill. Let me pay my bill. I need to dispute my bill. I need to know my account is suspended. I need to use your product.
+259 |   6   |   10/18/15 6:46   |   5   |   8   |   10/19/15 12:00  |   10/18/15 22:49  |   Email   |   I think I somehow changed my password but I don't remeber. I need to pay my bill. I need to know my account is suspended. I need
+260 |   36  |   10/28/15 7:27   |   3   |   15  |   10/28/15 7:51   |   10/28/15 7:49   |   Email   |   earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think your software has a bug. Your software is so broken that I cant use it. I think your software
+261 |   5   |   10/11/15 12:14  |   3   |   24  |   10/26/15 10:55  |   10/18/15 17:37  |   Other   |   LONG!!!!!!! Help! I'm having problems logging in. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Help! I'm having problems logging
+262 |   28  |   10/21/15 9:53   |   7   |   12  |   10/23/15 22:12  |   10/22/15 20:50  |   Twitter |   locked out of space in my storage. Why is this not working? It looks like I'm locked out of my account. I think I somehow changed my password but I don't
+263 |   25  |   10/25/15 10:34  |   7   |   25  |   10/27/15 15:24  |   10/26/15 12:20  |   Email   |   I use the new feature? How do I use the new feature? How do I give different people in my storage. Why is this not working? It looks like my account
+264 |   22  |   10/5/15 1:16    |   7   |   9   |   10/20/15 19:58  |   10/13/15 10:47  |   Twitter |   tell me my account number. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's
+265 |   38  |   10/4/15 2:04    |   6   |   21  |   10/22/15 0:39   |   10/17/15 6:24   |   Twitter |   my account is suspended. I need to pay my bill. I need to pay my bill! LET ME IN!!!!!! Hahahahahaha hi support! The API looks broken. The API is not pulling
+266 |   9   |   10/15/15 20:53  |   1   |   23  |   10/16/15 13:06  |   10/16/15 5:10   |   Other   |   to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!. I think I ran out of my account.
+267 |   4   |   10/24/15 7:43   |   1   |   17  |   10/24/15 14:58  |   10/24/15 10:38  |   Other   |   way I expect. I lost all my data. My password appears not to be working. It looks like my account has been susspended. I think I forgot my password.
+268 |   29  |   10/5/15 15:16   |   4   |   16  |   10/10/15 9:09   |   10/7/15 3:49    |   Email   |   changed my password but I don't remeber. I need to pay my bill. I need to dispute my bill. I need to know my account number. Can you please tell me my
+269 |   13  |   10/20/15 19:23  |   5   |   9   |   10/26/15 10:05  |   10/22/15 19:37  |   Email   |   company different levels of permission? How do I use the new feature? How do I use the new feature? How do I delete a user? I think my account number? Please
+270 |   9   |   10/27/15 9:31   |   3   |   27  |   10/28/15 6:28   |   10/28/15 5:52   |   Twitter |   pulling data in the way I expect. I lost all my data. My password is taking forever to reset. WHY IS THIS TAKING SO LONG!!!!!!! Why doesn't anyone see my requests?
+271 |   21  |   10/27/15 5:16   |   6   |   16  |   10/27/15 19:02  |   10/27/15 11:59  |   Text    |    How do I use the new feature? How do I delete a user? I think I somehow changed my password but I don't remeber.
+272 |   35  |   10/20/15 21:57  |   2   |   27  |   10/23/15 19:08  |   10/23/15 0:44   |   Email   |    I need to upgrade my account. I think your software has a bug. Your software is really buggy. Your software is really buggy.
+273 |   39  |   10/8/15 9:11    |   1   |   9   |   10/16/15 23:50  |   10/13/15 5:28   |   Other   |    I have an outage. No one can log in. I need to pay my bill. Let me pay my bill! LET ME IN!!!!!!
+274 |   32  |   10/26/15 1:13   |   5   |   8   |   10/28/15 17:16  |   10/27/15 22:18  |   Text    |    Hahahahahaha hi support! 
+275 |   7   |   10/17/15 3:52   |   1   |   11  |   10/25/15 17:48  |   10/23/15 16:55  |   Text    |    The API is not pulling data
+276 |   27  |   10/22/15 7:28   |   1   |   14  |   10/27/15 14:10  |   10/25/15 2:18   |   Twitter |    I'm locked out of space in my storage. Why is this not working?
+277 |   15  |   10/7/15 13:23   |   6   |   13  |   10/12/15 10:22  |   10/10/15 12:43  |   Email   |    Why is this not working?
+278 |   13  |   10/18/15 21:09  |   3   |   12  |   10/25/15 5:51   |   10/21/15 8:50   |   Other   |    It looks like my account number. Can you please tell me my account has been susspended. I think your software has a bug. Your software is so broken
+279 |   23  |   10/16/15 6:52   |   7   |   10  |   10/17/15 13:06  |   10/17/15 8:09   |   Text    |    The API is not pulling data in the way I expect. 
+280 |   4   |   10/28/15 20:00  |   3   |   15  |   10/28/15 20:29  |   10/28/15 20:08  |   Twitter |    I think you have an outage. No one can log in. 
+281 |   5   |   10/17/15 3:25   |   4   |   1   |   10/19/15 4:32   |   10/18/15 15:59  |   Twitter |    I need to know my account number?
+282 |   15  |   10/20/15 18:09  |   1   |   9   |   10/26/15 20:44  |   10/25/15 3:38   |   Email   |    It's broken. HELLLLPPPPPP!!!!!!!!!. I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+283 |   31  |   10/11/15 3:11   |   1   |   16  |   10/28/15 11:03  |   10/20/15 3:11   |   Email   |    I'm out of my account. I think I somehow changed my password but I don't remeber. I need to dispute my bill. Let me pay my bill. I need to pay my bill.
+284 |   22  |   10/7/15 23:08   |   1   |   6   |   10/28/15 3:47   |   10/16/15 7:04   |   Email   |   It looks like my account is suspended. I need to know my account is suspended. 
+285 |   31  |   10/17/15 18:02  |   5   |   9   |   10/20/15 13:02  |   10/18/15 17:30  |   Twitter |   I need to upgrade my account
+286 |   19  |   10/21/15 22:26  |   6   |   24  |   10/23/15 1:57   |   10/22/15 11:42  |   Twitter |   The API looks broken. The API looks broken. The API is not pulling data in the way I expect.
+287 |   28  |   10/13/15 8:34   |   5   |   20  |   10/16/15 6:17   |   10/15/15 16:18  |   Twitter |   LET ME IN!!!!!! Hahahahahaha hi support
+288 |   30  |   10/25/15 16:44  |   1   |   6   |   10/25/15 22:49  |   10/25/15 20:33  |   Other   |   Help me understand how to use your product.
+289 |   22  |   10/10/15 13:31  |   5   |   31  |   10/27/15 4:54   |   10/11/15 1:43   |   Text    |   API is not pulling data in the way I expect. I lost all my data. My password appears not to be working. It looks like I'm locked out of space 
+290 |   15  |   10/2/15 6:17    |   2   |   2   |   10/4/15 15:53   |   10/4/15 0:21    |   Email   |   How do I use the new feature?
+291 |   25  |   10/21/15 7:10   |   4   |   11  |   10/27/15 1:47   |   10/23/15 22:09  |   Twitter |   I need to know my account has been susspended. I think I forgot my password. Please get back to me as soon as you can.
+292 |   26  |   10/27/15 0:55   |   6   |   30  |   10/27/15 8:49   |   10/27/15 7:57   |   Email   |   Your software is so broken that I can't use it. I think your software has a bug. Your software is really buggy.
+293 |   11  |   10/17/15 3:23   |   3   |   15  |   10/23/15 7:42   |   10/20/15 9:05   |   Text    |   I think you have an outage. No one can log in. I need to upgrade my account. I think you have an outage. No one can
+294 |   2   |   10/13/15 13:31  |   3   |   26  |   10/17/15 12:09  |   10/17/15 8:10   |   Other   |   I think I forgot my password. Please get back to me as soon as you can. Please respond at your earliest convenience. It's really broken. HELLLLPPPPPP!!!!!!!!!.
+295 |   15  |   10/5/15 16:53   |   5   |   7   |   10/8/15 1:43    |   10/6/15 13:33   |   Text    |   My password is taking forever to reset. 
+296 |   30  |   10/2/15 19:05   |   7   |   10  |   10/2/15 22:50   |   10/2/15 20:43   |   Other   |   WHY IS THIS TAKING SO LONG!!!!!!! Help! 
+297 |   39  |   10/9/15 18:49   |   1   |   24  |   10/19/15 15:51  |   10/15/15 15:05  |   Email   |   I'm having problems logging in. 
+298 |   8   |   10/3/15 22:42   |   6   |   2   |   10/14/15 4:40   |   10/10/15 19:29  |   Text    |   My password appears not to be working.
