@@ -41,7 +41,7 @@ class Tickets (Model.db):
 
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     customer_id = db.Column(db.Integer(), db.ForeignKey('customers.customer_id'), nullable=False)
-    company_id = db.Column(db.Integer(), db.ForeignKey('companies.commpany_id'), nullable=False)
+    #company_id = db.Column(db.Integer(), db.ForeignKey('companies.commpany_id'), nullable=False)
     agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
     time_submitted = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
