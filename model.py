@@ -3,7 +3,7 @@
 
 db = SQLAlchemy()
 
-class Customer (Model.db):
+class Customer(Model.db):
     
     __tablename__ = "customers"
 
@@ -18,7 +18,7 @@ class Customer (Model.db):
     company = db.relationship("Company",
                               backref=db.backref("customers", order_by=customer_id))
 
-class Company (Model.db):
+class Company(Model.db):
     
     __tablename__ = "companies"
 
@@ -31,7 +31,7 @@ class Company (Model.db):
     is_pilot = db.Column(db.String(10), nullable=True)
 
 
-class Agent (Model.db):
+class Agent(Model.db):
     
     __tablename__ = "agents"
 
@@ -41,7 +41,7 @@ class Agent (Model.db):
     agent_tier = db.Column(db.String(10), nullable=True)
 
 
-class Ticket (Model.db):
+class Ticket(Model.db):
     
     __tablename__ = "tickets"
 
