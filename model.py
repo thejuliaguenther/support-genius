@@ -14,6 +14,10 @@ class Customer (Model.db):
     customer_phone_number = db.Column(db.String(50), nullable=True)
     customer_job_title = db.Column(db.String(50), nullable=True)
 
+    #define relationship to company
+    company = db.relationship("Company",
+                              backref=db.backref("customers", order_by=customer_id))
+
 class Company (Model.db):
     
     __tablename__ = "companies"
@@ -26,6 +30,7 @@ class Company (Model.db):
     support_tier = db.Column(db.String(10), nullable=True)
     is_pilot = db.Column(db.String(10), nullable=True)
 
+
 class Agent (Model.db):
     
     __tablename__ = "agents"
@@ -35,13 +40,13 @@ class Agent (Model.db):
     agent_email = db.Column(db.String(50), nullable=True)
     agent_tier = db.Column(db.String(10), nullable=True)
 
+
 class Ticket (Model.db):
     
     __tablename__ = "tickets"
 
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     customer_id = db.Column(db.Integer(), db.ForeignKey('customers.customer_id'), nullable=False)
-    #company_id = db.Column(db.Integer(), db.ForeignKey('companies.commpany_id'), nullable=False)
     agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
     time_submitted = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
@@ -49,13 +54,19 @@ class Ticket (Model.db):
     resolution_minutes = db.Column(db.Integer())
     num_agent_touches = db.Column(db.Integer())
     first_response_time_minutes = db.Column(db.Integer())
-
-
+ 
+    #define relationship to customer
+    customer = db.relationship("Customer", 
+                               backref=db.backref("tickets", order_by=ticket_id))
+    #define relationship to agent 
+    agent = db.relationship("Agent", 
+                               backref=db.backref("tickets", order_by=ticket_id))
 def connect_to_db(app):
     """Connect the database to our Flask app."""
 
     # Configure to use our SQLite database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ratings.db'
     db.app = app
     db.init_app(app)
 
