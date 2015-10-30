@@ -1,9 +1,14 @@
 #This file creates the model for the databases used in this project
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
+
+DB_URI = "sqlite:///tickets.db"
 
 db = SQLAlchemy()
 
-class Customer(Model.db):
+class Customer(db.Model):
     
     __tablename__ = "customers"
 
@@ -18,11 +23,12 @@ class Customer(Model.db):
     company = db.relationship("Company",
                               backref=db.backref("customers", order_by=customer_id))
 
-class Company(Model.db):
+class Company(db.Model):
     
     __tablename__ = "companies"
 
     company_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    company_name = db.Column(db.String(50), unique=True, nullable=True)
     email_domain = db.Column(db.String(50), unique=True, nullable=True)
     location = db.Column(db.String(100), nullable=True)
     time_zone = db.Column(db.String(100), nullable=True)
@@ -31,17 +37,18 @@ class Company(Model.db):
     is_pilot = db.Column(db.String(10), nullable=True)
 
 
-class Agent(Model.db):
+class Agent(db.Model):
     
     __tablename__ = "agents"
 
     agent_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    agent_name = db.Column(db.String(50), nullable=True)
     agent_password = db.Column(db.String(50), nullable=True)
     agent_email = db.Column(db.String(50), nullable=True)
-    agent_tier = db.Column(db.String(10), nullable=True)
+    agent_tier = db.Column(db.Integer, nullable=True)
 
 
-class Ticket(Model.db):
+class Ticket(db.Model):
     
     __tablename__ = "tickets"
 
@@ -51,9 +58,9 @@ class Ticket(Model.db):
     time_submitted = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
     ticket_content = db.Column(db.String(), nullable=False)
-    resolution_minutes = db.Column(db.Integer())
+    resolution_time = db.Column(db.DateTime())
     num_agent_touches = db.Column(db.Integer())
-    first_response_time_minutes = db.Column(db.Integer())
+    first_response_time = db.Column(db.DateTime())
  
     #define relationship to customer
     customer = db.relationship("Customer", 
@@ -66,7 +73,8 @@ def connect_to_db(app):
 
     # Configure to use our SQLite database
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ratings.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tickets.db'
+    app.config['SQLALCHEMY_ECHO'] = True
     db.app = app
     db.init_app(app)
 
