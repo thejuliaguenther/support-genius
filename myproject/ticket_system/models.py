@@ -1,24 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Customer(models.Model):
 
-    #customer_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    id = models.AutoField(primary_key=True)
-    #customer_name = db.Column(db.String(50), nullable=False)
-    name = models.CharField(max_length=50)
-    #customer_email = db.Column(db.String(50), nullable=True)
-    email = models.EmailField(max_length=50, blank=True)
-    #company_id = db.Column(db.Integer, db.ForeignKey('companies.company_id'), nullable=False)
-    company_id = models.ForeignKey(Company)
-    #customer_phone_number = db.Column(db.String(50), nullable=True)
-    phone_number = models.CharField(max_length=50, blank=True)
-    #customer_job_title = db.Column(db.String(50), nullable=True)
-    job_title = models.CharField(max_length=50, blank=True)
-
-    # #define relationship to company
-    # company = db.relationship("Company",
-    #                           backref=db.backref("customers", order_by=customer_id))
 
 class Company(models.Model):
     
@@ -41,6 +24,24 @@ class Company(models.Model):
     # is_pilot = db.Column(db.String(10), nullable=True)
     is_pilot = models.CharField(max_length=50, blank=True)
 
+class Customer(models.Model):
+
+    #customer_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = models.AutoField(primary_key=True)
+    #customer_name = db.Column(db.String(50), nullable=False)
+    name = models.CharField(max_length=50)
+    #customer_email = db.Column(db.String(50), nullable=True)
+    email = models.EmailField(max_length=50, blank=True)
+    #company_id = db.Column(db.Integer, db.ForeignKey('companies.company_id'), nullable=False)
+    company_id = models.ForeignKey(Company)
+    #customer_phone_number = db.Column(db.String(50), nullable=True)
+    phone_number = models.CharField(max_length=50, blank=True)
+    #customer_job_title = db.Column(db.String(50), nullable=True)
+    job_title = models.CharField(max_length=50, blank=True)
+
+    # #define relationship to company
+    # company = db.relationship("Company",
+    #                           backref=db.backref("customers", order_by=customer_id))
 
 class Agent(models.Model):
     
@@ -73,7 +74,7 @@ class Ticket(models.Model):
     # channel_submitted = db.Column(db.String(50), nullable=True)
     channel_submitted = models.CharField(max_length=50, blank=True)
     # ticket_content = db.Column(db.String(), nullable=False)
-    ticket_content = models.CharField()
+    ticket_content = models.CharField(max_length=500)
     # resolution_time = db.Column(db.DateTime())
     time_submitted = models.DateTimeField()
     # num_agent_touches = db.Column(db.Integer())
