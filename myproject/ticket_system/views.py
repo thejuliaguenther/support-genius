@@ -1,5 +1,8 @@
 
 from django.http import HttpResponse
+from django.template import RequestContext, loader
 
 def index(request):
-    return HttpResponse('Welcome to the dashboard!')
+    template = loader.get_template('ticket_system/dashboard.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
