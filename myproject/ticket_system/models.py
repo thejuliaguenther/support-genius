@@ -4,17 +4,17 @@ from django.db import models
 class Customer(models.Model):
 
     #customer_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    customer_id = models.CharField(max_length=)
+    id = models.AutoField(primary_key=True)
     #customer_name = db.Column(db.String(50), nullable=False)
-    customer_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     #customer_email = db.Column(db.String(50), nullable=True)
-    customer_email = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50, blank=True)
     #company_id = db.Column(db.Integer, db.ForeignKey('companies.company_id'), nullable=False)
     company_id = models.ForeignKey(Company)
     #customer_phone_number = db.Column(db.String(50), nullable=True)
-    customer_phone_number = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50, blank=True)
     #customer_job_title = db.Column(db.String(50), nullable=True)
-    customer_job_title = models.CharField(max_length=50)
+    job_title = models.CharField(max_length=50, blank=True)
 
     # #define relationship to company
     # company = db.relationship("Company",
@@ -22,45 +22,67 @@ class Customer(models.Model):
 
 class Company(models.Model):
     
-    __tablename__ = "companies"
+    # __tablename__ = "companies"
 
-    company_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    company_name = db.Column(db.String(50), unique=True, nullable=True)
-    email_domain = db.Column(db.String(50), unique=True, nullable=True)
-    location = db.Column(db.String(100), nullable=True)
-    time_zone = db.Column(db.String(100), nullable=True)
-    industry = db.Column(db.String(50), nullable=True)
-    support_tier = db.Column(db.String(10), nullable=True)
-    is_pilot = db.Column(db.String(10), nullable=True)
+    # company_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = models.AutoField(primary_key=True)
+    # company_name = db.Column(db.String(50), unique=True, nullable=True)
+    name = models.CharField(max_length=50, blank=True)
+    # email_domain = db.Column(db.String(50), unique=True, nullable=True)
+    domain = models.CharField(max_length=50, blank=True)
+    # location = db.Column(db.String(100), nullable=True)
+    location = models.CharField(max_length=50, blank=True)
+    # time_zone = db.Column(db.String(100), nullable=True)
+    time_zone = models.CharField(max_length=100, blank=True)
+    # industry = db.Column(db.String(50), nullable=True)
+    industry = models.CharField(max_length=50, blank=True)
+    # support_tier = db.Column(db.String(10), nullable=True)
+    support_tier = models.CharField(max_length=50, blank=True)
+    # is_pilot = db.Column(db.String(10), nullable=True)
+    is_pilot = models.CharField(max_length=50, blank=True)
 
 
 class Agent(models.Model):
     
-    __tablename__ = "agents"
+    # __tablename__ = "agents"
 
-    agent_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    agent_name = db.Column(db.String(50), nullable=True)
-    agent_password = db.Column(db.String(50), nullable=True)
-    agent_email = db.Column(db.String(50), nullable=True)
-    agent_tier = db.Column(db.Integer, nullable=True)
+    # agent_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = models.AutoField(primary_key=True)
+    # agent_name = db.Column(db.String(50), nullable=True)
+    name = models.CharField(max_length=50, blank=True)
+    # agent_password = db.Column(db.String(50), nullable=True)
+    password = models.CharField(max_length=50, blank=True)
+    # agent_email = db.Column(db.String(50), nullable=True)
+    email = models.EmailField(max_length=50, blank=True)
+    # agent_tier = db.Column(db.Integer, nullable=True)
+    tier = models.IntegerField(blank=True)
 
 
 class Ticket(models.Model):
     
-    __tablename__ = "tickets"
+    # __tablename__ = "tickets"
 
-    ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    customer_id = db.Column(db.Integer(), db.ForeignKey('customers.customer_id'), nullable=False)
-    agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
-    time_submitted = db.Column(db.DateTime())
-    channel_submitted = db.Column(db.String(50), nullable=True)
-    ticket_content = db.Column(db.String(), nullable=False)
-    resolution_time = db.Column(db.DateTime())
-    num_agent_touches = db.Column(db.Integer())
-    first_response_time = db.Column(db.DateTime())
+    # ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    ticket_id = models.AutoField(primary_key=True)
+    # customer_id = db.Column(db.Integer(), db.ForeignKey('customers.customer_id'), nullable=False)
+    customer_id = models.ForeignKey(Customer)
+    # agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
+    agent_id = models.ForeignKey(Agent)
+    # time_submitted = db.Column(db.DateTime())
+    time_submitted = models.DateTimeField()
+    # channel_submitted = db.Column(db.String(50), nullable=True)
+    channel_submitted = models.CharField(max_length=50, blank=True)
+    # ticket_content = db.Column(db.String(), nullable=False)
+    ticket_content = models.CharField()
+    # resolution_time = db.Column(db.DateTime())
+    time_submitted = models.DateTimeField()
+    # num_agent_touches = db.Column(db.Integer())
+    num_agent_touches = models.IntegerField()
+    # first_response_time = db.Column(db.DateTime())
+    time_first_responded = models.DateTimeField()
  
-    #define relationship to customer
-    customer = db.relationship("Customer", 
-                               backref=db.backref("tickets", order_by=ticket_id))
-    #define relationship to agent 
-    agent = db.relationship("Agent", 
+    # #define relationship to customer
+    # customer = db.relationship("Customer", 
+    #                            backref=db.backref("tickets", order_by=ticket_id))
+    # #define relationship to agent 
+    # agent = db.relationship("Agent", 
