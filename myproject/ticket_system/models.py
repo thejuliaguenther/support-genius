@@ -1,4 +1,5 @@
 from django.db import models
+from time import strptime
 
 # Create your models here.
 
@@ -70,17 +71,17 @@ class Ticket(models.Model):
     # agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
     agent_id = models.ForeignKey(Agent)
     # time_submitted = db.Column(db.DateTime())
-    time_submitted = models.DateTimeField()
+    time_submitted = models.DateTimeField(default=strptime('01/01/15 12:00','%m/%d/%y %H:%M'))
     # channel_submitted = db.Column(db.String(50), nullable=True)
     channel_submitted = models.CharField(max_length=50, blank=True)
     # ticket_content = db.Column(db.String(), nullable=False)
     ticket_content = models.CharField(max_length=500)
     # resolution_time = db.Column(db.DateTime())
-    time_resolved = models.DateTimeField()
+    time_resolved = models.DateTimeField(default=strptime('01/01/15 12:00','%m/%d/%y %H:%M'))
     # num_agent_touches = db.Column(db.Integer())
     num_agent_touches = models.IntegerField()
     # first_response_time = db.Column(db.DateTime())
-    time_first_responded = models.DateTimeField()
+    time_first_responded = models.DateTimeField(default=strptime('01/01/15 12:00','%m/%d/%y %H:%M'))
  
     # #define relationship to customer
     # customer = db.relationship("Customer", 
