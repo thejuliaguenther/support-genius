@@ -76,7 +76,7 @@ class Ticket(models.Model):
     # ticket_content = db.Column(db.String(), nullable=False)
     ticket_content = models.CharField(max_length=500)
     # resolution_time = db.Column(db.DateTime())
-    time_submitted = models.DateTimeField()
+    time_resolved = models.DateTimeField()
     # num_agent_touches = db.Column(db.Integer())
     num_agent_touches = models.IntegerField()
     # first_response_time = db.Column(db.DateTime())
