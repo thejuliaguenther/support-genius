@@ -16,7 +16,7 @@ from datetime import datetime
 
 def load_customers():
     """ Load customers from customers.txt to database"""
-    for row in open("seed_data/customers.txt"):
+    for row in open("ticket_system/seed_data/customers.txt"):
         row = row.strip()
         id, name, email, company_id, phone_number, job_title = row.split("|")
 
@@ -31,7 +31,7 @@ def load_customers():
 
 def load_companies():
     """ Load companies from companies.txt to database"""
-    for row in open("seed_data/companies.txt"):
+    for row in open("ticket_system/seed_data/companies.txt"):
         row = row.strip()
         id, name, domain, location, time_zone, industry, support_tier, is_pilot = row.split("|")
 
@@ -48,11 +48,12 @@ def load_companies():
 
 def load_agents():
     """ Load agents from agents.txt to database"""
-    for row in open("seed_data/agents.txt"):
+    for row in open("ticket_system/seed_data/agents.txt"):
         row = row.strip()
         id, name, password, email, tier= row.split("|")
 
-        agent = Agent(name=name.strip(),
+        agent = Agent(id=id.strip(),
+                      name=name.strip(),
                       password=password.strip(),
                       email=email.strip(),
                       tier=int(tier.strip()))
@@ -62,7 +63,7 @@ def load_agents():
 
 def load_tickets():
     """ Load tickets from tickets.txt to database"""
-    for row in open("seed_data/tickets.txt"):
+    for row in open("ticket_system/seed_data/tickets.txt"):
         
         ticket_id, customer_id, agent_id, time_submitted, channel_submitted, ticket_content, time_resolved, num_agent_touches, time_first_responded = row.split("|")
 

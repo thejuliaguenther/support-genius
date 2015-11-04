@@ -1,0 +1,8 @@
+1 | "Stephanie Nguyen" |"puppy123" | "stephaniehnguyen@gmail.com" | 1
+2 |"Christina Foran" |"iloveedtech" |"cforan99@gmail.com" | 2
+3 | "Brandi Day" | "haveaniceday" |fgr8out@gmail.com | 3
+4 |"Erica Johnson" | "123456doit" |"ericatj@gmail.com" | 1
+5 |"Kayla Smith" | "networking" |"kytrick@gmail.com" | 2
+6 | "Xye Dagun" | "kitten123"| "xye.d.dagun@gmail.com | 3
+7 |"Julia Guenther"| "wOoOoT" |"jaguenther14@gmail.com"| 1
+8 |"Blake Gilmore"| "iloveicecream"|"mblakegilmore@gmail.com" |2
