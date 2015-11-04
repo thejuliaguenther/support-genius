@@ -39,7 +39,7 @@ class Customer(models.Model):
     #customer_email = db.Column(db.String(50), nullable=True)
     email = models.EmailField(max_length=50, blank=True,)
     #company_id = db.Column(db.Integer, db.ForeignKey('companies.company_id'), nullable=False)
-    company_id = models.ForeignKey(Company,)
+    company_id = models.ForeignKey(Company)
     #customer_phone_number = db.Column(db.String(50), nullable=True)
     phone_number = models.CharField(max_length=50, blank=True,)
     #customer_job_title = db.Column(db.String(50), nullable=True)
@@ -49,6 +49,8 @@ class Customer(models.Model):
     # company = db.relationship("Company",
     #                           backref=db.backref("customers", order_by=customer_id))
 
+    def __unicode__(self):
+        return self.name, self.phone_number, self.job_title
 # @python_2_unicode_compatible
 class Agent(models.Model):
     
