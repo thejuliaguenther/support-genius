@@ -26,6 +26,9 @@ class Company(models.Model):
     # is_pilot = db.Column(db.String(10), nullable=True)
     is_pilot = models.CharField(max_length=50, blank=True,)
 
+    def __unicode__(self):
+        return self.name, self.domain, self.location, self.time_zone, self.industry, self.support_tier, self.is_pilot
+
 # @python_2_unicode_compatible
 class Customer(models.Model):
 
