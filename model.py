@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-DB_URI = "sqlite:///tickets.db"
+DB_URI = "sqlite:///hbproject.db"
 
 db = SQLAlchemy()
 
@@ -74,8 +74,7 @@ def connect_to_db(app):
     """Connect the database to our Flask app."""
 
     # Configure to use our SQLite database
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tickets.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
     app.config['SQLALCHEMY_ECHO'] = True
     db.app = app
     db.init_app(app)
