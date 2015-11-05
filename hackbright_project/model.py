@@ -4,48 +4,47 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-DB_URI = "sqlite:///tickets.db"
+DB_URI = 'postgresql://localhost/hbproject'
 
 db = SQLAlchemy()
-
-class Customer(db.Model):
-    
-    __tablename__ = "customers"
-
-    customer_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    customer_name = db.Column(db.String(50), nullable=False)
-    customer_email = db.Column(db.String(50), nullable=True)
-    company_id = db.Column(db.Integer, db.ForeignKey('companies.company_id'), nullable=False)
-    customer_phone_number = db.Column(db.String(50), nullable=True)
-    customer_job_title = db.Column(db.String(50), nullable=True)
-
-    #define relationship to company
-    company = db.relationship("Company",
-                              backref=db.backref("customers", order_by=customer_id))
 
 class Company(db.Model):
     
     __tablename__ = "companies"
 
-    company_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    company_name = db.Column(db.String(50), unique=True, nullable=True)
-    email_domain = db.Column(db.String(50), unique=True, nullable=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), unique=True, nullable=True)
+    domain = db.Column(db.String(50), unique=True, nullable=True)
     location = db.Column(db.String(100), nullable=True)
     time_zone = db.Column(db.String(100), nullable=True)
     industry = db.Column(db.String(50), nullable=True)
     support_tier = db.Column(db.String(10), nullable=True)
     is_pilot = db.Column(db.String(10), nullable=True)
 
+class Customer(db.Model):
+    
+    __tablename__ = "customers"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=True)
+    company_id = db.Column(db.Integer, db.ForeignKey('companies.id'), nullable=False)
+    phone_number = db.Column(db.String(50), nullable=True)
+    job_title = db.Column(db.String(50), nullable=True)
+
+    #define relationship to company
+    company = db.relationship("Company",
+                              backref=db.backref("customers", order_by=id))
 
 class Agent(db.Model):
     
     __tablename__ = "agents"
 
-    agent_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    agent_name = db.Column(db.String(50), nullable=True)
-    agent_password = db.Column(db.String(50), nullable=True)
-    agent_email = db.Column(db.String(50), nullable=True)
-    agent_tier = db.Column(db.Integer, nullable=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=True)
+    password = db.Column(db.String(50), nullable=True)
+    email = db.Column(db.String(50), nullable=True)
+    tier = db.Column(db.Integer, nullable=True)
 
 
 class Ticket(db.Model):
@@ -53,14 +52,14 @@ class Ticket(db.Model):
     __tablename__ = "tickets"
 
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    customer_id = db.Column(db.Integer(), db.ForeignKey('customers.customer_id'), nullable=False)
-    agent_id = db.Column(db.Integer(), db.ForeignKey('agents.agent_id'), nullable=False)
+    customer_id = db.Column(db.Integer(), db.ForeignKey('customers.id'), nullable=False)
+    agent_id = db.Column(db.Integer(), db.ForeignKey('agents.id'), nullable=False)
     time_submitted = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
     ticket_content = db.Column(db.String(), nullable=False)
-    resolution_time = db.Column(db.DateTime())
+    time_resolved = db.Column(db.DateTime())
     num_agent_touches = db.Column(db.Integer())
-    first_response_time = db.Column(db.DateTime())
+    time_first_responded = db.Column(db.DateTime())
  
     #define relationship to customer
     customer = db.relationship("Customer", 
@@ -72,8 +71,7 @@ def connect_to_db(app):
     """Connect the database to our Flask app."""
 
     # Configure to use our SQLite database
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tickets.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hbproject'
     app.config['SQLALCHEMY_ECHO'] = True
     db.app = app
     db.init_app(app)
