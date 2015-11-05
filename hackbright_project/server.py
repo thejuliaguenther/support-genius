@@ -1,11 +1,15 @@
-from flask import Flask 
+from jinja2 import StrictUndefined
+
+from flask import Flask, render_template, redirect, request, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db
 
 app = Flask(__name__)
 app.secret_key = "Hello world"
 
-@app.route('/tickets', methods=["POST", "GET"])
+app.jinja_env.undefined = StrictUndefined
+
+@app.route('/', methods=["POST", "GET"])
 def index():
     """
     Renders the home screen for the customer service app 
@@ -27,13 +31,14 @@ def show_ticket_detail():
 
     return render_template("individual_ticket.html")
 
-@app.route('/user_detail/<int:user_id')
+@app.route('/user_detail/<int:user_id>')
 def show_user_detail():
     """Shows details about a specific customer"""
 
     return render_template("user_detail.html")
 
 @app.route('/dashboard')
+def show_dashboard():
     """Shows the ticket analytics dashboard"""
 
     return render_template("dashboard.html")
@@ -42,8 +47,6 @@ def show_user_detail():
 if __name__ == "__main__":
     app.debug = True
     connect_to_db(app)
-
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     DebugToolbarExtension(app)
 
