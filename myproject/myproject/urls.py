@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+admin.autodiscover()
 
 urlpatterns = [
     url(r'^ticket_system/', include('ticket_system.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^sms/$', 'djtwilio.views.sms'),
+    url(r'^ring/$', 'djtwilio.views.ring'),
 ]
