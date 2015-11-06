@@ -30,28 +30,32 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-@app.route('/login', methods=["POST", "GET"])
+@app.route('/login', methods=["GET"])
 def show_login_form():
     """Shows login form."""
     
+    return render_template("login.html")
+
+@app.route('/process_login', methods=["POST"])
+def process_login():
+    """
+    If the username or password is incorrect, flash a message informing the 
+    user that the username or password is incorrect and allow them to login again
+    """
     username = request.form.get("username")
     password = request.form.get("password")
 
     login = Agent.query.filter(Agent.email == username).first()
 
     if not login or login.password != password:
-        """
-        If the username or password is incorrect, flash a message informing the 
-        user that the username or password is incorrect and allow them to login again
-        """
         flash("Username or password is incorrect")
-        return render_template("login.html")
+        return redirect('/login')
     else:
-        while user_email not in session.values():
-            session['user_name'] = user_email
+        
+        while username not in session.values():
+            session['user_name'] = username
         return redirect('/tickets')
-
-
+    
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail():
@@ -86,7 +90,7 @@ def show_dashboard():
 
 
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = False
     connect_to_db(app)
 
     DebugToolbarExtension(app)
