@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form action="/tickets", method="POST">
+<form action="/", method="POST">
     <label>Username: <input type="text" name="username"></label><br>
     <label>Password: <input type="text" name="password"></label>
     <input type="submit" value="Submit">

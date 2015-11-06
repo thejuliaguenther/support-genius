@@ -1,8 +1,8 @@
-"Stephanie Nguyen" |"puppy123" | "stephaniehnguyen@gmail.com" | 1
-"Christina Foran" |"iloveedtech" |"cforan99@gmail.com" | 2
-"Brandi Day" | "haveaniceday" |fgr8out@gmail.com | 3
-"Erica Johnson" | "123456doit" |"ericatj@gmail.com" | 1
-"Kayla Smith" | "networking" |"kytrick@gmail.com" | 2
-"Xye Dagun" | "kitten123"| "xye.d.dagun@gmail.com | 3
-"Julia Guenther"| "wOoOoT" |"jaguenther14@gmail.com"| 1
-"Blake Gilmore"| "iloveicecream"|"mblakegilmore@gmail.com" |2
+1 | Stephanie Nguyen | puppy123 | 609-555-0145 | stephaniehnguyen@gmail.com | 1
+2 | Christina Foran | iloveedtech | 609-555-0152 | cforan99@gmail.com | 2
+3 | Brandi Day | haveaniceday | 609-555-0125 |fgr8out@gmail.com | 3
+4 | Erica Johnson | 123456doit | 609-555-0196 | ericatj@gmail.com | 1
+5 | Kayla Smith | networking | 404-555-0175 | kytrick@gmail.com | 2
+6 | Xye Dagun | kitten123| 404-555-0193 | xye.d.dagun@gmail.com | 3
+7 | Julia Guenther | wOoOoT | 609-289-9111 | jaguenther14@gmail.com | 1
+8 | Blake Gilmore | iloveicecream | 404-555-0130 | mblakegilmore@gmail.com |2

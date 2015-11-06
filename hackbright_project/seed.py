@@ -17,7 +17,7 @@ from datetime import datetime
 
 def load_companies():
     """ Load companies from companies.txt to database"""
-    for row in open("companies.txt"):
+    for row in open("seed_data/companies.txt"):
         row = row.strip()
         id, name, domain, location, time_zone, industry, support_tier, is_pilot = row.split("|")
 
@@ -36,7 +36,7 @@ def load_companies():
 
 def load_customers():
     """ Load customers from customers.txt to database"""
-    for row in open("customers.txt"):
+    for row in open("seed_data/customers.txt"):
         row = row.strip()
         id, name, email, company_id, phone_number, job_title = row.split("|")
 
@@ -53,9 +53,9 @@ def load_customers():
 
 def load_agents():
     """ Load agents from agents.txt to database"""
-    for row in open("agents.txt"):
+    for row in open("seed_data/agents.txt"):
         row = row.strip()
-        id, name, password, email, tier= row.split("|")
+        id, name, password, phone_number, email, tier= row.split("|")
 
         agent = Agent(id=id.strip(),
                       name=name.strip(),
@@ -71,18 +71,19 @@ def load_agents():
 
 def load_tickets():
     """ Load tickets from tickets.txt to database"""
-    for row in open("tickets.txt"):
-        id, customer_id, agent_id, time_submitted, channel_submitted, ticket_content, time_resolved, num_agent_touches, time_first_responded= row.split("|")
+    for row in open("seed_data/tickets.txt"):
+        ticket_id, customer_id, time_submitted, agent_id, num_agent_touches, time_resolved, time_first_responded, channel_submitted, ticket_content= row.split("|")
 
         ticket = Ticket(ticket_id=ticket_id.strip(),
                         customer_id=customer_id.strip(),
-                        agent_id=agent_id.strip(),
                         time_submitted=datetime.strptime(time_submitted.strip(), '%m/%d/%y %H:%M'),
-                        channel_submitted=channel_submitted.strip(),
-                        ticket_content=ticket_content.strip(),
-                        time_resolved=datetime.strptime(time_resolved.strip(), '%m/%d/%y %H:%M'),
+                        agent_id=agent_id.strip(),
                         num_agent_touches=num_agent_touches.strip(),
-                        time_first_responded=datetime.strptime(time_first_responded.strip(), '%m/%d/%y %H:%M'))
+                        time_resolved=datetime.strptime(time_resolved.strip(), '%m/%d/%y %H:%M'),
+                        time_first_responded=datetime.strptime(time_first_responded.strip(), '%m/%d/%y %H:%M'),
+                        channel_submitted=channel_submitted.strip(),
+                        ticket_content=ticket_content.strip())
+                        
                         
         db.session.add(ticket)
 
@@ -94,7 +95,8 @@ if __name__ == "__main__":
 
     db.create_all()
 
-    load_customers()
-    load_companies()
-    load_agents()
+    
+    # load_companies()
+    # load_customers()
+    # load_agents()
     load_tickets()

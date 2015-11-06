@@ -43,6 +43,7 @@ class Agent(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=True)
     password = db.Column(db.String(50), nullable=True)
+    phone_number = db.Column(db.String(50), nullable=True)
     email = db.Column(db.String(50), nullable=True)
     tier = db.Column(db.Integer, nullable=True)
 
@@ -53,14 +54,14 @@ class Ticket(db.Model):
 
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     customer_id = db.Column(db.Integer(), db.ForeignKey('customers.id'), nullable=False)
-    agent_id = db.Column(db.Integer(), db.ForeignKey('agents.id'), nullable=False)
     time_submitted = db.Column(db.DateTime())
+    agent_id = db.Column(db.Integer(), db.ForeignKey('agents.id'), nullable=False)
+    num_agent_touches = db.Column(db.Integer())
+    time_resolved = db.Column(db.DateTime())
+    time_first_responded = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
     ticket_content = db.Column(db.String(), nullable=False)
-    time_resolved = db.Column(db.DateTime())
-    num_agent_touches = db.Column(db.Integer())
-    time_first_responded = db.Column(db.DateTime())
- 
+    
     #define relationship to customer
     customer = db.relationship("Customer", 
                                backref=db.backref("tickets", order_by=ticket_id))

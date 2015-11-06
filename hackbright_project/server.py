@@ -17,6 +17,10 @@ def index():
     Contains a table showing the tickets currently in the system
 
     """
+    # ticket_list = Ticket.query.order_by(Ticket.id).all()
+
+    # for ticket in ticket_list:
+    #     ticket.agent_id = 
 
     return render_template("tickets.html")
 
