@@ -7,16 +7,13 @@
     <th>Assigned to </th>
     <th>Status</th>
   </tr>
-  <tr>
-
-  </tr>
-  <tr>
-
-  </tr>
-  <tr>
-
-  </tr>
-
+  {% for ticket in ticket_list %}
+   <tr>
+    <td>{{ticket[0]}}</td>
+    <td>{{ticket[1]}}</td>
+    <td>{{ticket[2]}}</td>
+   </tr>
+  {% endfor %}
 </table>
 
 {% endblock %}

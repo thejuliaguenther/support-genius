@@ -2,7 +2,7 @@ from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
-from model import connect_to_db, db
+from model import Ticket,connect_to_db, db
 
 app = Flask(__name__)
 app.secret_key = "Hello world"
@@ -17,12 +17,17 @@ def index():
     Contains a table showing the tickets currently in the system
 
     """
-    # ticket_list = Ticket.query.order_by(Ticket.id).all()
+    tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    ticket_list = []
 
-    # for ticket in ticket_list:
-    #     ticket.agent_id = 
+    for ticket in tickets:
+        ticket_num = ticket.ticket_id 
+        submission_time = ticket.time_submitted
+        assigned_to = ticket.agent_id 
+        ticket_tuple = (ticket_num, submission_time, assigned_to)
+        ticket_list.append(ticket_tuple)
 
-    return render_template("tickets.html")
+    return render_template("tickets.html", ticket_list=ticket_list)
 
 @app.route('/login')
 def show_login_form():
