@@ -1,8 +1,9 @@
 from jinja2 import StrictUndefined
-
+from datetime import datetime
+from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
-from model import Ticket,connect_to_db, db
+from model import Ticket, Agent, connect_to_db, db
 
 app = Flask(__name__)
 app.secret_key = "Hello world"
@@ -29,10 +30,28 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-@app.route('/login')
+@app.route('/login', methods=["POST", "GET"])
 def show_login_form():
     """Shows login form."""
-    return render_template("login.html")
+    
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    login = Agent.query.filter(Agent.email == username).first()
+
+    if not login or login.password != password:
+        """
+        If the username or password is incorrect, flash a message informing the 
+        user that the username or password is incorrect and allow them to login again
+        """
+        flash("Username or password is incorrect")
+        return render_template("login.html")
+    else:
+        while user_email not in session.values():
+            session['user_name'] = user_email
+        return redirect('/tickets')
+
+
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail():
@@ -49,6 +68,19 @@ def show_user_detail():
 @app.route('/dashboard')
 def show_dashboard():
     """Shows the ticket analytics dashboard"""
+    # tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+
+    # tickets_by_time = {}
+
+    # for ticket in tickets:
+    #     ticket_submitted = strptime(ticket.time_submitted)
+    #     ticket_day_of_week = ticket_submitted.weekday()
+    #     ticket_hour_submitted = ticket_submitted.hour
+        
+    #     if ticket_hour_submitted not in tickets_by_time:
+    #         tickets_by_time
+        
+    #     tickets_by_time.append({""})
 
     return render_template("dashboard.html")
 
