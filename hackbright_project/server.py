@@ -9,7 +9,7 @@ app.secret_key = "Hello world"
 
 app.jinja_env.undefined = StrictUndefined
 
-@app.route('/', methods=["POST", "GET"])
+@app.route('/tickets', methods=["POST", "GET"])
 def index():
     """
     Renders the home screen for the customer service app 
@@ -18,7 +18,7 @@ def index():
 
     """
 
-    return render_template("homepage.html")
+    return render_template("tickets.html")
 
 @app.route('/login')
 def show_login_form():
