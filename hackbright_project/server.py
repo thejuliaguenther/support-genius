@@ -72,19 +72,19 @@ def show_user_detail():
 @app.route('/dashboard')
 def show_dashboard():
     """Shows the ticket analytics dashboard"""
-    # tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    tickets = Ticket.query.order_by(Ticket.ticket_id).all()
 
-    # tickets_by_time = {}
+    tickets_by_time = {}
 
-    # for ticket in tickets:
-    #     ticket_submitted = strptime(ticket.time_submitted)
-    #     ticket_day_of_week = ticket_submitted.weekday()
-    #     ticket_hour_submitted = ticket_submitted.hour
+    for ticket in tickets:
+        ticket_submitted = strptime(ticket.time_submitted)
+        ticket_day_of_week = ticket_submitted.weekday()
+        ticket_hour_submitted = ticket_submitted.hour
         
-    #     if ticket_hour_submitted not in tickets_by_time:
-    #         tickets_by_time
-        
-    #     tickets_by_time.append({""})
+        if ticket_hour_submitted not in tickets_by_time:
+            tickets_by_time
+        ticket_tuple = (ticket_submitted, ticket_day_of_week, ticket_hour_submitted)
+        tickets_by_time.append(ticket_tuple)
 
     return render_template("dashboard.html")
 
