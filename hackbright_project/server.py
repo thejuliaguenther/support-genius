@@ -24,8 +24,10 @@ def index():
     for ticket in tickets:
         ticket_num = ticket.ticket_id 
         submission_time = ticket.time_submitted
-        assigned_to = ticket.agent_id 
-        ticket_tuple = (ticket_num, submission_time, assigned_to)
+        agent_assigned_to = Agent.query.filter(Agent.id == ticket.agent_id).first()
+        print agent_assigned_to
+        agent_name = agent_assigned_to.name
+        ticket_tuple = (ticket_num, submission_time, agent_name)
         ticket_list.append(ticket_tuple)
 
     return render_template("tickets.html", ticket_list=ticket_list)
