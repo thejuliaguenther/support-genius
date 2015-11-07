@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Analytics Dashboard</h1>
- <head>
+<!--  <head>
     <style>
       rect.bordered {
         stroke: #E6E6E6;
@@ -140,4 +140,12 @@
           heatmapChart(d);
         });
     </script>
-  </body>
+  </body> -->
+
+<table>
+  {% for ticket in json_tickets %}
+      <tr><td>{{ticket[0]}}</td><td>{{ticket[1]}}</td><td>{{ticket[2]}}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}
+

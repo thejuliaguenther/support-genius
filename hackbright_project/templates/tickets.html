@@ -9,7 +9,7 @@
   </tr>
   {% for ticket in ticket_list %}
    <tr>
-    <td>{{ticket[0]}}</td>
+    <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
     <td>{{ticket[1]}}</td>
     <td>{{ticket[2]}}</td>
    </tr>
