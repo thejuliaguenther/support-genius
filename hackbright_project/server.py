@@ -62,10 +62,18 @@ def process_login():
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail(ticket_id):
     """Shows individual ticket details"""
-    ticket = Ticket.query.filter(Ticket.ticket_id == ticket_id)
+    ticket = Ticket.query.filter(Ticket.ticket_id == ticket_id).first()
     selected_ticket_id = ticket_id
+    ticket_text = ticket.ticket_content
+    ticket_time = ticket.time_submitted
+    ticket_agent = agent_assigned_to = Agent.query.filter(Agent.id == ticket.agent_id).first().name
+    ticket_customer = Customer.query.filter(Customer.id == ticket.customer_id).first()
+    customer_email = ticket_customer.email
+    customer_name = ticket_customer.name
     
-    return render_template("individual_ticket.html", selected_ticket_id=selected_ticket_id)
+    return render_template("individual_ticket.html", selected_ticket_id=selected_ticket_id, 
+        ticket_text=ticket_text, ticket_time=ticket_time, ticket_agent=ticket_agent, 
+        customer_email=customer_email, customer_name=customer_name)
 
 @app.route('/user_detail/<int:user_id>')
 def show_user_detail():

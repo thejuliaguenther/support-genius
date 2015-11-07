@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Ticket # {{selected_ticket_id}}
+<h1>Ticket # {{selected_ticket_id}}</h1>
+<div class="ticket-header">
+    <h2>Assignee: {{ticket_agent}}</h2>
+    <h2>From: {{customer_name}} ({{customer_email}})</h2>
+    <h2>{{ticket_time}}</h2>
+</div>
+<div class= "ticket-text">
+    <p>{{ticket_text}}</p>
+</div> 
 <textarea class="form-control" rows="3"></textarea>
 <input type="submit" value="Reply">
 {% endblock %}
