@@ -3,7 +3,7 @@ from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
 from flask_debugtoolbar import DebugToolbarExtension
-from model import Ticket, Agent, Customer, connect_to_db, db
+from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
 app = Flask(__name__)
 app.secret_key = "Hello world"
@@ -70,16 +70,30 @@ def show_ticket_detail(ticket_id):
     ticket_customer = Customer.query.filter(Customer.id == ticket.customer_id).first()
     customer_email = ticket_customer.email
     customer_name = ticket_customer.name
+    customer_id = ticket_customer.id
     
     return render_template("individual_ticket.html", selected_ticket_id=selected_ticket_id, 
         ticket_text=ticket_text, ticket_time=ticket_time, ticket_agent=ticket_agent, 
-        customer_email=customer_email, customer_name=customer_name)
+        customer_email=customer_email, customer_name=customer_name, customer_id=customer_id)
 
-@app.route('/user_detail/<int:user_id>')
-def show_user_detail():
-    """Shows details about a specific customer"""
+@app.route('/user_detail/<int:customer_id>')
+def show_user_detail(customer_id):
+    """Shows details about a specific customer, including the customer's name, 
+       email address, company, job title, and all of the tickets associated with the customer
+    """
+    customer = Customer.query.filter(Customer.id == customer_id).first()
+    customer_name = customer.name
+    customer_email = customer.email
+    customer_phone = customer.phone_number
+    customer_company = Customer.query.filter(Customer.company_id == Company.id).first().name
+    customer_job_title = customer.job_title
+    # customer_tickets = Customer.query.filter(Customer.id == Ticket.company_id).all()
+
+    #ADD A JOIN TO MODEL SO CAN GET ALL THE TICKETS FOR EACH CUSTOMER 
     
-    return render_template("user_detail.html")
+    return render_template("user_detail.html", customer_name=customer_name, 
+        customer_email=customer_email, customer_phone=customer_phone, 
+        customer_company=customer_company, customer_job_title=customer_job_title)
 
 @app.route('/dashboard')
 def get_tickets_to_display():
