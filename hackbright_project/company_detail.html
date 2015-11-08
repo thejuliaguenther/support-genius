@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{company_name}}</h1>
+<h2>Location: {{company_location}}</h2>
+<h2>Time Zone: {{company_timezone}}</h2>
+<h2>Industry: {{company_industry}}</h2>
+<h2>Support Tier: {{company_tier}}</h2>
+{% if company_pilot == 'Yes' %}
+    <h2>Pilot</h2>
+{% endif %}
+{% endblock %}

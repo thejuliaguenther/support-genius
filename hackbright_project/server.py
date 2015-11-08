@@ -58,6 +58,20 @@ def process_login():
             session['user_name'] = username
         return redirect('/tickets')
     
+@app.route('/companies/<int:company_id>')
+def show_company_detail(company_id):
+    """Shows indivisual company details"""
+    company = Company.query.filter(Company.id == company_id).first()
+    company_name = company.name
+    company_location = company.location
+    company_timezone = company.time_zone
+    company_industry = company.industry
+    company_tier = company.support_tier
+    company_pilot = company.is_pilot
+
+    return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
+        company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
+        company_pilot=company_pilot)
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail(ticket_id):
@@ -85,7 +99,9 @@ def show_user_detail(customer_id):
     customer_name = customer.name
     customer_email = customer.email
     customer_phone = customer.phone_number
-    customer_company = Customer.query.filter(Customer.company_id == Company.id).first().name
+    customer_company = Customer.query.filter(Customer.company_id == Company.id).first()
+    customer_company_name= customer_company.name
+    customer_company_id = customer_company.id
     customer_job_title = customer.job_title
     # customer_tickets = Customer.query.filter(Customer.id == Ticket.company_id).all()
 
@@ -93,7 +109,8 @@ def show_user_detail(customer_id):
     
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
-        customer_company=customer_company, customer_job_title=customer_job_title)
+        customer_company_name=customer_company_name, customer_company_id=customer_company_id,
+         customer_job_title=customer_job_title)
 
 @app.route('/dashboard')
 def get_tickets_to_display():
