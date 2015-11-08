@@ -114,16 +114,18 @@ def show_user_detail(customer_id):
     customer_company_name= customer_company.name
     customer_company_id = customer_company.id
     customer_job_title = customer.job_title
-    # customer_tickets = Customer.query.filter(Customer.id == Ticket.customer_id).all()
+    customer_tickets = Ticket.query.filter(customer_id == Ticket.customer_id).all()
 
-    
+    customer_ticket_list = process_tickets_to_display(customer_tickets)
+
+
 
     #ADD A JOIN TO MODEL SO CAN GET ALL THE TICKETS FOR EACH CUSTOMER 
     
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
         customer_company_name=customer_company_name, customer_company_id=customer_company_id,
-         customer_job_title=customer_job_title, customer_tickets=customer_tickets)
+         customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
 @app.route('/dashboard')
 def get_tickets_to_display():

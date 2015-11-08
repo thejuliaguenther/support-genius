@@ -13,7 +13,7 @@
     <th>Assigned to </th>
     <th>Status</th>
   </tr>
-{% for ticket in customer_tickets %}
+{% for ticket in customer_ticket_list %}
   <tr>
     <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
     <td>{{ticket[1]}}</td>
