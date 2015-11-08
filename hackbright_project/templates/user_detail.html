@@ -5,4 +5,20 @@
 <h2>Phone: {{customer_phone}}</h2>
 <h2><a href="/companies/{{customer_company_id}}">Company: {{customer_company_name}}</a></h2>
 <h2>Position: {{customer_job_title}}</h2>
+<h2>{{customer_name}}'s Tickets</h2>
+<table class="table table-hover">
+  <tr>
+    <th>Ticket #</th>
+    <th>Time Submitted</th>
+    <th>Assigned to </th>
+    <th>Status</th>
+  </tr>
+{% for ticket in customer_tickets %}
+  <tr>
+    <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
+    <td>{{ticket[1]}}</td>
+    <td>{{ticket[2]}}</td>
+   </tr>
+  {% endfor %}
+</table>
 {% endblock %}

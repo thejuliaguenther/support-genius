@@ -10,15 +10,11 @@ app.secret_key = "Hello world"
 
 app.jinja_env.undefined = StrictUndefined
 
-@app.route('/tickets', methods=["POST", "GET"])
-def index():
+def process_tickets_to_display(tickets):
+    """ 
+    Gets the tickets to display from the database and 
+    returns them in an iterable list
     """
-    Renders the home screen for the customer service app 
-
-    Contains a table showing the tickets currently in the system
-
-    """
-    tickets = Ticket.query.order_by(Ticket.ticket_id).all()
     ticket_list = []
 
     for ticket in tickets:
@@ -29,6 +25,20 @@ def index():
         agent_name = agent_assigned_to.name
         ticket_tuple = (ticket_num, submission_time, agent_name)
         ticket_list.append(ticket_tuple)
+
+    return ticket_list
+
+@app.route('/tickets', methods=["POST", "GET"])
+def index():
+    """
+    Renders the home screen for the customer service app 
+
+    Contains a table showing the tickets currently in the system
+
+    """
+    tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    
+    ticket_list = process_tickets_to_display(tickets)
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
@@ -68,6 +78,7 @@ def show_company_detail(company_id):
     company_industry = company.industry
     company_tier = company.support_tier
     company_pilot = company.is_pilot
+    company_tickets = Company.query.filter()
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
@@ -103,14 +114,16 @@ def show_user_detail(customer_id):
     customer_company_name= customer_company.name
     customer_company_id = customer_company.id
     customer_job_title = customer.job_title
-    # customer_tickets = Customer.query.filter(Customer.id == Ticket.company_id).all()
+    # customer_tickets = Customer.query.filter(Customer.id == Ticket.customer_id).all()
+
+    
 
     #ADD A JOIN TO MODEL SO CAN GET ALL THE TICKETS FOR EACH CUSTOMER 
     
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
         customer_company_name=customer_company_name, customer_company_id=customer_company_id,
-         customer_job_title=customer_job_title)
+         customer_job_title=customer_job_title, customer_tickets=customer_tickets)
 
 @app.route('/dashboard')
 def get_tickets_to_display():
