@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>{{agent_name}}</h1>
+<h2>Tier {{agent_tier}} Support Specialist</h2>
+<h2>Email: {{agent_email}}</h2>
+<h2>Phone Number: {{agent_phone_number}}</h2>
+<h2>Tickets {{agent_name}} is assigned to</h2>
 <table class="table table-hover">
   <tr>
     <th>Ticket #</th>
     <th>Time Submitted</th>
-    <th>Assigned to </th>
     <th>Status</th>
   </tr>
-  {% for ticket in ticket_list %}
-   <tr>
+{% for ticket in agent_ticket_list %}
+  <tr>
     <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
     <td>{{ticket[1]}}</td>
-    <td><a href="/agent_detail/{{ticket[3]}}">{{ticket[2]}}</a></td>
    </tr>
   {% endfor %}
 </table>
-
 {% endblock %}

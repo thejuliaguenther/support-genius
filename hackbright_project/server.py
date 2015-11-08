@@ -21,9 +21,9 @@ def process_tickets_to_display(tickets):
         ticket_num = ticket.ticket_id 
         submission_time = ticket.time_submitted
         agent_assigned_to = Agent.query.filter(Agent.id == ticket.agent_id).first()
-        print agent_assigned_to
         agent_name = agent_assigned_to.name
-        ticket_tuple = (ticket_num, submission_time, agent_name)
+        agent_id = ticket.agent_id
+        ticket_tuple = (ticket_num, submission_time, agent_name, agent_id)
         ticket_list.append(ticket_tuple)
 
     return ticket_list
@@ -127,6 +127,7 @@ def show_user_detail(customer_id):
         customer_company_name=customer_company_name, customer_company_id=customer_company_id,
          customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
+
 @app.route('/dashboard')
 def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
@@ -151,7 +152,23 @@ def get_tickets_to_display():
 #     """ Displays the graphs showing ticket metrics"""
 #     return render_template("dashboard.html")
 
-    
+@app.route('/agent_detail/<int:agent_id>')
+def show_agent_detail(agent_id):
+    """Shows details about the agent clicked on in the ticket view"""
+    agent = Agent.query.filter(Agent.id == agent_id).first()
+    agent_name = agent.name
+    agent_tier = agent.tier
+    agent_email = agent.email
+    agent_phone_number = agent.phone_number
+
+    agent_tickets = Ticket.query.filter(agent_id == Ticket.agent_id).all()
+
+    agent_ticket_list = process_tickets_to_display(agent_tickets)
+
+    return render_template("agent_detail.html", agent_name=agent_name, agent_tier=agent_tier,
+        agent_email=agent_email, agent_phone_number=agent_phone_number, agent_ticket_list=agent_ticket_list)
+
+
 # @app.route('/dashboard')
 # def show_dashboard():
 #     """Shows the ticket analytics dashboard"""
