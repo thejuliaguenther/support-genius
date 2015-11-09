@@ -3,6 +3,7 @@ from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
 from flask_debugtoolbar import DebugToolbarExtension
+# from twilio.rest import TwilioRestClient
 from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
 app = Flask(__name__)
@@ -27,6 +28,17 @@ def process_tickets_to_display(tickets):
         ticket_list.append(ticket_tuple)
 
     return ticket_list
+
+def load_twilio_config():
+    twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+    twilio_auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+    twilio_number = os.environ.get('TWILIO_NUMBER')
+
+    if not all([twilio_account_sid, twilio_auth_token, twilio_number]):
+        logger.error(NOT_CONFIGURED_MESSAGE)
+        raise MiddlewareNotUsed
+
+    return (twilio_number, twilio_account_sid, twilio_auth_token)
 
 @app.route('/tickets', methods=["POST", "GET"])
 def index():
@@ -128,29 +140,25 @@ def show_user_detail(customer_id):
          customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
 
-@app.route('/dashboard')
+@app.route('/dashboard_data')
 def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
 
-    tickets_by_time = []
+    tickets_by_time = {}
 
     for ticket in tickets:
-        ticket_submitted = ticket.time_submitted
         ticket_id = ticket.ticket_id
-        ticket_day_of_week = ticket_submitted.weekday()
-        ticket_hour_submitted = ticket_submitted.hour
+        ticket_dict ={"hour_submitted":ticket.time_submitted.hour, 
+        "weekday_submitted":ticket.time_submitted.weekday()}
         
-        if ticket_hour_submitted not in tickets_by_time:
-            ticket_dict = (ticket_id, ticket_day_of_week, ticket_hour_submitted)
-            tickets_by_time.append(ticket_dict)
-    # json_tickets = jsonify(tickets_by_time=tickets_by_time)
-    json_tickets = json.dumps(tickets_by_time)
-    print type(json_tickets)
-    return render_template("dashboard.html", json_tickets=json_tickets)
-# def display_dashboard():
-#     """ Displays the graphs showing ticket metrics"""
-#     return render_template("dashboard.html")
+        tickets_by_time[ticket_id] = ticket_dict
+    return jsonify(tickets_by_time)
+
+@app.route('/dashboard')
+def display_dashboard():
+    """ Displays the graphs showing ticket metrics"""
+    return render_template("dashboard.html")
 
 @app.route('/agent_detail/<int:agent_id>')
 def show_agent_detail(agent_id):
