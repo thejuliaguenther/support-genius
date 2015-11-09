@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
- <head>
     <style>
       rect.bordered {
         stroke: #E6E6E6;
@@ -24,13 +23,9 @@
     <script src="http://d3js.org/d3.v3.js"></script>
   </head>
   <body>
-    <h1>Analytics Dashboard</h1>
-    <div id="chart"><h2>Ticket Heatmap</h2></div>
-    
+    <div id="chart"></div>
     <div id="dataset-picker">
     </div>
-    <h2>Response Time</h2>
-    <h2>Resolution Time</h2>
     <script type="text/javascript">
       var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           width = 960 - margin.left - margin.right,
@@ -69,15 +64,14 @@
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
-      var heatmapChart = function(json_route) {
-        d3.json(json_route, 
+      var heatmapChart = function(tsvFile) {
+        d3.tsv(tsvFile,
         function(d) {
-          // console.log({
-          //   day: +d.day,
-          //   hour: +d.hour,
-          //   value: +d.value
-          // });
-          for(var )
+          return {
+            day: +d.day,
+            hour: +d.hour,
+            value: +d.value
+          };
         },
         function(error, data) {
           var colorScale = d3.scale.quantile()
@@ -130,12 +124,10 @@
         });  
       };
 
-      // heatmapChart(datasets[0]);
-      json_route = '/dashboard_data'
-      heatmapChart(json_route);
+      heatmapChart(datasets[0]);
       
-      // var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
-      //   .data(datasets);
+      var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
+        .data(datasets);
 
       // datasetpicker.enter()
       //   .append("input")
@@ -146,8 +138,6 @@
       //     heatmapChart(d);
       //   });
     </script>
-  </body>
-
 
 {% endblock %}
 
