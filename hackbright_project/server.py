@@ -145,15 +145,35 @@ def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
 
-    tickets_by_time = {}
+    #Set the initial values for hour and day
+    hour = 0
+    day = 0
+    
+    for day in range(7):
+        for hour in range(24):
+            tickets_by_day = Ticket.query.order_by(Ticket.time_submitted.weekday()==day).all()
+            tickets_by_hour = Ticket.query.order_by(Ticket.time_submitted.hour==hour).all()
+            
+            tickets_to_add = tickets_by_day.intersect(tickets_by_hour)
 
-    for ticket in tickets:
-        ticket_id = ticket.ticket_id
-        ticket_dict ={"hour_submitted":ticket.time_submitted.hour, 
-        "weekday_submitted":ticket.time_submitted.weekday()}
+
+
+
+    # tickets_by_time = {}
+
+    # for ticket in tickets:
+    #     ticket_id = ticket.ticket_id
+    #     ticket_dict ={"hour_submitted":ticket.time_submitted.hour, 
+    #     "weekday_submitted":ticket.time_submitted.weekday()}
         
-        tickets_by_time[ticket_id] = ticket_dict
-    return jsonify(tickets_by_time)
+    #     tickets_by_time[ticket_id] = ticket_dict
+    # return jsonify(tickets_by_time)
+    tickets_by_time = []
+    for ticket in tickets:
+        ticket_dict ={"ticket_id":ticket.ticket_id, "hour_submitted":ticket.time_submitted.hour, 
+        "weekday_submitted":ticket.time_submitted.weekday()}
+        tickets_by_time.append()
+
 
 @app.route('/dashboard')
 def display_dashboard():

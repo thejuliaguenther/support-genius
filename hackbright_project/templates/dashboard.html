@@ -65,7 +65,7 @@
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
       var heatmapChart = function(tsvFile) {
-        d3.tsv(tsvFile,
+        d3.json("/dashboard_data",
         function(d) {
           return {
             day: +d.day,
