@@ -140,11 +140,13 @@ def show_user_detail(customer_id):
          customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
 
-@app.route('/dashboard_data', methods=["POST"])
+@app.route('/dashboard', methods=["POST"])
 def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
     # ticket_list =[] #A list of objects to be returned in JSON 
     ticket_dict = {}
+
+    ticket_list = []
 
     date_range = request.form.get("date-range")
     
@@ -162,48 +164,47 @@ def get_tickets_to_display():
     for ticket in tickets_in_range:
         ticket_hour = ticket.time_submitted.hour
         ticket_weekday = ticket.time_submitted.weekday()
-        weekday_hour = str((ticket_weekday, ticket_hour))
+        weekday_hour = (ticket_weekday, ticket_hour)
 
         if weekday_hour not in ticket_dict:
             ticket_dict[weekday_hour] = 1
         else:
             ticket_dict[weekday_hour] += 1 
-    return jsonify(data=ticket_dict)
 
-    # #Set the initial values for hour and day
-    # hour = 0
-    # day = 0
-    # tickets_by_time = []
+    for key in ticket_dict:
+        ticket_details = {'day': key[0], 'hour': key[1], 'value': ticket_dict[key]}
+        ticket_list.append(ticket_details)
+              
+
+    # for ticket in tickets_in_range:
+    #     ticket_hour = ticket.time_submitted.hour
+    #     ticket_weekday = ticket.time_submitted.weekday()
+
+
+
+    return jsonify(data=ticket_list)
+
+@app.route('/dashboard_response_time', methods=["POST"])
+def get_response_times():
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    type(start_date)
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+
+@app.route('/dashboard_tickets_by_tier', methods=["POST"])
+def get_tickets_by_tier():
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    type(start_date)
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
-    # for day in range(7):
-    #     for hour in range(24):
-    #         tickets_by_day = Ticket.query.filter(Ticket.time_submitted.weekday()==day).all()
-    #         tickets_by_hour = Ticket.query.filter(Ticket.time_submitted.hour==hour).all()
-            
-    #         tickets_to_add = tickets_by_day.intersect(tickets_by_hour)
-    #         ticket_count = tickets_to_add.count()
- 
-    #         tickets_by_time.append({'day':day, 'hour':hour, 'count':ticket_count})
-    # return jsonify(data=tickets_by_time) #from Cynthia 
-
-
-
-
-    # # tickets_by_time = {}
-
-    # # for ticket in tickets:
-    # #     ticket_id = ticket.ticket_id
-    # #     ticket_dict ={"hour_submitted":ticket.time_submitted.hour, 
-    # #     "weekday_submitted":ticket.time_submitted.weekday()}
-        
-    # #     tickets_by_time[ticket_id] = ticket_dict
-    # # return jsonify(tickets_by_time)
-    # tickets_by_time = []
-    # for ticket in tickets:
-    #     ticket_dict ={"ticket_id":ticket.ticket_id, "hour_submitted":ticket.time_submitted.hour, 
-    #     "weekday_submitted":ticket.time_submitted.weekday()}
-    #     tickets_by_time.append()
-
+    #get hte customer id associated with the tickets 
 
 @app.route('/dashboard')
 def display_dashboard():

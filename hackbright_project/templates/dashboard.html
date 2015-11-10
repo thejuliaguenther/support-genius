@@ -25,7 +25,7 @@
   <body>
     <div id="chart"></div>
     <div id="dataset-picker">
-      <form method="POST" action="/dashboard_data">
+      <form method="POST" action="/dashboard">
       <select class="form-control" name="date-range" >
           <option>09/27/2015 00:00:00-10/3/2015 11:59:59</option>
           <option>10/4/2015 00:00:00-10/10/2015 11:59:59</option>
@@ -74,15 +74,10 @@
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
-      var heatmapChart = function(tsvFile) {
-        d3.json("/dashboard_data",
-        function(d) {
-          return {
-            // day: +d.day,
-            // hour: +d.hour,
-            // value: +d.value
-          };
-        },
+      json_route = "/dashboard"
+      var heatmapChart = function() {
+        d3.json(json_route,
+      
         function(error, data) {
           var colorScale = d3.scale.quantile()
               .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
@@ -139,7 +134,7 @@
       var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-pulldown")
         .data(datasets);
 
-      // datasetpicker.enter()
+      datasetpicker.enter()
       //   .append("input")
       //   .attr("value", function(d){ return "Dataset " + d })
       //   .attr("type", "button")
