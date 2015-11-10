@@ -140,10 +140,35 @@ def show_user_detail(customer_id):
          customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
 
-@app.route('/dashboard_data')
+@app.route('/dashboard_data', methods=["POST"])
 def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
-    tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    # ticket_list =[] #A list of objects to be returned in JSON 
+    ticket_dict = {}
+
+    date_range = request.form.get("date-range")
+    
+    date_range = date_range.split('-')
+
+    
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    type(start_date)
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+    
+    for ticket in tickets_in_range:
+        ticket_hour = ticket.time_submitted.hour
+        ticket_weekday = ticket.time_submitted.weekday()
+        weekday_hour = str((ticket_weekday, ticket_hour))
+
+        if weekday_hour not in ticket_dict:
+            ticket_dict[weekday_hour] = 1
+        else:
+            ticket_dict[weekday_hour] += 1 
+    return jsonify(data=ticket_dict)
 
     # #Set the initial values for hour and day
     # hour = 0
