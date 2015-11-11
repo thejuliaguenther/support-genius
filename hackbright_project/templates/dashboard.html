@@ -25,8 +25,9 @@
   <body>
     <div id="chart"></div>
     <div id="dataset-picker">
-      <form id="ticket-ranges" method="GET" action="/dashboard_data">
-      <select class="form-control" name="date-range" >
+      <!-- <form id="ticket-ranges" method="GET" action="/dashboard_data"> -->
+      <form id="ticket-ranges">
+      <select id ="date-range"class="form-control" name="date-range" >
           <option>09/27/2015 00:00:00-10/3/2015 11:59:59</option>
           <option>10/4/2015 00:00:00-10/10/2015 11:59:59</option>
           <option>10/11/2015 00:00:00-10/17/2015 11:59:59</option>
@@ -34,7 +35,28 @@
           <option>10/25/2015 00:00:00-10/31/2015 11:59:59</option>
       </select>
       <button type="submit" class="btn btn-default">Select</button>
+    </form>
+    <script>
+      // $('#ticket-ranges').submit(function(e)){
+      //   e.preventDefault();
+
+      //   var $form = $(this),
+
+      function submitForm(e){
+        e.preventDefault();
+
+        var input = $("date-range").val();
+
+        $.post("/dashboard_data", input);
+
+        $.post("/dashboard_response_time", input);
+      }
+
+    $("#ticket-ranges").on("submit", submitForm);
+
+    </script>
     </div>
+    <div id="piecharts"></div>
     <script type="text/javascript">
 
     //These lines set up the heatmap for tickets per hour and day of the week
@@ -77,7 +99,7 @@
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
       
-      var heatmapChart = function () {
+      function heatmapChart() {
 
         json_route = "/dashboard_data?" + $('#ticket-ranges').serialize();
         console.log(json_route);
@@ -141,8 +163,8 @@
           e.preventDefault();
           heatmapChart();
         });
-
-
+   </script>
+<script type="text/javascript">
     //These lines set up the pie chart with data on tickets from different customer tiers
     var width = 960,
     height = 500,
@@ -165,29 +187,36 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("data.csv", function(error, data) {
+function customerTierGraph(){
 
-  data.forEach(function(d) {
-    d.population = +d.population;
-  });
+  $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
 
-  var g = svg.selectAll(".arc")
-      .data(pie(data))
-    .enter().append("g")
-      .attr("class", "arc");
+    data.forEach(function(d) {
+      d.population = +d.population;
+    });
 
-  g.append("path")
-      .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.age); });
+    var g = svg.selectAll(".arc")
+        .data(pie(data))
+        .enter().append("g")
+        .attr("class", "arc");
 
-  g.append("text")
-      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .style("text-anchor", "middle")
-      .text(function(d) { return d.data.age; });
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return color(d.data.age); });
+
+    g.append("text")
+        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+        .attr("dy", ".35em")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.data.age; });
+    });
 
 });
-    </script>
+  $('#ticket-ranges').on("submit", function(e) {
+          e.preventDefault();
+          customerTierGraph();
+});
+</script>
 
 {% endblock %}
 

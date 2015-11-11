@@ -190,7 +190,7 @@ def get_response_times():
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
 
-@app.route('/dashboard_tickets_by_tier', methods=["GET"])
+@app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     date_range = date_range.split('-')
