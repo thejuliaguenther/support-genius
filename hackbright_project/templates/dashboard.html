@@ -25,7 +25,7 @@
   <body>
     <div id="chart"></div>
     <div id="dataset-picker">
-      <form method="POST" action="/dashboard">
+      <form id="ticket-ranges" method="GET" action="/dashboard_data">
       <select class="form-control" name="date-range" >
           <option>09/27/2015 00:00:00-10/3/2015 11:59:59</option>
           <option>10/4/2015 00:00:00-10/10/2015 11:59:59</option>
@@ -74,23 +74,27 @@
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
-      json_route = "/dashboard"
-      var heatmapChart = function() {
+      
+      var heatmapChart = function () {
+
+        json_route = "/dashboard_data?" + $('#ticket-ranges').serialize();
+        console.log(json_route);
         d3.json(json_route,
       
         function(error, data) {
+          console.log(data);
           var colorScale = d3.scale.quantile()
               .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
               .range(colors);
 
           var cards = svg.selectAll(".hour")
-              .data(data, function(d) {return d.day+':'+d.hour;});
+              .data(data.data, function(d) {return d.day+':'+d.hour;});
 
           cards.append("title");
 
           cards.enter().append("rect")
-              .attr("x", function(d) { return (d.hour - 1) * gridSize; })
-              .attr("y", function(d) { return (d.day - 1) * gridSize; })
+              .attr("x", function(d) { return (d.hour) * gridSize; })
+              .attr("y", function(d) { return (d.day) * gridSize; })
               .attr("rx", 4)
               .attr("ry", 4)
               .attr("class", "hour bordered")
@@ -129,19 +133,20 @@
         });  
       };
 
-      heatmapChart(datasets[0]);
+      heatmapChart();
       
-      var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-pulldown")
-        .data(datasets);
+      // var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-pulldown")
+      //   .data(datasets);
 
-      datasetpicker.enter()
+      // datasetpicker.enter()
       //   .append("input")
       //   .attr("value", function(d){ return "Dataset " + d })
       //   .attr("type", "button")
       //   .attr("class", "dataset-button")
-      //   .on("click", function(d) {
-      //     heatmapChart(d);
-      //   });
+      $('#ticket-ranges').on("submit", function(e) {
+          e.preventDefault();
+          heatmapChart();
+        });
     </script>
 
 {% endblock %}

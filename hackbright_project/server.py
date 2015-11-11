@@ -140,7 +140,7 @@ def show_user_detail(customer_id):
          customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
 
 
-@app.route('/dashboard', methods=["POST"])
+@app.route('/dashboard_data', methods=["GET"])
 def get_tickets_to_display():
     """ Gets the tickets to display in the dashboard heatmap"""
     # ticket_list =[] #A list of objects to be returned in JSON 
@@ -148,7 +148,7 @@ def get_tickets_to_display():
 
     ticket_list = []
 
-    date_range = request.form.get("date-range")
+    date_range = request.args.get("date-range")
     
     date_range = date_range.split('-')
 
@@ -205,6 +205,7 @@ def get_tickets_by_tier():
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
     #get hte customer id associated with the tickets 
+    #get the 
 
 @app.route('/dashboard')
 def display_dashboard():
