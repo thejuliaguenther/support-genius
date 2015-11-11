@@ -174,13 +174,6 @@ def get_tickets_to_display():
     for key in ticket_dict:
         ticket_details = {'day': key[0], 'hour': key[1], 'value': ticket_dict[key]}
         ticket_list.append(ticket_details)
-              
-
-    # for ticket in tickets_in_range:
-    #     ticket_hour = ticket.time_submitted.hour
-    #     ticket_weekday = ticket.time_submitted.weekday()
-
-
 
     return jsonify(data=ticket_list)
 
@@ -193,19 +186,47 @@ def get_response_times():
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+ 
 
-@app.route('/dashboard_tickets_by_tier', methods=["POST"])
+    #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
+
+@app.route('/dashboard_tickets_by_tier', methods=["GET"])
 def get_tickets_by_tier():
+    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    date_range = date_range.split('-')
+
     start_date = date_range[0].encode('utf-8')
     end_date = date_range[1].encode('utf-8')
     start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
-    type(start_date)
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
-
-    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
-    #get hte customer id associated with the tickets 
-    #get the 
+    customer_dict = {'Gold':0, 'Silver':0, 'Bronze':0}
+    #Gets the customers who have submitted tickets in the specified date range
+    customers_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.customer_id).all()
+    for ticket in customers_in_range:
+        print ticket.ticket_id
+        customer_id = ticket.customer_id
+        customer = Customer.query.get(customer_id)
+        company_id = customer.company_id
+        company = Company.query.get(company_id)
+        support_tier = company.support_tier
+        print support_tier
+
+        if support_tier == 'Gold':
+            customer_dict['Gold'] +=1
+        elif support_tier == 'Silver':
+            customer_dict['Silver'] += 1
+        else:
+            customer_dict['Bronze'] += 1
+    print customer_dict
+
+    return jsonify(data=customer_dict)
+    
+    #JSON format: Tier, total number
+    #get the customer id associated with the tickets 
+    #get the customer tier associated with each ticket 
+    #display pie chart of tickets by tier 
+
 
 @app.route('/dashboard')
 def display_dashboard():
@@ -227,13 +248,6 @@ def show_agent_detail(agent_id):
 
     return render_template("agent_detail.html", agent_name=agent_name, agent_tier=agent_tier,
         agent_email=agent_email, agent_phone_number=agent_phone_number, agent_ticket_list=agent_ticket_list)
-
-
-# @app.route('/dashboard')
-# def show_dashboard():
-#     """Shows the ticket analytics dashboard"""
-
-#     return render_template("dashboard.html")
 
 
 if __name__ == "__main__":
