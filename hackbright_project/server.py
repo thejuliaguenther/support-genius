@@ -203,6 +203,29 @@ def get_response_times():
 
     return jsonify(data=ticket_responses)
 
+@app.route('/dashboard_resolution_time', methods=["GET"])
+def get_resolution_times():
+
+    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    # date_range = request.args.get("date-range")
+    date_range = date_range.split('-')
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+    
+    resolved_tickets = []
+    
+    for ticket in tickets_in_range:
+        first_responded = ticket.time_first_responded
+        time_resolved = ticket.time_resolved
+        submission_response = {"responded":first_responded, "resolved":time_resolved}
+        resolved_tickets.append(submission_response)
+
+    return jsonify(data=resolved_tickets)
+
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
 
