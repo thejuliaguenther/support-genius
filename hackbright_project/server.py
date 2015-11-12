@@ -100,14 +100,14 @@ def show_company_detail(company_id):
         print customer_tickets
         customer_company_ticket_list = process_tickets_to_display(customer_tickets)
         print type(customer_company_ticket_list)
-        company_tickets.append(customer_company_ticket_list)
+        # company_tickets.append(customer_company_ticket_list)
       
     # add tickets to a data structure to print out 
     # company_tickets = Ticket.query.get(Company.customer_id).all()
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
-        company_pilot=company_pilot, company_tickets=company_tickets)
+        company_pilot=company_pilot, customer_company_ticket_list=customer_company_ticket_list)
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail(ticket_id):

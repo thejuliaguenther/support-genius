@@ -40,13 +40,14 @@
       function submitForm(e){
         e.preventDefault();
         var input = $("date-range").val();
+        refreshAllCharts();
         // $.get("/dashboard_data", input,);
         // $.get("/tickets_by_tier.json", input);
         //Re render d3 charts
         // renderPieChart(input);
         // $.get("/tickets_by_tier.json", input);
       }
-    $("#ticket-ranges").on("submit", submitForm);ƒ
+    $("#ticket-ranges").on("submit", submitForm);
     </script>
     </div>
     <div id="piechart"></div>
@@ -89,7 +90,12 @@
       function refreshAllCharts(){
         //Empty out divs wih charts in them in jquery 
         //Call the functions that render all the charts again 
+        $("#chart").empty()
+        $("#piechart").empty()
+        heatmapChart();
+        renderPieChart()
       }
+
       function heatmapChart() {
 
           var margin = { top: 50, right: 0, bottom: 100, left: 30 },
@@ -172,17 +178,17 @@
       };
       heatmapChart();
 
-      $('#ticket-ranges').on("submit", function(e) {
-          console.log("Got here");
-          e.preventDefault();
-          heatmapChart();
-        });
+      // $('#ticket-ranges').on("submit", function(e) {
+      //     console.log("Got here");
+      //     e.preventDefault();
+      //     heatmapChart();
+      //   });
    </script>
 <script type="text/javascript">
 
     
 
-    function renderPieChart () {
+    function renderPieChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
 
         var width = 960,
