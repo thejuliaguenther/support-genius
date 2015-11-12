@@ -298,7 +298,7 @@ def get_tickets_by_tier():
 @app.route('/tickets_by_industry.json', methods=["GET"])
 def get_tickets_by_industry():
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
-    date_range = request.args.get("date-range")
+    # date_range = request.args.get("date-range")
     date_range = date_range.split('-')
 
     start_date = date_range[0].encode('utf-8')
@@ -306,26 +306,39 @@ def get_tickets_by_industry():
     start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
     
-    industry_dict = {'Gold':0, 'Silver':0, 'Bronze':0}
+    industry_dict = {'Media':0, 'Financial Services':0, 'Consulting':0, 'Transportation':0, 
+    'Technology':0, 'Energy':0}
     #Gets the customers who have submitted tickets in the specified date range
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.customer_id).all()
-    for ticket in customers_in_range:
+    for ticket in tickets_in_range:
         customer_id = ticket.customer_id
         customer = Customer.query.get(customer_id)
         company_id = customer.company_id
         company = Company.query.get(company_id)
-        support_tier = company.support_tier
-        print support_tier
+        industry = company.industry
+        print industry
 
-        if support_tier == 'Gold':
-            customer_dict['Gold'] +=1
-        elif support_tier == 'Silver':
-            customer_dict['Silver'] += 1
+        if industry == 'media':
+            industry_dict['Media'] +=1
+        elif industry == 'financial services':
+            industry_dict['Financial Services'] += 1
+        elif industry == 'consulting':
+            industry_dict['Consulting'] += 1
+        elif industry == 'transportation':
+            industry_dict['Transportation'] += 1
+        elif industry == 'technology':
+            industry_dict['Technology'] += 1
         else:
-            customer_dict['Bronze'] += 1
-    print customer_dict
+            industry_dict['Energy'] += 1
 
-    return jsonify(data=customer_dict)
+    dict_list = []
+    for key in industry_dict:
+        data = {}
+        data['industry'] = key
+        data['count'] = industry_dict[key]
+        dict_list.append(data)
+
+    return jsonify(data=industry_dict)
 
 
 @app.route('/dashboard')
