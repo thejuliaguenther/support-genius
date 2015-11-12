@@ -216,7 +216,7 @@
         d3.json(json_route, 
 
            function(error, data) {
-                console.log(typeof(data))
+                console.log(data)
                 // arr(data).forEach(function(d) {
                 //   console.log(d);
                 //   d.population = +d.population;
@@ -224,7 +224,7 @@
 
 
                var g = svg2.selectAll(".arc")
-                      .data(pie(data))
+                      .data(pie(data.data))
                       .enter().append("g")
                       .attr("class", "arc");
                   g.append("path")
@@ -234,8 +234,9 @@
                       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
                       .attr("dy", ".35em")
                       .style("text-anchor", "middle")
-                      .text(function(d) { return d.data.age; });
+                      .text(function(d) { return d.data.support_tier; });
         });
+
     }
     
     // function customerTierGraph (input) {
@@ -276,6 +277,7 @@
 
 
   // renderPieChart();
+  renderPieChart();
       
 </script>
 
