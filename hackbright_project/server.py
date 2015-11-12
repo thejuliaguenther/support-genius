@@ -90,7 +90,8 @@ def show_company_detail(company_id):
     company_industry = company.industry
     company_tier = company.support_tier
     company_pilot = company.is_pilot
-    company_tickets = Company.query.filter()
+    company_tickets = Ticket.query.get(Company.customer_id).all()
+    print company_tickets
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
@@ -179,16 +180,29 @@ def get_tickets_to_display():
 
     return jsonify(data=ticket_list)
 
-# @app.route('/dashboard_response_time', methods=["POST"])
-# def get_response_times():
-#     start_date = date_range[0].encode('utf-8')
-#     end_date = date_range[1].encode('utf-8')
-#     start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
-#     type(start_date)
-#     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+@app.route('/dashboard_response_time', methods=["GET"])
+def get_response_times():
 
-#     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
- 
+    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    # date_range = request.args.get("date-range")
+    date_range = date_range.split('-')
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+    
+    ticket_responses = []
+    
+    for ticket in tickets_in_range:
+        time_submitted = ticket.time_submitted
+        first_responded = ticket.time_first_responded
+        submission_response = {"submitted": time_submitted, "responded":first_responded}
+        ticket_responses.append(submission_response)
+
+    return jsonify(data=ticket_responses)
+
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
 

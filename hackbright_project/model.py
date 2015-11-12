@@ -54,6 +54,7 @@ class Ticket(db.Model):
 
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     customer_id = db.Column(db.Integer(), db.ForeignKey('customers.id'), nullable=False)
+    # company_id = db.Column(db.Integer(), db.ForeignKey('customers.company_id'), nullable=False)
     time_submitted = db.Column(db.DateTime())
     agent_id = db.Column(db.Integer(), db.ForeignKey('agents.id'), nullable=False)
     num_agent_touches = db.Column(db.Integer())
