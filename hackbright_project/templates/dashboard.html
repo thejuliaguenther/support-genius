@@ -40,9 +40,10 @@
       function submitForm(e){
         e.preventDefault();
         var input = $("date-range").val();
-        $.post("/dashboard_data", input);
+        $.get("/dashboard_data", input);
+        $.get("/tickets_by_tier.json", input);
 
-        renderPieChart(input);
+        // renderPieChart(input);
         // $.get("/tickets_by_tier.json", input);
       }
     $("#ticket-ranges").on("submit", submitForm);
@@ -140,6 +141,11 @@
         });
    </script>
 <script type="text/javascript">
+
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
     function renderPieChart () {
       //These lines set up the pie chart with data on tickets from different customer tiers
         var width = 960,
@@ -150,15 +156,16 @@
     var arc = d3.svg.arc()
         .outerRadius(radius - 10)
         .innerRadius(0);
-    var pie = d3.layout.pie()
-        .sort(null)
-        .value(function(d) { return d.population; });
+    // var pie = d3.layout.pie()
+    //     .sort(null)
+    //     .value(function(d) { return d.population; });
     var svg = d3.select("#piecharts").append("svg")
         .attr("width", width)
         .attr("height", height)
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
   }
+    
     function customerTierGraph (input) {
       json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
       console.log(json_route);
@@ -194,7 +201,7 @@
             e.preventDefault();
             customerTierGraph();
     });
-  }
+
 
   renderPieChart();
       
