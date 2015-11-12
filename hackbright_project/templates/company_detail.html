@@ -8,4 +8,17 @@
 {% if company_pilot == 'Yes' %}
     <h2>Pilot</h2>
 {% endif %}
+<table class="table table-hover">
+  <tr>
+    <th>Ticket #</th>
+    <th>Time Submitted</th>
+    <th>Status</th>
+  </tr>
+{% for ticket in company_tickets %}
+  <tr>
+    <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
+    <td>{{ticket[1]}}</td>
+   </tr>
+{% endfor %}
+</table>
 {% endblock %}

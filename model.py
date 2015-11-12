@@ -22,6 +22,12 @@ class Company(db.Model):
     support_tier = db.Column(db.String(10), nullable=True)
     is_pilot = db.Column(db.String(10), nullable=True)
 
+    def d3_repr(self):
+        repr_dict = {}
+        repr_dict["name"] = self.name
+        repr_dict["support_tier"] = self.support_tier
+        return repr_dict
+
 class Customer(db.Model):
     
     __tablename__ = "customers"

@@ -40,19 +40,59 @@
       function submitForm(e){
         e.preventDefault();
         var input = $("date-range").val();
-        $.get("/dashboard_data", input);
-        $.get("/tickets_by_tier.json", input);
-
+        // $.get("/dashboard_data", input,);
+        // $.get("/tickets_by_tier.json", input);
+        //Re render d3 charts
         // renderPieChart(input);
         // $.get("/tickets_by_tier.json", input);
       }
-    $("#ticket-ranges").on("submit", submitForm);
+    $("#ticket-ranges").on("submit", submitForm);ƒ
     </script>
     </div>
-    <div id="piecharts"></div>
+    <div id="piechart"></div>
     <script type="text/javascript">
     //These lines set up the heatmap for tickets per hour and day of the week
-      var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+      // var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+      //     width = 960 - margin.left - margin.right,
+      //     height = 430 - margin.top - margin.bottom,
+      //     gridSize = Math.floor(width / 24),
+      //     legendElementWidth = gridSize*2,
+      //     buckets = 9,
+      //     colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+      //     days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+      //     times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+      //     datasets = ["9/27/2015-10/3/2015", "10/4/2015-10/10/2015", "10/11/2015-10/17/2015", 
+      //     "10/18/2015-10/24/2015", "10/25/2015-10/31/2015"];
+      // var svg = d3.select("#chart").append("svg")
+      //     .attr("width", width + margin.left + margin.right)
+      //     .attr("height", height + margin.top + margin.bottom)
+      //     .append("g")
+      //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      // var dayLabels = svg.selectAll(".dayLabel")
+      //     .data(days)
+      //     .enter().append("text")
+      //       .text(function (d) { return d; })
+      //       .attr("x", 0)
+      //       .attr("y", function (d, i) { return i * gridSize; })
+      //       .style("text-anchor", "end")
+      //       .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+      //       .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+      // var timeLabels = svg.selectAll(".timeLabel")
+      //     .data(times)
+      //     .enter().append("text")
+      //       .text(function(d) { return d; })
+      //       .attr("x", function(d, i) { return i * gridSize; })
+      //       .attr("y", 0)
+      //       .style("text-anchor", "middle")
+      //       .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+      //       .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+      function refreshAllCharts(){
+        //Empty out divs wih charts in them in jquery 
+        //Call the functions that render all the charts again 
+      }
+      function heatmapChart() {
+
+          var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           width = 960 - margin.left - margin.right,
           height = 430 - margin.top - margin.bottom,
           gridSize = Math.floor(width / 24),
@@ -86,8 +126,6 @@
             .style("text-anchor", "middle")
             .attr("transform", "translate(" + gridSize / 2 + ", -6)")
             .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
-      
-      function heatmapChart() {
         json_route = "/dashboard_data?" + $('#ticket-ranges').serialize();
         console.log(json_route);
         d3.json(json_route,
@@ -142,68 +180,96 @@
    </script>
 <script type="text/javascript">
 
-    var pie = d3.layout.pie()
-        .sort(null)
-        .value(function(d) { return d.population; });
+    
 
     function renderPieChart () {
       //These lines set up the pie chart with data on tickets from different customer tiers
+
         var width = 960,
         height = 500,
         radius = Math.min(width, height) / 2;
-    var color = d3.scale.ordinal()
+        
+        var color = d3.scale.ordinal()
         .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-    var arc = d3.svg.arc()
+        
+        var arc = d3.svg.arc()
         .outerRadius(radius - 10)
         .innerRadius(0);
-    // var pie = d3.layout.pie()
-    //     .sort(null)
-    //     .value(function(d) { return d.population; });
-    var svg = d3.select("#piecharts").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-      .append("g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  }
-    
-    function customerTierGraph (input) {
-      json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
-      console.log(json_route);
-      // $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
-      d3.json(json_route, 
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return d.count; });
+        var svg2 = d3.select("#piechart").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        function(error, data) {
-        console.log(typeof(data))
-        // arr(data).forEach(function(d) {
-        //   console.log(d);
-        //   d.population = +d.population;
-        // });
+        json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
+        console.log(json_route);
+        // $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
+        d3.json(json_route, 
+
+           function(error, data) {
+                console.log(typeof(data))
+                // arr(data).forEach(function(d) {
+                //   console.log(d);
+                //   d.population = +d.population;
+                // });
 
 
-        var g = svg.selectAll(".arc")
-            .data(pie(data))
-            .enter().append("g")
-            .attr("class", "arc");
-        g.append("path")
-            .attr("d", arc)
-            .style("fill", function(d) { return color(d.data.age); });
-        g.append("text")
-            .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-            .attr("dy", ".35em")
-            .style("text-anchor", "middle")
-            .text(function(d) { return d.data.age; });
+               var g = svg2.selectAll(".arc")
+                      .data(pie(data))
+                      .enter().append("g")
+                      .attr("class", "arc");
+                  g.append("path")
+                      .attr("d", arc)
+                      .style("fill", function(d) { return color(d.data.support_tier); });
+                  g.append("text")
+                      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+                      .attr("dy", ".35em")
+                      .style("text-anchor", "middle")
+                      .text(function(d) { return d.data.age; });
         });
     }
+    
+    // function customerTierGraph (input) {
+      // json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
+      // console.log(json_route);
+      // // $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
+      // d3.json(json_route, 
+
+      //   function(error, data) {
+      //   console.log(typeof(data))
+      //   // arr(data).forEach(function(d) {
+      //   //   console.log(d);
+      //   //   d.population = +d.population;
+      //   // });
 
 
-    $('#ticket-ranges').on("submit", function(e) {
-            console.log("Got Here!");
-            e.preventDefault();
-            customerTierGraph();
-    });
+      //   var g = svg.selectAll(".arc")
+      //       .data(pie(data))
+      //       .enter().append("g")
+      //       .attr("class", "arc");
+      //   g.append("path")
+      //       .attr("d", arc)
+      //       .style("fill", function(d) { return color(d.data.age); });
+      //   g.append("text")
+      //       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      //       .attr("dy", ".35em")
+      //       .style("text-anchor", "middle")
+      //       .text(function(d) { return d.data.age; });
+      //   });
+    // }
 
 
-  renderPieChart();
+    // $('#ticket-ranges').on("submit", function(e) {
+    //         console.log("Got Here!");
+    //         e.preventDefault();
+    //         // customerTierGraph();
+    // });
+
+
+  // renderPieChart();
       
 </script>
 

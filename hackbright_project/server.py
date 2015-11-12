@@ -83,6 +83,7 @@ def process_login():
 @app.route('/companies/<int:company_id>')
 def show_company_detail(company_id):
     """Shows indivisual company details"""
+    company_tickets = []
     company = Company.query.filter(Company.id == company_id).first()
     company_name = company.name
     company_location = company.location
@@ -90,12 +91,23 @@ def show_company_detail(company_id):
     company_industry = company.industry
     company_tier = company.support_tier
     company_pilot = company.is_pilot
-    company_tickets = Ticket.query.get(Company.customer_id).all()
-    print company_tickets
+    #get all customers with that company id
+    company_customers = Customer.query.filter(Customer.company_id == company.id).all() 
+    print company_customers
+    #lop through customers with that id, get the tickets associated with that customer
+    for customer in company_customers:
+        customer_tickets = Ticket.query.filter(Ticket.customer_id == customer.id).all()
+        print customer_tickets
+        customer_company_ticket_list = process_tickets_to_display(customer_tickets)
+        print type(customer_company_ticket_list)
+        company_tickets.append(customer_company_ticket_list)
+      
+    # add tickets to a data structure to print out 
+    # company_tickets = Ticket.query.get(Company.customer_id).all()
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
-        company_pilot=company_pilot)
+        company_pilot=company_pilot, company_tickets=company_tickets)
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail(ticket_id):
@@ -243,6 +255,8 @@ def get_tickets_by_tier():
     customer_dict = {'Gold':0, 'Silver':0, 'Bronze':0}
     #Gets the customers who have submitted tickets in the specified date range
     customers_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.customer_id).all()
+    #get the company and put company in a set 
+
     for ticket in customers_in_range:
         print ticket.ticket_id
         customer_id = ticket.customer_id
@@ -260,7 +274,18 @@ def get_tickets_by_tier():
             customer_dict['Bronze'] += 1
     print customer_dict
 
-    return jsonify(data=customer_dict)
+    dict_list = []
+    for key in customer_dict:
+        data = {}
+        data['support_tier'] = key
+        data['count'] = customer_dict[key]
+        dict_list.append(data)
+    # {'data':[
+    #   {'support_tier':'Gold',
+    #   'count':5}
+    # ]}
+
+    return jsonify({'data': dict_list})
 
     # return {}
     
@@ -268,6 +293,39 @@ def get_tickets_by_tier():
     #get the customer id associated with the tickets 
     #get the customer tier associated with each ticket 
     #display pie chart of tickets by tier 
+
+
+@app.route('/tickets_by_industry.json', methods=["GET"])
+def get_tickets_by_industry():
+    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    date_range = request.args.get("date-range")
+    date_range = date_range.split('-')
+
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+    
+    industry_dict = {'Gold':0, 'Silver':0, 'Bronze':0}
+    #Gets the customers who have submitted tickets in the specified date range
+    tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.customer_id).all()
+    for ticket in customers_in_range:
+        customer_id = ticket.customer_id
+        customer = Customer.query.get(customer_id)
+        company_id = customer.company_id
+        company = Company.query.get(company_id)
+        support_tier = company.support_tier
+        print support_tier
+
+        if support_tier == 'Gold':
+            customer_dict['Gold'] +=1
+        elif support_tier == 'Silver':
+            customer_dict['Silver'] += 1
+        else:
+            customer_dict['Bronze'] += 1
+    print customer_dict
+
+    return jsonify(data=customer_dict)
 
 
 @app.route('/dashboard')
