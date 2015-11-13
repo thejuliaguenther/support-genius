@@ -1,4 +1,5 @@
 from jinja2 import StrictUndefined
+import csv 
 from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
@@ -204,17 +205,25 @@ def get_response_times():
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
-    
+    # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
+    # ticket_responses = []
+    print tickets_in_range
+
     ticket_responses = []
     
     for ticket in tickets_in_range:
+        ticket_id = ticket.ticket_id
         time_submitted = ticket.time_submitted
         first_responded = ticket.time_first_responded
-        submission_response = {"submitted": time_submitted, "responded":first_responded}
+        submission_response = (ticket_id, time_submitted, first_responded)
         ticket_responses.append(submission_response)
 
-    return jsonify(data=ticket_responses)
+    # return jsonify(data=ticket_responses)
+    # submissions_and_responses = tickets_in_range.query.filter(Ticket.time_submitted, Ticket.first_responded).all()
 
+    with open('responded_tickets.csv', 'wb') as f:
+        writer = csv.writer(f)
+        writer.writerows(ticket_responses)
 @app.route('/dashboard_resolution_time', methods=["GET"])
 def get_resolution_times():
 
@@ -338,7 +347,7 @@ def get_tickets_by_industry():
         data['count'] = industry_dict[key]
         dict_list.append(data)
 
-    return jsonify(data=industry_dict)
+    return jsonify({'data': dict_list})
 
 
 @app.route('/dashboard')
