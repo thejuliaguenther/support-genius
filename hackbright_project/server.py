@@ -224,6 +224,7 @@ def get_response_times():
     with open('responded_tickets.csv', 'wb') as f:
         writer = csv.writer(f)
         writer.writerows(ticket_responses)
+
 @app.route('/dashboard_resolution_time', methods=["GET"])
 def get_resolution_times():
 
@@ -240,12 +241,15 @@ def get_resolution_times():
     resolved_tickets = []
     
     for ticket in tickets_in_range:
-        first_responded = ticket.time_first_responded
-        time_resolved = ticket.time_resolved
-        submission_response = {"responded":first_responded, "resolved":time_resolved}
-        resolved_tickets.append(submission_response)
+        ticket_id = ticket.ticket_id
+        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
+        time_to_resolution = ticket.time_resolved - ticket.time_first_responded
+        resolution_response = (ticket_id, time_to_first_response, time_to_resolution)
+        resolved_tickets.append(resolution_response)
 
-    return jsonify(data=resolved_tickets)
+    with open('resolved_tickets.csv', 'wb') as f:
+        writer = csv.writer(f)
+        writer.writerows(resolved_tickets)
 
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
