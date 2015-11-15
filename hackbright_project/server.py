@@ -1,3 +1,9 @@
+from numpy import genfromtxt
+import numpy as np
+import random 
+import sklearn 
+from sklearn import linear_model
+
 from jinja2 import StrictUndefined
 import csv 
 from datetime import datetime
@@ -207,49 +213,74 @@ def get_response_times():
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
     # ticket_responses = []
-    print tickets_in_range
 
     ticket_responses = []
     ticket_submissions = []
     
     for ticket in tickets_in_range:
         ticket_id = ticket.ticket_id
-        hour_submitted = ticket.time_submitted.hour
-        hour_first_responded = ticket.time_first_responded.hour
+        # hour_submitted = ticket.time_submitted.hour
+        # hour_first_responded = ticket.time_first_responded.hour
+        ticket_submitted = ticket.time_submitted
+        ticket_responded = ticket.time_first_responded
 
-        #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
-        if ticket.time_submitted.date == ticket.time_first_responded.date:
-            response_time = hour_first_responded - hour_submitted
-        elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
-        #If the ticket is responded to in less than 24 hours, 
-            hours_until_response = (24-hour_submitted) + hour_first_responded
-            days_with_no_response = ticket.time_first_responded.date - ticket.time_submitted.date
-            if days_with_no_response > 1 :
-                response_time = (days_with_no_response * 24) + hours_until_response
-            else:
-                response_time = hours_until_response
-        else: 
-            days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
-            response_time = (hour_first_responded + days_until_response) - hour_submitted 
+        # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
+        # if ticket.time_submitted.date == ticket.time_first_responded.date:
+        #     response_time = hour_first_responded - hour_submitted
+        # elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
+        # #If the ticket is responded to in less than 24 hours, 
+        #     hours_until_response = (24-hour_submitted) + hour_first_responded
+        #     days_with_no_response = strptime(ticket.time_first_responded.date)- strptime(ticket.time_submitted.date)
+        #     print type(days_with_no_response)
+        #     if days_with_no_response > 1 :
+        #         response_time = (days_with_no_response * 24) + hours_until_response
+        #     else:
+        #         response_time = hours_until_response
+        # else: 
+        #     days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
+        #     response_time = (hour_first_responded + days_until_response) - hour_submitted 
 
         # submission_response = (ticket_id, str(time_submitted), response_time)
         # ticket_responses.append(submission_response)
-        submissions = (str(ticket.time_submitted))
-        responses = (response_time)
+        # submissions = (str(ticket.time_submitted))
+        # responses = (response_time)
+
+        submissions = ticket_submitted
+        responses = ticket_responded - ticket_submitted
         
         ticket_submissions.append(submissions)
         ticket_responses.append(responses)
+    print ticket_responses
+    print "Got to here!"
+        #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    responses_train = ticket_responses[:-150]
+    responses_test = ticket_responses[-150:]
+
+    #Get the data for the independent variable, the submission time, separated into training and testing sets
+    submissions_train = ticket_submissions[:-150]
+    submissions_test = ticket_submissions[-150:]
+
+    model = linear_model.LinearRegression()
+    model.fit(submissions_train, responses_train)
+
+    # The coefficients
+    print('Coefficients: \n', model.coef_)
+    # The mean square error
+    print("Residual sum of squares: %.2f"
+          % np.mean((model.predict(submissions_test) - responses_test) ** 2))
+    # Explained variance score: 1 is perfect prediction
+    print('Variance score: %.2f' % model.score(submissions_test, responses_test))
 
     # return jsonify(data=ticket_responses)
     # submissions_and_responses = tickets_in_range.query.filter(Ticket.time_submitted, Ticket.first_responded).all()
 
-    with open('submitted_tickets.csv', 'wb') as f:
-        writer = csv.writer(f)
-        writer.writerows(ticket_submissions)
+    # with open('submitted_tickets.csv', 'wb') as f1:
+    #     writer = csv.writer(f1)
+    #     writer.writerows(ticket_submissions)
 
-    with open('responded_tickets.csv', 'wb') as f:
-        writer = csv.writer(f)
-        writer.writerows(ticket_responses)
+    # with open('responded_tickets.csv', 'wb') as f2:
+    #     writer = csv.writer(f2)
+    #     writer.writerows(ticket_responses)
 
 @app.route('/dashboard_resolution_time', methods=["GET"])
 def get_resolution_times():
