@@ -210,16 +210,42 @@ def get_response_times():
     print tickets_in_range
 
     ticket_responses = []
+    ticket_submissions = []
     
     for ticket in tickets_in_range:
         ticket_id = ticket.ticket_id
-        time_submitted = ticket.time_submitted
-        first_responded = ticket.time_first_responded
-        submission_response = (ticket_id, time_submitted, first_responded)
-        ticket_responses.append(submission_response)
+        hour_submitted = ticket.time_submitted.hour
+        hour_first_responded = ticket.time_first_responded.hour
+
+        #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
+        if ticket.time_submitted.date == ticket.time_first_responded.date:
+            response_time = hour_first_responded - hour_submitted
+        elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
+        #If the ticket is responded to in less than 24 hours, 
+            hours_until_response = (24-hour_submitted) + hour_first_responded
+            days_with_no_response = ticket.time_first_responded.date - ticket.time_submitted.date
+            if days_with_no_response > 1 :
+                response_time = (days_with_no_response * 24) + hours_until_response
+            else:
+                response_time = hours_until_response
+        else: 
+            days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
+            response_time = (hour_first_responded + days_until_response) - hour_submitted 
+
+        # submission_response = (ticket_id, str(time_submitted), response_time)
+        # ticket_responses.append(submission_response)
+        submissions = (str(ticket.time_submitted))
+        responses = (response_time)
+        
+        ticket_submissions.append(submissions)
+        ticket_responses.append(responses)
 
     # return jsonify(data=ticket_responses)
     # submissions_and_responses = tickets_in_range.query.filter(Ticket.time_submitted, Ticket.first_responded).all()
+
+    with open('submitted_tickets.csv', 'wb') as f:
+        writer = csv.writer(f)
+        writer.writerows(ticket_submissions)
 
     with open('responded_tickets.csv', 'wb') as f:
         writer = csv.writer(f)
