@@ -4,6 +4,7 @@ import random
 import sklearn 
 from sklearn import linear_model
 
+from datetime import date 
 from jinja2 import StrictUndefined
 import csv 
 from datetime import datetime
@@ -245,21 +246,25 @@ def get_response_times():
         # submissions = (str(ticket.time_submitted))
         # responses = (response_time)
 
-        submissions = ticket_submitted
+        # submissions = ticket_submitted.date.toordinal
         responses = ticket_responded - ticket_submitted
+        ticket_submitted = ticket_submitted.date()
+        submissions = ticket_submitted.toordinal()
+        
+        
         
         ticket_submissions.append(submissions)
         ticket_responses.append(responses)
-    print ticket_responses
+   
     print "Got to here!"
 
     index_half_responses = len(ticket_responses)/2
     index_half_submissions = len(ticket_submissions)/2
         #Get the data for the dependent variable, the response time, separated into training and testing sets 
     responses_train = ticket_responses[:-index_half_responses]
-    print responses_train 
+    
     responses_test = ticket_responses[index_half_responses:]
-    print responses_test
+   
 
     #Get the data for the independent variable, the submission time, separated into training and testing sets
     submissions_train = ticket_submissions[:-index_half_submissions]
@@ -269,12 +274,12 @@ def get_response_times():
     model.fit(submissions_train, responses_train)
 
     # The coefficients
-    print('Coefficients: \n', model.coef_)
+    print('Coefficients: \n', float(model.coef_))
     # The mean square error
-    print("Residual sum of squares: %.2f"
-          % np.mean((model.predict(submissions_test) - responses_test) ** 2))
-    # Explained variance score: 1 is perfect prediction
-    print('Variance score: %.2f' % model.score(submissions_test, responses_test))
+    # print("Residual sum of squares: %.2f"
+    #       % np.mean((model.predict(submissions_test) - responses_test) ** 2))
+    # # Explained variance score: 1 is perfect prediction
+    # print('Variance score: %.2f' % model.score(submissions_test, responses_test))
 
     # return jsonify(data=ticket_responses)
     # submissions_and_responses = tickets_in_range.query.filter(Ticket.time_submitted, Ticket.first_responded).all()
