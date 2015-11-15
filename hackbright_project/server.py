@@ -252,13 +252,18 @@ def get_response_times():
         ticket_responses.append(responses)
     print ticket_responses
     print "Got to here!"
+
+    index_half_responses = len(ticket_responses)/2
+    index_half_submissions = len(ticket_submissions)/2
         #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    responses_train = ticket_responses[:-150]
-    responses_test = ticket_responses[-150:]
+    responses_train = ticket_responses[:-index_half_responses]
+    print responses_train 
+    responses_test = ticket_responses[index_half_responses:]
+    print responses_test
 
     #Get the data for the independent variable, the submission time, separated into training and testing sets
-    submissions_train = ticket_submissions[:-150]
-    submissions_test = ticket_submissions[-150:]
+    submissions_train = ticket_submissions[:-index_half_submissions]
+    submissions_test = ticket_submissions[index_half_submissions:]
 
     model = linear_model.LinearRegression()
     model.fit(submissions_train, responses_train)
