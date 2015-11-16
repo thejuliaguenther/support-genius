@@ -226,59 +226,66 @@ def get_response_times():
         ticket_id = ticket.ticket_id
         # hour_submitted = ticket.time_submitted.hour
         # hour_first_responded = ticket.time_first_responded.hour
-        ticket_submitted = ticket.time_submitted
+
+        ticket_submitted = ticket.time_submitted.hour 
+        print ticket_submitted
         ticket_responded = ticket.time_first_responded
 
         # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
         # if ticket.time_submitted.date == ticket.time_first_responded.date:
-        #     response_time = hour_first_responded - hour_submitted
-        # elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
-        # #If the ticket is responded to in less than 24 hours, 
-        #     hours_until_response = (24-hour_submitted) + hour_first_responded
-        #     days_with_no_response = strptime(ticket.time_first_responded.date)- strptime(ticket.time_submitted.date)
-        #     print type(days_with_no_response)
-        #     if days_with_no_response > 1 :
-        #         response_time = (days_with_no_response * 24) + hours_until_response
-        #     else:
-        #         response_time = hours_until_response
-        # else: 
-        #     days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
-        #     response_time = (hour_first_responded + days_until_response) - hour_submitted 
+    #     #     response_time = hour_first_responded - hour_submitted
+    #     # elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
+    #     # #If the ticket is responded to in less than 24 hours, 
+    #     #     hours_until_response = (24-hour_submitted) + hour_first_responded
+    #     #     days_with_no_response = strptime(ticket.time_first_responded.date)- strptime(ticket.time_submitted.date)
+    #     #     print type(days_with_no_response)
+    #     #     if days_with_no_response > 1 :
+    #     #         response_time = (days_with_no_response * 24) + hours_until_response
+    #     #     else:
+    #     #         response_time = hours_until_response
+    #     # else: 
+    #     #     days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
+    #     #     response_time = (hour_first_responded + days_until_response) - hour_submitted 
 
-        # submission_response = (ticket_id, str(time_submitted), response_time)
-        # ticket_responses.append(submission_response)
-        # submissions = (str(ticket.time_submitted))
-        # responses = (response_time)
+    #     # submission_response = (ticket_id, str(time_submitted), response_time)
+    #     # ticket_responses.append(submission_response)
+    #     # submissions = (str(ticket.time_submitted))
+    #     # responses = (response_time)
 
-        # submissions = ticket_submitted.date.toordinal
-        responses = ticket_responded - ticket_submitted
-        ticket_submitted = ticket_submitted.date()
-        submissions = ticket_submitted.toordinal()
+    #     # submissions = ticket_submitted.date.toordinal
+    #     # responses = ticket_responded - ticket_submitted
+    #     # ticket_submitted = ticket_submitted.date()
+    #     # submissions = ticket_submitted.toordinal()
         
         
         
-        ticket_submissions.append(submissions)
-        ticket_responses.append(responses)
+    #     # ticket_submissions.append(submissions)
+    #     # ticket_responses.append(responses)
    
-    print "Got to here!"
+    # print "Got to here!"
 
-    index_half_responses = len(ticket_responses)/2
-    index_half_submissions = len(ticket_submissions)/2
-        #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    responses_train = ticket_responses[:-index_half_responses]
+    # index_half_responses = len(ticket_responses)/2
+    # index_half_submissions = len(ticket_submissions)/2
+    #     #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    # responses_train = ticket_responses[:-index_half_responses]
     
-    responses_test = ticket_responses[index_half_responses:]
+    # responses_test = ticket_responses[index_half_responses:]
+    # print responses_test
    
 
-    #Get the data for the independent variable, the submission time, separated into training and testing sets
-    submissions_train = ticket_submissions[:-index_half_submissions]
-    submissions_test = ticket_submissions[index_half_submissions:]
+    # #Get the data for the independent variable, the submission time, separated into training and testing sets
+    # submissions_train = ticket_submissions[:-index_half_submissions]
+    # submissions_test = ticket_submissions[index_half_submissions:]
+    # # print submissions_test
 
-    model = linear_model.LinearRegression()
-    model.fit(submissions_train, responses_train)
+    # model = linear_model.LinearRegression()
+    # test = model.fit(submissions_train, responses_train)
+     
 
-    # The coefficients
-    print('Coefficients: \n', float(model.coef_))
+   
+
+    # # The coefficients
+    # print('Coefficients: \n', model.coef_)
     # The mean square error
     # print("Residual sum of squares: %.2f"
     #       % np.mean((model.predict(submissions_test) - responses_test) ** 2))
@@ -324,9 +331,11 @@ def get_resolution_times():
 
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
+# @app.route('/nlp_route')
+# def create_positive_and_negative_datasets():
 
-# @app.route('/clustering', methods=["GET"])
-# def get_clusters():
+# # @app.route('/clustering', methods=["GET"])
+# # def get_clusters():
 
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
