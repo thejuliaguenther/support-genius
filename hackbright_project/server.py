@@ -14,6 +14,10 @@ from flask_debugtoolbar import DebugToolbarExtension
 # from twilio.rest import TwilioRestClient
 from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
+#Things to import for kmeans
+import numpy as np
+from sklearn.cluster import KMeans
+
 app = Flask(__name__)
 app.secret_key = "Hello world"
 
@@ -321,6 +325,10 @@ def get_resolution_times():
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
 
+# @app.route('/clustering', methods=["GET"])
+# def get_clusters():
+
+
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
     # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
@@ -367,12 +375,12 @@ def get_tickets_by_tier():
 
     return jsonify({'data': dict_list})
 
-    # return {}
+#     # return {}
     
-    #JSON format: Tier, total number
-    #get the customer id associated with the tickets 
-    #get the customer tier associated with each ticket 
-    #display pie chart of tickets by tier 
+#     #JSON format: Tier, total number
+#     #get the customer id associated with the tickets 
+#     #get the customer tier associated with each ticket 
+#     #display pie chart of tickets by tier 
 
 
 @app.route('/tickets_by_industry.json', methods=["GET"])
