@@ -244,8 +244,11 @@ def get_response_times():
     ticket_responses = np.array(ticket_response_list, float)
     ticket_submissions = np.array(ticket_submit_list, float)
 
-    print type(ticket_responses)
-    print type(ticket_submissions)
+    print type(ticket_submissions[0][0])
+
+
+    # print type(ticket_responses)
+    # print type(ticket_submissions)
 
     #     ticket_id = ticket.ticket_id
     #     # hour_submitted = ticket.time_submitted.hour
