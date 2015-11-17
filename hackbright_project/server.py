@@ -23,6 +23,8 @@ app.secret_key = "Hello world"
 
 app.jinja_env.undefined = StrictUndefined
 
+HOURS_A_DAY = 24
+
 def process_tickets_to_display(tickets):
     """ 
     Gets the tickets to display from the database and 
@@ -232,14 +234,36 @@ def get_response_times():
         ticket_submitted_month = ticket.time_submitted.month 
         ticket_submitted_year = ticket.time_submitted.year 
         ticket_submitted = (ticket_submitted_year, ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
-        print ticket_submitted
+        
 
         ticket_responded_hour = ticket.time_first_responded.hour 
         ticket_responded_day = ticket.time_first_responded.day
         ticket_responded_month = ticket.time_first_responded.month 
         ticket_responded_year = ticket.time_first_responded.year 
-        ticket_responded = (ticket_responded_year, ticket_responded_month, ticket_responded_day, ticket_responded_hour)
+        ticket_responded_minutes = ticket.time_first_responded.minute 
+        ticket_responded = (ticket_responded_year, ticket_responded_month, ticket_responded_day, ticket_responded_hour, ticket_responded_minutes)
         print ticket_responded
+
+        # response_time  = process_response_time(ticket_submitted, ticket_responded)
+
+
+
+    # def process_response_time(ticket_submitted, ticket_responded):
+    #     """This function calculates the time between the submission of the ticket and the rep's response"""
+    #        hour_submitted = ticket_submitted[3]
+    #        day_submitted = ticket_submitted[2]
+    #        month_submitted = ticket_submitted[1]
+    #        year_submitted = ticket_submitted[0]
+
+    #        hour_responded = ticket_responded[3]
+    #        day_responded = ticket_responded[2]
+    #        month_responded = ticket_responded[1]
+    #        year_responded = ticket_responded[0]
+
+    #        #perform a number of tests to calculate the response time between the two tickets (in hours)
+    #        total_response_time = 0
+    #        if year_responded != year_
+
         # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
         # if ticket.time_submitted.date == ticket.time_first_responded.date:
     #     #     response_time = hour_first_responded - hour_submitted
