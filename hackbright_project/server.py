@@ -225,26 +225,29 @@ def get_response_times():
     ticket_submissions = []
     
     for ticket in tickets_in_range:
-        ticket_id = ticket.ticket_id
-        # hour_submitted = ticket.time_submitted.hour
-        # hour_first_responded = ticket.time_first_responded.hour
+        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
+        print type(time_to_first_response)
+        print time_to_first_response
+    #     ticket_id = ticket.ticket_id
+    #     # hour_submitted = ticket.time_submitted.hour
+    #     # hour_first_responded = ticket.time_first_responded.hour
 
-        ticket_submitted_hour = ticket.time_submitted.hour 
-        ticket_submitted_day = ticket.time_submitted.day
-        ticket_submitted_month = ticket.time_submitted.month 
-        ticket_submitted_year = ticket.time_submitted.year 
-        ticket_submitted = (ticket_submitted_year, ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
+    #     ticket_submitted_hour = ticket.time_submitted.hour 
+    #     ticket_submitted_day = ticket.time_submitted.day
+    #     ticket_submitted_month = ticket.time_submitted.month 
+    #     ticket_submitted_year = ticket.time_submitted.year 
+    #     ticket_submitted = (ticket_submitted_year, ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
         
 
-        ticket_responded_hour = ticket.time_first_responded.hour 
-        ticket_responded_day = ticket.time_first_responded.day
-        ticket_responded_month = ticket.time_first_responded.month 
-        ticket_responded_year = ticket.time_first_responded.year 
-        ticket_responded_minutes = ticket.time_first_responded.minute 
-        ticket_responded = (ticket_responded_year, ticket_responded_month, ticket_responded_day, ticket_responded_hour, ticket_responded_minutes)
-        print ticket_responded
+    #     ticket_responded_hour = ticket.time_first_responded.hour 
+    #     ticket_responded_day = ticket.time_first_responded.day
+    #     ticket_responded_month = ticket.time_first_responded.month 
+    #     ticket_responded_year = ticket.time_first_responded.year 
+    #     ticket_responded_minutes = ticket.time_first_responded.minute 
+    #     ticket_responded = (ticket_responded_year, ticket_responded_month, ticket_responded_day, ticket_responded_hour, ticket_responded_minutes)
+    #     print ticket_responded
 
-        # response_time  = process_response_time(ticket_submitted, ticket_responded)
+    #     response_time  = process_response_time(ticket_submitted, ticket_responded)
 
 
 
@@ -263,6 +266,7 @@ def get_response_times():
     #        #perform a number of tests to calculate the response time between the two tickets (in hours)
     #        total_response_time = 0
     #        if year_responded != year_
+
 
         # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
         # if ticket.time_submitted.date == ticket.time_first_responded.date:
