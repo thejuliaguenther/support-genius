@@ -244,92 +244,12 @@ def get_response_times():
     ticket_responses = np.array(ticket_response_list, float)
     ticket_submissions = np.array(ticket_submit_list, float)
 
-    print type(ticket_submissions[0][0])
-
-
-    # print type(ticket_responses)
-    # print type(ticket_submissions)
-
-    #     ticket_id = ticket.ticket_id
-    #     # hour_submitted = ticket.time_submitted.hour
-    #     # hour_first_responded = ticket.time_first_responded.hour
-
-    #     ticket_submitted_hour = ticket.time_submitted.hour 
-    #     ticket_submitted_day = ticket.time_submitted.day
-    #     ticket_submitted_month = ticket.time_submitted.month 
-    #     ticket_submitted_year = ticket.time_submitted.year 
-    #     ticket_submitted = (ticket_submitted_year, ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
-        
-
-    #     ticket_responded_hour = ticket.time_first_responded.hour 
-    #     ticket_responded_day = ticket.time_first_responded.day
-    #     ticket_responded_month = ticket.time_first_responded.month 
-    #     ticket_responded_year = ticket.time_first_responded.year 
-    #     ticket_responded_minutes = ticket.time_first_responded.minute 
-    #     ticket_responded = (ticket_responded_year, ticket_responded_month, ticket_responded_day, ticket_responded_hour, ticket_responded_minutes)
-    #     print ticket_responded
-
-    #     response_time  = process_response_time(ticket_submitted, ticket_responded)
-
-
-
-    # def process_response_time(ticket_submitted, ticket_responded):
-    #     """This function calculates the time between the submission of the ticket and the rep's response"""
-    #        hour_submitted = ticket_submitted[3]
-    #        day_submitted = ticket_submitted[2]
-    #        month_submitted = ticket_submitted[1]
-    #        year_submitted = ticket_submitted[0]
-
-    #        hour_responded = ticket_responded[3]
-    #        day_responded = ticket_responded[2]
-    #        month_responded = ticket_responded[1]
-    #        year_responded = ticket_responded[0]
-
-    #        #perform a number of tests to calculate the response time between the two tickets (in hours)
-    #        total_response_time = 0
-    #        if year_responded != year_
-
-
-        # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
-        # if ticket.time_submitted.date == ticket.time_first_responded.date:
-    #     #     response_time = hour_first_responded - hour_submitted
-    #     # elif (ticket.time_submitted.date != ticket.time_first_responded.date) and (hour_submitted > hour_first_responded):
-    #     # #If the ticket is responded to in less than 24 hours, 
-    #     #     hours_until_response = (24-hour_submitted) + hour_first_responded
-    #     #     days_with_no_response = strptime(ticket.time_first_responded.date)- strptime(ticket.time_submitted.date)
-    #     #     print type(days_with_no_response)
-    #     #     if days_with_no_response > 1 :
-    #     #         response_time = (days_with_no_response * 24) + hours_until_response
-    #     #     else:
-    #     #         response_time = hours_until_response
-    #     # else: 
-    #     #     days_until_response = ticket.time_first_responded.day - ticket.time_submitted.day
-    #     #     response_time = (hour_first_responded + days_until_response) - hour_submitted 
-
-    #     # submission_response = (ticket_id, str(time_submitted), response_time)
-    #     # ticket_responses.append(submission_response)
-    #     # submissions = (str(ticket.time_submitted))
-    #     # responses = (response_time)
-
-    #     # submissions = ticket_submitted.date.toordinal
-    #     # responses = ticket_responded - ticket_submitted
-    #     # ticket_submitted = ticket_submitted.date()
-    #     # submissions = ticket_submitted.toordinal()
-        
-        
-        
-    #     # ticket_submissions.append(submissions)
-    #     # ticket_responses.append(responses)
-   
-    # print "Got to here!"
-
     index_half_responses = len(ticket_responses)/2
     index_half_submissions = len(ticket_submissions)/2
         #Get the data for the dependent variable, the response time, separated into training and testing sets 
     responses_train = ticket_responses[:-index_half_responses]
     
     responses_test = ticket_responses[index_half_responses:]
-    print responses_test
    
 
     #Get the data for the independent variable, the submission time, separated into training and testing sets
@@ -340,9 +260,6 @@ def get_response_times():
     model = linear_model.LinearRegression()
     test = model.fit(submissions_train, responses_train)
      
-
-   
-
     # The coefficients
     print('Coefficients: \n', model.coef_)
     # The mean square error
@@ -351,18 +268,8 @@ def get_response_times():
     # Explained variance score: 1 is perfect prediction
     print('Variance score: %.2f' % model.score(submissions_test, responses_test))
 
-    # return jsonify(data=ticket_responses)
-    # submissions_and_responses = tickets_in_range.query.filter(Ticket.time_submitted, Ticket.first_responded).all()
 
-    # with open('submitted_tickets.csv', 'wb') as f1:
-    #     writer = csv.writer(f1)
-    #     writer.writerows(ticket_submissions)
-
-    # with open('responded_tickets.csv', 'wb') as f2:
-    #     writer = csv.writer(f2)
-    #     writer.writerows(ticket_responses)
-
-@app.route('/dashboard_resolution_time', methods=["GET"])
+@app.route('/dashboard_agent_touches', methods=["GET"])
 def get_resolution_times():
 
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
@@ -373,20 +280,56 @@ def get_resolution_times():
     start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
+    ticket_resolution_list = []
+    ticket_touches_list = []
+
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
-    resolved_tickets = []
     
     for ticket in tickets_in_range:
         ticket_id = ticket.ticket_id
-        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
         time_to_resolution = ticket.time_resolved - ticket.time_first_responded
-        resolution_response = (ticket_id, time_to_first_response, time_to_resolution)
-        resolved_tickets.append(resolution_response)
+        seconds_to_resolution = time_to_resolution.total_seconds()
+        hours_to_resolution = seconds_to_resolution / SECONDS_PER_HOUR
 
-    with open('resolved_tickets.csv', 'wb') as f:
-        writer = csv.writer(f)
-        writer.writerows(resolved_tickets)
+        ticket_resolution_list.append(hours_to_resolution)
+
+        agent_touches = [float(ticket.num_agent_touches)]
+
+        ticket_touches_list.append(agent_touches)
+
+
+    ticket_resolutions = np.array(ticket_resolution_list, float)
+    print ticket_resolutions
+    ticket_touches = np.array(ticket_touches_list, float)
+    print ticket_touches
+
+    index_half_resolutions = len(ticket_resolutions)/2
+    print index_half_resolutions
+    index_half_touches = len(ticket_touches)/2
+        #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    print index_half_touches
+
+    resolutions_train = ticket_resolutions[:-index_half_resolutions]
+    
+    resolutions_test = ticket_resolutions[index_half_resolutions:]
+   
+
+    #Get the data for the independent variable, the submission time, separated into training and testing sets
+    touches_train = ticket_touches[:-index_half_touches]
+    touches_test = ticket_touches[index_half_touches:]
+    # print submissions_test
+
+    model = linear_model.LinearRegression()
+    test = model.fit(touches_train, resolutions_train)
+     
+    # The coefficients
+    print('Coefficients: \n', model.coef_)
+    # The mean square error
+    print("Residual sum of squares: %.2f"
+          % np.mean((model.predict(touches_test) - resolutions_test) ** 2))
+    # Explained variance score: 1 is perfect prediction
+    print('Variance score: %.2f' % model.score(touches_test, resolutions_test))
 
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
