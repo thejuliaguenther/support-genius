@@ -7,6 +7,7 @@ from sklearn import datasets, linear_model
 from datetime import date 
 from jinja2 import StrictUndefined
 import csv 
+import requests
 from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
@@ -333,8 +334,16 @@ def get_resolution_times():
 
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
-# @app.route('/nlp_route')
-# def create_positive_and_negative_datasets():
+@app.route('/nlp_route')
+def create_positive_and_negative_datasets():
+    tickets = Ticket.query.all()
+
+    for ticket in tickets:
+        payload = {'text':str(ticket.ticket_content)}
+        r = requests.get("http://text-processing.com/api/sentiment/", params=payload)
+        print r
+        # response_dict = r.json()
+        # print response_dict
 
 # # @app.route('/clustering', methods=["GET"])
 # # def get_clusters():
