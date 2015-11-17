@@ -23,7 +23,8 @@ app.secret_key = "Hello world"
 
 app.jinja_env.undefined = StrictUndefined
 
-HOURS_A_DAY = 24
+HOURS_PER_DAY = 24
+SECONDS_PER_HOUR = 3600
 
 def process_tickets_to_display(tickets):
     """ 
@@ -226,8 +227,10 @@ def get_response_times():
     
     for ticket in tickets_in_range:
         time_to_first_response = ticket.time_first_responded - ticket.time_submitted
-        print type(time_to_first_response)
-        print time_to_first_response
+        seconds_to_first_response = time_to_first_response.total_seconds()
+        hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
+        print seconds_to_first_response
+        print hours_to_first_response
     #     ticket_id = ticket.ticket_id
     #     # hour_submitted = ticket.time_submitted.hour
     #     # hour_first_responded = ticket.time_first_responded.hour
