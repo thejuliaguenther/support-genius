@@ -2,7 +2,7 @@ from numpy import genfromtxt
 import numpy as np
 import random 
 import sklearn 
-from sklearn import linear_model
+from sklearn import datasets, linear_model
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -222,15 +222,27 @@ def get_response_times():
     # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
     # ticket_responses = []
 
-    ticket_responses = []
-    ticket_submissions = []
+    ticket_response_list = []
+    ticket_submit_list = []
     
     for ticket in tickets_in_range:
-        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
-        seconds_to_first_response = time_to_first_response.total_seconds()
-        hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
-        print seconds_to_first_response
-        print hours_to_first_response
+        ticket_submitted_hour = float(ticket.time_submitted.hour)
+        ticket_submitted_minutes = float(ticket.time_submitted.minute)
+        ticket_submitted = ticket_submitted_hour + (ticket_submitted_minutes/60)
+        print ticket_submitted
+    #     time_to_first_response = ticket.time_first_responded - ticket.time_submitted
+    #     seconds_to_first_response = time_to_first_response.total_seconds()
+    #     hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
+    #     print seconds_to_first_response
+    #     print hours_to_first_response
+        
+    #     ticket_submit_list.append(ticket_submitted)
+    #     ticket_response_list.append(hours_to_first_response)
+    
+
+    # ticket_responses = np.array(ticket_response_list)
+    # ticket_submissions = np.array(ticket_submit_list)
+
     #     ticket_id = ticket.ticket_id
     #     # hour_submitted = ticket.time_submitted.hour
     #     # hour_first_responded = ticket.time_first_responded.hour
