@@ -230,7 +230,8 @@ def get_response_times():
         ticket_submitted_hour = ticket.time_submitted.hour 
         ticket_submitted_day = ticket.time_submitted.day
         ticket_submitted_month = ticket.time_submitted.month 
-        ticket_submitted = (ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
+        ticket_submitted_year = ticket.time_submitted.year 
+        ticket_submitted = (ticket_submitted_year, ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
         print ticket_submitted
         # ticket_responded = ticket.time_first_responded
 
