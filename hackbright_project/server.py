@@ -227,9 +227,12 @@ def get_response_times():
         # hour_submitted = ticket.time_submitted.hour
         # hour_first_responded = ticket.time_first_responded.hour
 
-        ticket_submitted = ticket.time_submitted.hour 
+        ticket_submitted_hour = ticket.time_submitted.hour 
+        ticket_submitted_day = ticket.time_submitted.day
+        ticket_submitted_month = ticket.time_submitted.month 
+        ticket_submitted = (ticket_submitted_month, ticket_submitted_day, ticket_submitted_hour)
         print ticket_submitted
-        ticket_responded = ticket.time_first_responded
+        # ticket_responded = ticket.time_first_responded
 
         # #If the ticket is responded to on the same day as it is submitted, subtract the hours to get the number of hours between submission and response
         # if ticket.time_submitted.date == ticket.time_first_responded.date:
