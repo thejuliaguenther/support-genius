@@ -254,8 +254,8 @@
         console.log(data.data['line_points']);
     $('#regression').highcharts({
         xAxis: {
-            min: -0.5,
-            max: 5.5
+            min: 0,
+            max: 24
         },
         yAxis: {
             min: 0
@@ -279,12 +279,13 @@
                 }
             },
             enableMouseTracking: false
-           // }, {
-           //  type: 'scatter',
-           //  name: 'Observations',
-           //  data: data.data.scatter_points,
-           //  marker: {
-           //      radius: 4
+           }, {
+            type: 'scatter',
+            name: 'Observations',
+            data: data.data['scatter_points'],
+            marker: {
+                radius: 4
+            }
            
         }]
     });
