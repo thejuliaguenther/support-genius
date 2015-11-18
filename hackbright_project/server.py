@@ -8,6 +8,7 @@ import sklearn
 # nltk.download()
 from response_regression import get_response_regression
 from agent_touches_regression import get_response_per_agent_touches
+from meanshift_analysis import meanshift_cluster
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -252,21 +253,21 @@ def get_resolution_times():
     # print type(data['line_points'])
     return jsonify(data=data)
     
-# @app.route('/nlp_route')
-# def create_positive_and_negative_datasets():
-#     # nltk.download()
-#     tickets = Ticket.query.all()
+@app.route('/nlp_route')
+def create_positive_and_negative_datasets():
+    tickets = Ticket.query.all()
 
-#     for ticket in tickets:
-#         payload = {'text':str(ticket.ticket_content)}
-#         r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
-#         print r
-#         response_dict = r.json()
+    for ticket in tickets:
+        payload = {'text':str(ticket.ticket_content)}
+        r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
+        print r
+        response_dict = r.json()
 
 
-# # @app.route('/clustering', methods=["GET"])
-# # def get_clusters():
-
+@app.route('/clustering', methods=["GET"])
+def get_clusters():
+    tickets = Ticket.query.all()
+    data = meanshift_cluster(tickets)
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():

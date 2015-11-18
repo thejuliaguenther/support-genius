@@ -61,7 +61,7 @@ def get_response_per_agent_touches(tickets_in_range):
     for i in range(0, index_half_resolutions):
         # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
         data['scatter_points'].append(resolutions_test[i])
-        data['line_points'].append([touches_test[i][0], model.predict(touches_test[i][0]).tolist()])
+        data['line_points'].append([touches_test[i][0], model.predict(touches_test[i][0])])
         # print "Line"
         # print line_list
 

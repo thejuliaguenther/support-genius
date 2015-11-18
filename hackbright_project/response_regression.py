@@ -21,11 +21,18 @@ def get_response_regression(tickets_in_range):
         # print hours_to_first_response
         
         ticket_submit_list.append(ticket_submitted)
+        sorted_submit_list = sorted(ticket_submit_list)
         ticket_response_list.append(hours_to_first_response)
     
 
     ticket_responses = np.array(ticket_response_list, float)
-    ticket_submissions = np.array(ticket_submit_list, float)
+    ticket_submissions = np.array(sorted_submit_list, float)
+    print "X's"
+    print " "
+    print ticket_submissions
+    print "Y's"
+    print " "
+    print ticket_responses
 
     index_half_responses = len(ticket_responses)/2
     index_half_submissions = len(ticket_submissions)/2
@@ -61,7 +68,11 @@ def get_response_regression(tickets_in_range):
         # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
         data['scatter_points'].append(responses_test[i]) #Graphing package only takes the y value for scatter plot 
         print scatter_list
-        data['line_points'].append([submissions_test[i][0], model.predict(submissions_test[i][0]).tolist()])
+        predicted_Y_coord = model.predict(submissions_test[i][0])
+        print "This is the predicted y coord"
+        print predicted_Y_coord
+        print type(predicted_Y_coord)
+        data['line_points'].append([submissions_test[i][0], predicted_Y_coord[0]])
         # print "Line"
         # print line_list
 

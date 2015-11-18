@@ -246,14 +246,12 @@
     renderIndustryChart();
   </script>
   <script>
+
   function renderResponseRegression(){
-    regression_data = $.get('/dashboard_response_time.json');
-    // line_data = regression_data.line_points;
-    console.log(typeof(regression_data['data']));
-
-
-     //returns 
-    $(function () {
+    regression_data = $.get('/dashboard_response_time.json',function(data){
+      $(function () {
+        console.log("DATAAAAAA: ");
+        console.log(data.data['line_points']);
     $('#regression').highcharts({
         xAxis: {
             min: -0.5,
@@ -269,6 +267,7 @@
             type: 'line',
             name: 'Regression Line',
             // data: [[0, 1.11], [5, 4.51]],
+            data: data.data['line_points'],
 
 
             marker: {
@@ -280,18 +279,61 @@
                 }
             },
             enableMouseTracking: false
-           }, {
-            type: 'scatter',
-            name: 'Observations',
-            data: data.data.scatter_points,
-            marker: {
-                radius: 4
-            }
+           // }, {
+           //  type: 'scatter',
+           //  name: 'Observations',
+           //  data: data.data.scatter_points,
+           //  marker: {
+           //      radius: 4
+           
         }]
     });
-});
 
-  }
+    });
+    // line_data = regression_data.line_points;
+    console.log(typeof(regression_data['data']));
+
+
+     // returns 
+//     $(function () {
+//     $('#regression').highcharts({
+//         xAxis: {
+//             min: -0.5,
+//             max: 5.5
+//         },
+//         yAxis: {
+//             min: 0
+//         },
+//         title: {
+//             text: 'Scatter plot with regression line'
+//         },
+//         series: [{
+//             type: 'line',
+//             name: 'Regression Line',
+//             data: [[0, 1.11], [5, 4.51]],
+
+
+//             marker: {
+//                 enabled: false
+//             },
+//             states: {
+//                 hover: {
+//                     lineWidth: 0
+//                 }
+//             },
+//             enableMouseTracking: false
+//            // }, {
+//            //  type: 'scatter',
+//            //  name: 'Observations',
+//            //  data: data.data.scatter_points,
+//            //  marker: {
+//            //      radius: 4
+           
+//         }]
+//     });
+});
+}
+
   renderResponseRegression();    
 </script>
 
