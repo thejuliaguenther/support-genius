@@ -54,11 +54,17 @@ def get_response_regression(tickets_in_range):
     print type(submissions_test[0])
 
 
-
-    data = {'scatter_points':[], 'line_points':[]}
+    scatter_list = []
+    line_list = []
+    data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_responses):
-        data['scatter_points'] = [submissions_test[i][0], responses_test[i]]
-        data['line_points'] = [submissions_test[i][0], model.predict(responses_test[i]).tolist()]
+        data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
+        print "Scatter"
+        print scatter_list
+        data['line_points'].append([submissions_test[i][0], model.predict(responses_test[i]).tolist()])
+        print "Line"
+        print line_list
 
-
+    print "Data"
+    print data
     return data
