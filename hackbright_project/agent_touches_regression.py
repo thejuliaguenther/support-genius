@@ -21,15 +21,12 @@ def get_response_per_agent_touches(tickets_in_range):
 
 
     ticket_resolutions = np.array(ticket_resolution_list, float)
-    print ticket_resolutions
     ticket_touches = np.array(ticket_touches_list, float)
-    print ticket_touches
 
     index_half_resolutions = len(ticket_resolutions)/2
-    print index_half_resolutions
     index_half_touches = len(ticket_touches)/2
         #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    print index_half_touches
+
 
     resolutions_train = ticket_resolutions[:-index_half_resolutions]
     
@@ -58,8 +55,11 @@ def get_response_per_agent_touches(tickets_in_range):
     data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_resolutions):
         # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
-        data['scatter_points'].append(resolutions_test[i])
-        data['line_points'].append([touches_test[i][0], model.predict(touches_test[i][0])])
+        print type(touches_test[i][0])
+        data['scatter_points'].append(touches_test[i])
+        print type(resolutions_test[i][0])
+        predicted_Y_coord = model.predict(resolutions_test[i][0])
+        data['line_points'].append([resolutions_test[i][0], predicted_Y_coord[0]])
         # print "Line"
         # print line_list
 

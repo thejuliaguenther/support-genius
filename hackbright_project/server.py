@@ -216,8 +216,8 @@ def get_tickets_to_display():
 
 @app.route('/dashboard_response_time.json', methods=["GET"])
 def get_response_times():
-    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
-    # date_range = request.args.get("date-range")
+    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    date_range = request.args.get("date-range")
     date_range = date_range.split('-')
     start_date = date_range[0].encode('utf-8')
     end_date = date_range[1].encode('utf-8')
