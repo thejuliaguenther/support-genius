@@ -58,13 +58,11 @@ def get_response_regression(tickets_in_range):
     line_list = []
     data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_responses):
-        data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
-        print "Scatter"
+        # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
+        data['scatter_points'].append(responses_test[i]) #Graphing package only takes the y value for scatter plot 
         print scatter_list
-        data['line_points'].append([submissions_test[i][0], model.predict(responses_test[i]).tolist()])
-        print "Line"
-        print line_list
+        data['line_points'].append([submissions_test[i][0], model.predict(submissions_test[i][0]).tolist()])
+        # print "Line"
+        # print line_list
 
-    print "Data"
-    print data
     return data

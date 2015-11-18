@@ -7,6 +7,7 @@ import sklearn
 # import nltk
 # nltk.download()
 from response_regression import get_response_regression
+from agent_touches_regression import get_response_per_agent_touches
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -212,7 +213,7 @@ def get_tickets_to_display():
 
     return jsonify(data=ticket_list)
 
-@app.route('/dashboard_response_time', methods=["GET"])
+@app.route('/dashboard_response_time.json', methods=["GET"])
 def get_response_times():
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     # date_range = request.args.get("date-range")
@@ -227,71 +228,13 @@ def get_response_times():
     # ticket_responses = []
 
     data = get_response_regression(tickets_in_range)
-    print type(data['scatter_points'])
-    print type(data['line_points'])
-    print data
+    # print type(data['scatter_points'])
+    # print type(data['line_points'])
     return jsonify(data=data)
-    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
-    # # date_range = request.args.get("date-range")
-    # date_range = date_range.split('-')
-    # start_date = date_range[0].encode('utf-8')
-    # end_date = date_range[1].encode('utf-8')
-    # start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
-    # end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
-
-    # tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
-    # # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
-    # # ticket_responses = []
-
-    # ticket_response_list = []
-    # ticket_submit_list = []
-    
-    # for ticket in tickets_in_range:
-    #     ticket_submitted_hour = float(ticket.time_submitted.hour)
-    #     ticket_submitted_minutes = float(ticket.time_submitted.minute)
-    #     ticket_submitted = [ticket_submitted_hour + (ticket_submitted_minutes/60)]
-        
-
-    #     time_to_first_response = ticket.time_first_responded - ticket.time_submitted
-    #     seconds_to_first_response = time_to_first_response.total_seconds()
-    #     hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
-    #     # print seconds_to_first_response
-    #     # print hours_to_first_response
-        
-    #     ticket_submit_list.append(ticket_submitted)
-    #     ticket_response_list.append(hours_to_first_response)
-    
-
-    # ticket_responses = np.array(ticket_response_list, float)
-    # ticket_submissions = np.array(ticket_submit_list, float)
-
-    # index_half_responses = len(ticket_responses)/2
-    # index_half_submissions = len(ticket_submissions)/2
-    #     #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    # responses_train = ticket_responses[:-index_half_responses]
-    
-    # responses_test = ticket_responses[index_half_responses:]
-   
-
-    # #Get the data for the independent variable, the submission time, separated into training and testing sets
-    # submissions_train = ticket_submissions[:-index_half_submissions]
-    # submissions_test = ticket_submissions[index_half_submissions:]
-    # # print submissions_test
-
-    # model = linear_model.LinearRegression()
-    # test = model.fit(submissions_train, responses_train)
-     
-    # # The coefficients
-    # print('Coefficients: \n', model.coef_)
-    # # The mean square error
-    # print("Residual sum of squares: %.2f"
-    #       % np.mean((model.predict(submissions_test) - responses_test) ** 2))
-    # # Explained variance score: 1 is perfect prediction
-    # print('Variance score: %.2f' % model.score(submissions_test, responses_test))
     
     #return the scatterplots and line to pass to response 
 
-@app.route('/dashboard_agent_touches', methods=["GET"])
+@app.route('/dashboard_agent_touches.json', methods=["GET"])
 def get_resolution_times():
 
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
@@ -302,59 +245,13 @@ def get_resolution_times():
     start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
-    ticket_resolution_list = []
-    ticket_touches_list = []
-
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
+    data = get_response_per_agent_touches(tickets_in_range)
+    # print type(data['scatter_points'])
+    # print type(data['line_points'])
+    return jsonify(data=data)
     
-    for ticket in tickets_in_range:
-        ticket_id = ticket.ticket_id
-        time_to_resolution = ticket.time_resolved - ticket.time_first_responded
-        seconds_to_resolution = time_to_resolution.total_seconds()
-        hours_to_resolution = seconds_to_resolution / SECONDS_PER_HOUR
-
-        ticket_resolution_list.append(hours_to_resolution)
-
-        agent_touches = [float(ticket.num_agent_touches)]
-
-        ticket_touches_list.append(agent_touches)
-
-
-    ticket_resolutions = np.array(ticket_resolution_list, float)
-    print ticket_resolutions
-    ticket_touches = np.array(ticket_touches_list, float)
-    print ticket_touches
-
-    index_half_resolutions = len(ticket_resolutions)/2
-    print index_half_resolutions
-    index_half_touches = len(ticket_touches)/2
-        #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    print index_half_touches
-
-    resolutions_train = ticket_resolutions[:-index_half_resolutions]
-    
-    resolutions_test = ticket_resolutions[index_half_resolutions:]
-   
-
-    #Get the data for the independent variable, the submission time, separated into training and testing sets
-    touches_train = ticket_touches[:-index_half_touches]
-    touches_test = ticket_touches[index_half_touches:]
-    # print submissions_test
-
-    model = linear_model.LinearRegression()
-    test = model.fit(touches_train, resolutions_train)
-     
-    # The coefficients
-    print('Coefficients: \n', model.coef_)
-    # The mean square error
-    print("Residual sum of squares: %.2f"
-          % np.mean((model.predict(touches_test) - resolutions_test) ** 2))
-    # Explained variance score: 1 is perfect prediction
-    print('Variance score: %.2f' % model.score(touches_test, resolutions_test))
-
-
-    #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
 # @app.route('/nlp_route')
 # def create_positive_and_negative_datasets():
 #     # nltk.download()
@@ -427,8 +324,8 @@ def get_tickets_by_tier():
 
 @app.route('/tickets_by_industry.json', methods=["GET"])
 def get_tickets_by_industry():
-    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
-    # date_range = request.args.get("date-range")
+    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    date_range = request.args.get("date-range")
     date_range = date_range.split('-')
 
     start_date = date_range[0].encode('utf-8')
