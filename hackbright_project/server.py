@@ -1,8 +1,12 @@
 from numpy import genfromtxt
 import numpy as np
+# import nlp
 import random 
 import sklearn 
-from sklearn import datasets, linear_model
+
+# import nltk
+# nltk.download()
+from response_regression import get_response_regression
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -210,7 +214,6 @@ def get_tickets_to_display():
 
 @app.route('/dashboard_response_time', methods=["GET"])
 def get_response_times():
-
     date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     # date_range = request.args.get("date-range")
     date_range = date_range.split('-')
@@ -223,52 +226,66 @@ def get_response_times():
     # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
     # ticket_responses = []
 
-    ticket_response_list = []
-    ticket_submit_list = []
+    get_response_regression(tickets_in_range)
+    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    # # date_range = request.args.get("date-range")
+    # date_range = date_range.split('-')
+    # start_date = date_range[0].encode('utf-8')
+    # end_date = date_range[1].encode('utf-8')
+    # start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    # end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
+
+    # tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
+    # # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
+    # # ticket_responses = []
+
+    # ticket_response_list = []
+    # ticket_submit_list = []
     
-    for ticket in tickets_in_range:
-        ticket_submitted_hour = float(ticket.time_submitted.hour)
-        ticket_submitted_minutes = float(ticket.time_submitted.minute)
-        ticket_submitted = [ticket_submitted_hour + (ticket_submitted_minutes/60)]
+    # for ticket in tickets_in_range:
+    #     ticket_submitted_hour = float(ticket.time_submitted.hour)
+    #     ticket_submitted_minutes = float(ticket.time_submitted.minute)
+    #     ticket_submitted = [ticket_submitted_hour + (ticket_submitted_minutes/60)]
         
 
-        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
-        seconds_to_first_response = time_to_first_response.total_seconds()
-        hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
-        # print seconds_to_first_response
-        # print hours_to_first_response
+    #     time_to_first_response = ticket.time_first_responded - ticket.time_submitted
+    #     seconds_to_first_response = time_to_first_response.total_seconds()
+    #     hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
+    #     # print seconds_to_first_response
+    #     # print hours_to_first_response
         
-        ticket_submit_list.append(ticket_submitted)
-        ticket_response_list.append(hours_to_first_response)
+    #     ticket_submit_list.append(ticket_submitted)
+    #     ticket_response_list.append(hours_to_first_response)
     
 
-    ticket_responses = np.array(ticket_response_list, float)
-    ticket_submissions = np.array(ticket_submit_list, float)
+    # ticket_responses = np.array(ticket_response_list, float)
+    # ticket_submissions = np.array(ticket_submit_list, float)
 
-    index_half_responses = len(ticket_responses)/2
-    index_half_submissions = len(ticket_submissions)/2
-        #Get the data for the dependent variable, the response time, separated into training and testing sets 
-    responses_train = ticket_responses[:-index_half_responses]
+    # index_half_responses = len(ticket_responses)/2
+    # index_half_submissions = len(ticket_submissions)/2
+    #     #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    # responses_train = ticket_responses[:-index_half_responses]
     
-    responses_test = ticket_responses[index_half_responses:]
+    # responses_test = ticket_responses[index_half_responses:]
    
 
-    #Get the data for the independent variable, the submission time, separated into training and testing sets
-    submissions_train = ticket_submissions[:-index_half_submissions]
-    submissions_test = ticket_submissions[index_half_submissions:]
-    # print submissions_test
+    # #Get the data for the independent variable, the submission time, separated into training and testing sets
+    # submissions_train = ticket_submissions[:-index_half_submissions]
+    # submissions_test = ticket_submissions[index_half_submissions:]
+    # # print submissions_test
 
-    model = linear_model.LinearRegression()
-    test = model.fit(submissions_train, responses_train)
+    # model = linear_model.LinearRegression()
+    # test = model.fit(submissions_train, responses_train)
      
-    # The coefficients
-    print('Coefficients: \n', model.coef_)
-    # The mean square error
-    print("Residual sum of squares: %.2f"
-          % np.mean((model.predict(submissions_test) - responses_test) ** 2))
-    # Explained variance score: 1 is perfect prediction
-    print('Variance score: %.2f' % model.score(submissions_test, responses_test))
-
+    # # The coefficients
+    # print('Coefficients: \n', model.coef_)
+    # # The mean square error
+    # print("Residual sum of squares: %.2f"
+    #       % np.mean((model.predict(submissions_test) - responses_test) ** 2))
+    # # Explained variance score: 1 is perfect prediction
+    # print('Variance score: %.2f' % model.score(submissions_test, responses_test))
+    
+    #return the scatterplots and line to pass to response 
 
 @app.route('/dashboard_agent_touches', methods=["GET"])
 def get_resolution_times():
@@ -334,16 +351,17 @@ def get_resolution_times():
 
 
     #use scikit learn to process data and do regression analyis of response tome vs. hour submitted 
-@app.route('/nlp_route')
-def create_positive_and_negative_datasets():
-    tickets = Ticket.query.all()
+# @app.route('/nlp_route')
+# def create_positive_and_negative_datasets():
+#     # nltk.download()
+#     tickets = Ticket.query.all()
 
-    for ticket in tickets:
-        payload = {'text':str(ticket.ticket_content)}
-        r = requests.get("http://text-processing.com/api/sentiment/", params=payload)
-        print r
-        # response_dict = r.json()
-        # print response_dict
+#     for ticket in tickets:
+#         payload = {'text':str(ticket.ticket_content)}
+#         r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
+#         print r
+#         response_dict = r.json()
+
 
 # # @app.route('/clustering', methods=["GET"])
 # # def get_clusters():

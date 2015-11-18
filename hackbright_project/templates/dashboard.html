@@ -246,11 +246,15 @@
     }
 
     renderIndustryChart();
+  
 
+  function renderResponseChart(){
+  
 
 
     $(function () {
     $('#regression').highcharts({
+        data = $.get('/dashboard_response_time'); //returns an object
         xAxis: {
             min: -0.5,
             max: 5.5
@@ -264,7 +268,8 @@
         series: [{
             type: 'line',
             name: 'Regression Line',
-            data: [[0, 1.11], [5, 4.51]],
+            // data: [[0, 1.11], [5, 4.51]],
+
             marker: {
                 enabled: false
             },
@@ -284,6 +289,7 @@
         }]
     });
 });
+}
       
 </script>
 

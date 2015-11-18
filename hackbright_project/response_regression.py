@@ -1,50 +1,56 @@
-# import matplotlib.pyplot as plt
-from numpy import genfromtxt
+from sklearn import datasets, linear_model
+from datetime import datetime
 import numpy as np
-import random 
-import sklearn 
-from sklearn import linear_model
 
-#load the file from a csv into a numpy array 
-ticket_responses = genfromtxt('responded_tickets.csv', delimiter=',')
-ticket_submissions = genfromtxt('submitted_tickets.csv', delimiter=',')
-#spilt the file into training and testing sets 
-#linear regression 
+SECONDS_PER_HOUR = 3600
 
-#Get the data for the dependent variable, the response time, separated into training and testing sets 
-responses_train = ticket_responses[:-150]
-responses_test = ticket_responses[-150:]
+def get_response_regression(tickets_in_range):
+    ticket_response_list = []
+    ticket_submit_list = []
+    
+    for ticket in tickets_in_range:
+        ticket_submitted_hour = float(ticket.time_submitted.hour)
+        ticket_submitted_minutes = float(ticket.time_submitted.minute)
+        ticket_submitted = [ticket_submitted_hour + (ticket_submitted_minutes/60)]
+        
 
-#Get the data for the independent variable, the submission time, separated into training and testing sets
-submissions_train = ticket_submissions[:-150]
-submissions_test = ticket_submissions[-150:]
+        time_to_first_response = ticket.time_first_responded - ticket.time_submitted
+        seconds_to_first_response = time_to_first_response.total_seconds()
+        hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
+        # print seconds_to_first_response
+        # print hours_to_first_response
+        
+        ticket_submit_list.append(ticket_submitted)
+        ticket_response_list.append(hours_to_first_response)
+    
 
-model = linear_model.LinearRegression()
-model.fit(submissions_train, responses_train)
+    ticket_responses = np.array(ticket_response_list, float)
+    ticket_submissions = np.array(ticket_submit_list, float)
 
-# The coefficients
-print('Coefficients: \n', model.coef_)
-# The mean square error
-print("Residual sum of squares: %.2f"
-      % np.mean((model.predict(submissions_test) - responses_test) ** 2))
-# Explained variance score: 1 is perfect prediction
-print('Variance score: %.2f' % model.score(submissions_test, responses_test))
+    index_half_responses = len(ticket_responses)/2
+    index_half_submissions = len(ticket_submissions)/2
+        #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    responses_train = ticket_responses[:-index_half_responses]
+    
+    responses_test = ticket_responses[index_half_responses:]
+   
 
-# print ticket_responses
+    #Get the data for the independent variable, the submission time, separated into training and testing sets
+    submissions_train = ticket_submissions[:-index_half_submissions]
+    submissions_test = ticket_submissions[index_half_submissions:]
+    # print submissions_test
 
-# np.random.seed(0)
-# X = np.random.random(size=(20, 1))
-# y = 3 * X.squeeze() + 2 + np.random.normal(size=20)
+    model = linear_model.LinearRegression()
+    test = model.fit(submissions_train, responses_train)
+     
+    # The coefficients
+    print('Coefficients: \n', model.coef_)
+    # The mean square error
+    print("Residual sum of squares: %.2f"
+          % np.mean((model.predict(submissions_test) - responses_test) ** 2))
+    # Explained variance score: 1 is perfect prediction
+    print('Variance score: %.2f' % model.score(submissions_test, responses_test))
 
-# # Fit a linear regression to it
-# model = linear_model.LinearRegression(fit_intercept=True)
-# model.fit(X, y)
-# print ("Model coefficient: %.5f, and intercept: %.5f"
-#        % (model.coef_, model.intercept_))
-
-# # Plot the data and the model prediction
-# X_test = np.linspace(0, 1, 100)[:, np.newaxis]
-# y_test = model.predict(X_test)
-
-# plt.plot(X.squeeze(), y, 'o')
-# plt.plot(X_test.squeeze(), y_test);
+    # data = {'scatter_points':[], 'line_points':[]}
+    # for i in range(responses_test):
+    #     responses_test[i]
