@@ -51,6 +51,14 @@ def get_response_regression(tickets_in_range):
     # Explained variance score: 1 is perfect prediction
     print('Variance score: %.2f' % model.score(submissions_test, responses_test))
 
-    # data = {'scatter_points':[], 'line_points':[]}
-    # for i in range(responses_test):
-    #     responses_test[i]
+    print type(submissions_test[0])
+
+
+
+    data = {'scatter_points':[], 'line_points':[]}
+    for i in range(0, index_half_responses):
+        data['scatter_points'] = [submissions_test[i][0], responses_test[i]]
+        data['line_points'] = [submissions_test[i][0], model.predict(responses_test[i]).tolist()]
+
+
+    return data

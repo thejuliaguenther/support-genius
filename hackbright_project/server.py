@@ -226,7 +226,11 @@ def get_response_times():
     # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
     # ticket_responses = []
 
-    get_response_regression(tickets_in_range)
+    data = get_response_regression(tickets_in_range)
+    print type(data['scatter_points'])
+    print type(data['line_points'])
+    print data
+    return jsonify(data=data)
     # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     # # date_range = request.args.get("date-range")
     # date_range = date_range.split('-')
