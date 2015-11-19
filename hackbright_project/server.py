@@ -3,7 +3,7 @@ import numpy as np
 # import nlp
 import random 
 import sklearn
-from nlp import process_text
+from nlp import process_text, test_route
 
 # import nltk
 # nltk.download()
@@ -77,31 +77,31 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-@app.route('/login', methods=["GET"])
-def show_login_form():
-    """Shows login form."""
+# @app.route('/login', methods=["GET"])
+# def show_login_form():
+#     """Shows login form."""
     
-    return render_template("login.html")
+#     return render_template("login.html")
 
-@app.route('/process_login', methods=["POST"])
-def process_login():
-    """
-    If the username or password is incorrect, flash a message informing the 
-    user that the username or password is incorrect and allow them to login again
-    """
-    username = request.form.get("username")
-    password = request.form.get("password")
+# @app.route('/process_login', methods=["POST"])
+# def process_login():
+#     """
+#     If the username or password is incorrect, flash a message informing the 
+#     user that the username or password is incorrect and allow them to login again
+#     """
+#     username = request.form.get("username")
+#     password = request.form.get("password")
 
-    login = Agent.query.filter(Agent.email == username).first()
+#     login = Agent.query.filter(Agent.email == username).first()
 
-    if not login or login.password != password:
-        flash("Username or password is incorrect")
-        return redirect('/login')
-    else:
+#     if not login or login.password != password:
+#         flash("Username or password is incorrect")
+#         return redirect('/login')
+#     else:
         
-        while username not in session.values():
-            session['user_name'] = username
-        return redirect('/tickets')
+#         while username not in session.values():
+#             session['user_name'] = username
+#         return redirect('/tickets')
     
 @app.route('/companies/<int:company_id>')
 def show_company_detail(company_id):
@@ -254,18 +254,28 @@ def get_resolution_times():
     # print type(data['line_points'])
     return jsonify(data=data)
     
-@app.route('/nlp_route')
+@app.route('/nlp_route',  methods=["POST"])
 def create_positive_and_negative_datasets():
-    tickets = Ticket.query.all()
+    # tickets = Ticket.query.all()
 
     # for ticket in tickets:
     #     payload = {'text':str(ticket.ticket_content)}
     #     r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
     #     print r
     #     response_dict = r.json()
+    date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    # date_range = request.args.get("date-range")
+    date_range = date_range.split('-')
+    start_date = date_range[0].encode('utf-8')
+    end_date = date_range[1].encode('utf-8')
+    start_date = datetime.strptime(start_date, "%m/%d/%Y %H:%M:%S")
+    end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
-    process_text(tickets)
+    tickets = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
 
+    # process_text(tickets)
+
+test_route()
 @app.route('/clustering', methods=["GET"])
 def get_clusters():
     tickets = Ticket.query.all()

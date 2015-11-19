@@ -55,9 +55,7 @@ def get_response_per_agent_touches(tickets_in_range):
     data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_resolutions):
         # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
-        print type(touches_test[i][0])
         data['scatter_points'].append(touches_test[i][0])
-        print type(resolutions_test[i])
         predicted_Y_coord = model.predict(resolutions_test[i])
         data['line_points'].append([resolutions_test[i], predicted_Y_coord[0]])
         # print "Line"

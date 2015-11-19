@@ -1,0 +1,45 @@
+import numpy as np
+from sklearn.cluster import MeanShift, estimate_bandwidth
+from model import Ticket, Agent, Customer, Company, connect_to_db, db
+
+def get_data(tickets):
+    industries = {'media':1, 'financial services':2, 'consulting':3, 'transportation':4,
+    'technology':5, 'energy':6}
+    
+    support_tiers = {'Gold':1, 'Silver':2, 'Bronze':3}
+    
+    pilot = {'Yes':1, 'No':0}
+
+    locations = {'San Diego, CA': 1, 'Boston, MA':2, 'Priceton, NJ': 3, 'New York, NY': 4,
+                 'Ann Arbor, MI': 5, 'Eugene, OR': 6, 'Brooklyn, NY': 7, 'San Francisco, CA': 8,
+                 'Los Angeles, CA': 9, 'Munich, Germany': 10, 'Berlin, Germany': 11, 'Detroit, MI': 12, 
+                 'Redwood City, CA': 13, 'Seattle, WA': 14, 'London, UK': 15, 'Madison, WI': 16,
+                 'Foster City, CA': 17, 'Chicago, IL': 18, 'Paris, France': 19, 'Syracuse, NY': 20,
+                 'Fairfield, CT': 21 }
+
+    agents = {'Xye Dagun': 1, 'Kayla Smith': 2, 'Stephanie Nguyen': 3, 'Christina Foran': 4,
+              'Blake Gilmore': 5, 'Erica Johnson': 6, 'Brandi Day': 7, 'Julia Guenther': 8}
+    for ticket in tickets:
+        features = []
+        ticket_company = Company.query.filter(ticket.company_id == Company.id).first()
+        ticket_agent = Agent.query.filter(ticket.agent_id == Agent.id).first()
+        #Get the number corresponding to the industry that each ticket is in 
+        industry = ticket_company.industry
+        industry_number = industries[industry]
+        
+        support_tier = ticket_company.support_tier
+        support_number = support_tiers[support_tier]
+        
+        is_pilot = ticket_company.is_pilot
+        pilot_number = pilot[is_pilot]
+
+        location = ticket_company.location
+        location_number = locations[location]
+
+        agent = ticket.agent 
+        agent_number = agents[agent] 
+
+
+def meanshift_cluster(tickets):
+    
+
