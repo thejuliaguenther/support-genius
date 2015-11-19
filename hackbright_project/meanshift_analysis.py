@@ -48,4 +48,12 @@ def get_data(tickets):
         feature_list.append([industry_number, support_number, pilot_number, location_number])
     print feature_list
 
+    bandwidth = estimate_bandwidth(feature_list, quantile=0.2)
+
+    ms = MeanShift(bandwith=bandwith)
+    ms.fit()
+    labels = ms.labels_
+    cluster_centers = ms.cluster_centers_
+
+    
 
