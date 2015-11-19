@@ -17,11 +17,14 @@ def get_data(tickets):
                  'Foster City, CA': 17, 'Chicago, IL': 18, 'Paris, France': 19, 'Syracuse, NY': 20,
                  'Fairfield, CT': 21 }
 
-    agents = {'Xye Dagun': 1, 'Kayla Smith': 2, 'Stephanie Nguyen': 3, 'Christina Foran': 4,
+    agent_names = {'Xye Dagun': 1, 'Kayla Smith': 2, 'Stephanie Nguyen': 3, 'Christina Foran': 4,
               'Blake Gilmore': 5, 'Erica Johnson': 6, 'Brandi Day': 7, 'Julia Guenther': 8}
+
+    feature_list = []
+
     for ticket in tickets:
-        features = []
-        ticket_company = Company.query.filter(ticket.company_id == Company.id).first()
+        ticket_customer = Customer.query.filter(ticket.customer_id == Customer.id).first()
+        ticket_company = Company.query.filter(Company.id == ticket_customer.company_id).first()
         ticket_agent = Agent.query.filter(ticket.agent_id == Agent.id).first()
         #Get the number corresponding to the industry that each ticket is in 
         industry = ticket_company.industry
@@ -36,10 +39,13 @@ def get_data(tickets):
         location = ticket_company.location
         location_number = locations[location]
 
-        agent = ticket.agent 
-        agent_number = agents[agent] 
+        #text_score 
 
+        ticket_agent = Agent.query.filter(Agent.id == ticket.agent_id).first()
+        agent_name = ticket_agent.name
+        agent_number = agent_names[agent_name] 
+        print "Got to here!"
+        feature_list.append([industry_number, support_number, pilot_number, location_number])
+    print feature_list
 
-def meanshift_cluster(tickets):
-    
 
