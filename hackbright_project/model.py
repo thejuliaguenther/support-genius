@@ -62,6 +62,7 @@ class Ticket(db.Model):
     time_first_responded = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
     ticket_content = db.Column(db.String(), nullable=False)
+    ticket_sentiment = db.Column(db.String(), nullable=False)
     
     #define relationship to customer
     customer = db.relationship("Customer", 
