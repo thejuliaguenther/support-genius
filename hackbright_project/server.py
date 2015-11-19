@@ -2,7 +2,8 @@ from numpy import genfromtxt
 import numpy as np
 # import nlp
 import random 
-import sklearn 
+import sklearn
+from nlp import process_text
 
 # import nltk
 # nltk.download()
@@ -257,12 +258,13 @@ def get_resolution_times():
 def create_positive_and_negative_datasets():
     tickets = Ticket.query.all()
 
-    for ticket in tickets:
-        payload = {'text':str(ticket.ticket_content)}
-        r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
-        print r
-        response_dict = r.json()
+    # for ticket in tickets:
+    #     payload = {'text':str(ticket.ticket_content)}
+    #     r = requests.post("http://text-processing.com/api/sentiment/", params=payload)
+    #     print r
+    #     response_dict = r.json()
 
+    process_text(tickets)
 
 @app.route('/clustering', methods=["GET"])
 def get_clusters():
