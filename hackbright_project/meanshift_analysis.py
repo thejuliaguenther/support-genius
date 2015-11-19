@@ -61,4 +61,16 @@ def get_data(tickets):
 
     print("number of estimated clusters : %d" % n_clusters_)
 
+    scatter_points = []
+    for k, col in zip(range(n_clusters_), colors):
+        my_members = labels == k
+        cluster_center = cluster_centers[k]
+        # X[my_members, 0], X[my_members, 1], col + '.')
+        plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
+              markeredgecolor='k', markersize=14)
+
+
+
+
+
 
