@@ -278,9 +278,9 @@ def get_resolution_times():
 
 @app.route('/clustering', methods=["GET"])
 def get_clusters():
-    # tickets = Ticket.query.all()
-    # data = get_data(tickets)
-    return render_template("meanshift_graph.html")
+    tickets = Ticket.query.all()
+    data = get_data(tickets)
+    # return render_template("meanshift_graph.html")
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
     # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"

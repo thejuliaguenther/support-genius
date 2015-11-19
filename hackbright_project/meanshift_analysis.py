@@ -46,14 +46,17 @@ def get_data(tickets):
         agent_number = agent_names[agent_name] 
         print "Got to here!"
         feature_list.append([industry_number, support_number, pilot_number, location_number])
-    print feature_list
+    
+    feature_list_np = np.array(feature_list, float)
 
-    bandwidth = estimate_bandwidth(feature_list, quantile=0.2)
+    bandwidth = estimate_bandwidth(feature_list_np, quantile=0.2)
 
-    ms = MeanShift(bandwith=bandwith)
-    ms.fit()
+    ms = MeanShift(bandwidth=bandwidth, )
+    ms.fit(feature_list_np)
     labels = ms.labels_
     cluster_centers = ms.cluster_centers_
 
-    
+    labels_unique = np.unique(labels)
+    n_clusters_ = len(labels_unique)
 
+    print("number of estimated clusters : %d" % n_clusters_)
