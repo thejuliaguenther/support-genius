@@ -51,7 +51,7 @@ def get_data(tickets):
 
     bandwidth = estimate_bandwidth(feature_list_np, quantile=0.2)
 
-    ms = MeanShift(bandwidth=bandwidth, )
+    ms = MeanShift(bandwidth=bandwidth)
     ms.fit(feature_list_np)
     labels = ms.labels_
     cluster_centers = ms.cluster_centers_
@@ -60,3 +60,5 @@ def get_data(tickets):
     n_clusters_ = len(labels_unique)
 
     print("number of estimated clusters : %d" % n_clusters_)
+
+
