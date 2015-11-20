@@ -23,6 +23,9 @@ def get_data(tickets):
     sentiment_numbers = {'neg': 1, 'neutral': 2, 'pos': 3}
 
     feature_list = []
+    ticket_list = []
+    sentiment_list = []
+    certainty_list = []
 
     for ticket in tickets:
         ticket_customer = Customer.query.filter(ticket.customer_id == Customer.id).first()
@@ -41,8 +44,16 @@ def get_data(tickets):
         location = ticket_company.location
         location_number = locations[location]
 
+        ticket_list.append(ticket.ticket_id)
+
         sentiment = ticket.ticket_sentiment
         sentiment_number = sentiment_numbers[sentiment]
+        sentiment_list.append(sentiment_number) 
+
+        percent_certainty = ticket.percent_certainty
+        certainty_list.append(percent_certainty)
+
+        
 
         #text_score 
 
@@ -70,6 +81,7 @@ def get_data(tickets):
     ms = MeanShift(bandwidth=bandwidth)
     ms.fit(feature_list_np)
     labels = ms.labels_
+    print labels
 
     # make a label_count_dict, to osee distribution
     label_count_dict = {}
@@ -85,13 +97,22 @@ def get_data(tickets):
 
     print("number of estimated clusters : %d" % n_clusters_)
 
-    scatter_points = []
-    for k, col in zip(range(n_clusters_), colors):
-        my_members = labels == k
-        cluster_center = cluster_centers[k]
-        # X[my_members, 0], X[my_members, 1], col + '.')
-        plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
-              markeredgecolor='k', markersize=14)
+    cluster1_points = []
+    cluster1_points = []
+    cluster1_points = []
+    cluster1_points = []
+
+    processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
+    print processed_clusters
+
+#     for k, col in zip(range(n_clusters_)):
+#         my_members = labels == k
+#         cluster_center = cluster_centers[k]
+#         # X[my_members, 0], X[my_members, 1], col + '.')
+#         plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
+#               markeredgecolor='k', markersize=14)
+
+# def get_cluster_sentiments():
 
 
 
