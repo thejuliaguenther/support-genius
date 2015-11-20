@@ -17,8 +17,8 @@ def get_data(tickets):
                  'Foster City, CA': 17, 'Chicago, IL': 18, 'Paris, France': 19, 'Syracuse, NY': 20,
                  'Fairfield, CT': 21 }
 
-    agent_names = {'Xye Dagun': 1, 'Kayla Smith': 2, 'Stephanie Nguyen': 3, 'Christina Foran': 4,
-              'Blake Gilmore': 5, 'Erica Johnson': 6, 'Brandi Day': 7, 'Julia Guenther': 8}
+    agent_names = {'Xye Dagun': [0,1], 'Kayla Smith': [0,1], 'Stephanie Nguyen': [0,1], 'Christina Foran': [0,1],
+              'Blake Gilmore': [0,1], 'Erica Johnson': [0,1], 'Brandi Day': [0,1], 'Julia Guenther': [0,1]}
 
     sentiment_numbers = {'neg': 1, 'neutral': 2, 'pos': 3}
 
@@ -48,17 +48,36 @@ def get_data(tickets):
 
         ticket_agent = Agent.query.filter(Agent.id == ticket.agent_id).first()
         agent_name = ticket_agent.name
-        agent_number = agent_names[agent_name] 
+        agents_on_ticket = []
+        for x in agent_names:
+            if x == agent_name:
+                agents_on_ticket.append(1)
+            else:
+                agents_on_ticket.append(0)
         print "Got to here!"
-        feature_list.append([industry_number, support_number, pilot_number, location_number, sentiment_number])
+        features_per_ticket = []
+        features_per_ticket.extend([industry_number, support_number, pilot_number, location_number])
+        features_per_ticket.extend(agents_on_ticket)
+        features_per_ticket.append(sentiment_number)
+
+        feature_list.append(features_per_ticket)
     
     feature_list_np = np.array(feature_list, float)
 
     bandwidth = estimate_bandwidth(feature_list_np, quantile=0.2)
+    print "BANDWIDTH:", bandwidth
 
     ms = MeanShift(bandwidth=bandwidth)
     ms.fit(feature_list_np)
     labels = ms.labels_
+
+    # make a label_count_dict, to osee distribution
+    label_count_dict = {}
+    for lab in list(labels):
+        label_count_dict[lab] = label_count_dict.get(lab, 0) + 1
+
+    print "LABELS DICT:", label_count_dict
+
     cluster_centers = ms.cluster_centers_
 
     labels_unique = np.unique(labels)
