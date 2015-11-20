@@ -20,6 +20,8 @@ def get_data(tickets):
     agent_names = {'Xye Dagun': 1, 'Kayla Smith': 2, 'Stephanie Nguyen': 3, 'Christina Foran': 4,
               'Blake Gilmore': 5, 'Erica Johnson': 6, 'Brandi Day': 7, 'Julia Guenther': 8}
 
+    sentiment_numbers = {'neg': 1, 'neutral': 2, 'pos': 3}
+
     feature_list = []
 
     for ticket in tickets:
@@ -39,13 +41,16 @@ def get_data(tickets):
         location = ticket_company.location
         location_number = locations[location]
 
+        sentiment = ticket.ticket_sentiment
+        sentiment_number = sentiment_numbers[sentiment]
+
         #text_score 
 
         ticket_agent = Agent.query.filter(Agent.id == ticket.agent_id).first()
         agent_name = ticket_agent.name
         agent_number = agent_names[agent_name] 
         print "Got to here!"
-        feature_list.append([industry_number, support_number, pilot_number, location_number])
+        feature_list.append([industry_number, support_number, pilot_number, location_number, sentiment_number])
     
     feature_list_np = np.array(feature_list, float)
 
