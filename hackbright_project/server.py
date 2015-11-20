@@ -281,6 +281,7 @@ def create_positive_and_negative_datasets():
 def get_clusters():
     tickets = Ticket.query.all()
     data = get_data(tickets)
+    print data
     return render_template("meanshift_graph.html")
 
 @app.route('/tickets_by_tier.json', methods=["GET"])

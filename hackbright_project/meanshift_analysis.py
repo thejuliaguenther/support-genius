@@ -97,15 +97,11 @@ def get_data(tickets):
 
     print("number of estimated clusters : %d" % n_clusters_)
 
-    cluster1_points = []
-    cluster1_points = []
-    cluster1_points = []
-    cluster1_points = []
 
     processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
     
-    process_clusters(processed_clusters)
-
+    data =process_clusters(processed_clusters)
+    return data
 
 
 #     for k, col in zip(range(n_clusters_)):
@@ -120,6 +116,8 @@ def process_clusters(ticket_details):
     cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
+
+    cluster_list = []
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
@@ -154,10 +152,13 @@ def process_clusters(ticket_details):
                 cluster_4['neutral'] += 1
             else:
                 cluster_4['pos'] += 1
-    print cluster_1
-    print cluster_2
-    print cluster_3
-    print cluster_4 
+    
+    cluster_list.append(cluster_1)
+    cluster_list.append(cluster_2)
+    cluster_list.append(cluster_3)
+    cluster_list.append(cluster_4)
+
+    return cluster_list
     
     
 
