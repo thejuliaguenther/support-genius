@@ -103,7 +103,10 @@ def get_data(tickets):
     cluster1_points = []
 
     processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
-    print processed_clusters
+    
+    process_clusters(processed_clusters)
+
+
 
 #     for k, col in zip(range(n_clusters_)):
 #         my_members = labels == k
@@ -112,8 +115,51 @@ def get_data(tickets):
 #         plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
 #               markeredgecolor='k', markersize=14)
 
-# def get_cluster_sentiments():
+def process_clusters(ticket_details):
+    cluster_1 = {'neg':0, 'neutral':0, 'pos':0}
+    cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
+    cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
+    cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
 
+    for ticket in ticket_details:
+        cluster_label = ticket[0]
+        ticket_id = ticket[1]
+        sentiment = ticket[2]
+        certainty = ticket[3]
+        if cluster_label == 0:
+            if sentiment == 1:
+                cluster_1['neg'] += 1
+            elif sentiment == 2:
+                cluster_1['neutral'] += 1
+            else:
+                cluster_1['pos'] += 1
+        elif cluster_label == 1:
+            if sentiment == 1:
+                cluster_2['neg'] += 1
+            elif sentiment == 2:
+                cluster_2['neutral'] += 1
+            else:
+                cluster_2['pos'] += 1
+        elif cluster_label == 2:
+            if sentiment == 1:
+                cluster_3['neg'] += 1
+            elif sentiment == 2:
+                cluster_3['neutral'] += 1
+            else:
+                cluster_3['pos'] += 1
+        elif cluster_label == 3:
+            if sentiment == 1:
+                cluster_4['neg'] += 1
+            elif sentiment == 2:
+                cluster_4['neutral'] += 1
+            else:
+                cluster_4['pos'] += 1
+    print cluster_1
+    print cluster_2
+    print cluster_3
+    print cluster_4 
+    
+    
 
 
 
