@@ -179,6 +179,8 @@
 //         }]
 //     });
 // });
+
+ 
 function renderClusterBarGraph(){
  data = $.get("/clustering", function(data){
  $(function () {
@@ -211,7 +213,6 @@ function renderClusterBarGraph(){
             }
         },
         tooltip: {
-            valueSuffix: ' millions'
         },
         plotOptions: {
             bar: {

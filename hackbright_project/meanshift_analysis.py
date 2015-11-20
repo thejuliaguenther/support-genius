@@ -157,6 +157,8 @@ def process_clusters(ticket_details):
 
     return cluster_dict
     
+    # def create_scatterplot():
+        
     
 
 

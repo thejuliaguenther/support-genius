@@ -62,8 +62,9 @@ class Ticket(db.Model):
     time_first_responded = db.Column(db.DateTime())
     channel_submitted = db.Column(db.String(50), nullable=True)
     ticket_content = db.Column(db.String(), nullable=False)
-    percent_certainty = db.Column(db.Float(), nullable=False)
-    ticket_sentiment = db.Column(db.String(), nullable=False)
+    percent_positive = db.Column(db.Float(), nullable=False)
+    percent_negative = db.Column(db.Float(), nullable=False)
+    # ticket_sentiment = db.Column(db.String(), nullable=False)
 
     
     #define relationship to customer

@@ -72,7 +72,7 @@ def load_agents():
 def load_tickets():
     """ Load tickets from tickets.txt to database"""
     for row in open("seed_data/tickets.txt"):
-        ticket_id, customer_id, time_submitted, agent_id, num_agent_touches, time_resolved, time_first_responded, channel_submitted, ticket_content, percent_certainty, ticket_sentiment= row.split("|")
+        ticket_id, customer_id, time_submitted, agent_id, num_agent_touches, time_resolved, time_first_responded, channel_submitted, ticket_content, percent_positive, percent_negative = row.split("|")
 
         ticket = Ticket(ticket_id=ticket_id.strip(),
                         customer_id=customer_id.strip(),
@@ -83,8 +83,9 @@ def load_tickets():
                         time_first_responded=datetime.strptime(time_first_responded.strip(), '%m/%d/%y %H:%M'),
                         channel_submitted=channel_submitted.strip(),
                         ticket_content=ticket_content.strip(),
-                        percent_certainty=percent_certainty.strip(),
-                        ticket_sentiment=ticket_sentiment.strip())
+                        percent_positive=percent_positive.strip(),
+                        percent_negative=percent_negative.strip())
+                        # ticket_sentiment=ticket_sentiment.strip())
                         
                         
         db.session.add(ticket)
