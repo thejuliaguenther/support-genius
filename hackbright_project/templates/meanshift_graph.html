@@ -180,8 +180,10 @@
 //     });
 // });
 function renderClusterBarGraph(){
- // regression_data = $.get("/clustering?"+ $('#ticket-ranges').serialize(), function(data){
+ data = $.get("/clustering", function(data){
  $(function () {
+    console.log("GOT HERE!!!!")
+    console.log(data.data['cluster1'])
     $('#cluster').highcharts({
         chart: {
             type: 'bar'
@@ -201,7 +203,7 @@ function renderClusterBarGraph(){
         yAxis: {
             min: 0,
             title: {
-                text: 'Population (millions)',
+                text: 'Number of Tickets)',
                 align: 'high'
             },
             labels: {
@@ -234,19 +236,20 @@ function renderClusterBarGraph(){
         },
         series: [{
             name: 'Positive',
-            data: [107, 31, 635, 203, 2]
+            data: [data.data['cluster1']['pos'],data.data['cluster2']['pos'], data.data['cluster3']['pos'], data.data['cluster4']['pos'] ]
         }, {
             name: 'Neutral',
-            data: [133, 156, 947, 408, 6]
+            data: [data.data['cluster1']['neutral'],data.data['cluster2']['neutral'], data.data['cluster3']['neutral'], data.data['cluster4']['neutral']]
         }, {
             name: 'Negative',
-            data: [1052, 954, 4250, 740, 38]
+            data: [data.data['cluster1']['neg'],data.data['cluster2']['neg'], data.data['cluster3']['neg'], data.data['cluster4']['neg'] ]
         }]
     });
  });
- renderClusterBarGraph();
-// });
+ 
+});
 }
+renderClusterBarGraph();
  </script>
 
  {% endblock %}

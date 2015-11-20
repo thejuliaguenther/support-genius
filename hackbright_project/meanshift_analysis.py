@@ -117,7 +117,7 @@ def process_clusters(ticket_details):
     cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
 
-    cluster_list = []
+    cluster_dict = {}
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
@@ -153,12 +153,9 @@ def process_clusters(ticket_details):
             else:
                 cluster_4['pos'] += 1
     
-    cluster_list.append(cluster_1)
-    cluster_list.append(cluster_2)
-    cluster_list.append(cluster_3)
-    cluster_list.append(cluster_4)
+    cluster_dict = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
 
-    return cluster_list
+    return cluster_dict
     
     
 
