@@ -64,7 +64,7 @@ class Ticket(db.Model):
     ticket_content = db.Column(db.String(), nullable=False)
     percent_positive = db.Column(db.Float(), nullable=False)
     percent_negative = db.Column(db.Float(), nullable=False)
-    # ticket_sentiment = db.Column(db.String(), nullable=False)
+    ticket_sentiment = db.Column(db.String(), nullable=False)
 
     
     #define relationship to customer
