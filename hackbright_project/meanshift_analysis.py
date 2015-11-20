@@ -100,16 +100,10 @@ def get_data(tickets):
 
     processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
     
-    data =process_clusters(processed_clusters)
-    return data
+    # data =process_clusters(processed_clusters)
+    # return data
+    return processed_clusters
 
-
-#     for k, col in zip(range(n_clusters_)):
-#         my_members = labels == k
-#         cluster_center = cluster_centers[k]
-#         # X[my_members, 0], X[my_members, 1], col + '.')
-#         plt.plot(cluster_center[0], cluster_center[1], 'o', markerfacecolor=col,
-#               markeredgecolor='k', markersize=14)
 
 def process_clusters(ticket_details):
     cluster_1 = {'neg':0, 'neutral':0, 'pos':0}
@@ -157,8 +151,8 @@ def process_clusters(ticket_details):
 
     return cluster_dict
     
-    # def create_scatterplot():
-        
+    def create_scatterplot(ticket_details):
+        pass
     
 
 

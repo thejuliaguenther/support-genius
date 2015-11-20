@@ -9,7 +9,7 @@ from nlp import process_text
 # nltk.download()
 from response_regression import get_response_regression
 from agent_touches_regression import get_response_per_agent_touches
-from meanshift_analysis import get_data
+from meanshift_analysis import get_data, process_clusters
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -77,32 +77,7 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-# @app.route('/login', methods=["GET"])
-# def show_login_form():
-#     """Shows login form."""
-    
-#     return render_template("login.html")
 
-# @app.route('/process_login', methods=["POST"])
-# def process_login():
-#     """
-#     If the username or password is incorrect, flash a message informing the 
-#     user that the username or password is incorrect and allow them to login again
-#     """
-#     username = request.form.get("username")
-#     password = request.form.get("password")
-
-#     login = Agent.query.filter(Agent.email == username).first()
-
-#     if not login or login.password != password:
-#         flash("Username or password is incorrect")
-#         return redirect('/login')
-#     else:
-        
-#         while username not in session.values():
-#             session['user_name'] = username
-#         return redirect('/tickets')
-    
 @app.route('/companies/<int:company_id>')
 def show_company_detail(company_id):
     """Shows indivisual company details"""
