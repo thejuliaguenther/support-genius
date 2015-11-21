@@ -10,12 +10,11 @@ def get_data(tickets):
     
     pilot = {'Yes':1, 'No':0}
 
-    locations = {'San Diego, CA': 1, 'Boston, MA':2, 'Priceton, NJ': 3, 'New York, NY': 4,
-                 'Ann Arbor, MI': 5, 'Eugene, OR': 6, 'Brooklyn, NY': 7, 'San Francisco, CA': 8,
-                 'Los Angeles, CA': 9, 'Munich, Germany': 10, 'Berlin, Germany': 11, 'Detroit, MI': 12, 
-                 'Redwood City, CA': 13, 'Seattle, WA': 14, 'London, UK': 15, 'Madison, WI': 16,
-                 'Foster City, CA': 17, 'Chicago, IL': 18, 'Paris, France': 19, 'Syracuse, NY': 20,
-                 'Fairfield, CT': 21 }
+    locations = {'San Francisco, CA': 1, 'Redwood City, CA': 2, 'Foster City, CA': 3, 'Los Angeles, CA': 4,
+                 'San Diego, CA': 5, 'Eugene, OR': 6, 'Seattle, WA': 7, 'Madison, WI': 8, 'Chicago, IL': 9, 
+                 'Ann Arbor, MI': 10, 'Detroit, MI': 11, 'Syracuse, NY': 12, 'New York, NY': 13, 'Brooklyn, NY': 14, 
+                 'Fairfield, CT': 15, 'Priceton, NJ': 16, 'Boston, MA': 17,  'London, UK': 19, 'Munich, Germany': 20,
+                 'Berlin, Germany': 21 }
 
     agent_names = {'Xye Dagun': [0,1], 'Kayla Smith': [0,1], 'Stephanie Nguyen': [0,1], 'Christina Foran': [0,1],
               'Blake Gilmore': [0,1], 'Erica Johnson': [0,1], 'Brandi Day': [0,1], 'Julia Guenther': [0,1]}
@@ -100,8 +99,8 @@ def get_data(tickets):
 
     processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
     
-    # data =process_clusters(processed_clusters)
-    # return data
+    data =process_clusters(processed_clusters)
+    return data
     return processed_clusters
 
 
