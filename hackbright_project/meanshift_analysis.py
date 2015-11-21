@@ -101,7 +101,7 @@ def get_data(tickets):
     
     data =process_clusters(processed_clusters)
     return data
-    return processed_clusters
+    # return processed_clusters
 
 
 def process_clusters(ticket_details):

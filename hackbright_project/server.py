@@ -255,8 +255,12 @@ def create_positive_and_negative_datasets():
 @app.route('/clustering', methods=["GET"])
 def get_clusters():
     tickets = Ticket.query.all()
+    print tickets 
     data = get_data(tickets)
+    
+
     return jsonify(data=data)
+    
 
 @app.route('/sentiment_clusters', methods=["GET"])
 def render_clusters():
