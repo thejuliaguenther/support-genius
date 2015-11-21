@@ -13,8 +13,8 @@ def get_data(tickets):
     locations = {'San Francisco, CA': 1, 'Redwood City, CA': 2, 'Foster City, CA': 3, 'Los Angeles, CA': 4,
                  'San Diego, CA': 5, 'Eugene, OR': 6, 'Seattle, WA': 7, 'Madison, WI': 8, 'Chicago, IL': 9, 
                  'Ann Arbor, MI': 10, 'Detroit, MI': 11, 'Syracuse, NY': 12, 'New York, NY': 13, 'Brooklyn, NY': 14, 
-                 'Fairfield, CT': 15, 'Priceton, NJ': 16, 'Boston, MA': 17,  'London, UK': 19, 'Munich, Germany': 20,
-                 'Berlin, Germany': 21 }
+                 'Fairfield, CT': 15, 'Priceton, NJ': 16, 'Boston, MA': 17,  'London, UK': 19, 'Paris, France':20,
+                 'Munich, Germany': 21, 'Berlin, Germany': 22 }
 
     agent_names = {'Xye Dagun': [0,1], 'Kayla Smith': [0,1], 'Stephanie Nguyen': [0,1], 'Christina Foran': [0,1],
               'Blake Gilmore': [0,1], 'Erica Johnson': [0,1], 'Brandi Day': [0,1], 'Julia Guenther': [0,1]}
@@ -31,21 +31,21 @@ def get_data(tickets):
         ticket_company = Company.query.filter(Company.id == ticket_customer.company_id).first()
         ticket_agent = Agent.query.filter(ticket.agent_id == Agent.id).first()
         #Get the number corresponding to the industry that each ticket is in 
-        industry = ticket_company.industry
+        industry = str(ticket_company.industry)
         industry_number = industries[industry]
         
-        support_tier = ticket_company.support_tier
+        support_tier = str(ticket_company.support_tier)
         support_number = support_tiers[support_tier]
         
-        is_pilot = ticket_company.is_pilot
+        is_pilot = str(ticket_company.is_pilot)
         pilot_number = pilot[is_pilot]
 
-        location = ticket_company.location
+        location = str(ticket_company.location)
         location_number = locations[location]
 
         ticket_list.append(ticket.ticket_id)
 
-        sentiment = ticket.ticket_sentiment
+        sentiment = str(ticket.ticket_sentiment)
         sentiment_number = sentiment_numbers[sentiment]
         sentiment_list.append(sentiment_number) 
 
