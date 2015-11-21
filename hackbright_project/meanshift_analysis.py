@@ -24,7 +24,9 @@ def get_data(tickets):
     feature_list = []
     ticket_list = []
     sentiment_list = []
-    certainty_list = []
+    # certainty_list = []
+    positive_list = []
+    negative_list = []
 
     for ticket in tickets:
         ticket_customer = Customer.query.filter(ticket.customer_id == Customer.id).first()
@@ -49,8 +51,13 @@ def get_data(tickets):
         sentiment_number = sentiment_numbers[sentiment]
         sentiment_list.append(sentiment_number) 
 
-        percent_certainty = ticket.percent_certainty
-        certainty_list.append(percent_certainty)
+        # percent_certainty = ticket.percent_certainty
+        # certainty_list.append(percent_certainty)
+        percent_positive = ticket.percent_positive
+        positive_list.append(percent_positive)
+
+        percent_negative = ticket.percent_negative
+        negative_list.append(percent_negative)
 
         
 
@@ -97,26 +104,40 @@ def get_data(tickets):
     print("number of estimated clusters : %d" % n_clusters_)
 
 
-    processed_clusters = zip(labels, ticket_list, sentiment_list, certainty_list)
+    processed_clusters = zip(labels, ticket_list, sentiment_list, positive_list, negative_list)
     
-    data =process_clusters(processed_clusters)
-    return data
-    # return processed_clusters
+    # data =process_clusters(processed_clusters)
+    # return data
+    return processed_clusters
 
 
-def process_clusters(ticket_details):
+
+def process_clusters(tickets):
+    """
+    This function gets the number of positive, negative, and neutral tickets 
+    in each cluster and returns a dictionary containing the number of positive, 
+    negative, and neutral tickets in each cluster
+    """
+    ticket_details = get_data(tickets)
     cluster_1 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
 
-    cluster_dict = {}
+
+    cluster_data = {}
+    cluster_labels = {}
+    cluster_tickets = {}
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
         ticket_id = ticket[1]
         sentiment = ticket[2]
-        certainty = ticket[3]
+        percent_positive = ticket[3]
+        percent_negative = ticket[4]
+
+        cluster_tickets[ticket_id] = (ticket_id, percent_positive, percent_negative)
+
         if cluster_label == 0:
             if sentiment == 1:
                 cluster_1['neg'] += 1
@@ -145,13 +166,20 @@ def process_clusters(ticket_details):
                 cluster_4['neutral'] += 1
             else:
                 cluster_4['pos'] += 1
-    
-    cluster_dict = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
 
-    return cluster_dict
     
-    def create_scatterplot(ticket_details):
-        pass
+    cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
+    
+    cluster_data = {'cluster_labels': cluster_labels, 'cluster_tickets': cluster_tickets}
+    print cluster_data
+    
+    return cluster_data
+    
+    # def create_scatterplot(ticket_details):
+    #     ticket_details = get_data(tickets)
+        
+    #     for ticket in ticket_details:
+
     
 
 
