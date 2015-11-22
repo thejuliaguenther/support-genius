@@ -123,11 +123,12 @@ def process_clusters(tickets):
     cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
     cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
-
+ 
+    cluster_list = []
 
     cluster_data = {}
     cluster_labels = {}
-    cluster_tickets = {}
+    cluster_tickets = {'0':[], '1':[], '2':[], '3':[]}
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
@@ -136,7 +137,6 @@ def process_clusters(tickets):
         percent_positive = ticket[3]
         percent_negative = ticket[4]
 
-        cluster_tickets[ticket_id] = (ticket_id, percent_positive, percent_negative)
 
         if cluster_label == 0:
             if sentiment == 1:
@@ -166,6 +166,8 @@ def process_clusters(tickets):
                 cluster_4['neutral'] += 1
             else:
                 cluster_4['pos'] += 1
+
+        cluster_tickets[str(cluster_label)].append((ticket_id, percent_positive, percent_negative))
 
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
