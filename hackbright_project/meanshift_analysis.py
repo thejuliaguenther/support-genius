@@ -167,7 +167,7 @@ def process_clusters(tickets):
             else:
                 cluster_4['pos'] += 1
 
-        cluster_tickets[str(cluster_label)].append((ticket_id, percent_positive, percent_negative))
+        cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative])
 
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
