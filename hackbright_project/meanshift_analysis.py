@@ -27,6 +27,7 @@ def get_data(tickets):
     # certainty_list = []
     positive_list = []
     negative_list = []
+    pilot_list = []
 
     for ticket in tickets:
         ticket_customer = Customer.query.filter(ticket.customer_id == Customer.id).first()
@@ -41,6 +42,7 @@ def get_data(tickets):
         
         is_pilot = str(ticket_company.is_pilot)
         pilot_number = pilot[is_pilot]
+        pilot_list.append(pilot_number)
 
         location = str(ticket_company.location)
         location_number = locations[location]
@@ -104,7 +106,7 @@ def get_data(tickets):
     print("number of estimated clusters : %d" % n_clusters_)
 
 
-    processed_clusters = zip(labels, ticket_list, sentiment_list, positive_list, negative_list)
+    processed_clusters = zip(labels, ticket_list, sentiment_list, positive_list, negative_list, pilot_list)
     
     # data =process_clusters(processed_clusters)
     # return data
@@ -124,6 +126,8 @@ def get_cluster_info(cluster_tickets):
         for cluster in cluster_tickets:
             positive_list = []
             negative_list = []
+            pilots = []
+            non_pilots = []
             curr_cluster = cluster_tickets[cluster]
             for i in range(len(curr_cluster)):
                 if curr_cluster[i][2] == 3:
@@ -142,16 +146,20 @@ def process_clusters(tickets):
     negative, and neutral tickets in each cluster
     """
     ticket_details = get_data(tickets)
-    cluster_1 = {'neg':0, 'neutral':0, 'pos':0}
-    cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
-    cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
-    cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
+    # cluster_1 = {'neg':0, 'neutral':0, 'pos':0}
+    # cluster_2 = {'neg':0, 'neutral':0, 'pos':0}
+    # cluster_3 = {'neg':0, 'neutral':0, 'pos':0}
+    # cluster_4 = {'neg':0, 'neutral':0, 'pos':0}
+    cluster_1 = {'neg':[], 'neutral':[], 'pos':[]}
+    cluster_2 = {'neg':[], 'neutral':[], 'pos':[]}
+    cluster_3 = {'neg':[], 'neutral':[], 'pos':[]}
+    cluster_4 = {'neg':[], 'neutral':[], 'pos':[]}
  
     cluster_list = []
 
     cluster_data = {}
     cluster_labels = {}
-    cluster_tickets = {'0':[], '1':[], '2':[], '3':[]}
+    # cluster_tickets = {'0':[], '1':[], '2':[], '3':[]}
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
@@ -159,48 +167,81 @@ def process_clusters(tickets):
         sentiment = ticket[2]
         percent_positive = ticket[3]
         percent_negative = ticket[4]
+        is_pilot = ticket[5]
+ 
+        ticket_values = []
 
+        # if cluster_label == 0:
+        #     if sentiment == 1:
+        #         cluster_1['neg'] += 1
+        #     elif sentiment == 2:
+        #         cluster_1['neutral'] += 1
+        #     else:
+        #         cluster_1['pos'] += 1
+        # elif cluster_label == 1:
+        #     if sentiment == 1:
+        #         cluster_2['neg'] += 1
+        #     elif sentiment == 2:
+        #         cluster_2['neutral'] += 1
+        #     else:
+        #         cluster_2['pos'] += 1
+        # elif cluster_label == 2:
+        #     if sentiment == 1:
+        #         cluster_3['neg'] += 1
+        #     elif sentiment == 2:
+        #         cluster_3['neutral'] += 1
+        #     else:
+        #         cluster_3['pos'] += 1
+        # elif cluster_label == 3:
+        #     if sentiment == 1:
+        #         cluster_4['neg'] += 1
+        #     elif sentiment == 2:
+        #         cluster_4['neutral'] += 1
+        #     else:
+        #         cluster_4['pos'] += 1
 
         if cluster_label == 0:
             if sentiment == 1:
-                cluster_1['neg'] += 1
+                cluster_1['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                cluster_1['neutral'] += 1
+                print " "
             else:
-                cluster_1['pos'] += 1
+                cluster_1['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 1:
             if sentiment == 1:
-                cluster_2['neg'] += 1
+                cluster_2['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                cluster_2['neutral'] += 1
+                print " "
             else:
-                cluster_2['pos'] += 1
+                cluster_2['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 2:
             if sentiment == 1:
-                cluster_3['neg'] += 1
+                cluster_3['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                cluster_3['neutral'] += 1
+                print " "
             else:
-                cluster_3['pos'] += 1
+                cluster_3['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 3:
             if sentiment == 1:
-                cluster_4['neg'] += 1
+                cluster_4['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                cluster_4['neutral'] += 1
+                print " "
             else:
-                cluster_4['pos'] += 1
-                
-        cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative, sentiment])
-        print cluster_tickets
+                cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
+          
+    #     cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative, sentiment])
+    #     print cluster_tickets
 
-    cluster_info = get_cluster_info(cluster_tickets)
+    # cluster_info = get_cluster_info(cluster_tickets)
 
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
     
-    cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
+    # cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
+
+    # cluster_data = {'cluster_labels': cluster_labels}
     
-    return cluster_data
+    return cluster_labels
     
     # def get_cluster_info(cluster_tickets):
     #     """
