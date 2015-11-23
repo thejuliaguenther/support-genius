@@ -7,93 +7,99 @@
 <div id="cluster" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 <div id="scatterplot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
+<div id="cluster-details">
+<h2>Clusters</h2>
+
+
+</div>
+
  <script type="text/javascript">
- function renderScatterplot(){
-    data = $.get("/clustering", function(data){
-        console.log(data.data['cluster_tickets']['0'])
-     $(function () {
-        $('#scatterplot').highcharts({
-            chart: {
-                type: 'scatter',
-                zoomType: 'xy'
-            },
-            title: {
-                text: 'Customers by Cluster'
-            },
-            // subtitle: {
-            //     text: 'Source: Heinz  2003'
-            // },
-            xAxis: {
-                title: {
-                    enabled: true,
-                    text: 'Percent Positive'
-                },
-                startOnTick: true,
-                endOnTick: true,
-                showLastLabel: true
-            },
-            yAxis: {
-                title: {
-                    text: 'Percent Negative'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-                borderWidth: 1
-            },
-            plotOptions: {
-                scatter: {
-                    marker: {
-                        radius: 5,
-                        states: {
-                            hover: {
-                                enabled: true,
-                                lineColor: 'rgb(100,100,100)'
-                            }
-                        }
-                    },
-                    states: {
-                        hover: {
-                            marker: {
-                                enabled: false
-                            }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: '<b>{series.name}</b><br>',
-                        pointFormat: '{point.x} cm, {point.y} kg'
-                    }
-                }
-            },
-            series: [{
-                name: 'Cluster 1',
-                color: 'rgba(223, 83, 83, .5)',
-                data: data.data['cluster_tickets']['0']
+//  function renderScatterplot(){
+//     data = $.get("/clustering", function(data){
+//         console.log(data.data['cluster_tickets']['0'])
+//      $(function () {
+//         $('#scatterplot').highcharts({
+//             chart: {
+//                 type: 'scatter',
+//                 zoomType: 'xy'
+//             },
+//             title: {
+//                 text: 'Customers by Cluster'
+//             },
+//             // subtitle: {
+//             //     text: 'Source: Heinz  2003'
+//             // },
+//             xAxis: {
+//                 title: {
+//                     enabled: true,
+//                     text: 'Percent Positive'
+//                 },
+//                 startOnTick: true,
+//                 endOnTick: true,
+//                 showLastLabel: true
+//             },
+//             yAxis: {
+//                 title: {
+//                     text: 'Percent Negative'
+//                 }
+//             },
+//             legend: {
+//                 layout: 'vertical',
+//                 align: 'left',
+//                 verticalAlign: 'top',
+//                 x: 100,
+//                 y: 70,
+//                 floating: true,
+//                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+//                 borderWidth: 1
+//             },
+//             plotOptions: {
+//                 scatter: {
+//                     marker: {
+//                         radius: 5,
+//                         states: {
+//                             hover: {
+//                                 enabled: true,
+//                                 lineColor: 'rgb(100,100,100)'
+//                             }
+//                         }
+//                     },
+//                     states: {
+//                         hover: {
+//                             marker: {
+//                                 enabled: false
+//                             }
+//                         }
+//                     },
+//                     tooltip: {
+//                         headerFormat: '<b>{series.name}</b><br>',
+//                         pointFormat: '{point.x} cm, {point.y} kg'
+//                     }
+//                 }
+//             },
+//             series: [{
+//                 name: 'Cluster 1',
+//                 color: 'rgba(223, 83, 83, .5)',
+//                 data: data.data['cluster_tickets']['0']
 
 
-            }, {
-                name: 'Cluster 2',
-                color: 'rgba(119, 152, 191, .5)',
-                data: data.data['cluster_tickets']['1']
-            },{
-                name: 'Cluster 3',
-                color: 'rgba(120, 152, 191, .5)',
-                data: data.data['cluster_tickets']['2'] 
-            }, { 
-                name: 'Cluster 4',
-                color: 'rgba(120, 158, 191, .5)',
-                data: data.data['cluster_tickets']['3'] 
-            }]
-        });
-    });
- });
-}
+//             }, {
+//                 name: 'Cluster 2',
+//                 color: 'rgba(119, 152, 191, .5)',
+//                 data: data.data['cluster_tickets']['1']
+//             },{
+//                 name: 'Cluster 3',
+//                 color: 'rgba(120, 152, 191, .5)',
+//                 data: data.data['cluster_tickets']['2'] 
+//             }, { 
+//                 name: 'Cluster 4',
+//                 color: 'rgba(120, 158, 191, .5)',
+//                 data: data.data['cluster_tickets']['3'] 
+//             }]
+//         });
+//     });
+//  });
+// }
 
 function renderClusterBarGraph(){
  data = $.get("/clustering", function(data){

@@ -34,6 +34,7 @@ app.jinja_env.undefined = StrictUndefined
 HOURS_PER_DAY = 24
 SECONDS_PER_HOUR = 3600
 
+
 def process_tickets_to_display(tickets):
     """ 
     Gets the tickets to display from the database and 
@@ -52,18 +53,47 @@ def process_tickets_to_display(tickets):
 
     return ticket_list
 
-def load_twilio_config():
-    twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
-    twilio_auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
-    twilio_number = os.environ.get('TWILIO_NUMBER')
+# def process_tickets_to_display(tickets):
+#     """ 
+#     Gets the tickets to display from the database and 
+#     returns them in an iterable list
+#     """
+#     ticket_list = []
 
-    if not all([twilio_account_sid, twilio_auth_token, twilio_number]):
-        logger.error(NOT_CONFIGURED_MESSAGE)
-        raise MiddlewareNotUsed
+#     for ticket in tickets:
+#         ticket_dict = {}
+#         ticket_dict['id'] = ticket.ticket_id 
+#         ticket_dict['submission_time'] = ticket.time_submitted
+#         agent_assigned_to= Agent.query.filter(Agent.id == ticket.agent_id).first()
+#         ticket_dict['agent_name'] = agent_assigned_to.name
+#         ticket_dict['agent_id'] = ticket.agent_id
+#         ticket_list.append(ticket_dict)
 
-    return (twilio_number, twilio_account_sid, twilio_auth_token)
+#     return ticket_list
 
-@app.route('/tickets', methods=["POST", "GET"])
+# def load_twilio_config():
+#     twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+#     twilio_auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+#     twilio_number = os.environ.get('TWILIO_NUMBER')
+
+#     if not all([twilio_account_sid, twilio_auth_token, twilio_number]):
+#         logger.error(NOT_CONFIGURED_MESSAGE)
+#         raise MiddlewareNotUsed
+
+#     return (twilio_number, twilio_account_sid, twilio_auth_token)
+
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def catchall(path):
+#   return "Hello! You requested: /%s" % path
+
+
+# @app.route('/', methods=["POST", "GET"])
+# def render_main_page():
+#     return render_template("ticket_index.html")
+
+@app.route('/', methods=["POST", "GET"])
+# @app.route('/<path:path>')
 def index():
     """
     Renders the home screen for the customer service app 
@@ -77,6 +107,26 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
+@app.route('/stuff')
+def display_stuff():
+    return "Hello world"
+# @app.route('/', methods=["POST", "GET"])
+# def display_index():
+#     return render_template("tickets.html")
+
+# @app.route('/tickets.json', methods=["POST", "GET"])
+# def get_tickets():
+#     """
+#     Renders the home screen for the customer service app 
+
+#     Contains a table showing the tickets currently in the system
+
+#     """
+#     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    
+#     ticket_list = process_tickets_to_display(tickets)
+
+#     return jsonify(data=ticket_list)
 
 @app.route('/companies/<int:company_id>')
 def show_company_detail(company_id):
@@ -244,19 +294,9 @@ def get_clusters():
     # data = get_data(tickets)
     # data = process_clusters(ticket_clusters)
     return jsonify(data=data)
-
-# @app.route('/pos_neg_graph', methods=["GET"])
-# def get_clusters():
-#     tickets = Ticket.query.all()
-#     data = process_clusters(tickets)
-#     # data = get_data(tickets)
-#     # data = process_clusters(ticket_clusters)
-#     return jsonify(data=data)
-
     
 
-
-@app.route('/sentiment_clusters', methods=["GET"])
+@app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
     return render_template("meanshift_graph.html")
 
@@ -360,7 +400,7 @@ def get_tickets_by_industry():
     return jsonify({'data': dict_list})
 
 
-@app.route('/dashboard')
+@app.route('/ticket_dashboard')
 def display_dashboard():
     """ Displays the graphs showing ticket metrics"""
     return render_template("dashboard.html")
