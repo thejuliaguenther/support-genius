@@ -107,9 +107,6 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-@app.route('/stuff')
-def display_stuff():
-    return "Hello world"
 # @app.route('/', methods=["POST", "GET"])
 # def display_index():
 #     return render_template("tickets.html")
@@ -298,7 +295,7 @@ def get_clusters():
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
-    return render_template("meanshift_graph.html")
+    return render_template("customer_dashboard.html")
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
