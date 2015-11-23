@@ -14,8 +14,8 @@
    <tr>
   <td><a href="/tickets/{{ticket[0]}}">{{ticket[0]}}</a></td>
     <td>{{ticket[1]}}</td>
-    <td><a href="/agent_detail/{{ticket[3]}}">{{ticket[2]}}</a></td>
-    <td><a href="/agent_detail/{{ticket[3]}}">{{ticket[2]}}</a></td>
+    <!-- <td><a href="/agent_detail/{{ticket[3]}}">{{ticket[2]}}</a></td> -->
+    <td><a id="agent-view" href="/agent_detail/{{ticket[3]}}">{{ticket[2]}}</a></td>
    </tr>
   {% endfor %}
 </table>
@@ -44,6 +44,12 @@ function showTicketView(evt){
 }
 $('#ticket-view').on('click', showTicketView);
 
+function showAgentTicket(evt){
+  $('#ticket_data').empty();
+  $.get('/agent_detail/{{ticket[3]}}');
+  $('#ticket_data').load('agent_detail.html');
+}
+$('#agent-view').on('click', showTicketView);
 
 </script>
 {% endblock %} 

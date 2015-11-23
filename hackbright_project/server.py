@@ -286,12 +286,16 @@ def create_positive_and_negative_datasets():
 
 @app.route('/clustering', methods=["GET"])
 def get_clusters():
+    """
+    This function uses meanshift to process the ticket \
+    data into process_clusters
+    """
     tickets = Ticket.query.all()
     data = process_clusters(tickets)
     # data = get_data(tickets)
     # data = process_clusters(ticket_clusters)
     return jsonify(data=data)
-    
+
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():

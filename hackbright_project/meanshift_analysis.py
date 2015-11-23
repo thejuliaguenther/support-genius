@@ -110,7 +110,30 @@ def get_data(tickets):
     # return data
     return processed_clusters
 
+def get_cluster_info(cluster_tickets):
+        """
+        This function computes valuable statistics about each cluster, such as the 
+        average positive rating, the average negative rating, the most common location
+        from which a ticket has been sent, and the total percentage of tickets that were 
+        pilots
+        """
 
+        cluster_info = {'0':{}, '1':{}, '2':{}, '3':{}}
+        
+
+        for cluster in cluster_tickets:
+            positive_list = []
+            negative_list = []
+            curr_cluster = cluster_tickets[cluster]
+            for i in range(len(curr_cluster)):
+                if curr_cluster[i][2] == 3:
+                    positive_list.append(curr_cluster[i][0])
+                if curr_cluster[i][2] == 1:
+                    negative_list.append(curr_cluster[i][1])
+            cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
+            cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
+            cluster_info[cluster] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative}
+        return cluster_info
 
 def process_clusters(tickets):
     """
@@ -166,21 +189,46 @@ def process_clusters(tickets):
                 cluster_4['neutral'] += 1
             else:
                 cluster_4['pos'] += 1
+                
+        cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative, sentiment])
+        print cluster_tickets
 
-        cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative])
+    cluster_info = get_cluster_info(cluster_tickets)
 
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
     
-    cluster_data = {'cluster_labels': cluster_labels, 'cluster_tickets': cluster_tickets}
-    print cluster_data
+    cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
     
     return cluster_data
     
-    # def create_scatterplot(ticket_details):
-    #     ticket_details = get_data(tickets)
+    # def get_cluster_info(cluster_tickets):
+    #     """
+    #     This function computes valuable statistics about each cluster, such as the 
+    #     average positive rating, the average negative rating, the most common location
+    #     from which a ticket has been sent, and the total percentage of tickets that were 
+    #     pilots
+    #     """
+
+    #     cluster_info = {'0':{}, '1':{}, '2':{}, '3':{}}
         
-    #     for ticket in ticket_details:
+
+    #     for cluster in cluster_tickets:
+    #         positive_list = []
+    #         negative_list = []
+    #         curr_cluster = cluster_tickets[cluster]
+    #         for i in range(len(curr_cluster)):
+    #             if curr_cluster[i][2] == 'pos':
+    #                 positive_list.append(curr_cluster[i][0])
+    #             else:
+    #                 negative_list.append(curr_cluster[i][1])
+    #         cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
+    #         cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
+
+    #         cluster_info[cluster] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative}
+
+
+
 
     
 
