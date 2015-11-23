@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+   <!--  <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      </button> -->
+      <!-- <a class="navbar-brand" href="#">Brand</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    Collect the nav links, forms, and other content for toggling
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Tickets: October 2015<span class="sr-only">(current)</span></a></li>
@@ -27,8 +27,9 @@
         </li>
       </ul>
     </div>
-  </div>
-<div class="container">
+  </div> -->
+ --><div class="container">
+  <div id ="ticket_data">
 <table class="table table-hover">
   <tr>
     <th>Ticket #</th>
@@ -46,12 +47,15 @@
   {% endfor %}
 </table>
 </div>
+</div>
 <script>
 
 function showTicketDashboard(evt){
-   $.get('/ticket_dashboard');
+  $('#ticket_data').empty();
+  $.get('/ticket_dashboard');
+  $('#ticket_data').load('dashboard.html');
 }
 
-$('#ticket-dashboard').on('click', showTicketDashboard)
+$('#ticket-dashboard').on('click', showTicketDashboard);
 </script>
 {% endblock %} -->
