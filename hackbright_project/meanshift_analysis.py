@@ -204,28 +204,28 @@ def process_clusters(tickets):
             if sentiment == 1:
                 cluster_1['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                print " "
+                cluster_1['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             else:
                 cluster_1['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 1:
             if sentiment == 1:
                 cluster_2['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                print " "
+                cluster_2['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             else:
                 cluster_2['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 2:
             if sentiment == 1:
                 cluster_3['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                print " "
+                cluster_3['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             else:
                 cluster_3['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
         elif cluster_label == 3:
             if sentiment == 1:
                 cluster_4['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             elif sentiment == 2:
-                print " "
+                cluster_4['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot])
             else:
                 cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot])
           
@@ -238,7 +238,7 @@ def process_clusters(tickets):
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
     
     # cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
-
+    # cluster_info = get_cluster_info(cluster_labels)
     # cluster_data = {'cluster_labels': cluster_labels}
     
     return cluster_labels
