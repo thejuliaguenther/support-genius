@@ -107,24 +107,6 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-# @app.route('/', methods=["POST", "GET"])
-# def display_index():
-#     return render_template("tickets.html")
-
-# @app.route('/tickets.json', methods=["POST", "GET"])
-# def get_tickets():
-#     """
-#     Renders the home screen for the customer service app 
-
-#     Contains a table showing the tickets currently in the system
-
-#     """
-#     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
-    
-#     ticket_list = process_tickets_to_display(tickets)
-
-#     return jsonify(data=ticket_list)
-
 @app.route('/companies/<int:company_id>')
 def show_company_detail(company_id):
     """Shows indivisual company details"""
@@ -340,19 +322,8 @@ def get_tickets_by_tier():
         data['support_tier'] = key
         data['count'] = customer_dict[key]
         dict_list.append(data)
-    # {'data':[
-    #   {'support_tier':'Gold',
-    #   'count':5}
-    # ]}
 
     return jsonify({'data': dict_list})
-
-#     # return {}
-    
-#     #JSON format: Tier, total number
-#     #get the customer id associated with the tickets 
-#     #get the customer tier associated with each ticket 
-#     #display pie chart of tickets by tier 
 
 
 @app.route('/tickets_by_industry.json', methods=["GET"])
