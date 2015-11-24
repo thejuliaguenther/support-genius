@@ -62,9 +62,6 @@ def get_data(tickets):
         percent_negative = ticket.percent_negative
         negative_list.append(percent_negative)
 
-        
-
-        #text_score 
 
         ticket_agent = Agent.query.filter(Agent.id == ticket.agent_id).first()
         agent_name = ticket_agent.name
@@ -110,45 +107,38 @@ def get_data(tickets):
     # return data
     return processed_clusters
 
-# def get_cluster_info(cluster_tickets):
-#         """
-#         This function computes valuable statistics about each cluster, such as the 
-#         average positive rating, the average negative rating, the most common location
-#         from which a ticket has been sent, and the total percentage of tickets that were 
-#         pilots
-#         """
+def get_cluster_info(cluster_tickets):
+        """
+        This function computes valuable statistics about each cluster, such as the 
+        average positive rating, the average negative rating, the most common location
+        from which a ticket has been sent, and the total percentage of tickets that were 
+        pilots
+        """
 
-#         cluster_info = {'0':{}, '1':{}, '2':{}, '3':{}}
+        cluster_info = {}
         
-#         cluster_names = cluster_tickets.keys()
-#         print "Bluster keys"
-#         print cluster_names
-#         for key in cluster_names:
-#             positive_list = []
-#             negative_list = []
-#             curr_cluster = cluster_tickets[key]
-#             print "Current cluster"
-#             print curr_cluster
-#             # for i in curr_cluster:
-#             for j in curr_cluster['pos'][0]:
-#                 # print "Value"
-#                 # print [j][4]
-#                 # if curr_cluster[j][4] == 3:
-#                     positive_list.append(curr_cluster[j][1])
-#                     print positive_list
-#             for k in curr_cluster['neg'][0]:
-#                 # if curr_cluster[j][4] == 1:
-#                 negative_list.append(curr_cluster[k][2])
-#                 print negative_list
-#             cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
-#             print cluster_average_positive
-#             cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
-#             print cluster_average_negative
+        cluster_names = cluster_tickets.keys()
+        print "Bluster keys"
+        print cluster_names
+        for key in cluster_names:
+            positive_list = []
+            negative_list = []
+            curr_cluster = cluster_tickets[key]
+            print "Current cluster"
+            print curr_cluster
+            for i in range(len(curr_cluster['pos'])):
+                positive_list.append(curr_cluster['pos'][i][1])
+            for j in range(len(curr_cluster['neg'])):
+                negative_list.append(curr_cluster['neg'][j][2])
+            cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
+            print cluster_average_positive
+            cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
+            print cluster_average_negative
 
-#             cluster_info[key] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative}
-#             print "Got to cluster info!"
-#             print cluster_info
-#         return cluster_info
+            cluster_info[key] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative}
+            print "Got to cluster info!"
+            print cluster_info
+        return cluster_info
 
 # def get_cluster_info(cluster_tickets):
 #         """
@@ -277,7 +267,7 @@ def process_clusters(tickets):
     
     
     # cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
-    # cluster_info = get_cluster_info(cluster_labels)
+    cluster_info = get_cluster_info(cluster_labels)
     # cluster_data = {'cluster_labels': cluster_labels}
     
     
