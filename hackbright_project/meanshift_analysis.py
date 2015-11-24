@@ -270,9 +270,10 @@ def process_clusters(tickets):
     cluster_info = get_cluster_info(cluster_labels)
     # cluster_data = {'cluster_labels': cluster_labels}
     
+    cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
     
-    return cluster_labels
-    
+    # return cluster_data
+    print cluster_data
     
 
     
