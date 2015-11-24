@@ -66,6 +66,7 @@ class Ticket(db.Model):
     percent_negative = db.Column(db.Float(), nullable=False)
     ticket_sentiment = db.Column(db.String(), nullable=False)
     percent_certainty = db.Column(db.Float(), nullable=False)
+    status = db.Column(db.String(), nullable=False)
 
     
     #define relationship to customer
