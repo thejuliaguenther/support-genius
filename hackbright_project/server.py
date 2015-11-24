@@ -48,52 +48,13 @@ def process_tickets_to_display(tickets):
         agent_assigned_to = Agent.query.filter(Agent.id == ticket.agent_id).first()
         agent_name = agent_assigned_to.name
         agent_id = ticket.agent_id
-        ticket_tuple = (ticket_num, submission_time, agent_name, agent_id)
+        status = ticket.status
+        ticket_tuple = (ticket_num, submission_time, agent_name, agent_id, status)
         ticket_list.append(ticket_tuple)
 
     return ticket_list
 
-# def process_tickets_to_display(tickets):
-#     """ 
-#     Gets the tickets to display from the database and 
-#     returns them in an iterable list
-#     """
-#     ticket_list = []
-
-#     for ticket in tickets:
-#         ticket_dict = {}
-#         ticket_dict['id'] = ticket.ticket_id 
-#         ticket_dict['submission_time'] = ticket.time_submitted
-#         agent_assigned_to= Agent.query.filter(Agent.id == ticket.agent_id).first()
-#         ticket_dict['agent_name'] = agent_assigned_to.name
-#         ticket_dict['agent_id'] = ticket.agent_id
-#         ticket_list.append(ticket_dict)
-
-#     return ticket_list
-
-# def load_twilio_config():
-#     twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
-#     twilio_auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
-#     twilio_number = os.environ.get('TWILIO_NUMBER')
-
-#     if not all([twilio_account_sid, twilio_auth_token, twilio_number]):
-#         logger.error(NOT_CONFIGURED_MESSAGE)
-#         raise MiddlewareNotUsed
-
-#     return (twilio_number, twilio_account_sid, twilio_auth_token)
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def catchall(path):
-#   return "Hello! You requested: /%s" % path
-
-
-# @app.route('/', methods=["POST", "GET"])
-# def render_main_page():
-#     return render_template("ticket_index.html")
-
 @app.route('/', methods=["POST", "GET"])
-# @app.route('/<path:path>')
 def index():
     """
     Renders the home screen for the customer service app 
@@ -120,7 +81,6 @@ def show_company_detail(company_id):
     company_pilot = company.is_pilot
     #get all customers with that company id
     company_customers = Customer.query.filter(Customer.company_id == company.id).all() 
-    print company_customers
     #lop through customers with that id, get the tickets associated with that customer
     for customer in company_customers:
         customer_tickets = Ticket.query.filter(Ticket.customer_id == customer.id).all()
