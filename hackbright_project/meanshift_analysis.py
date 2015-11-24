@@ -256,6 +256,8 @@ def process_clusters(tickets):
                 cluster_4['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
             else:
                 cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+
+
           
     #     cluster_tickets[str(cluster_label)].append([percent_positive, percent_negative, sentiment])
     #     print cluster_tickets
@@ -273,7 +275,7 @@ def process_clusters(tickets):
     cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
     
     # return cluster_data
-    print cluster_data
+    return cluster_data
     
 
     
