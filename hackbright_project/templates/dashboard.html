@@ -68,13 +68,13 @@
         $("#industrychart").empty();
         $("#response_regression").empty()
         $("#agent_regression").empty()
-        heatmapChart();
+        renderHeatmapChart();
         renderSupportTierChart();
         renderIndustryChart();
         renderResponseRegression();
         renderAgentTouchesRegression(); 
       }
-      function heatmapChart() {
+      function renderHeatmapChart() {
 
           var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           width = 960 - margin.left - margin.right,
@@ -152,10 +152,6 @@
           legend.exit().remove();
         });  
       };
-      heatmapChart();
-
-
-    
 
     function renderSupportTierChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
@@ -203,8 +199,6 @@
         });
 
     }
-    
-  renderSupportTierChart();
 
   function renderIndustryChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
@@ -251,10 +245,7 @@
 
     }
 
-    renderIndustryChart();
-
-
-  function renderResponseRegression(){
+    function renderResponseRegression(){
     // json_route = "/dashboard_response_time.json?"+ $('#ticket-ranges').serialize();
     regression_data = $.get("/dashboard_response_time.json?"+ $('#ticket-ranges').serialize(), function(data){
       $(function () {
@@ -305,7 +296,7 @@
   });
 }
 
-  renderResponseRegression();   
+    
  
   function renderAgentTouchesRegression(){
     // json_route = "/dashboard_response_time.json?"+ $('#ticket-ranges').serialize();
@@ -360,6 +351,10 @@
 
 }
 
+renderHeatmapChart();
+renderSupportTierChart();
+renderIndustryChart();
+renderResponseRegression(); 
 renderAgentTouchesRegression();
 </script>
 
