@@ -19,18 +19,15 @@
       }
     </style>
     <meta charset="utf-8" />
-    <title>Antwan Wimberly's React Router Tutorial via ES5 and Babel</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://npmcdn.com/history/umd/History.min.js"></script>
+    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    // <script src="https://npmcdn.com/history/umd/History.min.js"></script>
     <script src="http://d3js.org/d3.v3.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
   </head>
   <body>
+    <h1> Tickets Per Hour</h1>
     <div id="chart"></div>
     <div id="dataset-picker">
       <!-- <form id="ticket-ranges" method="GET" action="/dashboard_data"> -->
@@ -53,8 +50,10 @@
     $("#ticket-ranges").on("submit", submitForm);
    </script>
     </div>
-   <div id="supportchart"></div>
-   <div id="industrychart"></div>
+    <div class="row">
+      <div class="col-md-6" id="supportchart"></div>
+      <div class="col-md-6" id="industrychart"></div>
+   </div>
     <div id="response_regression" style="min-width: 310px; height: 400px; margin: 10 auto"></div>
     <div id="agent_regression" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
@@ -156,8 +155,8 @@
     function renderSupportTierChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
 
-        var width = 960,
-        height = 500,
+        var width = 300,
+        height = 300,
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
@@ -202,8 +201,8 @@
 
   function renderIndustryChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
-        var width = 960,
-        height = 500,
+        var width = 300,
+        height = 300,
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
