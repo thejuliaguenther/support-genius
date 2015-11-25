@@ -2,6 +2,14 @@ import numpy as np
 from sklearn.cluster import MeanShift, estimate_bandwidth
 from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
+
+#Locations are listed with city and state or country as this is how they are listed in the database
+locations = {'San Francisco, CA': 1, 'Redwood City, CA': 2, 'Foster City, CA': 3, 'Los Angeles, CA': 4,
+                 'San Diego, CA': 5, 'Eugene, OR': 6, 'Seattle, WA': 7, 'Madison, WI': 8, 'Chicago, IL': 9, 
+                 'Ann Arbor, MI': 10, 'Detroit, MI': 11, 'Syracuse, NY': 12, 'New York, NY': 13, 'Brooklyn, NY': 14, 
+                 'Fairfield, CT': 15, 'Priceton, NJ': 16, 'Boston, MA': 17,  'London, UK': 18, 'Paris, France': 19,
+                 'Munich, Germany': 20, 'Berlin, Germany': 21 }
+
 def get_data(tickets):
     industries = {'media':1, 'financial services':2, 'consulting':3, 'transportation':4,
     'technology':5, 'energy':6}
@@ -9,12 +17,6 @@ def get_data(tickets):
     support_tiers = {'Gold':1, 'Silver':2, 'Bronze':3}
     
     pilot = {'Yes':1, 'No':0}
-
-    locations = {'San Francisco, CA': 1, 'Redwood City, CA': 2, 'Foster City, CA': 3, 'Los Angeles, CA': 4,
-                 'San Diego, CA': 5, 'Eugene, OR': 6, 'Seattle, WA': 7, 'Madison, WI': 8, 'Chicago, IL': 9, 
-                 'Ann Arbor, MI': 10, 'Detroit, MI': 11, 'Syracuse, NY': 12, 'New York, NY': 13, 'Brooklyn, NY': 14, 
-                 'Fairfield, CT': 15, 'Priceton, NJ': 16, 'Boston, MA': 17,  'London, UK': 19, 'Paris, France':20,
-                 'Munich, Germany': 21, 'Berlin, Germany': 22 }
 
     agent_names = {'Xye Dagun': [0,1], 'Kayla Smith': [0,1], 'Stephanie Nguyen': [0,1], 'Christina Foran': [0,1],
               'Blake Gilmore': [0,1], 'Erica Johnson': [0,1], 'Brandi Day': [0,1], 'Julia Guenther': [0,1]}
@@ -28,9 +30,9 @@ def get_data(tickets):
     positive_list = []
     negative_list = []
     pilot_list = []
+    location_list = []
 
     for ticket in tickets:
-        print type(ticket)
         ticket_customer = Customer.query.filter(ticket.customer_id == Customer.id).first()
         ticket_company = Company.query.filter(Company.id == ticket_customer.company_id).first()
         ticket_agent = Agent.query.filter(ticket.agent_id == Agent.id).first()
@@ -47,6 +49,7 @@ def get_data(tickets):
 
         location = str(ticket_company.location)
         location_number = locations[location]
+        location_list.append(location_number)
 
         ticket_list.append(ticket.ticket_id)
 
@@ -101,7 +104,7 @@ def get_data(tickets):
     print("number of estimated clusters : %d" % n_clusters_)
 
 
-    processed_clusters = zip(labels, ticket_list, sentiment_list, positive_list, negative_list, pilot_list)
+    processed_clusters = zip(labels, ticket_list, sentiment_list, positive_list, negative_list, pilot_list, location_list)
   
     return processed_clusters
 
@@ -117,27 +120,37 @@ def get_cluster_info(cluster_tickets):
         cluster_names = cluster_tickets.keys()
         print "Bluster keys"
         print cluster_names
+        positive_list = []
+        negative_list = []
         for key in cluster_names:
-            positive_list = []
-            negative_list = []
+           
             pos_pilot_count = 0
             neg_pilot_count = 0
+            pos_location_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
+                               '6': 0, '7': 0, '8': 0, '7': 0, '8': 0, '9': 0, '10': 0, 
+                               '11': 0, '12': 0, '13': 0, '14': 0,  '15': 0, '16': 0,'17': 0, 
+                               '18': 0, '19': 0, '20': 0, '21': 0 }
+            
+            neg_location_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
+                               '6': 0, '7': 0, '8': 0, '7': 0, '8': 0, '9': 0, '10': 0, 
+                               '11': 0, '12': 0, '13': 0, '14': 0,  '15': 0, '16': 0,'17': 0, 
+                               '18': 0, '19': 0, '20': 0, '21': 0 }
+
             curr_cluster = cluster_tickets[key] #gets the cluster 
             for i in range(len(curr_cluster['pos'])):
+                print curr_cluster['pos'][i][1]
                 positive_list.append(curr_cluster['pos'][i][1])
                 if curr_cluster['pos'][i][3] == 1:
                     pos_pilot_count += 1
+                pos_ticket_location = curr_cluster['pos'][i][5]
+                pos_location_counts[str(pos_ticket_location)] += 1
             for j in range(len(curr_cluster['neg'])):
                 negative_list.append(curr_cluster['neg'][j][2])
                 if curr_cluster['neg'][i][3] == 1:
                     neg_pilot_count += 1
+                neg_ticket_location = curr_cluster['neg'][i][5]
+                neg_location_counts[str(neg_ticket_location)] += 1
             
-            print "Pos and neg pilots"
-            print key
-            print pos_pilot_count
-            print neg_pilot_count
-            print float(len(positive_list))
-            print float(len(negative_list))
 
             cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
             cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
@@ -145,11 +158,45 @@ def get_cluster_info(cluster_tickets):
             percent_positive_pilots = pos_pilot_count/float(len(positive_list))
             percent_negative_pilots = neg_pilot_count/float(len(negative_list))
 
+            print key 
+            print "Pos locations"
+            print pos_location_counts
+            top_pos_location = get_top_location(pos_location_counts)
+            print " "
+            print key
+            print "Neg locations"
+            print neg_location_counts
+            top_neg_location = get_top_location(neg_location_counts)
+
             cluster_info[key] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative,
-            'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 'percent_negative_pilots': percent_negative_pilots}
+            'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 
+            'percent_negative_pilots': percent_negative_pilots, 'top_pos_location': top_pos_location[1], 'top_neg_location': top_neg_location[1],
+            'max_pos_location_count': top_pos_location[0], 'max_neg_location_count': top_neg_location[0]}
 
         return cluster_info
 
+
+
+def get_top_location(location_list):
+    location_names = {'1': 'San Francisco, CA', '2': 'Redwood City, CA', '3': 'Foster City, CA', '4':'Los Angeles, CA',
+                 '5':'San Diego, CA', '6':'Eugene, OR', '7':'Seattle, WA','8':'Madison, WI', '9':'Chicago, IL', 
+                 '10': 'Ann Arbor, MI', '11':'Detroit, MI', '12':'Syracuse, NY', '13':'New York, NY', '14':'Brooklyn, NY', 
+                 '15':'Fairfield, CT', '16':'Priceton, NJ', '17': 'Boston, MA', '18': 'London, UK', '19': 'Paris, France',
+                 '20':'Munich, Germany', '21':'Berlin, Germany' }
+    print "Location list"
+    print location_list
+    max_count = 0
+    max_location = ""
+    for location in location_list:
+        if location_list[location] > max_count:
+            max_count = location_list[location]
+            print "MAX COUNT"
+            print max_count
+            max_location = location
+    print "MAX"
+    print max_location
+    max_location_name = location_names[str(max_location)]
+    return (max_count, max_location_name)
 
 
 def process_clusters(tickets):
@@ -163,12 +210,14 @@ def process_clusters(tickets):
     cluster_1 = {'neg':[], 'neutral':[], 'pos':[]}
     cluster_2 = {'neg':[], 'neutral':[], 'pos':[]}
     cluster_3 = {'neg':[], 'neutral':[], 'pos':[]}
-    cluster_4 = {'neg':[], 'neutral':[], 'pos':[]}
+    # cluster_4 = {'neg':[], 'neutral':[], 'pos':[]}
  
     cluster_list = []
 
     cluster_data = {}
     cluster_labels = {}
+
+    cluster_stuff = []
 
     for ticket in ticket_details:
         cluster_label = ticket[0]
@@ -177,39 +226,44 @@ def process_clusters(tickets):
         percent_positive = ticket[3]
         percent_negative = ticket[4]
         is_pilot = ticket[5]
+        ticket_location = ticket[6]
  
         ticket_values = []
 
+        
+        cluster_stuff.append(cluster_label)
+
         if cluster_label == 0:
             if sentiment == 1:
-                cluster_1['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_1['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             elif sentiment == 2:
-                cluster_1['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_1['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             else:
-                cluster_1['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_1['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
         elif cluster_label == 1:
             if sentiment == 1:
-                cluster_2['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_2['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             elif sentiment == 2:
-                cluster_2['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_2['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             else:
-                cluster_2['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_2['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
         elif cluster_label == 2:
             if sentiment == 1:
-                cluster_3['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_3['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             elif sentiment == 2:
-                cluster_3['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
+                cluster_3['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
             else:
-                cluster_3['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
-        elif cluster_label == 3:
-            if sentiment == 1:
-                cluster_4['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
-            elif sentiment == 2:
-                cluster_4['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
-            else:
-                cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment])
-
-    cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3, 'cluster4':cluster_4}
+                cluster_3['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
+        # elif cluster_label == 3:
+        #     if sentiment == 1:
+        #         cluster_4['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
+        #     elif sentiment == 2:
+        #         cluster_4['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
+        #     else:
+        #         cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
+    
+    
+    cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3}
     
     cluster_info = get_cluster_info(cluster_labels)
     

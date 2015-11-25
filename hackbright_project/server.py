@@ -40,6 +40,8 @@ def process_tickets_to_display(tickets):
     Gets the tickets to display from the database and 
     returns them in an iterable list
     """
+
+    #Pass in one ticket and make sure it returns the right thing
     ticket_list = []
 
     for ticket in tickets:
