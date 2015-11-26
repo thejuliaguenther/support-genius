@@ -4,96 +4,131 @@
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<style>
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+</style>
 <div id="cluster" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 <!-- <div id="scatterplot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div> -->
 
+<!-- <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+  </div>
+  <div id="tabs-2">
+    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+  </div> -->
+<!-- </div> -->
+
+<!-- <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a id= "cluster1" href="#">Cluster 1</a></li>
+  <li role="presentation"><a id= "cluster2" href="#">Cluster 2</a></li>
+  <li role="presentation"><a id= "cluster3" href="#">Cluster 3</a></li>
+</ul> -->
+
+<div class="btn-group btn-group-sm" role="group" aria-label="...">
+  <button id= "cluster1" type="button" class="btn btn-default">Left</button>
+  <button id= "cluster2" type="button" class="btn btn-default">Middle</button>
+  <button id="cluster3" type="button" class="btn btn-default">Right</button>
+</div>
+
+<div id= "cluster1-contents">
+  <div class="row">
+    <div class="col-md-6" id="positvegraph1"></div>
+    <div class="col-md-6" id="negativegraph1"></div>
+  </div>
+</div>
+<div id= "cluster2-contents"></div>
+<div id= "cluster3-contents"></div>
+ 
  <script type="text/javascript">
-//  function renderScatterplot(){
-//     data = $.get("/clustering", function(data){
-//         console.log(data.data['cluster_tickets']['0'])
-//      $(function () {
-//         $('#scatterplot').highcharts({
-//             chart: {
-//                 type: 'scatter',
-//                 zoomType: 'xy'
-//             },
-//             title: {
-//                 text: 'Customers by Cluster'
-//             },
-//             // subtitle: {
-//             //     text: 'Source: Heinz  2003'
-//             // },
-//             xAxis: {
-//                 title: {
-//                     enabled: true,
-//                     text: 'Percent Positive'
-//                 },
-//                 startOnTick: true,
-//                 endOnTick: true,
-//                 showLastLabel: true
-//             },
-//             yAxis: {
-//                 title: {
-//                     text: 'Percent Negative'
-//                 }
-//             },
-//             legend: {
-//                 layout: 'vertical',
-//                 align: 'left',
-//                 verticalAlign: 'top',
-//                 x: 100,
-//                 y: 70,
-//                 floating: true,
-//                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-//                 borderWidth: 1
-//             },
-//             plotOptions: {
-//                 scatter: {
-//                     marker: {
-//                         radius: 5,
-//                         states: {
-//                             hover: {
-//                                 enabled: true,
-//                                 lineColor: 'rgb(100,100,100)'
-//                             }
-//                         }
-//                     },
-//                     states: {
-//                         hover: {
-//                             marker: {
-//                                 enabled: false
-//                             }
-//                         }
-//                     },
-//                     tooltip: {
-//                         headerFormat: '<b>{series.name}</b><br>',
-//                         pointFormat: '{point.x} cm, {point.y} kg'
-//                     }
-//                 }
-//             },
-//             series: [{
-//                 name: 'Cluster 1',
-//                 color: 'rgba(223, 83, 83, .5)',
-//                 data: data.data['cluster_tickets']['0']
+function renderCluster1(evt){
+   $('#cluster1-contents').empty();
+   renderClusterPositive()
+    
+}
 
-
-//             }, {
-//                 name: 'Cluster 2',
-//                 color: 'rgba(119, 152, 191, .5)',
-//                 data: data.data['cluster_tickets']['1']
-//             },{
-//                 name: 'Cluster 3',
-//                 color: 'rgba(120, 152, 191, .5)',
-//                 data: data.data['cluster_tickets']['2'] 
-//             }, { 
-//                 name: 'Cluster 4',
-//                 color: 'rgba(120, 158, 191, .5)',
-//                 data: data.data['cluster_tickets']['3'] 
-//             }]
-//         });
-//     });
-//  });
+// function renderCluster2(evt){
+//    $('#cluster2').empty();
+//   $.get("/clustering");
+//   $('#ticket_data').load('dashboard.html');
 // }
+
+// function renderCluster3(evt){
+//    $('#cluster3').empty();
+//   $.get("/clustering");
+//   $('#ticket_data').load('dashboard.html');
+// }
+
+// function renderReportingTabs(){
+// $(function() {
+//     $( "#tabs" ).tabs();
+//   });
+// }
+function renderClusterPositive(json_route, cluster){
+var width = 300,
+    height = 300,
+    radius = Math.min(width, height) / 2;
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 70);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.population; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+d3.json(json_route, 
+    function(error, data) {
+  if (error) throw error;
+
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.age); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.age; });
+});
+
+function type(d) {
+  d.population = +d.population;
+  return d;
+}
+}
 
 function renderClusterBarGraph(){
  data = $.get("/clustering", function(data){
@@ -128,10 +163,10 @@ function renderClusterBarGraph(){
         },
         plotOptions: {
             bar: {
-                dataLabels: {
+                 dataLabels: {
                     enabled: true
-                }
-            },
+            }
+        },
         legend: {
             layout: 'vertical',
             align: 'right',
@@ -146,6 +181,7 @@ function renderClusterBarGraph(){
         credits: {
             enabled: false
         }
+
     },
         series: [{
             name: 'Positive',
@@ -162,6 +198,7 @@ function renderClusterBarGraph(){
 });
 });
 }
+// renderReportingTabs();
 renderClusterBarGraph();
  </script>
 
