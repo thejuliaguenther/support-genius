@@ -41,14 +41,7 @@
       </select>
       <button type="submit" class="btn btn-default">Select</button>
     </form>
-    <script>
-      function submitForm(e){
-        e.preventDefault();
-        var input = $("date-range").val();
-        refreshAllCharts(input);
-      }
-    $("#ticket-ranges").on("submit", submitForm);
-   </script>
+
     </div>
     <div class="row">
       <div class="col-md-6" id="supportchart"></div>
@@ -59,7 +52,14 @@
 
    
 <script>
-  function refreshAllCharts(input){
+   function submitForm(e){
+        e.preventDefault();
+        var input = $("date-range").val();
+        refreshAllCharts();
+      }
+    $("#ticket-ranges").on("submit", submitForm);
+
+  function refreshAllCharts(){
         //Empty out divs wih charts in them in jquery 
         //Call the functions that render all the charts again 
         $("#chart").empty();
@@ -81,7 +81,8 @@
           gridSize = Math.floor(width / 24),
           legendElementWidth = gridSize*2,
           buckets = 9,
-          colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+          // colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+          colors = ["#9CED63","#67E40F","3F9800", "#56CDA0", "#0CB575","#007448","#387BB8","#1767AF","#063D6F"],
           days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
           times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
           datasets = ["9/27/2015-10/3/2015", "10/4/2015-10/10/2015", "10/11/2015-10/17/2015", 
@@ -160,7 +161,7 @@
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
-        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        .range(["#67E40F", "#0CB575", "#387BB8"]);
         
         var arc = d3.svg.arc()
         .outerRadius(radius - 10)
@@ -180,10 +181,7 @@
         d3.json(json_route, 
 
            function(error, data) {
-                
-              
-
-               var g = svg2.selectAll(".arc")
+                var g = svg2.selectAll(".arc")
                       .data(pie(data.data))
                       .enter().append("g")
                       .attr("class", "arc");
