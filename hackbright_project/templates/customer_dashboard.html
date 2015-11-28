@@ -33,12 +33,11 @@
  
  <script type="text/javascript">
  
-   function populateClusterDiv(){
+   function populateClusterDiv(cluster){
       $("cluster-tabs").empty();
       data = $.get("/clustering", function(data){
       console.log(typeof(data.data));
-      output ="<ul><li>Negative tickets are "+data.data['cluster_info']['cluster1']['percent_negative'].toFixed(1)+"% negative</li></ul>";
-      console.log(output);
+      output ="<ul><li>Negative tickets are "+data.data['cluster_info'][cluster]['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data.data['cluster_info']['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
       document.getElementById("cluster1-contents").innerHTML=output;
       });
     }
@@ -48,7 +47,7 @@
 
     // }
 
-$('#cluster1').on('click', populateClusterDiv());
+$('#cluster1').on('click', populateClusterDiv('cluster1'));
  
 //  function changeCluster(e, cluster){
 //         refreshAllCharts(cluster);
@@ -194,12 +193,15 @@ function renderClusterBarGraph(){
     },
         series: [{
             name: 'Positive',
+            color: '#0cb577',
             data: [data.data['cluster_labels']['cluster1']['pos'].length,data.data['cluster_labels']['cluster2']['pos'].length, data.data['cluster_labels']['cluster3']['pos'].length ]
         }, {
             name: 'Neutral',
+            color: "#67E40F",
             data: [data.data['cluster_labels']['cluster1']['neutral'].length, data.data['cluster_labels']['cluster2']['neutral'].length, data.data['cluster_labels']['cluster3']['neutral'].length ]
         }, {
             name: 'Negative',
+            color: '#387BB8',
             data: [data.data['cluster_labels']['cluster1']['neg'].length,data.data['cluster_labels']['cluster2']['neg'].length, data.data['cluster_labels']['cluster3']['neg'].length ]
         }]
  });

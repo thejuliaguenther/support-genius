@@ -160,7 +160,7 @@
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
-        .range(["#67E40F", "#0CB575", "#387BB8"]);
+        .range(["#67E40F", "#0CB577", "#387BB8"]);
         
         var arc = d3.svg.arc()
         .outerRadius(radius - 10)
@@ -176,7 +176,6 @@
 
         json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
         
-        // $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
         d3.json(json_route, 
 
            function(error, data) {
