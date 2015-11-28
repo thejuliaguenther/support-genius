@@ -292,11 +292,11 @@ def process_clusters(tickets):
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3}
     
-    cluster_info = get_cluster_info(cluster_labels)
+    # cluster_info = get_cluster_info(cluster_labels)
     
-    cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
+    # cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
     
-    return cluster_data
+    return cluster_labels
     
     
 

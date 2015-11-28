@@ -9,7 +9,7 @@ from nlp import process_text
 # nltk.download()
 from response_regression import get_response_regression
 from agent_touches_regression import get_response_per_agent_touches
-from meanshift_analysis import get_data, process_clusters
+from meanshift_analysis import get_data, process_clusters, get_cluster_info
 
 from datetime import date 
 from jinja2 import StrictUndefined
@@ -228,7 +228,7 @@ def create_positive_and_negative_datasets():
     return jsonify(data)
 
 
-@app.route('/clustering', methods=["GET"])
+@app.route('/clustering.json', methods=["GET"])
 def get_clusters():
     """
     This function uses meanshift to process the ticket \
@@ -239,6 +239,21 @@ def get_clusters():
     # data = get_data(tickets)
     # data = process_clusters(ticket_clusters)
     return jsonify(data=data)
+
+@app.route('/cluster_details.json', methods=["GET"])
+def get_cluster_details():
+    """
+    This function takes the clusters created by the meanshift
+    algorithm in get_clusters and processes the clusters
+    to return details such as the average percent positive 
+    of a positive ticket
+    """
+    tickets = Ticket.query.all()
+    clusters = process_clusters(tickets)
+    data = get_cluster_info(clusters);
+
+    return jsonify(data=data)
+
 
 
 @app.route('/customer_dashboard', methods=["GET"])
