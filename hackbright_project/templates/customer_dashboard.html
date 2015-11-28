@@ -42,10 +42,12 @@
    //    });
    //  }
 
-   function populateClusterDiv(evt, data, cluster, div_name){
+   function populateClusterDiv(evt, cluster, div_name){
       $("cluster-tabs").empty();
-      output ="<ul><li>Negative tickets are "+data.data['cluster_info'][cluster]['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data.data['cluster_info'][cluster]['percent_positive'].toFixed(1)+"% positive</li></ul>";
-      document.getElementById(div_name).innerHTML=output;
+      data = $.get("/cluster_details.json", function(data){
+      output ="<ul><li>Negative tickets are "+data.data['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data.data['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+      document.getElementById("cluster1-contents").innerHTML=output;
+      });
     }
 
     function showClusterDetails(evt){
@@ -67,9 +69,6 @@ function renderClusterBarGraph(){
         title: {
             text: 'Sentiment Analysis of Tickets by Cluster'
         },
-        // subtitle: {
-        //     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-        // },
         xAxis: {
             categories: ['Cluster 1', 'Cluster 2', 'Cluster 3'],
             title: {
@@ -113,21 +112,21 @@ function renderClusterBarGraph(){
         series: [{
             name: 'Positive',
             color: '#0cb577',
-            data: [data.data['cluster_labels']['cluster1']['pos'].length,data.data['cluster_labels']['cluster2']['pos'].length, data.data['cluster_labels']['cluster3']['pos'].length ]
+            data: [data.data['cluster1']['pos'].length,data.data['cluster2']['pos'].length, data.data['cluster3']['pos'].length ]
         }, {
             name: 'Neutral',
             color: "#67E40F",
-            data: [data.data['cluster_labels']['cluster1']['neutral'].length, data.data['cluster_labels']['cluster2']['neutral'].length, data.data['cluster_labels']['cluster3']['neutral'].length ]
+            data: [data.data['cluster1']['neutral'].length, data.data['cluster2']['neutral'].length, data.data['cluster3']['neutral'].length ]
         }, {
             name: 'Negative',
             color: '#387BB8',
-            data: [data.data['cluster_labels']['cluster1']['neg'].length,data.data['cluster_labels']['cluster2']['neg'].length, data.data['cluster_labels']['cluster3']['neg'].length ]
+            data: [data.data['cluster1']['neg'].length,data.data['cluster2']['neg'].length, data.data['cluster3']['neg'].length ]
         }]
  });
  
 });
  
-}, $('#cluster1').on('click', populateClusterDiv(data,'cluster1', "cluster1-contents")), $('#cluster2').on('click', populateClusterDiv(data,'cluster2', "cluster2-contents")), $('#cluster3').on('click', populateClusterDiv(data, 'cluster3', "cluster3-contents")));
+});
 }
 // renderReportingTabs();
 renderClusterBarGraph();
