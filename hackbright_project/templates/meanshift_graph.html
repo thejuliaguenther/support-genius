@@ -16,8 +16,6 @@
 function renderClusterBarGraph(){
  data = $.get("/clustering", function(data){
  $(function () {
-    console.log("GOT HERE!!!!")
-    console.log(data.data['cluster1'])
     $('#cluster').highcharts({
         chart: {
             type: 'bar'

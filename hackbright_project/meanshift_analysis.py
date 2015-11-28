@@ -120,8 +120,6 @@ def get_cluster_info(cluster_tickets):
 
         cluster_info = {}
         cluster_names = cluster_tickets.keys()
-        print "Bluster keys"
-        print cluster_names
         positive_list = []
         negative_list = []
 
@@ -187,7 +185,8 @@ def get_cluster_info(cluster_tickets):
             top_neg_industry = get_top_industry(neg_industry_counts)
 
 
-            cluster_info[key] = {'percent_positive': cluster_average_positive, 'percent_negative': cluster_average_negative,
+            cluster_info[key] = {'percent_positive': cluster_average_positive * 100, 'percent_not_positive': (1-cluster_average_positive) * 100,
+            'percent_negative': cluster_average_negative * 100, 'percent_not_negative': (1- cluster_average_negative) * 100,
             'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 
             'percent_negative_pilots': percent_negative_pilots, 'top_pos_location': top_pos_location[1],'top_neg_location': top_neg_location[1], 
             'max_pos_location_count': top_pos_location[0], 'max_neg_location_count': top_neg_location[0], 'top_pos_industry_count': top_pos_industry[0],
@@ -288,13 +287,7 @@ def process_clusters(tickets):
                 cluster_3['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
             else:
                 cluster_3['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
-        # elif cluster_label == 3:
-        #     if sentiment == 1:
-        #         cluster_4['neg'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
-        #     elif sentiment == 2:
-        #         cluster_4['neutral'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
-        #     else:
-        #         cluster_4['pos'].append([ticket_id, percent_positive, percent_negative, is_pilot, sentiment, ticket_location])
+       
     
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3}

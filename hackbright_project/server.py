@@ -331,6 +331,8 @@ def get_tickets_by_industry():
         data['count'] = industry_dict[key]
         dict_list.append(data)
 
+    print {'data': dict_list}
+
     return jsonify({'data': dict_list})
 
 
