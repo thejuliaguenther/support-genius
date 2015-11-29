@@ -20,7 +20,7 @@
 </style>
 <div id="cluster" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
-<div class="btn-group btn-group-sm" role="group" aria-label="...">
+<!-- <div class="btn-group btn-group-sm" role="group" aria-label="...">
   <button id= "cluster1" type="button" class="btn btn-default">Cluster1</button>
   <button id= "cluster2" type="button" class="btn btn-default">Cluster2</button>
   <button id="cluster3" type="button" class="btn btn-default">Cluster3</button>
@@ -29,7 +29,7 @@
 
   <div id= "cluster1-contents"></div>
   <div id= "cluster2-contents"></div>
-  <div id= "cluster3-contents"></div>
+  <div id= "cluster3-contents"></div> -->
 
 
  <script>
@@ -37,20 +37,23 @@
     $( "#tabs" ).tabs();
   });
   </script>
-</head>
-<body>
+
  
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">Nunc tincidunt</a></li>
-    <li><a href="#tabs-2">Proin dolor</a></li>
-    <li><a href="#tabs-3">Aenean lacinia</a></li>
+    <li><a href="#tabs-1">Cluster1</a></li>
+    <li><a href="#tabs-2">Cluster2</a></li>
+    <li><a href="#tabs-3">Cluster3</a></li>
   </ul>
   <div id="tabs-1">
-    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-  </div>
+   <ul>
+    <li> Negative Tickets are: {{data.cluster1.percent_negative}} percent negative</li>
+   </ul>
+     </div>
   <div id="tabs-2">
-    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+    <ul>
+    <li> Negative Tickets are: {{data.cluster2.percent_negative}} percent negative</li>
+   </ul>
   </div>
   <div id="tabs-3">
     <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
@@ -60,41 +63,41 @@
  
  <script type="text/javascript">
 
-$('#cluster1').on("click", populateClusterDiv1());
-$('#cluster2').on("click", populateClusterDiv2());
-$('#cluster3').on("click", populateClusterDiv3());
+// $('#cluster1').on("click", populateClusterDiv1());
+// $('#cluster2').on("click", populateClusterDiv2());
+// $('#cluster3').on("click", populateClusterDiv3());
 
 
    
-   function populateClusterDiv1(evt){
-      // $("#cluster1-contents").empty();
-      $("#cluster2-contents").empty();
-      $("#cluster3-contents").empty();
-      data = $.get("/cluster_details.json", function(data){
-      output ="<ul><li>Negative tickets are "+data['data']['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-      document.getElementById("cluster1-contents").html=output;
-      });
-    }
+   // function populateClusterDiv1(evt){
+   //    // $("#cluster1-contents").empty();
+   //    $("#cluster2-contents").empty();
+   //    $("#cluster3-contents").empty();
+   //    data = $.get("/cluster_details.json", function(data){
+   //    output ="<ul><li>Negative tickets are "+data['data']['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+   //    document.getElementById("cluster1-contents").html=output;
+   //    });
+   //  }
 
-   function populateClusterDiv2(evt){
-      $("#cluster1-contents").empty();
-      // $("#cluster2-contents").empty();
-      $("#cluster3-contents").empty();
-      data = $.get("/cluster_details.json", function(data){
-      output ="<ul><li>Negative tickets are "+data['data']['cluster2']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster2']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-      document.getElementById("cluster2-contents").html=output;
-      });
-    }
+   // function populateClusterDiv2(evt){
+   //    $("#cluster1-contents").empty();
+   //    // $("#cluster2-contents").empty();
+   //    $("#cluster3-contents").empty();
+   //    data = $.get("/cluster_details.json", function(data){
+   //    output ="<ul><li>Negative tickets are "+data['data']['cluster2']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster2']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+   //    document.getElementById("cluster2-contents").html=output;
+   //    });
+   //  }
 
-   function populateClusterDiv3(evt){
-      $("#cluster1-contents").empty();
-      $("#cluster2-contents").empty();
-      // $("#cluster3-contents").empty();
-      data = $.get("/cluster_details.json", function(data){
-      output ="<ul><li>Negative tickets are "+data['data']['cluster3']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster3']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-      document.getElementById("cluster3-contents").html=output;
-      });
-    }
+   // function populateClusterDiv3(evt){
+   //    $("#cluster1-contents").empty();
+   //    $("#cluster2-contents").empty();
+   //    // $("#cluster3-contents").empty();
+   //    data = $.get("/cluster_details.json", function(data){
+   //    output ="<ul><li>Negative tickets are "+data['data']['cluster3']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster3']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+   //    document.getElementById("cluster3-contents").html=output;
+   //    });
+   //  }
 
 
 function renderClusterBarGraph(){

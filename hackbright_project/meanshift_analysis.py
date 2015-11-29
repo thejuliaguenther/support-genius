@@ -185,8 +185,7 @@ def get_cluster_info(cluster_tickets):
             top_neg_industry = get_top_industry(neg_industry_counts)
 
 
-            cluster_info[key] = {'percent_positive': cluster_average_positive * 100, 'percent_not_positive': (1-cluster_average_positive) * 100,
-            'percent_negative': cluster_average_negative * 100, 'percent_not_negative': (1- cluster_average_negative) * 100,
+            cluster_info[key] = {'percent_positive': round((cluster_average_positive * 100), 1),'percent_negative': round((cluster_average_negative * 100), 1), 
             'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 
             'percent_negative_pilots': percent_negative_pilots, 'top_pos_location': top_pos_location[1],'top_neg_location': top_neg_location[1], 
             'max_pos_location_count': top_pos_location[0], 'max_neg_location_count': top_neg_location[0], 'top_pos_industry_count': top_pos_industry[0],

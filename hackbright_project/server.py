@@ -258,7 +258,16 @@ def get_cluster_details():
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
-    return render_template("customer_dashboard.html")
+    """
+    This function takes the clusters created by the meanshift
+    algorithm in get_clusters and processes the clusters
+    to return details such as the average percent positive 
+    of a positive ticket
+    """
+    tickets = Ticket.query.all()
+    clusters = process_clusters(tickets)
+    data = get_cluster_info(clusters);
+    return render_template("customer_dashboard.html", data=data)
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
