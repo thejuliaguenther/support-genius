@@ -142,6 +142,8 @@ def get_cluster_info(cluster_tickets):
 
             neg_industry_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
                                '6': 0}
+            # industry_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
+            #                    '6': 0}
 
             curr_cluster = cluster_tickets[key] #gets the cluster 
             for i in range(len(curr_cluster['pos'])):
@@ -164,12 +166,13 @@ def get_cluster_info(cluster_tickets):
                 neg_ticket_industry = curr_cluster['neg'][i][6]
                 neg_industry_counts[str(neg_ticket_industry)] += 1
             
-
             cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
             cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
             
             percent_positive_pilots = pos_pilot_count/float(len(positive_list))
             percent_negative_pilots = neg_pilot_count/float(len(negative_list))
+
+
 
             print key 
             print "Pos locations"
