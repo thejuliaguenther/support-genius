@@ -6,6 +6,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/cluster_details.css">
 <style>
 
 .arc text {
@@ -48,57 +49,24 @@
   <div id="tabs-1">
    <ul>
     <li> Negative Tickets are: {{data.cluster1.percent_negative}} percent negative</li>
+    <li> Positive Tickets are: {{data.cluster1.percent_positive}} percent positive</li>
    </ul>
      </div>
   <div id="tabs-2">
     <ul>
     <li> Negative Tickets are: {{data.cluster2.percent_negative}} percent negative</li>
+    <li> Positive Tickets are: {{data.cluster2.percent_positive}} percent positive</li>
    </ul>
   </div>
   <div id="tabs-3">
-    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+     <ul>
+    <li> Negative Tickets are: {{data.cluster3.percent_negative}} percent negative</li>
+    <li> Positive Tickets are: {{data.cluster3.percent_positive}} percent positive</li>
+   </ul>
   </div>
 </div>
  
  <script type="text/javascript">
-
-// $('#cluster1').on("click", populateClusterDiv1());
-// $('#cluster2').on("click", populateClusterDiv2());
-// $('#cluster3').on("click", populateClusterDiv3());
-
-
-   
-   // function populateClusterDiv1(evt){
-   //    // $("#cluster1-contents").empty();
-   //    $("#cluster2-contents").empty();
-   //    $("#cluster3-contents").empty();
-   //    data = $.get("/cluster_details.json", function(data){
-   //    output ="<ul><li>Negative tickets are "+data['data']['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-   //    document.getElementById("cluster1-contents").html=output;
-   //    });
-   //  }
-
-   // function populateClusterDiv2(evt){
-   //    $("#cluster1-contents").empty();
-   //    // $("#cluster2-contents").empty();
-   //    $("#cluster3-contents").empty();
-   //    data = $.get("/cluster_details.json", function(data){
-   //    output ="<ul><li>Negative tickets are "+data['data']['cluster2']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster2']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-   //    document.getElementById("cluster2-contents").html=output;
-   //    });
-   //  }
-
-   // function populateClusterDiv3(evt){
-   //    $("#cluster1-contents").empty();
-   //    $("#cluster2-contents").empty();
-   //    // $("#cluster3-contents").empty();
-   //    data = $.get("/cluster_details.json", function(data){
-   //    output ="<ul><li>Negative tickets are "+data['data']['cluster3']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster3']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-   //    document.getElementById("cluster3-contents").html=output;
-   //    });
-   //  }
-
 
 function renderClusterBarGraph(){
  data = $.get("/clustering.json", function(data){
@@ -163,7 +131,7 @@ function renderClusterBarGraph(){
             color: '#387BB8',
             data: [data.data['cluster1']['neg'].length,data.data['cluster2']['neg'].length, data.data['cluster3']['neg'].length ]
         }]
- });
+   });
  
 });
  
