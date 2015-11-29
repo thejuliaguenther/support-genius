@@ -25,11 +25,11 @@
   <button id="cluster3" type="button" class="btn btn-default">Cluster3</button>
 </div>
 
-<div id= "cluster-tabs">
+
   <div id= "cluster1-contents"></div>
   <div id= "cluster2-contents"></div>
   <div id= "cluster3-contents"></div>
-</div>
+
  
  <script type="text/javascript">
    
@@ -42,22 +42,40 @@
    //    });
    //  }
 
-   function populateClusterDiv(evt, cluster, div_name){
-      $("cluster-tabs").empty();
+$('#cluster1').on("click", populateClusterDiv1());
+$('#cluster2').on("click", populateClusterDiv2());
+$('#cluster3').on("click", populateClusterDiv3());
+   
+   function populateClusterDiv1(evt){
+      // $("#cluster1-contents").empty();
+      $("#cluster2-contents").empty();
+      $("#cluster3-contents").empty();
       data = $.get("/cluster_details.json", function(data){
-      output ="<ul><li>Negative tickets are "+data.data['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data.data['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
-      document.getElementById("cluster1-contents").innerHTML=output;
+      output ="<ul><li>Negative tickets are "+data['data']['cluster1']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster1']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+      document.getElementById("cluster1-contents").html=output;
       });
     }
 
-    function showClusterDetails(evt){
-        $("cluster-tabs").empty();
-
+   function populateClusterDiv2(evt){
+      $("#cluster1-contents").empty();
+      // $("#cluster2-contents").empty();
+      $("#cluster3-contents").empty();
+      data = $.get("/cluster_details.json", function(data){
+      output ="<ul><li>Negative tickets are "+data['data']['cluster2']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster2']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+      document.getElementById("cluster2-contents").html=output;
+      });
     }
 
-$('#cluster1').on('click', populateClusterDiv('cluster1', "cluster1-contents"));
-$('#cluster2').on('click', populateClusterDiv('cluster2', "cluster2-contents"));
-$('#cluster3').on('click', populateClusterDiv('cluster3', "cluster3-contents"));
+   function populateClusterDiv3(evt){
+      $("#cluster1-contents").empty();
+      $("#cluster2-contents").empty();
+      // $("#cluster3-contents").empty();
+      data = $.get("/cluster_details.json", function(data){
+      output ="<ul><li>Negative tickets are "+data['data']['cluster3']['percent_negative'].toFixed(1)+"% negative</li><li>Positive tickets are "+data['data']['cluster3']['percent_positive'].toFixed(1)+"% positive</li></ul>";
+      document.getElementById("cluster3-contents").html=output;
+      });
+    }
+
 
 function renderClusterBarGraph(){
  data = $.get("/clustering.json", function(data){
@@ -72,13 +90,13 @@ function renderClusterBarGraph(){
         xAxis: {
             categories: ['Cluster 1', 'Cluster 2', 'Cluster 3'],
             title: {
-                text: null
+                text: 'Customer Clusters'
             }
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Number of Tickets)',
+                text: 'Number of Tickets',
                 align: 'high'
             },
             labels: {
