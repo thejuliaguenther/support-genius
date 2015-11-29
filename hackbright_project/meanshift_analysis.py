@@ -186,8 +186,8 @@ def get_cluster_info(cluster_tickets):
 
 
             cluster_info[key] = {'percent_positive': round((cluster_average_positive * 100), 1),'percent_negative': round((cluster_average_negative * 100), 1), 
-            'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 
-            'percent_negative_pilots': percent_negative_pilots, 'top_pos_location': top_pos_location[1],'top_neg_location': top_neg_location[1], 
+            # 'pos_pilot_count': pos_pilot_count, 'neg_pilot_count': neg_pilot_count, 'percent_positive_pilots': percent_positive_pilots, 
+            'percent_negative_pilots': round((percent_negative_pilots *100), 1), 'top_pos_location': top_pos_location[1],'top_neg_location': top_neg_location[1], 
             'max_pos_location_count': top_pos_location[0], 'max_neg_location_count': top_neg_location[0], 'top_pos_industry_count': top_pos_industry[0],
             'top_neg_industry_count':top_neg_industry[0], 'top_neg_industry': top_neg_industry[1], 'top_pos_industry': top_pos_industry[1]}
 
@@ -241,7 +241,6 @@ def process_clusters(tickets):
     cluster_1 = {'neg':[], 'neutral':[], 'pos':[]}
     cluster_2 = {'neg':[], 'neutral':[], 'pos':[]}
     cluster_3 = {'neg':[], 'neutral':[], 'pos':[]}
-    # cluster_4 = {'neg':[], 'neutral':[], 'pos':[]}
  
     cluster_list = []
 
@@ -290,10 +289,6 @@ def process_clusters(tickets):
     
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3}
-    
-    # cluster_info = get_cluster_info(cluster_labels)
-    
-    # cluster_data = {'cluster_labels': cluster_labels, 'cluster_info': cluster_info}
     
     return cluster_labels
     
