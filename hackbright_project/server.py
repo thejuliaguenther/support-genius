@@ -1,19 +1,17 @@
 from numpy import genfromtxt
 import numpy as np
-# import nlp
 import random 
 import sklearn
 from nlp import process_text
 
-# import nltk
-# nltk.download()
 from response_regression import get_response_regression
 from agent_touches_regression import get_response_per_agent_touches
 from meanshift_analysis import get_data, process_clusters, get_cluster_info
 
 from datetime import date 
 from jinja2 import StrictUndefined
-import csv 
+from sqlalchemy import distinct
+# import csv 
 import requests
 from datetime import datetime
 from time import strptime
@@ -132,9 +130,6 @@ def show_user_detail(customer_id):
 
     customer_ticket_list = process_tickets_to_display(customer_tickets)
 
-
-
-    #ADD A JOIN TO MODEL SO CAN GET ALL THE TICKETS FOR EACH CUSTOMER 
     
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
@@ -271,6 +266,10 @@ def render_clusters():
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
 def get_tickets_by_tier():
+    """
+    This function gets the number of tickets by tier and sends it to
+    the dashboard to be displayed in a pie graph
+    """
     # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     date_range = request.args.get("date-range")
     date_range = date_range.split('-')
@@ -365,9 +364,25 @@ def display_dashboard():
     """ Displays the graphs showing ticket metrics"""
     return render_template("dashboard.html")
 
+def get_agent_names(distinct_names):
+    """
+    This function gets the distinct agent names and ids and returns a list of tuples containing the agent name and id
+
+    """
+    agent_list = []
+    for name_object in distinct_names:
+        agent_id = name_object.id
+        agent_name = name_object.name
+        agent_tuple = (agent_id, agent_name)
+        agent_list.append(agent_tuple)
+
+    return agent_list
+
 @app.route('/agent_detail/<int:agent_id>')
 def show_agent_detail(agent_id):
     """Shows details about the agent clicked on in the ticket view"""
+    distinct_names = Agent.query.distinct(Agent.name).all()
+    distinct_agent_names = get_agent_names(distinct_names)
     agent = Agent.query.filter(Agent.id == agent_id).first()
     agent_name = agent.name
     agent_tier = agent.tier
@@ -379,7 +394,7 @@ def show_agent_detail(agent_id):
     agent_ticket_list = process_tickets_to_display(agent_tickets)
 
     return render_template("agent_detail.html", agent_name=agent_name, agent_tier=agent_tier,
-        agent_email=agent_email, agent_phone_number=agent_phone_number, agent_ticket_list=agent_ticket_list)
+        agent_email=agent_email, agent_phone_number=agent_phone_number, agent_ticket_list=agent_ticket_list, distinct_agent_names=distinct_agent_names)
 
 
 if __name__ == "__main__":

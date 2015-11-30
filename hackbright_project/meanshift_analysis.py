@@ -26,7 +26,6 @@ def get_data(tickets):
     feature_list = []
     ticket_list = []
     sentiment_list = []
-    # certainty_list = []
     positive_list = []
     negative_list = []
     pilot_list = []
@@ -59,8 +58,6 @@ def get_data(tickets):
         sentiment_number = sentiment_numbers[sentiment]
         sentiment_list.append(sentiment_number) 
 
-        # percent_certainty = ticket.percent_certainty
-        # certainty_list.append(percent_certainty)
         percent_positive = ticket.percent_positive
         positive_list.append(percent_positive)
 
@@ -257,6 +254,7 @@ def process_clusters(tickets):
     This function gets the number of positive, negative, and neutral tickets 
     in each cluster and returns a dictionary containing the number of positive, 
     negative, and neutral tickets in each cluster
+
     """
     ticket_details = get_data(tickets)
 

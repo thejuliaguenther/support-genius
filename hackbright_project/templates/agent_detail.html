@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select an Agent
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {% for name in distinct_agent_names %}
+    <li><a href="/agent_detail/{{name[0]}}"> {{name[1]}}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+
+   
+<div id="agent_tickets">
 <h1>{{agent_name}}</h1>
 <h2>Tier {{agent_tier}} Support Specialist</h2>
 <h2>Email: {{agent_email}}</h2>
@@ -19,4 +33,5 @@
    </tr>
   {% endfor %}
 </table>
+</div>
 {% endblock %}
