@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select a company
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {% for name in distinct_company_names %}
+    <li><a href="/company_detail/{{name[0]}}"> {{name[1]}}</a></li>
+  {% endfor %}
+  </ul>
+</div>
 <h1>{{company_name}}</h1>
-<h2>Location: {{company_location}}</h2>
-<h2>Time Zone: {{company_timezone}}</h2>
-<h2>Industry: {{company_industry}}</h2>
-<h2>Support Tier: {{company_tier}}</h2>
+<p><b>Location:</b>{{company_location}}</p>
+<p><b>Time Zone:</b> {{company_timezone}}</h2>
+<p><b>Industry:</b> {{company_industry}}</h2>
+<p><b>Support Tier:</b> {{company_tier}}</h2>
 {% if company_pilot == 'Yes' %}
-    <h2>Pilot</h2>
+    <p><b>Pilot</b></p>
 {% endif %}
 <table class="table table-hover">
   <tr>
     <th>Ticket #</th>
     <th>Time Submitted</th>
+    <th> Assigned To</th>
     <th>Status</th>
   </tr>
 {% for ticket in customer_company_ticket_list %}

@@ -68,9 +68,25 @@ def index():
 
     return render_template("tickets.html", ticket_list=ticket_list)
 
-@app.route('/companies/<int:company_id>')
+def get_distinct_companies(distinct_companies):
+    """
+    This function gets the distinct customer names and ids and returns a list of tuples containing the customer name and id
+
+    """
+    company_list = []
+    for company_object in distinct_companies:
+        company_id = company_object.id
+        company_name = company_object.name
+        company_tuple = (company_id, company_name)
+        company_list.append(company_tuple)
+
+    return company_list
+
+@app.route('/company_detail/<int:company_id>')
 def show_company_detail(company_id):
     """Shows indivisual company details"""
+    distinct_companies = Company.query.distinct(Company.name).all()
+    distinct_company_names = get_distinct_companies(distinct_companies)
     company_tickets = []
     company = Company.query.filter(Company.id == company_id).first()
     company_name = company.name
@@ -94,7 +110,7 @@ def show_company_detail(company_id):
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
-        company_pilot=company_pilot, customer_company_ticket_list=customer_company_ticket_list)
+        company_pilot=company_pilot, customer_company_ticket_list=customer_company_ticket_list, distinct_company_names=distinct_company_names)
 
 @app.route('/tickets/<int:ticket_id>')
 def show_ticket_detail(ticket_id):
@@ -125,6 +141,7 @@ def get_distinct_customers(distinct_customers):
         customer_list.append(customer_tuple)
 
     return customer_list
+
 @app.route('/user_detail/<int:customer_id>')
 def show_user_detail(customer_id):
     """Shows details about a specific customer, including the customer's name, 
