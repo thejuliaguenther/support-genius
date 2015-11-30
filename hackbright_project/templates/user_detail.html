@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select a Requester
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {% for name in distinct_customer_names %}
+    <li><a href="/user_detail/{{name[0]}}"> {{name[1]}}</a></li>
+  {% endfor %}
+  </ul>
+</div>
 <h1>{{customer_name}}</h1>
-<h2> Email: {{customer_email}}</h2>
-<h2>Phone: {{customer_phone}}</h2>
-<h2><a href="/companies/{{customer_company_id}}">Company: {{customer_company_name}}</a></h2>
-<h2>Position: {{customer_job_title}}</h2>
-<h2>{{customer_name}}'s Tickets</h2>
+<p><b> Email:</b> {{customer_email}}</p>
+<p><b>Phone:</b> {{customer_phone}}</p>
+<p><a href="/companies/{{customer_company_id}}"><b>Company:</b> {{customer_company_name}}</a></h2>
+<p><b>Position:</b> {{customer_job_title}}</p>
+<p>{{customer_name}}'s Tickets</p>
 <table class="table table-hover">
   <tr>
     <th>Ticket #</th>

@@ -112,12 +112,26 @@ def show_ticket_detail(ticket_id):
     return render_template("individual_ticket.html", selected_ticket_id=selected_ticket_id, 
         ticket_text=ticket_text, ticket_time=ticket_time, ticket_agent=ticket_agent, 
         customer_email=customer_email, customer_name=customer_name, customer_id=customer_id)
+def get_distinct_customers(distinct_customers):
+    """
+    This function gets the distinct customer names and ids and returns a list of tuples containing the customer name and id
 
+    """
+    customer_list = []
+    for customer_object in distinct_customers:
+        customer_id = customer_object.id
+        customer_name = customer_object.name
+        customer_tuple = (customer_id, customer_name)
+        customer_list.append(customer_tuple)
+
+    return customer_list
 @app.route('/user_detail/<int:customer_id>')
 def show_user_detail(customer_id):
     """Shows details about a specific customer, including the customer's name, 
        email address, company, job title, and all of the tickets associated with the customer
     """
+    distinct_customers = Customer.query.distinct(Customer.name).all()
+    distinct_customer_names = get_distinct_customers(distinct_customers)
     customer = Customer.query.filter(Customer.id == customer_id).first()
     customer_name = customer.name
     customer_email = customer.email
@@ -134,7 +148,7 @@ def show_user_detail(customer_id):
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
         customer_company_name=customer_company_name, customer_company_id=customer_company_id,
-         customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list)
+         customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list, distinct_customer_names=distinct_customer_names)
 
 
 @app.route('/dashboard_data', methods=["GET"])
@@ -248,8 +262,6 @@ def get_cluster_details():
     data = get_cluster_info(clusters);
 
     return jsonify(data=data)
-
-
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
