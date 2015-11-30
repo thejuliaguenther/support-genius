@@ -169,18 +169,15 @@ def get_cluster_info(cluster_tickets):
             percent_positive_pilots = pos_pilot_count/float(len(positive_list))
             percent_negative_pilots = neg_pilot_count/float(len(negative_list))
 
-
-
-            print key 
-            print "Pos locations"
-            print pos_location_counts
             top_pos_location = get_top_location(pos_location_counts)
-            print " "
-            print key
-            print "Neg locations"
-            print neg_location_counts
             top_neg_location = get_top_location(neg_location_counts)
 
+            print key
+            print "pos"
+            print pos_industry_counts
+            print key 
+            print "neg"
+            print neg_industry_counts
             top_pos_industry = get_top_industry(pos_industry_counts)
             top_neg_industry = get_top_industry(neg_industry_counts)
 
@@ -198,7 +195,7 @@ def get_cluster_info(cluster_tickets):
 def get_top_location(location_list):
     """
     This function returns the top location for tickets in each cluster and 
-    the count for the number of tickets  in that location for a particular cluster
+    the count for the number of tickets both positive and negative in that location for a particular cluster
 
     For cluster1 negative locations:
 
@@ -213,7 +210,7 @@ def get_top_location(location_list):
 
     """
     location_names = {'1': 'San Francisco, CA', '2': 'Redwood City, CA', '3': 'Foster City, CA', '4':'Los Angeles, CA',
-                 '5':'San Diego, CA', '6':'Eugene, OR', '7':'Seattle, WA','8':'Madison, WI', '9':'Chicago, IL', 
+                 '5':'San Diego, CA', '6':'Eugene,: OR', '7':'Seattle, WA','8':'Madison, WI', '9':'Chicago, IL', 
                  '10': 'Ann Arbor, MI', '11':'Detroit, MI', '12':'Syracuse, NY', '13':'New York, NY', '14':'Brooklyn, NY', 
                  '15':'Fairfield, CT', '16':'Priceton, NJ', '17': 'Boston, MA', '18': 'London, UK', '19': 'Paris, France',
                  '20':'Munich, Germany', '21':'Berlin, Germany' }
@@ -227,6 +224,22 @@ def get_top_location(location_list):
     return (max_count, max_location_name)
 
 def get_top_industry(industry_list):
+    """
+    This function returns the industry with the most positive and negative tickets 
+    in each cluster and the number of tickets from that industry
+
+    For cluster3 positive industry:
+
+    >>> get_top_industry({'1': 0, '3': 25, '2': 0, '5': 37, '4': 0, '6': 7})
+    (37, 'technology')
+
+    For cluster2 negative industry:
+
+    >>> get_top_industry({'1': 198, '3': 0, '2': 0, '5': 0, '4': 0, '6': 0})
+    (198, 'media')
+
+    """
+
     industry_names = {'1': 'media', '2': 'financial services', '3': 'consulting', '4': 'transportation',
              '5': 'technology', '6': 'energy'}
     max_count = 0
@@ -234,7 +247,6 @@ def get_top_industry(industry_list):
     for industry in industry_list:
         if industry_list[industry] > max_count:
             max_count = industry_list[industry]
-            print max_count
             max_industry = industry
     max_industry_name = industry_names[str(max_industry)]
     return (max_count, max_industry_name)
