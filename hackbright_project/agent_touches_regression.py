@@ -5,6 +5,12 @@ import numpy as np
 SECONDS_PER_HOUR = 3600
 
 def get_response_per_agent_touches(tickets_in_range):
+    """
+    This function uses linear regression to predict the 
+    amount of time it will take an agent to respond to a 
+    ticket (in hours) based on the number of agent touches
+    (or number of times the agent reaches out to the customer)
+    """
     ticket_resolution_list = []
     ticket_touches_list = []
 
@@ -25,7 +31,8 @@ def get_response_per_agent_touches(tickets_in_range):
 
     index_half_resolutions = len(ticket_resolutions)/2
     index_half_touches = len(ticket_touches)/2
-        #Get the data for the dependent variable, the response time, separated into training and testing sets 
+
+    #Get the data for the dependent variable, the resolution time, separated into training and testing sets 
 
 
     resolutions_train = ticket_resolutions[:-index_half_resolutions]
@@ -63,5 +70,4 @@ def get_response_per_agent_touches(tickets_in_range):
 
 
     print "AGENT DATA"
-    print data
     return data

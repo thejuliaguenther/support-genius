@@ -8,14 +8,14 @@
       }
       text.mono {
         font-size: 9pt;
-        font-family: Consolas, courier;
-        fill: #aaa;
+        font-family: 'Noto Serif', serif;
+        fill: #094F8E;
       }
       text.axis-workweek {
-        fill: #000;
+        fill: #063D6F;
       }
       text.axis-worktime {
-        fill: #000;
+        fill: #063D6F;
       }
     </style>
     <meta charset="utf-8" />
@@ -44,8 +44,12 @@
 
     </div>
     <div class="row">
-      <div class="col-md-6" id="supportchart"></div>
-      <div class="col-md-6" id="industrychart"></div>
+      <div class="col-md-6" id="supportchart">
+        <h2>Tickets by Support Tier</h2>
+      </div>
+      <div class="col-md-6" id="industrychart">
+        <h2>Tickets by Industry</h2>
+      </div>
    </div>
     <div id="response_regression" style="min-width: 310px; height: 400px; margin: 10 auto"></div>
     <div id="agent_regression" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -152,6 +156,7 @@
         });  
       };
 
+
     function renderSupportTierChart() {
       //These lines set up the pie chart with data on tickets from different customer tiers
 
@@ -171,6 +176,7 @@
         var svg2 = d3.select("#supportchart").append("svg")
             .attr("width", width)
             .attr("height", height)
+            .attr("align","center")
             .append("g")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -214,6 +220,7 @@
             .attr("width", width)
             .attr("height", height)
             .append("g")
+            .attr("align","center")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         json_route = "/tickets_by_industry.json?" + $('#ticket-ranges').serialize();
@@ -345,6 +352,7 @@
 
 
 }
+
 
 renderHeatmapChart();
 renderSupportTierChart();

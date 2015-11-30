@@ -32,7 +32,7 @@ class Customer(db.Model):
     phone_number = db.Column(db.String(50), nullable=True)
     job_title = db.Column(db.String(50), nullable=True)
 
-    #define relationship to company
+
     company = db.relationship("Company",
                               backref=db.backref("customers", order_by=id))
 

@@ -62,3 +62,15 @@ ul.nav li a, ul.nav li a:visited {
 
 ul.nav li a:hover, ul.nav li a:active {
     color: #063D6F;
+}
+
+h1, h2{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #063D6F;  
+}
+
+h2{
+    margin-left: 5%;
+}
+
+

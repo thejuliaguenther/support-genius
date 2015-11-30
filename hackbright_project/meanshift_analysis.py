@@ -114,8 +114,7 @@ def get_cluster_info(cluster_tickets):
         """
         This function computes valuable statistics about each cluster, such as the 
         average positive rating, the average negative rating, the most common location
-        from which a ticket has been sent, and the total percentage of tickets that were 
-        pilots
+        from which a positive or negative ticket has been sent, and the total percentage of pilots that were positive or negative
         """
 
         cluster_info = {}
@@ -142,8 +141,6 @@ def get_cluster_info(cluster_tickets):
 
             neg_industry_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
                                '6': 0}
-            # industry_counts = { '1': 0, '2': 0, '3': 0, '3': 0, '4': 0, '5': 0, 
-            #                    '6': 0}
 
             curr_cluster = cluster_tickets[key] #gets the cluster 
             for i in range(len(curr_cluster['pos'])):
@@ -199,23 +196,33 @@ def get_cluster_info(cluster_tickets):
 
 
 def get_top_location(location_list):
+    """
+    This function returns the top location for tickets in each cluster and 
+    the count for the number of tickets  in that location for a particular cluster
+
+    For cluster1 negative locations:
+
+    >>> get_top_location({'11': 0, '10': 0, '13': 0, '12': 0, '15': 0, '14': 0, '17': 0, '16': 0, '19': 0, '18': 0, '20': 0, '1': 0, '3': 0, '2': 0, '5': 0, '4': 0, '7': 190, '6': 0, '9': 0, '8': 0, '21': 0})
+    (190, 'Seattle, WA')
+
+    For cluster2 positive locations:
+    
+    >>> get_top_location({'11': 0, '10': 0, '13': 0, '12': 0, '15': 13, '14': 7, '17': 11, '16': 9, '19': 39, '18': 21, '20': 5, '1': 0, '3': 0, '2': 0, '5': 0, '4': 0, '7': 0, '6': 0, '9': 0, '8': 0, '21': 0})
+    (39, 'Paris, France')
+
+
+    """
     location_names = {'1': 'San Francisco, CA', '2': 'Redwood City, CA', '3': 'Foster City, CA', '4':'Los Angeles, CA',
                  '5':'San Diego, CA', '6':'Eugene, OR', '7':'Seattle, WA','8':'Madison, WI', '9':'Chicago, IL', 
                  '10': 'Ann Arbor, MI', '11':'Detroit, MI', '12':'Syracuse, NY', '13':'New York, NY', '14':'Brooklyn, NY', 
                  '15':'Fairfield, CT', '16':'Priceton, NJ', '17': 'Boston, MA', '18': 'London, UK', '19': 'Paris, France',
                  '20':'Munich, Germany', '21':'Berlin, Germany' }
-    print "Location list"
-    print location_list
     max_count = 0
     max_location = ""
     for location in location_list:
         if location_list[location] > max_count:
             max_count = location_list[location]
-            print "MAX COUNT"
-            print max_count
             max_location = location
-    print "MAX"
-    print max_location
     max_location_name = location_names[str(max_location)]
     return (max_count, max_location_name)
 
