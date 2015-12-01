@@ -11,18 +11,13 @@ from meanshift_analysis import get_data, process_clusters, get_cluster_info
 from datetime import date 
 from jinja2 import StrictUndefined
 from sqlalchemy import distinct
-# import csv 
 import requests
 from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
 from flask_debugtoolbar import DebugToolbarExtension
-# from twilio.rest import TwilioRestClient
 from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
-#Things to import for kmeans
-import numpy as np
-from sklearn.cluster import KMeans
 
 app = Flask(__name__)
 app.secret_key = "Hello world"
@@ -37,9 +32,8 @@ def process_tickets_to_display(tickets):
     """ 
     Gets the tickets to display from the database and 
     returns them in an iterable list
+    
     """
-
-    #Pass in one ticket and make sure it returns the right thing
     ticket_list = []
 
     for ticket in tickets:
@@ -70,7 +64,8 @@ def index():
 
 def get_distinct_companies(distinct_companies):
     """
-    This function gets the distinct customer names and ids and returns a list of tuples containing the customer name and id
+    This function gets the distinct customer names and ids and returns a list of tuples 
+    containing the customer name and id
 
     """
     company_list = []
@@ -84,7 +79,10 @@ def get_distinct_companies(distinct_companies):
 
 @app.route('/company_detail/<int:company_id>')
 def show_company_detail(company_id):
-    """Shows indivisual company details"""
+    """
+    Shows individual company details
+
+    """
     distinct_companies = Company.query.distinct(Company.name).all()
     distinct_company_names = get_distinct_companies(distinct_companies)
     company_tickets = []
@@ -100,13 +98,8 @@ def show_company_detail(company_id):
     #lop through customers with that id, get the tickets associated with that customer
     for customer in company_customers:
         customer_tickets = Ticket.query.filter(Ticket.customer_id == customer.id).all()
-        print customer_tickets
         customer_company_ticket_list = process_tickets_to_display(customer_tickets)
-        print type(customer_company_ticket_list)
-        # company_tickets.append(customer_company_ticket_list)
-      
-    # add tickets to a data structure to print out 
-    # company_tickets = Ticket.query.get(Company.customer_id).all()
+    
 
     return render_template("company_detail.html", company_name=company_name, company_location=company_location, 
         company_timezone=company_timezone, company_industry=company_industry, company_tier=company_tier,
@@ -128,6 +121,7 @@ def show_ticket_detail(ticket_id):
     return render_template("individual_ticket.html", selected_ticket_id=selected_ticket_id, 
         ticket_text=ticket_text, ticket_time=ticket_time, ticket_agent=ticket_agent, 
         customer_email=customer_email, customer_name=customer_name, customer_id=customer_id)
+
 def get_distinct_customers(distinct_customers):
     """
     This function gets the distinct customer names and ids and returns a list of tuples containing the customer name and id
@@ -144,8 +138,10 @@ def get_distinct_customers(distinct_customers):
 
 @app.route('/user_detail/<int:customer_id>')
 def show_user_detail(customer_id):
-    """Shows details about a specific customer, including the customer's name, 
-       email address, company, job title, and all of the tickets associated with the customer
+    """
+    Shows details about a specific customer, including the customer's name, 
+    email address, company, job title, and all of the tickets associated with the customer
+    
     """
     distinct_customers = Customer.query.distinct(Customer.name).all()
     distinct_customer_names = get_distinct_customers(distinct_customers)
@@ -165,13 +161,15 @@ def show_user_detail(customer_id):
     return render_template("user_detail.html", customer_name=customer_name, 
         customer_email=customer_email, customer_phone=customer_phone, 
         customer_company_name=customer_company_name, customer_company_id=customer_company_id,
-         customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list, distinct_customer_names=distinct_customer_names)
+        customer_job_title=customer_job_title, customer_ticket_list=customer_ticket_list, distinct_customer_names=distinct_customer_names)
 
 
 @app.route('/dashboard_data', methods=["GET"])
 def get_tickets_to_display():
-    """ Gets the tickets to display in the dashboard heatmap"""
-    # ticket_list =[] #A list of objects to be returned in JSON 
+    """ 
+    Gets the tickets to display in the dashboard heatmap
+
+    """
     ticket_dict = {}
 
     ticket_list = []
@@ -203,13 +201,15 @@ def get_tickets_to_display():
         ticket_details = {'day': key[0], 'hour': key[1], 'value': ticket_dict[key]}
         ticket_list.append(ticket_details)
 
-
-
     return jsonify(data=ticket_list)
 
 @app.route('/dashboard_response_time.json', methods=["GET"])
 def get_response_times():
-    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    """
+
+    Gets the response time for each ticket and returns a json object
+    
+    """
     date_range = request.args.get("date-range")
     date_range = date_range.split('-')
     start_date = date_range[0].encode('utf-8')
@@ -218,20 +218,18 @@ def get_response_times():
     end_date = datetime.strptime(end_date, "%m/%d/%Y %H:%M:%S")
 
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
-    # tickets = tickets_in_range.filter( Ticket.ticket_id, Ticket.time_submitted, Ticket.time_first_responded).all()
-    # ticket_responses = []
 
     data = get_response_regression(tickets_in_range)
-    # print type(data['scatter_points'])
-    # print type(data['line_points'])
-    return jsonify(data=data)
     
-    #return the scatterplots and line to pass to response 
+    return jsonify(data=data)
 
 @app.route('/dashboard_agent_touches.json', methods=["GET"])
 def get_resolution_times():
+    """
 
-    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    Gets the response time for each ticket and returns a json object
+    
+    """
     date_range = request.args.get("date-range")
     date_range = date_range.split('-')
     start_date = date_range[0].encode('utf-8')
@@ -242,28 +240,20 @@ def get_resolution_times():
     tickets_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.time_submitted).all()
     
     data = get_response_per_agent_touches(tickets_in_range)
-    # print type(data['scatter_points'])
-    # print type(data['line_points'])
+    
     return jsonify(data=data)
     
-@app.route('/nlp_route',  methods=["GET"])
-def create_positive_and_negative_datasets():
-    tickets = Ticket.query.all()
-    data = process_text(tickets)
-    
-    return jsonify(data)
-
 
 @app.route('/clustering.json', methods=["GET"])
 def get_clusters():
     """
     This function uses meanshift to process the ticket \
     data into process_clusters
+    
     """
     tickets = Ticket.query.all()
     data = process_clusters(tickets)
-    # data = get_data(tickets)
-    # data = process_clusters(ticket_clusters)
+
     return jsonify(data=data)
 
 @app.route('/cluster_details.json', methods=["GET"])
@@ -273,6 +263,7 @@ def get_cluster_details():
     algorithm in get_clusters and processes the clusters
     to return details such as the average percent positive 
     of a positive ticket
+    
     """
     tickets = Ticket.query.all()
     clusters = process_clusters(tickets)
@@ -287,10 +278,12 @@ def render_clusters():
     algorithm in get_clusters and processes the clusters
     to return details such as the average percent positive 
     of a positive ticket
+    
     """
     tickets = Ticket.query.all()
     clusters = process_clusters(tickets)
     data = get_cluster_info(clusters);
+    
     return render_template("customer_dashboard.html", data=data)
 
 @app.route('/tickets_by_tier.json', methods=["GET"])
@@ -298,8 +291,8 @@ def get_tickets_by_tier():
     """
     This function gets the number of tickets by tier and sends it to
     the dashboard to be displayed in a pie graph
+    
     """
-    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
     date_range = request.args.get("date-range")
     date_range = date_range.split('-')
 
@@ -311,16 +304,13 @@ def get_tickets_by_tier():
     customer_dict = {'Gold':0, 'Silver':0, 'Bronze':0}
     #Gets the customers who have submitted tickets in the specified date range
     customers_in_range = Ticket.query.filter((Ticket.time_submitted > start_date) & (Ticket.time_submitted < end_date)).order_by(Ticket.customer_id).all()
-    #get the company and put company in a set 
 
     for ticket in customers_in_range:
-        print ticket.ticket_id
         customer_id = ticket.customer_id
         customer = Customer.query.get(customer_id)
         company_id = customer.company_id
         company = Company.query.get(company_id)
         support_tier = company.support_tier
-        print support_tier
 
         if support_tier == 'Gold':
             customer_dict['Gold'] +=1
@@ -328,7 +318,6 @@ def get_tickets_by_tier():
             customer_dict['Silver'] += 1
         else:
             customer_dict['Bronze'] += 1
-    print customer_dict
 
     dict_list = []
     for key in customer_dict:
@@ -342,7 +331,11 @@ def get_tickets_by_tier():
 
 @app.route('/tickets_by_industry.json', methods=["GET"])
 def get_tickets_by_industry():
-    # date_range = "10/4/2015 00:00:00-10/10/2015 11:59:59"
+    """
+    This function gets the number of tickets by industry and sends it to
+    the dashboard to be displayed in a pie graph
+    
+    """
     date_range = request.args.get("date-range")
     date_range = date_range.split('-')
 
@@ -361,7 +354,6 @@ def get_tickets_by_industry():
         company_id = customer.company_id
         company = Company.query.get(company_id)
         industry = company.industry
-        print industry
 
         if industry == 'media':
             industry_dict['Media'] +=1
@@ -390,7 +382,10 @@ def get_tickets_by_industry():
 
 @app.route('/ticket_dashboard')
 def display_dashboard():
-    """ Displays the graphs showing ticket metrics"""
+    """ 
+    Displays the graphs showing ticket metrics
+
+    """
     return render_template("dashboard.html")
 
 def get_agent_names(distinct_names):
@@ -409,7 +404,10 @@ def get_agent_names(distinct_names):
 
 @app.route('/agent_detail/<int:agent_id>')
 def show_agent_detail(agent_id):
-    """Shows details about the agent clicked on in the ticket view"""
+    """
+    Shows details about the agent clicked on in the ticket view
+
+    """
     distinct_names = Agent.query.distinct(Agent.name).all()
     distinct_agent_names = get_agent_names(distinct_names)
     agent = Agent.query.filter(Agent.id == agent_id).first()
@@ -427,7 +425,7 @@ def show_agent_detail(agent_id):
 
 
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = False
     connect_to_db(app)
 
     # DebugToolbarExtension(app)
