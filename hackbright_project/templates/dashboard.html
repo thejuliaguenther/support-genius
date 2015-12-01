@@ -30,7 +30,6 @@
     <h1> Tickets Per Hour</h1>
     <div id="chart"></div>
     <div id="dataset-picker">
-      <!-- <form id="ticket-ranges" method="GET" action="/dashboard_data"> -->
       <form id="ticket-ranges">
       <select id ="date-range"class="form-control" name="date-range" >
           <option>09/27/2015 00:00:00-10/3/2015 11:59:59</option>
@@ -71,8 +70,9 @@
     $("#ticket-ranges").on("submit", submitForm);
 
   function refreshAllCharts(){
-        //Empty out divs wih charts in them in jquery 
-        //Call the functions that render all the charts again 
+       /*
+       This function clears out all of the charts and renders them again
+       */
         $("#chart").empty();
         $("#supportchart").empty();
         $("#industrychart").empty();
@@ -84,6 +84,7 @@
         renderResponseRegression();
         renderAgentTouchesRegression(); 
       }
+
       function renderHeatmapChart() {
 
           var margin = { top: 50, right: 0, bottom: 100, left: 30 },
@@ -165,7 +166,8 @@
 
 
     function renderSupportTierChart() {
-      //These lines set up the pie chart with data on tickets from different customer tiers
+      /*These lines set up the pie chart with data on tickets from different customer tiers
+      */
 
         var width = 300,
         height = 300,
@@ -206,17 +208,18 @@
                       .style("font-family", 'Source Sans Pro', 'sans-serif')
                       .text(function(d) { return d.data.support_tier; });
         });
-
-    }
+      }
 
   function renderIndustryChart() {
-      //These lines set up the pie chart with data on tickets from different customer tiers
+      /*
+      These lines set up the pie chart with data on tickets from different customer tiers
+      */
         var width = 300,
         height = 300,
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
-        .range(["#0cb577", "#387BB8", "#7b6888", "#67E40F", "#063D6F", "#d0743c", "#ff8c00"]);
+        .range(["#0cb577", "#387BB8","#67E40F",  "#007448", "#56CDA0","#063D6F"]);
         
         var arc = d3.svg.arc()
         .outerRadius(radius - 10)
@@ -232,8 +235,7 @@
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         json_route = "/tickets_by_industry.json?" + $('#ticket-ranges').serialize();
-        console.log(json_route);
-        // $.get('/tickets_by_tier.json', d3.json('/tickets_by_tier.json', function(error, data) {
+    
         d3.json(json_route, 
 
            function(error, data) {
@@ -257,6 +259,9 @@
     }
 
     function renderResponseRegression(){
+      /*
+      This function visualizes the data returned by the linear regression in scikit-learn to predict response time based on the time of day a ticket is submitted
+      */
       regression_data = $.get("/dashboard_response_time.json?"+ $('#ticket-ranges').serialize(), function(data){
       $(function () {
         console.log("DATAAAAAA: ");
@@ -278,7 +283,6 @@
         series: [{
             type: 'line',
             name: 'Predictions',
-            // data: [[0, 1.11], [5, 4.51]],
             data: data.data['line_points'],
 
 
@@ -298,20 +302,14 @@
             marker: {
                 radius: 4
             }
-           
         }]
+      });
     });
-
-    });
-    // line_data = regression_data.line_points;
-    console.log(typeof(regression_data['data']));
-
   });
 }
 
     
- 
-  function renderAgentTouchesRegression(){
+ function renderAgentTouchesRegression(){
     regression_data = $.get("/dashboard_agent_touches.json?"+ $('#ticket-ranges').serialize(), function(data){
       $(function () {
         console.log("DATAAAAAA: ");
@@ -348,20 +346,12 @@
             data: data.data['scatter_points'],
             marker: {
                 radius: 4
-            }
-           
+          }
         }]
+      });
     });
-
-    });
-    // line_data = regression_data.line_points;
-    console.log(typeof(regression_data['data']));
-
   });
-
-
 }
-
 
 renderHeatmapChart();
 renderSupportTierChart();
