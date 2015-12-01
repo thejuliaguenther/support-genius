@@ -169,12 +169,7 @@ def get_cluster_info(cluster_tickets):
             top_pos_location = get_top_location(pos_location_counts)
             top_neg_location = get_top_location(neg_location_counts)
 
-            print key
-            print "pos"
-            print pos_industry_counts
-            print key 
-            print "neg"
-            print neg_industry_counts
+           
             top_pos_industry = get_top_industry(pos_industry_counts)
             top_neg_industry = get_top_industry(neg_industry_counts)
 
