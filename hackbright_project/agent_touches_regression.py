@@ -33,8 +33,6 @@ def get_response_per_agent_touches(tickets_in_range):
     index_half_touches = len(ticket_touches)/2
 
     #Get the data for the dependent variable, the resolution time, separated into training and testing sets 
-
-
     resolutions_train = ticket_resolutions[:-index_half_resolutions]
     
     resolutions_test = ticket_resolutions[index_half_resolutions:]
@@ -43,7 +41,6 @@ def get_response_per_agent_touches(tickets_in_range):
     #Get the data for the independent variable, the  number of agent touches, separated into training and testing sets
     touches_train = ticket_touches[:-index_half_touches]
     touches_test = ticket_touches[index_half_touches:]
-    # print submissions_test
 
     model = linear_model.LinearRegression()
     test = model.fit(touches_train, resolutions_train)
@@ -61,12 +58,10 @@ def get_response_per_agent_touches(tickets_in_range):
     line_list = []
     data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_resolutions):
-        # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
         data['scatter_points'].append([touches_test[i][0], resolutions_test[i]])
         predicted_Y_coord = model.predict(touches_test[i][0])
         data['line_points'].append([touches_test[i][0], predicted_Y_coord[0]])
-        # print "Line"
-        # print line_list
+        
 
 
     print "AGENT DATA"

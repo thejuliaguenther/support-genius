@@ -17,8 +17,6 @@ def get_response_regression(tickets_in_range):
         time_to_first_response = ticket.time_first_responded - ticket.time_submitted
         seconds_to_first_response = time_to_first_response.total_seconds()
         hours_to_first_response = seconds_to_first_response / SECONDS_PER_HOUR
-        # print seconds_to_first_response
-        # print hours_to_first_response
         
         ticket_submit_list.append(ticket_submitted)
         sorted_submit_list = sorted(ticket_submit_list)

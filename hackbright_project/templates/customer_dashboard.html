@@ -95,7 +95,11 @@ function renderClusterBarGraph(){
  $(function () {
     $('#cluster').highcharts({
         chart: {
-            type: 'bar'
+            type: 'bar',
+            style: {
+               fontFamily: '"Source Sans Pro", sans-serif'
+             }
+
         },
         title: {
             text: 'Sentiment Analysis of Tickets by Cluster'

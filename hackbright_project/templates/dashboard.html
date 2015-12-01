@@ -264,44 +264,50 @@
       */
       regression_data = $.get("/dashboard_response_time.json?"+ $('#ticket-ranges').serialize(), function(data){
       $(function () {
-        console.log("DATAAAAAA: ");
-        console.log(data.data['line_points']);
       $('#response_regression').highcharts({
-        xAxis: {
-            min: 0,
-            max: 24,
-            title: {
-              text:'Hey'
-            },
-        },
-        yAxis: {
-            min: 0
-        },
-        title: {
-            text: 'Time of Day and First Response Time'
-        },
-        series: [{
-            type: 'line',
-            name: 'Predictions',
-            data: data.data['line_points'],
-
-
-            marker: {
-                enabled: false
-            },
-            states: {
-                hover: {
-                    lineWidth: 0
+         chart: {
+               style: {
+                   fontFamily: '"Source Sans Pro", sans-serif'
                 }
-            },
-            enableMouseTracking: false
-           }, {
-            type: 'scatter',
-            name: 'Observations',
-            data: data.data['scatter_points'],
-            marker: {
-                radius: 4
-            }
+          },
+          xAxis: {
+              min: 0,
+              max: 24,
+              title: {
+                text:'Ticket Submission Time (00:00 - 24:00)'
+              },
+          },
+          yAxis: {
+              min: 0,
+               title: {
+                text:'First Response Time (in hours)'
+              },
+          },
+          title: {
+              text: 'Time of Day and First Response Time'
+          },
+          series: [{
+              type: 'line',
+              name: 'Predictions',
+              data: data.data['line_points'],
+
+
+              marker: {
+                  enabled: false
+              },
+              states: {
+                  hover: {
+                      lineWidth: 0
+                  }
+              },
+              enableMouseTracking: false
+             }, {
+              type: 'scatter',
+              name: 'Observations',
+              data: data.data['scatter_points'],
+              marker: {
+                  radius: 4
+              }
         }]
       });
     });
@@ -310,48 +316,60 @@
 
     
  function renderAgentTouchesRegression(){
+   /*
+    This function visualizes the data returned by the linear regression in scikit-learn to predict resolution time based on the time of day a ticket is submitted
+    */
     regression_data = $.get("/dashboard_agent_touches.json?"+ $('#ticket-ranges').serialize(), function(data){
       $(function () {
-        console.log("DATAAAAAA: ");
-        console.log(data.data['line_points']);
         $('#agent_regression').highcharts({
+           chart: {
+               style: {
+                   fontFamily: '"Source Sans Pro", sans-serif'
+                }
+
+           },
             xAxis: {
                 min: 0,
-                max: 200
+                max: 200,
+                title: {
+                   text:'Number of Agent Touches'
+                },
             },
-        yAxis: {
-            name: 'Resolution Time (in hours)',
-            min: -10
-        },
-        title: {
-            text: 'Customer Interactions and Resolution Time'
-        },
-        series: [{
-            type: 'line',
-            data: data.data['line_points'],
-
-
-            marker: {
-                enabled: false
+            yAxis: {
+                // name: 'Resolution Time (in hours)',
+                min: -10,
+                title: {
+                   text: 'Resolution Time (in hours)'
+                },
             },
-            states: {
-                hover: {
-                    lineWidth: 0
-                }
+            title: {
+                text: 'Customer Interactions and Resolution Time'
             },
-            enableMouseTracking: false
-           }, {
-            type: 'scatter',
-            name: 'Observations',
-            data: data.data['scatter_points'],
-            marker: {
-                radius: 4
-          }
-        }]
+            series: [{
+                type: 'line',
+                name: 'Predictions',
+                data: data.data['line_points'],
+                marker: {
+                    enabled: false
+                },
+                states: {
+                    hover: {
+                        lineWidth: 0
+                    }
+                },
+                enableMouseTracking: false
+               }, {
+                type: 'scatter',
+                name: 'Observations',
+                data: data.data['scatter_points'],
+                marker: {
+                    radius: 4
+              }
+            }]
+          });
+        });
       });
-    });
-  });
-}
+    }
 
 renderHeatmapChart();
 renderSupportTierChart();
