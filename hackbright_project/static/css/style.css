@@ -82,3 +82,7 @@ h1 small{
  color: #5C95C8;
 }
 
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+    background-color: #063D6F;
+}
+
