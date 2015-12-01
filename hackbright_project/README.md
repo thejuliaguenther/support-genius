@@ -16,9 +16,10 @@ This is an enterprise software application. In this demo, the data represents th
 
 ## Features
 -D3.js: Ticket Data Graphs
-..*Heatmap of tickets per hour per day with the darkest boxes having the most tickets submitted
-..*Tickets by industry and tickets by support tier (Gold, Silver, or Bronze with Gold being the highest tier; represents the customer's purchased customer success plan) graphs 
+*Heatmap of tickets per hour per day with the darkest boxes having the most tickets submitted
+*Tickets by industry and tickets by support tier (Gold, Silver, or Bronze with Gold being the highest tier; represents the customer's purchased customer success plan) graphs 
 -Highcharts.js: Scikit-learn Machine Learning Graphs
-..*Linear regression calculated using scikit-learn; shows the realationship between the time of day a ticket is submitted and the time it takes an agent to respond to the ticket
-..*Linear regression calculated using scikit-learn; shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
-
+*Linear regression calculated using scikit-learn; shows the realationship between the time of day a ticket is submitted and the time it takes an agent to respond to the ticket
+*Linear regression calculated using scikit-learn; shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
+-jQuery UI: Cluster Information Box
+*Provides a drilldown into the 
