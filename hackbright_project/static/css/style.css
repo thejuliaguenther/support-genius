@@ -32,7 +32,7 @@
     color: white;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #30BD88;
     
 }
@@ -73,4 +73,12 @@ h2{
     margin-left: 5%;
 }
 
+p{
+ font-family: 'Source Sans Pro', sans-serif;
+ color: #063D6F;     
+}
+
+h1 small{
+ color: #5C95C8;
+}
 

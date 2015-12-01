@@ -39,7 +39,7 @@
           <option>10/18/2015 00:00:00-10/24/2015 11:59:59</option>
           <option>10/25/2015 00:00:00-10/31/2015 11:59:59</option>
       </select>
-      <button type="submit" class="btn btn-default">Select</button>
+      <button id="submit" ßtype="button" class="btn btn-primary">Select </button>
     </form>
 
     </div>
@@ -85,7 +85,7 @@
           gridSize = Math.floor(width / 24),
           legendElementWidth = gridSize*2,
           buckets = 9,
-          colors = ["#9CED63","#67E40F","3F9800", "#56CDA0", "#0CB575","#007448","#387BB8","#1767AF","#063D6F"],
+          colors = ["#9CED63","#67E40F","3F9800", "#56CDA0", "#0CB577","#007448","#387BB8","#1767AF","#063D6F"],
           days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
           times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
           datasets = ["9/27/2015-10/3/2015", "10/4/2015-10/10/2015", "10/11/2015-10/17/2015", 
@@ -196,6 +196,7 @@
                       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
                       .attr("dy", ".35em")
                       .style("text-anchor", "middle")
+                      .style("font-family", 'Source Sans Pro', 'sans-serif')
                       .text(function(d) { return d.data.support_tier; });
         });
 
@@ -208,7 +209,7 @@
         radius = Math.min(width, height) / 2;
         
         var color = d3.scale.ordinal()
-        .range(["#0cb577", "#387BB8", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        .range(["#0cb577", "#387BB8", "#7b6888", "#67E40F", "#063D6F", "#d0743c", "#ff8c00"]);
         
         var arc = d3.svg.arc()
         .outerRadius(radius - 10)
@@ -242,6 +243,7 @@
                       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
                       .attr("dy", ".35em")
                       .style("text-anchor", "middle")
+                      .style("font-family", 'Source Sans Pro', 'sans-serif')
                       .text(function(d) { return d.data.industry; });
         });
 
@@ -256,7 +258,10 @@
     $('#response_regression').highcharts({
         xAxis: {
             min: 0,
-            max: 24
+            max: 24,
+            title: {
+              text:'Hey'
+            },
         },
         yAxis: {
             min: 0
@@ -266,7 +271,7 @@
         },
         series: [{
             type: 'line',
-            name: 'Ticket Response Time',
+            name: 'Predictions',
             // data: [[0, 1.11], [5, 4.51]],
             data: data.data['line_points'],
 
