@@ -18,8 +18,15 @@ This is an enterprise software application. In this demo, the data represents th
 - D3.js: Ticket Data Graphs
     * Heatmap of tickets per hour per day with the darkest boxes having the most tickets submitted
     * Tickets by industry and tickets by support tier (Gold, Silver, or Bronze with Gold being the highest tier; represents the customer's purchased customer success plan) graphs 
+    * Submitting a form with a the desired date range for tickets makes an AJAX call to render the appropriate graphs
 - Highcharts.js: Scikit-learn Machine Learning Graphs
     * Linear regression calculated using scikit-learn; shows the realationship between the time of day a ticket is submitted and the time it takes an agent to respond to the ticket
     * Linear regression calculated using scikit-learn; shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
+    * Meanshift calculated using scikit-learn; shows the tickets separated into clusters based on the 
 - jQuery UI: Cluster Information Box
-    * Provides a drilldown into the 
+    * Box with tabs provides a drilldown into the contents of the clusters identified by the Meanshift algorithm
+    * The average percent negative of negative tickets and average percent positive of positive tickets is the average percent certainty that the ticket is positive or negative as determined by the Mashape Text-Processing API
+- Bootstrap: Ticket Tables and Views
+    * View tickets by ticket requester, agent assigned to, or the company with which the ticket requester is affiliated
+    * Jinja templates allow the tables to update dynamically with information from the database. 
+
