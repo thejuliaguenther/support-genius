@@ -10,9 +10,9 @@ This is an enterprise software application. In this demo, the data represents th
 - Ticket contents were generated using Markov chains in Python creating new text snippets from separate positive and negative text files
 - Agent names are members of Hackbright Cohort 12
 - Company names were created using a [random company name generator](http://online-generator.com/name-generator/company-name-generator.php)
--Customer names were randomly generated using the [Python fake-factory library](https://pypi.python.org/pypi/fake-factory)
--Ticket submission, first response, and resolution times were randomly generated using Python fake-factory library 
--Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
+- Customer names were randomly generated using the [Python fake-factory library](https://pypi.python.org/pypi/fake-factory)
+- Ticket submission, first response, and resolution times were randomly generated using Python fake-factory library 
+- Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
 
 ## Features
 - D3.js: Ticket Data Graphs
