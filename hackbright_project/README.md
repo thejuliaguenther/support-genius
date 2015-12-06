@@ -14,6 +14,9 @@ This is an enterprise software application. In this demo, the data represents th
 - Ticket submission, first response, and resolution times were randomly generated using Python fake-factory library 
 - Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
 
+
+![main ticket view](https://cloud.githubusercontent.com/assets/13442273/11616046/a4a89d58-9c25-11e5-9a16-05ecd367e479.png)
+
 ## Features
 - D3.js: Ticket Data Graphs
     * Heatmap of tickets per hour per day with the darkest boxes having the most tickets submitted
@@ -29,4 +32,6 @@ This is an enterprise software application. In this demo, the data represents th
 - Bootstrap: Ticket Tables and Views
     * View tickets by ticket requester, agent assigned to, or the company with which the ticket requester is affiliated
     * Jinja templates allow the tables to update dynamically with information from the database. 
+- Testing
+    * Included doc string tests; 
 
