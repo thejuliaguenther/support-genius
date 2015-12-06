@@ -15,7 +15,7 @@ This is an enterprise software application. In this demo, the data represents th
 - Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
 
 
-![main ticket view](https://cloud.githubusercontent.com/assets/13442273/11616046/a4a89d58-9c25-11e5-9a16-05ecd367e479.png)
+[main ticket view](https://cloud.githubusercontent.com/assets/13442273/11616046/a4a89d58-9c25-11e5-9a16-05ecd367e479.png)
 
 ## Features
 - D3.js: Ticket Data Graphs
