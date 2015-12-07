@@ -54,8 +54,14 @@ This is an enterprise software application. In this demo, the data represents th
 ### Bootstrap: Ticket Tables and Views
 ![main ticket view]
 (https://cloud.githubusercontent.com/assets/13442273/11616046/a4a89d58-9c25-11e5-9a16-05ecd367e479.png)
-- View tickets by ticket requester, agent assigned to, or the company with which the ticket requester is affiliated
-- Jinja templates allow the tables to update dynamically with information from the database. 
+- Additionally, view tickets in three different views by clicking the views menu:
+    * **Agent View**
+    ![agent view]
+    (https://cloud.githubusercontent.com/assets/13442273/11617427/d6138d30-9c43-11e5-9c0f-ade6776efbaf.png)
+        * Shows information about the agent assigned to the ticket
+        * Shows all of the tickets assigned to that agent 
+    ssigned or the company with which the ticket requester is affiliated
+- All bootstrap tables showing tickets built using Jinja templates that allow the tables to update dynamically with information from the database; this allows the tables to scale nicely as more data is added. 
 
 ### Testing
 - Included doc string tests; working on unit tests
