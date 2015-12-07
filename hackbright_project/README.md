@@ -24,7 +24,11 @@ This is an enterprise software application. In this demo, the data represents th
 ### Highcharts.js: Scikit-learn Machine Learning Graphs
 - Linear regression calculated using scikit-learn; shows the realationship between the time of day a ticket is submitted and the time it takes an agent to respond to the ticket
 - Linear regression calculated using scikit-learn; shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
-- Meanshift calculated using scikit-learn; shows the tickets separated into clusters based on the industry, support tier, and location of the company submitting the ticket; whether or not the company submitting the ticket is a pilot; the agent assigned to the ticket; and the sentiment of the ticket's text according to the text processing API.
+- **Meanshift calculated using scikit-learn**
+![meanshift bar graph]
+(https://cloud.githubusercontent.com/assets/13442273/11617232/d21bfa08-9c40-11e5-9349-1cb47772ee60.png)
+    * Shows the tickets separated into clusters based on the industry, support tier, and location of the company submitting the ticket; whether or not the company submitting the ticket is a pilot; the agent assigned to the ticket; and the sentiment of the ticket's text according to the text processing API.
+    * Contains tooltips showing the total number of positive, negative, and neutral tickets in each cluster
 
 ### jQuery UI: Cluster Information Box
 - Box with tabs provides a drilldown into the contents of the clusters identified by the Meanshift algorithm
