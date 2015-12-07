@@ -86,3 +86,9 @@ This is an enterprise software application. In this demo, the data represents th
 ### Testing
 - Included doc string tests; working on unit tests
 
+## Next Steps
+- Deployment on Heroku
+- Dig into clusters to see customers in each cluster and get more data for each group of customers; see all the tickets for each cluster
+- Calculate which customers are at risk of discontinuing the service
+- Notifications to managers and agents when a ticket from an at-risk customer is submitted
+
