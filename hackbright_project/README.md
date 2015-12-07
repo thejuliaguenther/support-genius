@@ -77,7 +77,11 @@ This is an enterprise software application. In this demo, the data represents th
         * Can switch to another requester view by selecting another requester from the pull down menu
         * Allows managers to see 1) if problems with an account can be isolated to a single individual within that organization 2) if certain individuals/ roles within organizations need more education on the product 3) if certain individuals are likely to cause problems within the larger customer ecosystem
     
-- All bootstrap tables showing tickets built using Jinja templates that allow the tables to update dynamically with information from the database; this allows the tables to scale nicely as more data is added. 
+- All bootstrap tables showing tickets built using Jinja templates that allow the tables to update dynamically with information from the database; this allows the tables to update with additional data when it is added. 
+
+### PostgreSQL Database
+- SupportGenius is a product intended for the enterprise. Large companies that have millions of users will receive thousands of tickets in an hour. 
+- PostgreSQL provides enterprise-scaling capeabilities, making it an excellent choice for this app
 
 ### Testing
 - Included doc string tests; working on unit tests
