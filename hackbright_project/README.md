@@ -60,7 +60,23 @@ This is an enterprise software application. In this demo, the data represents th
     (https://cloud.githubusercontent.com/assets/13442273/11617427/d6138d30-9c43-11e5-9c0f-ade6776efbaf.png)
         * Shows information about the agent assigned to the ticket
         * Shows all of the tickets assigned to that agent 
-    ssigned or the company with which the ticket requester is affiliated
+        * Can switch to another agent view by selecting another agent from the pull down menu
+        * Allows managers insight into the productivity and success of their agents
+    * **Company View**
+    ![company view]
+    (https://cloud.githubusercontent.com/assets/13442273/11617592/13566d82-9c46-11e5-9515-224d04106b15.png)
+        * Shows information about a company that has submitted a ticket 
+        * Shows all of the tickets associated with that company
+        * Can switch to another company view by selecting another company from the pull down menu
+        * Allows managers insight into the health of their company's relationships with customers and a drilldown into the specifics of each company
+    * **Requester View**
+    ![requester view]
+    (https://cloud.githubusercontent.com/assets/13442273/11617676/2940d14a-9c47-11e5-82f0-b34fa4a065e1.png)
+        * Shows information about a ticket requester
+        * Shows all of the tickets that the requester has submitted
+        * Can switch to another requester view by selecting another requester from the pull down menu
+        * Allows managers to see 1) if problems with an account can be isolated to a single individual within that organization 2) if certain individuals/ roles within organizations need more education on the product 3) if certain individuals are likely to cause problems within the larger customer ecosystem
+    
 - All bootstrap tables showing tickets built using Jinja templates that allow the tables to update dynamically with information from the database; this allows the tables to scale nicely as more data is added. 
 
 ### Testing
