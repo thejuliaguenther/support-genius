@@ -13,17 +13,32 @@ This is an enterprise software application. In this demo, the data represents th
 - Customer names were randomly generated using the [Python fake-factory library](https://pypi.python.org/pypi/fake-factory)
 - Ticket submission, first response, and resolution times were randomly generated using Python fake-factory library 
 - Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
+**Note: since the data was created randomly, demonstrate strong linear relationships between the independent and dependent variables***
 
 
 ## Features
 ### D3.js: Ticket Data Graphs
 - Heatmap of tickets per hour per day with the darkest boxes having the most tickets submitted
+![ticket heatmap]
+(https://cloud.githubusercontent.com/assets/13442273/11617349/6d91f932-9c42-11e5-89dd-0f77ef5c8bcb.png)
 - Tickets by industry and tickets by support tier (Gold, Silver, or Bronze with Gold being the highest tier; represents the customer's purchased customer success plan) graphs 
+![pie charts]
+(https://cloud.githubusercontent.com/assets/13442273/11617369/9bcaebf6-9c42-11e5-9d91-caaaa2695676.png)
 - Submitting a form with a the desired date range for tickets makes an AJAX call to render the appropriate graphs
 
 ### Highcharts.js: Scikit-learn Machine Learning Graphs
-- Linear regression calculated using scikit-learn; shows the realationship between the time of day a ticket is submitted and the time it takes an agent to respond to the ticket
-- Linear regression calculated using scikit-learn; shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
+-  **Linear regression calculated using scikit-learn**
+![response time regression]
+(https://cloud.githubusercontent.com/assets/13442273/11617377/ce2a396c-9c42-11e5-9cad-f7057a0279f3.png)
+    * Shows the realationship between the time of day a ticket is submitted (the independent variable) and the time it takes an agent to respond to the ticket (the dependent variable)
+    * Contains tooltips showing the x and y values for each scatter point
+    * Drawn using Highcharts.js as it facilitates linear regression graphs
+- **Linear regression calculated using scikit-learn**
+![agent touches resolution]
+(https://cloud.githubusercontent.com/assets/13442273/11617388/144bf3fe-9c43-11e5-9439-87d125d03c0e.png)
+    * Shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
+    * Contains tooltips showing the x and y values for each scatter point
+    * Drawn using Highcharts.js as it facilitates linear regression graphs
 - **Meanshift calculated using scikit-learn**
 ![meanshift bar graph]
 (https://cloud.githubusercontent.com/assets/13442273/11617232/d21bfa08-9c40-11e5-9349-1cb47772ee60.png)
@@ -31,6 +46,8 @@ This is an enterprise software application. In this demo, the data represents th
     * Contains tooltips showing the total number of positive, negative, and neutral tickets in each cluster
 
 ### jQuery UI: Cluster Information Box
+![cluster info]
+(https://cloud.githubusercontent.com/assets/13442273/11617306/b4b89362-9c41-11e5-9a0d-41dda5355fc9.png)
 - Box with tabs provides a drilldown into the contents of the clusters identified by the Meanshift algorithm
 - The average percent negative of negative tickets and average percent positive of positive tickets is the average percent certainty that the ticket is positive or negative as determined by the Mashape Text-Processing API
 
