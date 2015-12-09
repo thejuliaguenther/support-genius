@@ -262,8 +262,6 @@ def process_clusters(tickets):
     cluster_data = {}
     cluster_labels = {}
 
-    cluster_stuff = []
-
     for ticket in ticket_details:
         cluster_label = ticket[0]
         ticket_id = ticket[1]
@@ -276,8 +274,6 @@ def process_clusters(tickets):
  
         ticket_values = []
 
-        
-        cluster_stuff.append(cluster_label)
 
         if cluster_label == 0:
             if sentiment == 1:

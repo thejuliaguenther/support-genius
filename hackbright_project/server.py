@@ -2,7 +2,6 @@ from numpy import genfromtxt
 import numpy as np
 import random 
 import sklearn
-from nlp import process_text
 
 from response_regression import get_response_regression
 from agent_touches_regression import get_response_per_agent_touches
@@ -20,7 +19,8 @@ from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
 
 app = Flask(__name__)
-app.secret_key = "Hello world"
+# app.secret_key = "Hello world"
+app.secret_key = "HyrVFG2jcVlpN0qH"
 
 app.jinja_env.undefined = StrictUndefined
 
@@ -57,6 +57,7 @@ def index():
 
     """
     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
+    print tickets
     
     ticket_list = process_tickets_to_display(tickets)
 
