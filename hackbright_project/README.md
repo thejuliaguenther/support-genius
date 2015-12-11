@@ -39,7 +39,7 @@ This is an enterprise software application. In this demo, the data represents th
     * Shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
     * Contains tooltips showing the x and y values for each scatter point
     * Drawn using Highcharts.js as it facilitates linear regression graphs
-- **Meanshift calculated using scikit-learn**
+- **Meanshift calculated using scikit-learn: Customer clustering**
 ![meanshift bar graph]
 (https://cloud.githubusercontent.com/assets/13442273/11617232/d21bfa08-9c40-11e5-9349-1cb47772ee60.png)
     * Shows the tickets separated into clusters based on the industry, support tier, and location of the company submitting the ticket; whether or not the company submitting the ticket is a pilot; the agent assigned to the ticket; and the sentiment of the ticket's text according to the text processing API.
