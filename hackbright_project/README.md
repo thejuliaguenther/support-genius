@@ -27,13 +27,13 @@ This is an enterprise software application. In this demo, the data represents th
 - Submitting a form with a the desired date range for tickets makes an AJAX call to render the appropriate graphs
 
 ### Highcharts.js: Scikit-learn Machine Learning Graphs
--  **Linear regression calculated using scikit-learn**
+-  **Linear regression calculated using scikit-learn: Ticket submission time and response time**
 ![response time regression]
 (https://cloud.githubusercontent.com/assets/13442273/11617377/ce2a396c-9c42-11e5-9cad-f7057a0279f3.png)
     * Shows the realationship between the time of day a ticket is submitted (the independent variable) and the time it takes an agent to respond to the ticket (the dependent variable)
     * Contains tooltips showing the x and y values for each scatter point
     * Drawn using Highcharts.js as it facilitates linear regression graphs
-- **Linear regression calculated using scikit-learn**
+- **Linear regression calculated using scikit-learn: Agent-customer interactions and resolution time**
 ![agent touches resolution]
 (https://cloud.githubusercontent.com/assets/13442273/11617388/144bf3fe-9c43-11e5-9439-87d125d03c0e.png)
     * Shows the relationship between the number of agent touches (the number of times the agent reaches out to a customer) and the amount of time it takes to resolve the ticket
