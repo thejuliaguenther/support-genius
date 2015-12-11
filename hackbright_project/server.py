@@ -268,9 +268,10 @@ def get_cluster_details():
     """
     tickets = Ticket.query.all()
     clusters = process_clusters(tickets)
-    data = get_cluster_info(clusters);
+    # data = get_cluster_info(clusters);
 
-    return jsonify(data=data)
+    # return jsonify(data=data)
+    return jsonify(data=clusters)
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
@@ -426,7 +427,7 @@ def show_agent_detail(agent_id):
 
 
 if __name__ == "__main__":
-    app.debug = False
+    app.debug = True
     connect_to_db(app)
 
     # DebugToolbarExtension(app)
