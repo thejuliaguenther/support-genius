@@ -119,6 +119,7 @@ def get_cluster_info(cluster_tickets):
         cluster_names = cluster_tickets.keys()
         positive_list = []
         negative_list = []
+        processed_ticket_list = []
 
         for key in cluster_names:
            
@@ -143,23 +144,26 @@ def get_cluster_info(cluster_tickets):
             curr_cluster = cluster_tickets[key] #gets the cluster 
             for i in range(len(curr_cluster['pos'])):
                 print curr_cluster['pos'][i][1]
-                positive_list.append(curr_cluster['pos'][i][1])
-                if curr_cluster['pos'][i][3] == 1:
+                positive_list.append(curr_cluster['pos'][i][4])
+                if curr_cluster['pos'][i][6] == 1:
                     pos_pilot_count += 1
-                pos_ticket_location = curr_cluster['pos'][i][5]
+                pos_ticket_location = curr_cluster['pos'][i][8]
                 pos_location_counts[str(pos_ticket_location)] += 1
+
+                processed_ticket_list.append(())
                 
-                pos_ticket_industry = curr_cluster['pos'][i][6]
+                pos_ticket_industry = curr_cluster['pos'][i][9]
                 pos_industry_counts[str(pos_ticket_industry)] += 1
             for j in range(len(curr_cluster['neg'])):
-                negative_list.append(curr_cluster['neg'][j][2])
-                if curr_cluster['neg'][i][3] == 1:
+                negative_list.append(curr_cluster['neg'][j][5])
+                if curr_cluster['neg'][i][6] == 1:
                     neg_pilot_count += 1
-                neg_ticket_location = curr_cluster['neg'][i][5]
+                neg_ticket_location = curr_cluster['neg'][i][8]
                 neg_location_counts[str(neg_ticket_location)] += 1
 
-                neg_ticket_industry = curr_cluster['neg'][i][6]
+                neg_ticket_industry = curr_cluster['neg'][i][9]
                 neg_industry_counts[str(neg_ticket_industry)] += 1
+
             
             cluster_average_positive = (reduce(lambda x,y: x+y, positive_list))/ len(positive_list)
             cluster_average_negative = (reduce(lambda x,y: x+y, negative_list))/ len(negative_list)
@@ -178,7 +182,8 @@ def get_cluster_info(cluster_tickets):
             cluster_info[key] = {'percent_positive': round((cluster_average_positive * 100), 1),'percent_negative': round((cluster_average_negative * 100), 1), 
             'percent_negative_pilots': round((percent_negative_pilots *100), 1), 'top_pos_location': top_pos_location[1],'top_neg_location': top_neg_location[1], 
             'max_pos_location_count': top_pos_location[0], 'max_neg_location_count': top_neg_location[0], 'top_pos_industry_count': top_pos_industry[0],
-            'top_neg_industry_count':top_neg_industry[0], 'top_neg_industry': top_neg_industry[1], 'top_pos_industry': top_pos_industry[1]}
+            'top_neg_industry_count':top_neg_industry[0], 'top_neg_industry': top_neg_industry[1], 'top_pos_industry': top_pos_industry[1],
+            'tickets': processed_ticket_list}
 
         return cluster_info
 
@@ -284,6 +289,7 @@ def process_clusters(tickets):
                 cluster_1['neg'].append([ticket_id, ticket_submission, ticket_agent, ticket_status, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
             elif sentiment == 2:
                 cluster_1['neutral'].append([ticket_id, ticket_submission, ticket_agent, ticket_status, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
+            else:
                 cluster_1['pos'].append([ticket_id, ticket_submission, ticket_agent, ticket_status, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
         elif cluster_label == 1:
             if sentiment == 1:
@@ -299,7 +305,6 @@ def process_clusters(tickets):
                 cluster_3['neutral'].append([ticket_id, ticket_submission, ticket_agent, ticket_status, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
             else:
                 cluster_3['pos'].append([ticket_id, ticket_submission, ticket_agent, ticket_status, percent_positive, percent_negative, is_pilot, sentiment, ticket_location, ticket_industry])
-       
     
     
     cluster_labels = {'cluster1':cluster_1,'cluster2':cluster_2, 'cluster3':cluster_3}

@@ -1,4 +1,3 @@
- 
 {% extends 'base.html' %}
 {% block content %}
 
@@ -8,16 +7,13 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/cluster_details.css">
 <style>
-
 .arc text {
   font: 10px sans-serif;
   text-anchor: middle;
 }
-
 .arc path {
   stroke: #fff;
 }
-
 </style>
 <div id="cluster" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
@@ -89,7 +85,6 @@
 </div>
  
  <script type="text/javascript">
-
 function renderClusterBarGraph(){
  data = $.get("/clustering.json", function(data){
  $(function () {
@@ -99,7 +94,6 @@ function renderClusterBarGraph(){
             style: {
                fontFamily: '"Source Sans Pro", sans-serif'
              }
-
         },
         title: {
             text: 'Sentiment Analysis of Tickets by Cluster'
@@ -142,20 +136,20 @@ function renderClusterBarGraph(){
         credits: {
             enabled: false
         }
-
     },
         series: [{
-            name: 'Positive',
-            color: '#0cb577',
-            data: [data.data['cluster1']['pos'].length,data.data['cluster2']['pos'].length, data.data['cluster3']['pos'].length ]
+            name: 'Negative',
+            color: '#387BB8',
+            data: [data.data['cluster1']['neg'].length,data.data['cluster2']['neg'].length, data.data['cluster3']['neg'].length ]
         }, {
             name: 'Neutral',
             color: "#67E40F",
             data: [data.data['cluster1']['neutral'].length, data.data['cluster2']['neutral'].length, data.data['cluster3']['neutral'].length ]
         }, {
-            name: 'Negative',
-            color: '#387BB8',
-            data: [data.data['cluster1']['neg'].length,data.data['cluster2']['neg'].length, data.data['cluster3']['neg'].length ]
+
+            name: 'Positive',
+            color: '#0cb577',
+            data: [data.data['cluster1']['pos'].length,data.data['cluster2']['pos'].length, data.data['cluster3']['pos'].length ]
         }]
    });
  
