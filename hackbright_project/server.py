@@ -271,7 +271,6 @@ def get_cluster_details():
     data = get_cluster_info(clusters);
 
     return jsonify(data=data)
-    # return jsonify(data=clusters)
 
 @app.route('/customer_dashboard', methods=["GET"])
 def render_clusters():
