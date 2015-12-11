@@ -13,7 +13,7 @@ This is an enterprise software application. In this demo, the data represents th
 - Customer names were randomly generated using the [Python fake-factory library](https://pypi.python.org/pypi/fake-factory)
 - Ticket submission, first response, and resolution times were randomly generated using Python fake-factory library 
 - Agents were randomly assigned to tickets; customers were randomly assigned to companies, roles, and tickets; and companies were randomly assigned to different locations, support tiers, and industries. 
-**Note: since the data was created randomly, demonstrate strong linear relationships between the independent and dependent variables***
+**Note: since the data was created randomly, it does not demonstrate strong linear relationships between the independent and dependent variables***
 
 
 ## Features
