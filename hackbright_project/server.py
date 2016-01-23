@@ -14,12 +14,10 @@ import requests
 from datetime import datetime
 from time import strptime
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, json, url_for
-from flask_debugtoolbar import DebugToolbarExtension
 from model import Ticket, Agent, Customer, Company, connect_to_db, db
 
 
 app = Flask(__name__)
-# app.secret_key = "Hello world"
 app.secret_key = "HyrVFG2jcVlpN0qH"
 
 app.jinja_env.undefined = StrictUndefined
@@ -96,7 +94,7 @@ def show_company_detail(company_id):
     company_pilot = company.is_pilot
     #get all customers with that company id
     company_customers = Customer.query.filter(Customer.company_id == company.id).all() 
-    #lop through customers with that id, get the tickets associated with that customer
+    #loop through customers with that id, get the tickets associated with that customer
     for customer in company_customers:
         customer_tickets = Ticket.query.filter(Ticket.customer_id == customer.id).all()
         customer_company_ticket_list = process_tickets_to_display(customer_tickets)
@@ -428,7 +426,4 @@ def show_agent_detail(agent_id):
 if __name__ == "__main__":
     app.debug = True
     connect_to_db(app)
-
-    # DebugToolbarExtension(app)
-
     app.run()
