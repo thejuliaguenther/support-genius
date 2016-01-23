@@ -424,6 +424,5 @@ def show_agent_detail(agent_id):
 
 
 if __name__ == "__main__":
-    app.debug = True
     connect_to_db(app)
     app.run()
