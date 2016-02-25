@@ -101,7 +101,7 @@ if __name__ == "__main__":
     db.create_all()
 
     
-    # load_companies()
-    # load_customers()
-    # load_agents()
+    load_companies()
+    load_customers()
+    load_agents()
     load_tickets()

@@ -34,7 +34,8 @@ def get_response_regression(tickets_in_range):
 
     index_half_responses = len(ticket_responses)/2
     index_half_submissions = len(ticket_submissions)/2
-        #Get the data for the dependent variable, the response time, separated into training and testing sets 
+    
+    #Get the data for the dependent variable, the response time, separated into training and testing sets 
     responses_train = ticket_responses[:-index_half_responses]
     
     responses_test = ticket_responses[index_half_responses:]
@@ -43,7 +44,6 @@ def get_response_regression(tickets_in_range):
     #Get the data for the independent variable, the submission time, separated into training and testing sets
     submissions_train = ticket_submissions[:-index_half_submissions]
     submissions_test = ticket_submissions[index_half_submissions:]
-    # print submissions_test
 
     model = linear_model.LinearRegression()
     test = model.fit(submissions_train, responses_train)
@@ -63,11 +63,8 @@ def get_response_regression(tickets_in_range):
     line_list = []
     data = {'scatter_points':scatter_list, 'line_points':line_list}
     for i in range(0, index_half_responses):
-        # data['scatter_points'].append([submissions_test[i][0], responses_test[i]])
         data['scatter_points'].append([submissions_test[i][0], responses_test[i]]) #Graphing package only takes the y value for scatter plot 
         predicted_Y_coord = model.predict(submissions_test[i][0])
         data['line_points'].append([submissions_test[i][0], predicted_Y_coord[0]])
-        # print "Line"
-        # print line_list
 
     return data

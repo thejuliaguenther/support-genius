@@ -50,9 +50,7 @@ def process_tickets_to_display(tickets):
 def index():
     """
     Renders the home screen for the customer service app 
-
     Contains a table showing the tickets currently in the system
-
     """
     tickets = Ticket.query.order_by(Ticket.ticket_id).all()
     print tickets
@@ -65,7 +63,6 @@ def get_distinct_companies(distinct_companies):
     """
     This function gets the distinct customer names and ids and returns a list of tuples 
     containing the customer name and id
-
     """
     company_list = []
     for company_object in distinct_companies:
@@ -80,7 +77,6 @@ def get_distinct_companies(distinct_companies):
 def show_company_detail(company_id):
     """
     Shows individual company details
-
     """
     distinct_companies = Company.query.distinct(Company.name).all()
     distinct_company_names = get_distinct_companies(distinct_companies)
@@ -124,7 +120,6 @@ def show_ticket_detail(ticket_id):
 def get_distinct_customers(distinct_customers):
     """
     This function gets the distinct customer names and ids and returns a list of tuples containing the customer name and id
-
     """
     customer_list = []
     for customer_object in distinct_customers:
@@ -167,7 +162,6 @@ def show_user_detail(customer_id):
 def get_tickets_to_display():
     """ 
     Gets the tickets to display in the dashboard heatmap
-
     """
     ticket_dict = {}
 
@@ -205,7 +199,6 @@ def get_tickets_to_display():
 @app.route('/dashboard_response_time.json', methods=["GET"])
 def get_response_times():
     """
-
     Gets the response time for each ticket and returns a json object
     
     """
@@ -225,7 +218,6 @@ def get_response_times():
 @app.route('/dashboard_agent_touches.json', methods=["GET"])
 def get_resolution_times():
     """
-
     Gets the response time for each ticket and returns a json object
     
     """
@@ -383,14 +375,12 @@ def get_tickets_by_industry():
 def display_dashboard():
     """ 
     Displays the graphs showing ticket metrics
-
     """
     return render_template("dashboard.html")
 
 def get_agent_names(distinct_names):
     """
     This function gets the distinct agent names and ids and returns a list of tuples containing the agent name and id
-
     """
     agent_list = []
     for name_object in distinct_names:
@@ -405,7 +395,6 @@ def get_agent_names(distinct_names):
 def show_agent_detail(agent_id):
     """
     Shows details about the agent clicked on in the ticket view
-
     """
     distinct_names = Agent.query.distinct(Agent.name).all()
     distinct_agent_names = get_agent_names(distinct_names)
@@ -424,5 +413,5 @@ def show_agent_detail(agent_id):
 
 
 if __name__ == "__main__":
-    connect_to_db(app)
+    connect_to_db(app)   
     app.run()
