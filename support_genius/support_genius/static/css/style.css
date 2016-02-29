@@ -1,0 +1,88 @@
+.container{
+    margin-top: 50px;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    background-color: #0cb577;
+    border-color: #0cb577;
+    font-family: 'Noto Serif', serif;
+    
+}
+   
+.collapse.navbar-collapse, .navbar-brand , .container-fluid{
+    background-color: #0cb577;
+    border-color: #0cb577;
+    font-family: 'Noto Serif', serif;
+    color: #063D6F;
+}
+
+.navbar.navbar-default.navbar-fixed-top.active{
+    background-color: #0cb577;
+    border-color: #0cb577;
+    font-family: 'Noto Serif', serif;
+    color: #063D6F;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color: #063D6F;
+
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #30BD88;
+    
+}
+td{
+ font-family: 'Source Sans Pro', sans-serif;
+}
+
+th{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #5C95C8;
+}
+
+td a {
+    color: #094F8E;
+}
+
+.navbar-default .navbar-nav>.active> a #ticketview{
+    color: #063D6F;
+    background-color: #0cb577;
+}
+
+ul.nav li a, ul.nav li a:visited {
+    color: #063D6F;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: #063D6F;
+}
+
+h1, h2{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #063D6F;  
+}
+
+h2{
+    margin-left: 5%;
+}
+
+p{
+ font-family: 'Source Sans Pro', sans-serif;
+ color: #063D6F;     
+}
+
+h1 small{
+ color: #5C95C8;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+    background-color: #063D6F;
+}
+

@@ -1,0 +1,381 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <style>
+      rect.bordered {
+        stroke: #E6E6E6;
+        stroke-width:2px;   
+      }
+      text.mono {
+        font-size: 9pt;
+        font-family: 'Noto Serif', serif;
+        fill: #094F8E;
+      }
+      text.axis-workweek {
+        fill: #063D6F;
+      }
+      text.axis-worktime {
+        fill: #063D6F;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src="https://npmcdn.com/history/umd/History.min.js"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+  </head>
+  <body>
+    <h1> Tickets Per Hour</h1>
+    <div id="chart"></div>
+    <div id="dataset-picker">
+      <form id="ticket-ranges">
+      <select id ="date-range"class="form-control" name="date-range" >
+          <option>09/27/2015 00:00:00-10/3/2015 11:59:59</option>
+          <option>10/4/2015 00:00:00-10/10/2015 11:59:59</option>
+          <option>10/11/2015 00:00:00-10/17/2015 11:59:59</option>
+          <option>10/18/2015 00:00:00-10/24/2015 11:59:59</option>
+          <option>10/25/2015 00:00:00-10/31/2015 11:59:59</option>
+      </select>
+      <button id="submit" ßtype="button" class="btn btn-primary">Select </button>
+    </form>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+      <h2>Tickets by Support Tier</h2>
+    </div>
+    <div class="col-md-6">
+      <h2>Tickets by Industry</h2>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" id="supportchart">
+      </div>
+
+      <div class="col-md-6" id="industrychart">
+      </div>
+   </div>
+    <div id="response_regression" style="min-width: 310px; height: 400px; margin: 10 auto"></div>
+    <div id="agent_regression" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+   
+<script>
+   function submitForm(e){
+        e.preventDefault();
+        var input = $("date-range").val();
+        refreshAllCharts();
+      }
+    $("#ticket-ranges").on("submit", submitForm);
+
+  function refreshAllCharts(){
+       /*
+       This function clears out all of the charts and renders them again
+       */
+        $("#chart").empty();
+        $("#supportchart").empty();
+        $("#industrychart").empty();
+        $("#response_regression").empty()
+        $("#agent_regression").empty()
+        renderHeatmapChart();
+        renderSupportTierChart();
+        renderIndustryChart();
+        renderResponseRegression();
+        renderAgentTouchesRegression(); 
+      }
+
+      function renderHeatmapChart() {
+
+          var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+          width = 960 - margin.left - margin.right,
+          height = 430 - margin.top - margin.bottom,
+          gridSize = Math.floor(width / 24),
+          legendElementWidth = gridSize*2,
+          buckets = 9,
+          colors = ["#9CED63","#67E40F","3F9800", "#56CDA0", "#0CB577","#007448","#387BB8","#1767AF","#063D6F"],
+          days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+          times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+          datasets = ["9/27/2015-10/3/2015", "10/4/2015-10/10/2015", "10/11/2015-10/17/2015", 
+          "10/18/2015-10/24/2015", "10/25/2015-10/31/2015"];
+      var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var dayLabels = svg.selectAll(".dayLabel")
+          .data(days)
+          .enter().append("text")
+            .text(function (d) { return d; })
+            .attr("x", 0)
+            .attr("y", function (d, i) { return i * gridSize; })
+            .style("text-anchor", "end")
+            .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+            .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+      var timeLabels = svg.selectAll(".timeLabel")
+          .data(times)
+          .enter().append("text")
+            .text(function(d) { return d; })
+            .attr("x", function(d, i) { return i * gridSize; })
+            .attr("y", 0)
+            .style("text-anchor", "middle")
+            .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+            .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+        json_route = "/dashboard_data?" + $('#ticket-ranges').serialize();
+        d3.json(json_route,
+      
+        function(error, data) {
+          var colorScale = d3.scale.quantile()
+              .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+              .range(colors);
+          var cards = svg.selectAll(".hour")
+              .data(data.data, function(d) {return d.day+':'+d.hour;});
+          cards.append("title");
+          cards.enter().append("rect")
+              .attr("x", function(d) { return (d.hour) * gridSize; })
+              .attr("y", function(d) { return (d.day) * gridSize; })
+              .attr("rx", 4)
+              .attr("ry", 4)
+              .attr("class", "hour bordered")
+              .attr("width", gridSize)
+              .attr("height", gridSize)
+              .style("fill", colors[0]);
+          cards.transition().duration(1000)
+              .style("fill", function(d) { return colorScale(d.value); });
+          cards.select("title").text(function(d) { return d.value; });
+          
+          cards.exit().remove();
+          var legend = svg.selectAll(".legend")
+              .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+          legend.enter().append("g")
+              .attr("class", "legend");
+          legend.append("rect")
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height)
+            .attr("width", legendElementWidth)
+            .attr("height", gridSize / 2)
+            .style("fill", function(d, i) { return colors[i]; });
+          legend.append("text")
+            .attr("class", "mono")
+            .text(function(d) { return "≥ " + Math.round(d); })
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height + gridSize);
+          legend.exit().remove();
+        });  
+      };
+
+
+    function renderSupportTierChart() {
+      /*These lines set up the pie chart with data on tickets from different customer tiers
+      */
+
+        var width = 300,
+        height = 300,
+        radius = Math.min(width, height) / 2;
+        
+        var color = d3.scale.ordinal()
+        .range(["#67E40F", "#0CB577", "#387BB8"]);
+        
+        var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return d.count; });
+        var svg2 = d3.select("#supportchart").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("align","center")
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        json_route = "/tickets_by_tier.json?" + $('#ticket-ranges').serialize();
+        
+        d3.json(json_route, 
+
+           function(error, data) {
+                var g = svg2.selectAll(".arc")
+                      .data(pie(data.data))
+                      .enter().append("g")
+                      .attr("class", "arc");
+                  g.append("path")
+                      .attr("d", arc)
+                      .style("fill", function(d) { return color(d.data.support_tier); });
+                  g.append("text")
+                      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+                      .attr("dy", ".35em")
+                      .style("text-anchor", "middle")
+                      .style("font-family", 'Source Sans Pro', 'sans-serif')
+                      .text(function(d) { return d.data.support_tier; });
+        });
+      }
+
+  function renderIndustryChart() {
+      /*
+      These lines set up the pie chart with data on tickets from different customer tiers
+      */
+        var width = 300,
+        height = 300,
+        radius = Math.min(width, height) / 2;
+        
+        var color = d3.scale.ordinal()
+        .range(["#0cb577", "#387BB8","#67E40F",  "#007448", "#56CDA0","#063D6F"]);
+        
+        var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return d.count; });
+        var svg3 = d3.select("#industrychart").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("align","center")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        json_route = "/tickets_by_industry.json?" + $('#ticket-ranges').serialize();
+    
+        d3.json(json_route, 
+
+           function(error, data) {
+                console.log("industry chart"+ data);
+              
+               var g = svg3.selectAll(".arc")
+                      .data(pie(data.data))
+                      .enter().append("g")
+                      .attr("class", "arc");
+                  g.append("path")
+                      .attr("d", arc)
+                      .style("fill", function(d) { return color(d.data.industry); });
+                  g.append("text")
+                      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+                      .attr("dy", ".35em")
+                      .style("text-anchor", "middle")
+                      .style("font-family", 'Source Sans Pro', 'sans-serif')
+                      .text(function(d) { return d.data.industry; });
+        });
+
+    }
+
+    function renderResponseRegression(){
+      /*
+      This function visualizes the data returned by the linear regression in scikit-learn to predict response time based on the time of day a ticket is submitted
+      */
+      regression_data = $.get("/dashboard_response_time.json?"+ $('#ticket-ranges').serialize(), function(data){
+      $(function () {
+      $('#response_regression').highcharts({
+         chart: {
+               style: {
+                   fontFamily: '"Source Sans Pro", sans-serif'
+                }
+          },
+          xAxis: {
+              min: 0,
+              max: 24,
+              title: {
+                text:'Ticket Submission Time (00:00 - 24:00)'
+              },
+          },
+          yAxis: {
+              min: 0,
+               title: {
+                text:'First Response Time (in hours)'
+              },
+          },
+          title: {
+              text: 'Time of Day and First Response Time'
+          },
+          series: [{
+              type: 'line',
+              name: 'Predictions',
+              data: data.data['line_points'],
+
+
+              marker: {
+                  enabled: false
+              },
+              states: {
+                  hover: {
+                      lineWidth: 0
+                  }
+              },
+              enableMouseTracking: false
+             }, {
+              type: 'scatter',
+              name: 'Observations',
+              data: data.data['scatter_points'],
+              marker: {
+                  radius: 4
+              }
+        }]
+      });
+    });
+  });
+}
+
+    
+ function renderAgentTouchesRegression(){
+   /*
+    This function visualizes the data returned by the linear regression in scikit-learn to predict resolution time based on the time of day a ticket is submitted
+    */
+    regression_data = $.get("/dashboard_agent_touches.json?"+ $('#ticket-ranges').serialize(), function(data){
+      $(function () {
+        $('#agent_regression').highcharts({
+           chart: {
+               style: {
+                   fontFamily: '"Source Sans Pro", sans-serif'
+                }
+
+           },
+            xAxis: {
+                min: 0,
+                max: 200,
+                title: {
+                   text:'Number of Agent Touches'
+                },
+            },
+            yAxis: {
+                // name: 'Resolution Time (in hours)',
+                min: -10,
+                title: {
+                   text: 'Resolution Time (in hours)'
+                },
+            },
+            title: {
+                text: 'Customer Interactions and Resolution Time'
+            },
+            series: [{
+                type: 'line',
+                name: 'Predictions',
+                data: data.data['line_points'],
+                marker: {
+                    enabled: false
+                },
+                states: {
+                    hover: {
+                        lineWidth: 0
+                    }
+                },
+                enableMouseTracking: false
+               }, {
+                type: 'scatter',
+                name: 'Observations',
+                data: data.data['scatter_points'],
+                marker: {
+                    radius: 4
+              }
+            }]
+          });
+        });
+      });
+    }
+
+renderHeatmapChart();
+renderSupportTierChart();
+renderIndustryChart();
+renderResponseRegression(); 
+renderAgentTouchesRegression();
+</script>
+
+{% endblock %}

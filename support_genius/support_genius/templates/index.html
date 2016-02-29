@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<meta charset="utf-8" />
+    <title>Antwan Wimberly's React Router Tutorial via ES5 and Babel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+    <script src="https://npmcdn.com/history/umd/History.min.js"></script>
+
+</head>
+
+ <body>
+    <div id="content"></div>
+    <script type="text/babel">
+      // To get started with this tutorial running your own code, simply remove
+      // the script tag loading scripts/example.js and start writing code here.
+      // make these convenietly available so we don't have to fully qualify them (i.e Router vs ReactRouter.Router)
+      var Router = ReactRouter.Router;
+      var Link = ReactRouter.Link; // instead of straight up <a href="blah"> we'll have to use the Link component instead
+      var Route = ReactRouter.Route;
+      var history = History.useBasename(History.createHistory)();
+
+      var IndexPage = React.createClass({
+        render: function() {
+          return (
+            // render the content from the child route via this.props.children (i.e. DetailsPage, Users, User)
+            <div className="indexPage">
+              Tier 3: The Leading Customer Success Platform 
+              <ul>
+                <li><Link to="/tickets">Tickets</Link></li>
+                <li><Link to="/users">Users</Link></li>
+                <li><Link to="/stand-alone">Stand Alone</Link></li>
+              </ul>
+              {this.props.children}
+            </div>
+          );
+        }
+      });
+
+      var TicketsPage = React.createClass({
+        render: function() {
+          return (
+            <div className="ticketsPage">
+              Hello, world! I am a details page.
+            </div>
+          );
+        }
+      });
+
+      var NotFound = React.createClass({
+        render: function() {
+          return (
+            <div className="no-match">
+            </div>
+          );
+        }
+      });
+
+      var Users = React.createClass({
+        render: function() {
+          return (
+            <div id="users">
+              This is just the users shell, bra!!!
+
+              <div><Link to="/users/user/1">See User #1</Link></div>
+
+              My child content for the Users compoent is.....
+              {this.props.children}
+            </div>
+          );
+        }
+      });
+
+      var User = React.createClass({
+        render: function() {
+          return (
+            <div id="user-{this.props.params.userId}">
+              The user you are retrieving details for is {this.props.params.userId}
+            </div>
+          );
+        }
+      });
+
+      var NonNestedPage = React.createClass({
+        render: function() {
+          return (
+            <p>Hi, I do not share content with the IndexPage component. I am stand alone</p>
+          );
+        }
+      });
+
+      var TicketTable = React.createClass({
+                displayTickets: function() {
+                    var id= 
+                $.ajax({
+                         url: '/tickets',
+                    });
+                }
+        });
+
+      ReactDOM.render(
+        <Router history={history}>
+          <Route path="/" component={IndexPage}>
+            <Route path="tickets" component={TicketsPage} />
+            <Route path="users" component={Users}>
+              <Route path="user/:userId" component={User} />
+            </Route>
+          </Route>
+          <Route path="/stand-alone" component={NonNestedPage} />
+          <Route path="*" component={NotFound} />
+        </Router>,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+  {% endblock %}

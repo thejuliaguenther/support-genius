@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="ticketApp">
+<head>
+    <meta charset="UTF-8">
+    <title>UberMelon</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.0/united/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.js"></script>
+    <script src="app.js"> </script>
+
+</head>
+<body ng-app='ticketApp'>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Ticket System</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="#/">Ticket System: The Leading Customer Success Platform</a></li>
+            <li><a href="#/dashboard">Ticket Dashboard</a></li>
+            <li><a href="#/customer_dashboard">Customer Dashboard</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div ng-view></div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
